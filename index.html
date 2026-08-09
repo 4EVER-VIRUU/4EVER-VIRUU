@@ -1,463 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>4EVER VIRUU | Artist Portfolio</title>
+<title>4EVER VIRUU | Artist Portfolio</title>
 
-  <meta name="description" content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore paintings, photography, creative projects and achievements.">
+<meta name="description" content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore paintings, photography, creative projects and achievements.">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: white;
-      line-height: 1.6;
-    }
+html {
+  background: #030303;
+}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-      border-bottom: 1px solid #222;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #030303;
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
+/* =========================
+   ANIMATED GLOBAL BACKGROUND
+========================= */
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
+.creative-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(110,10,35,.18), transparent 30%),
+    radial-gradient(circle at 80% 75%, rgba(130,15,40,.14), transparent 32%),
+    #030303;
+}
 
-    nav a:hover {
-      color: #aaa;
-    }
+/* Moving maroon glow */
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px 40px;
-      background:
-        radial-gradient(circle at center, #292929 0%, #080808 55%);
-    }
+.creative-bg::before,
+.creative-bg::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .25;
+}
 
-    .hero h1 {
-      font-size: clamp(48px, 12vw, 110px);
-      letter-spacing: 8px;
-      font-weight: 900;
-    }
+.creative-bg::before {
+  background: #8e1538;
+  left: -180px;
+  top: 15%;
+  animation: glowMove 14s infinite alternate ease-in-out;
+}
 
-    .hero p {
-      color: #aaa;
-      font-size: 18px;
-      margin: 15px 0 30px;
-    }
+.creative-bg::after {
+  background: #b51e45;
+  right: -200px;
+  bottom: 5%;
+  animation: glowMove2 17s infinite alternate ease-in-out;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      border: 1px solid white;
-      border-radius: 30px;
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+@keyframes glowMove {
+  from {
+    transform: translate(0,0) scale(1);
+  }
+  to {
+    transform: translate(180px,100px) scale(1.3);
+  }
+}
 
-    .btn:hover {
-      background: white;
-      color: black;
-    }
+@keyframes glowMove2 {
+  from {
+    transform: translate(0,0) scale(1);
+  }
+  to {
+    transform: translate(-180px,-120px) scale(1.25);
+  }
+}
 
-    /* SECTIONS */
-    section {
-      padding: 90px 8%;
-    }
+/* =========================
+   GLOBAL DOT NETWORK
+========================= */
 
-    .title {
-      text-align: center;
-      font-size: 38px;
-      margin-bottom: 45px;
-      letter-spacing: 2px;
-    }
+.world {
+  position: absolute;
+  width: 850px;
+  height: 430px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  opacity: .48;
+  border: 1px solid rgba(255,255,255,.025);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 12px rgba(150,20,50,.2));
+}
 
-    /* ABOUT */
-    .about {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-      color: #bbb;
-      font-size: 17px;
-    }
+.world::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgba(170,25,55,.12);
+  border-radius: 48% 52% 45% 55%;
+  transform: rotate(-8deg);
+}
 
-    /* GALLERY */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+.world::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 55%;
+  left: 5%;
+  top: 22%;
+  border-top: 1px solid rgba(255,255,255,.10);
+  border-bottom: 1px solid rgba(160,20,50,.13);
+  border-radius: 50%;
+}
 
-    .card {
-      height: 280px;
-      border-radius: 18px;
-      border: 1px solid #292929;
-      background: linear-gradient(145deg, #1b1b1b, #0c0c0c);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #777;
-      transition: 0.3s;
-      overflow: hidden;
-    }
+/* World dots */
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: #777;
-    }
+.world-dots span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 0 7px rgba(255,255,255,.7),
+    0 0 14px rgba(160,20,50,.7);
+  animation: worldPulse 3s infinite alternate;
+}
 
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* Positions */
 
-    /* ACHIEVEMENTS */
-    .achievement {
-      max-width: 700px;
-      margin: auto;
-      text-align: center;
-      padding: 30px;
-      border: 1px solid #292929;
-      border-radius: 20px;
-      background: #111;
-    }
+.world-dots span:nth-child(1) {left:8%;top:38%}
+.world-dots span:nth-child(2) {left:13%;top:30%}
+.world-dots span:nth-child(3) {left:17%;top:45%}
+.world-dots span:nth-child(4) {left:22%;top:35%}
+.world-dots span:nth-child(5) {left:27%;top:48%}
+.world-dots span:nth-child(6) {left:31%;top:30%}
+.world-dots span:nth-child(7) {left:36%;top:42%}
+.world-dots span:nth-child(8) {left:40%;top:52%}
+.world-dots span:nth-child(9) {left:45%;top:35%}
+.world-dots span:nth-child(10){left:50%;top:45%}
+.world-dots span:nth-child(11){left:55%;top:30%}
+.world-dots span:nth-child(12){left:59%;top:50%}
+.world-dots span:nth-child(13){left:64%;top:40%}
+.world-dots span:nth-child(14){left:69%;top:32%}
+.world-dots span:nth-child(15){left:74%;top:47%}
+.world-dots span:nth-child(16){left:80%;top:35%}
+.world-dots span:nth-child(17){left:86%;top:43%}
+.world-dots span:nth-child(18){left:91%;top:30%}
+.world-dots span:nth-child(19){left:18%;top:58%}
+.world-dots span:nth-child(20){left:38%;top:62%}
+.world-dots span:nth-child(21){left:62%;top:60%}
+.world-dots span:nth-child(22){left:83%;top:58%}
 
-    .achievement h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
+@keyframes worldPulse {
+  from {
+    opacity: .25;
+    transform: scale(.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+}
 
-    .achievement p {
-      color: #aaa;
-    }
+/* =========================
+   POLYGONAL WIREFRAME
+========================= */
 
-    /* CONTACT */
-    .contact {
-      text-align: center;
-    }
+.network {
+  position: absolute;
+  inset: 0;
+  opacity: .16;
+}
 
-    .social {
-      margin-top: 25px;
-    }
+.network span {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #9d1d40,
+    rgba(255,255,255,.5),
+    transparent
+  );
+  transform-origin: left center;
+  animation: networkGlow 5s infinite alternate;
+}
 
-    .social a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      border: 1px solid #333;
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
-    }
+.line1 {
+  width: 280px;
+  left: 8%;
+  top: 32%;
+  transform: rotate(15deg);
+}
 
-    .social a:hover {
-      background: white;
-      color: black; maroon;
-    }
+.line2 {
+  width: 340px;
+  left: 25%;
+  top: 45%;
+  transform: rotate(-12deg);
+}
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 30px;
-      border-top: 1px solid #222;
-      color: #666;
-      font-size: 14px;
-    }
+.line3 {
+  width: 300px;
+  left: 47%;
+  top: 35%;
+  transform: rotate(20deg);
+}
 
-    /* MOBILE */
-    @media (max-width: 600px) {
-      nav {
-        padding: 15px 5%;
-      }
+.line4 {
+  width: 260px;
+  left: 60%;
+  top: 55%;
+  transform: rotate(-18deg);
+}
 
-      nav a {
-        margin-left: 8px;
-        font-size: 11px;
-      }
+.line5 {
+  width: 240px;
+  left: 72%;
+  top: 30%;
+  transform: rotate(12deg);
+}
 
-      .hero h1 {
-        letter-spacing: 4px;
-      }
+.line6 {
+  width: 350px;
+  left: 15%;
+  top: 65%;
+  transform: rotate(-20deg);
+}
 
-      section {
-        padding: 70px 6%;
-      }
-    }
-  </style>
+@keyframes networkGlow {
+  from {
+    opacity: .2;
+  }
+  to {
+    opacity: .8;
+  }
+}
+
+/* =========================
+   SCIENCE + MATH
+========================= */
+
+.science span {
+  position: absolute;
+  color: rgba(255,255,255,.18);
+  font-size: 15px;
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(170,20,55,.8);
+  animation: scienceFloat 13s infinite ease-in-out;
+}
+
+.science span:nth-child(1){left:7%;top:18%}
+.science span:nth-child(2){left:20%;top:75%}
+.science span:nth-child(3){left:35%;top:22%}
+.science span:nth-child(4){left:52%;top:80%}
+.science span:nth-child(5){left:68%;top:20%}
+.science span:nth-child(6){left:85%;top:65%}
+.science span:nth-child(7){left:90%;top:18%}
+.science span:nth-child(8){left:12%;top:85%}
+.science span:nth-child(9){left:47%;top:45%}
+.science span:nth-child(10){left:76%;top:85%}
+.science span:nth-child(11){left:30%;top:40%}
+.science span:nth-child(12){left:83%;top:42%}
+
+@keyframes scienceFloat {
+  0% {
+    transform: translate(0,0) rotate(0);
+    opacity: .15;
+  }
+  50% {
+    transform: translate(30px,-45px) rotate(8deg);
+    opacity: .7;
+  }
+  100% {
+    transform: translate(-20px,20px) rotate(-5deg);
+    opacity: .2;
+  }
+}
+
+/* =========================
+   PAINT BRUSH STROKES
+========================= */
+
+.brush {
+  position: absolute;
+  height: 16px;
+  border-radius: 50% 20% 50% 20%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(110,10,35,.2),
+    rgba(175,25,60,.65),
+    rgba(255,255,255,.2),
+    transparent
+  );
+  filter: blur(1px);
+  opacity: .35;
+  animation: brushFloat 12s infinite ease-in-out;
+}
+
+.brush1 {
+  width: 200px;
+  left: -40px;
+  top: 25%;
+}
+
+.brush2 {
+  width: 240px;
+  right: -60px;
+  top: 43%;
+  animation-delay: 2s;
+}
+
+.brush3 {
+  width: 160px;
+  left: 30%;
+  bottom: 10%;
+  animation-delay: 4s;
+}
+
+.brush4 {
+  width: 130px;
+  left: 58%;
+  top: 15%;
+  animation-delay: 6s;
+}
+
+.brush5 {
+  width: 190px;
+  right: 18%;
+  bottom: 27%;
+  animation-delay: 3s;
+}
+
+@keyframes brushFloat {
+  0% {
+    transform: translate(0,0) rotate(-8deg);
+  }
+  50% {
+    transform: translate(80px,-40px) rotate(10deg);
+  }
+  100% {
+    transform: translate(-30px,50px) rotate(-5deg);
+  }
+}
+
+/* =========================
+   PAINT DUST
+========================= */
+
+.paint-dust i {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a51d3b;
+  box-shadow: 0 0 10px rgba(180,25,60,.9);
+  animation: dustFloat 8s infinite ease-in-out;
+}
+
+.paint-dust i:nth-child(1){left:5%;top:35%}
+.paint-dust i:nth-child(2){left:15%;top:60%}
+.paint-dust i:nth-child(3){left:25%;top:25%}
+.paint-dust i:nth-child(4){left:35%;top:80%}
+.paint-dust i:nth-child(5){left:45%;top:30%}
+.paint-dust i:nth-child(6){left:55%;top:70%}
+.paint-dust i:nth-child(7){left:65%;top:18%}
+.paint-dust i:nth-child(8){left:75%;top:55%}
+.paint-dust i:nth-child(9){left:85%;top:30%}
+.paint-dust i:nth-child(10){left:95%;top:75%}
+.paint-dust i:nth-child(11){left:20%;top:90%}
+.paint-dust i:nth-child(12){left:40%;top:50%}
+.paint-dust i:nth-child(13){left:60%;top:90%}
+.paint-dust i:nth-child(14){left:80%;top:80%}
+.paint-dust i:nth-child(15){left:90%;top:10%}
+
+@keyframes dustFloat {
+  0% {
+    transform: translate(0,0) scale(.5);
+    opacity: .1;
+  }
+  50% {
+    transform: translate(35px,-45px) scale(1.5);
+    opacity: .9;
+  }
+  100% {
+    transform: translate(-20px,20px) scale(.5);
+    opacity: .1;
+  }
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+nav,
+section,
+footer,
+body > div:not(.creative-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+/* NAVBAR */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(14px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #b51e45;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px 40px;
+  background: transparent;
+}
+
+.hero h1 {
+  font-size: clamp(48px,12vw,110px);
+  letter-spacing: 8px;
+  font-weight: 900;
+  animation: titleIn 1.5s ease;
+}
+
+.hero p {
+  color: #bbb;
+  font-size: 18px;
+  margin: 15px 0 30px;
+}
+
+@keyframes titleIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* BUTTON */
+
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border: 1px solid #a51d3b;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  background: rgba(120,10,35,.12);
+  transition: .4s;
+}
+
+.btn:hover {
+  background: #8d1730;
+  box-shadow: 0 0 30px rgba(160,20,50,.5);
+  transform: translateY(-4px);
+}
+
+/* SECTIONS */
+
+section {
+  padding: 90px 8%;
+}
+
+.title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 45px;
+  letter-spacing: 2px;
+}
+
+/* ABOUT */
+
+.about {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  color: #bbb;
+  font-size: 17px;
+}
+
+/* GALLERY */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card {
+  height: 280px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(10,10,10,.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #777;
+  transition: .5s;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #a51d3b;
+  box-shadow: 0 15px 40px rgba(120,10,35,.3);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: .6s;
+}
+
+.card:hover img {
+  transform: scale(1.06);
+}
+
+/* ACHIEVEMENTS */
+
+.achievement {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+  background: rgba(10,10,10,.7);
+}
+
+.achievement h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.achievement p {
+  color: #aaa;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+}
+
+.social {
+  margin-top: 25px;
+}
+
+.social a {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 25px;
+  color: white;
+  text-decoration: none;
+  transition: .4s;
+}
+
+.social a:hover {
+  background: #8d1730;
+  border-color: #a51d3b;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #222;
+  color: #666;
+  font-size: 14px;
+}
+
+/* IMAGE VIEWER */
+
+.painting-viewer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.94);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.painting-viewer img {
+  max-width: 95%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.painting-viewer .close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  nav {
+    padding: 15px 5%;
+  }
+
+  nav a {
+    margin-left: 7px;
+    font-size: 11px;
+  }
+
+  .hero h1 {
+    letter-spacing: 4px;
+  }
+
+  section {
+    padding: 70px 6%;
+  }
+
+  .world {
+    width: 650px;
+    height: 330px;
+    opacity: .3;
+  }
+
+  .science span {
+    font-size: 11px;
+  }
+
+  .brush {
+    opacity: .2;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div style="text-align:center; padding-top:120px;">
-  <img src="Snapchat-1152629160.jpg"
-       alt="4EVER VIRUU"
-       style="width:180px;height:180px;object-fit:cover;border-radius:50%;border:3px solid white;">
-  </div>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">4EVER VIRUU</div>
-
-    <div>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#paintings">Art</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-
-
-  <!-- HOME -->
-  <section class="hero" id="home">
-    <div>
-      <h1>4EVER VIRUU</h1>
-
-      <p>Artist • Creator • Dreamer 🎨</p>
-
-      <a href="#paintings" class="btn">
-        Explore My Art
-      </a>
-    </div>
-  </section>
-
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="title">ABOUT ME</h2>
-
-    <div class="about">
-      <p>
-        Welcome to my personal creative space.
-
-        I am Viruu, an artist and creator who loves
-        painting, photography, creativity and exploring
-        new ideas. This website is a collection of my
-        artwork, projects, achievements and creative journey.
-
-        Every creation represents an idea, an emotion or
-        a moment from my journey. I believe that creativity
-        has no limits and that every artist has a unique
-        story to tell.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- PAINTINGS -->
-  <section id="paintings">
-    <h2 class="title">MY PAINTINGS 🎨</h2>
-
-    <div class="gallery">
-
-  <div class="card">
-    <img src="IMG_20240620_084046_046.jpg" alt="Painting 01">
-  </div>
-
-  <div class="card">
-    <img src="IMG_२०२४१०२८_१९४००६.jpg" alt="Painting 02">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20240926_212519_849.jpg" alt="Painting 03">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20240926_212139_603.jpg" alt="Painting 04">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20240926_213200_415.jpg" alt="Painting 05">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20240620_093412_858.jpg" alt="Painting 06">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20240620_093026_696.jpg" alt="Painting 07">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20241113_083554_129.jpg" alt="Painting 08">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20260809_170134.jpg" alt="Painting 09">
-  </div>
-
-  <div class="card">
-    <img src="IMG_20260809_170424.jpg" alt="Painting 10">
-  </div>
-
-    </div>
-
-
-  <!-- PHOTOS -->
-  <section id="photos">
-    <h2 class="title">MY PHOTOS 📸</h2>
-
-    <div class="gallery">
-
-      <div class="card">
-        <span>Photo 01</span>
-      </div>
-
-      <div class="card">
-        <span>Photo 02</span>
-      </div>
-
-      <div class="card">
-        <span>Photo 03</span>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <h2 class="title">ACHIEVEMENTS 🏆</h2>
-
-    <div class="achievement">
-
-      <h3>My Creative Journey</h3>
-
-      <p>
-        This section will contain my awards,
-        certificates, competitions, achievements
-        and other memorable moments.
-      </p>
-
-    </div>
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2 class="title">CONNECT WITH ME</h2>
-
-    <div class="contact">
-
-      <p>
-        Follow my creative journey and stay connected.
-      </p>
-
-      <div class="social">
-
-        <a href="#" target="_blank">
-          Instagram
-        </a>
-
-        <a href="#" target="_blank">
-          YouTube
-        </a>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 4EVER VIRUU • Made with creativity 🎨
-  </footer>
-<style>
-  .painting-viewer {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.92);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .painting-viewer img {
-    max-width: 95%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 12px;
-  }
-
-  .painting-viewer .close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: white;
-    font-size: 35px;
-    cursor: pointer;
-  }
-
-  .gallery .card img {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery .card img:hover {
-    transform: scale(1.03);
-  }
-</style>
-
-<div class="painting-viewer" id="paintingViewer" onclick="closePainting()">
-  <span class="close">&times;</span>
-  <img id="viewerImage" src="" alt="Painting">
-</div>
-
-<script>
-  document.querySelectorAll('.gallery .card img').forEach(function(img) {
-    img.onclick = function(event) {
-      event.stopPropagation();
-      document.getElementById('viewerImage').src = this.src;
-      document.getElementById('paintingViewer').style.display = 'flex';
-    };
-  });
-
-  function closePainting() {
-    document.getElementById('paintingViewer').style.display = 'none';
-  }
-</script>
-<!-- 🎨⚛️π CREATIVE PARTICLES -->
+<!-- =========================
+     ANIMATED BACKGROUND
+========================= -->
 
 <div class="creative-bg">
 
-  <!-- Chemistry + Maths -->
+  <div class="world">
+    <div class="world-dots">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span>
+    </div>
+  </div>
+
+  <div class="network">
+    <span class="line1"></span>
+    <span class="line2"></span>
+    <span class="line3"></span>
+    <span class="line4"></span>
+    <span class="line5"></span>
+    <span class="line6"></span>
+  </div>
+
   <div class="science">
     <span>H₂</span>
     <span>CO₂</span>
@@ -473,14 +739,12 @@
     <span>∫</span>
   </div>
 
-  <!-- Paint Brush Strokes -->
   <div class="brush brush1"></div>
   <div class="brush brush2"></div>
   <div class="brush brush3"></div>
   <div class="brush brush4"></div>
   <div class="brush brush5"></div>
 
-  <!-- Tiny Paint Particles -->
   <div class="paint-dust">
     <i></i><i></i><i></i><i></i><i></i>
     <i></i><i></i><i></i><i></i><i></i>
@@ -489,328 +753,232 @@
 
 </div>
 
+<!-- PROFILE -->
 
-<style>
+<div style="text-align:center; padding-top:120px;">
+  <img src="Snapchat-1152629160.jpg"
+       alt="4EVER VIRUU"
+       style="width:180px;height:180px;object-fit:cover;border-radius:50%;border:3px solid white;">
+</div>
 
-/* =========================
-   CREATIVE BACKGROUND
-========================= */
+<!-- NAVIGATION -->
 
-.creative-bg {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
+<nav>
+  <div class="logo">4EVER VIRUU</div>
 
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#paintings">Art</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-/* =========================
-   CHEMISTRY + MATH
-========================= */
+<!-- HOME -->
 
-.science span {
-  position: absolute;
+<section class="hero" id="home">
+  <div>
+    <h1>4EVER VIRUU</h1>
+    <p>Artist • Creator • Dreamer 🎨</p>
 
-  color: rgba(255,255,255,0.18);
+    <a href="#paintings" class="btn">
+      Explore My Art
+    </a>
+  </div>
+</section>
 
-  font-size: 15px;
-  font-weight: bold;
+<!-- ABOUT -->
 
-  text-shadow:
-    0 0 8px rgba(150,20,50,0.7),
-    0 0 20px rgba(150,20,50,0.25);
+<section id="about">
 
-  animation:
-    scienceMove 14s infinite ease-in-out,
-    scienceGlow 4s infinite alternate;
-}
+  <h2 class="title">ABOUT ME</h2>
 
+  <div class="about">
+    <p>
+      Welcome to my personal creative space.
 
-/* Positions */
+      I am Viruu, an artist and creator who loves
+      painting, photography, creativity and exploring
+      new ideas. This website is a collection of my
+      artwork, projects, achievements and creative journey.
 
-.science span:nth-child(1) {
-  left: 7%;
-  top: 18%;
-  animation-delay: 0s;
-}
+      Every creation represents an idea, an emotion or
+      a moment from my journey. I believe that creativity
+      has no limits and that every artist has a unique
+      story to tell.
+    </p>
+  </div>
 
-.science span:nth-child(2) {
-  left: 23%;
-  top: 72%;
-  animation-delay: 2s;
-}
+</section>
 
-.science span:nth-child(3) {
-  left: 38%;
-  top: 20%;
-  animation-delay: 4s;
-}
+<!-- PAINTINGS -->
 
-.science span:nth-child(4) {
-  left: 55%;
-  top: 78%;
-  animation-delay: 1s;
-}
+<section id="paintings">
 
-.science span:nth-child(5) {
-  left: 70%;
-  top: 24%;
-  animation-delay: 3s;
-}
+  <h2 class="title">MY PAINTINGS 🎨</h2>
 
-.science span:nth-child(6) {
-  left: 88%;
-  top: 65%;
-  animation-delay: 5s;
-}
+  <div class="gallery">
 
-.science span:nth-child(7) {
-  left: 92%;
-  top: 18%;
-  animation-delay: 2s;
-}
+    <div class="card">
+      <img src="IMG_20240620_084046_046.jpg" alt="Painting 01">
+    </div>
 
-.science span:nth-child(8) {
-  left: 13%;
-  top: 86%;
-  animation-delay: 6s;
-}
+    <div class="card">
+      <img src="IMG_२०२४१०२८_१९४००६.jpg" alt="Painting 02">
+    </div>
 
-.science span:nth-child(9) {
-  left: 48%;
-  top: 44%;
-  animation-delay: 3s;
-}
+    <div class="card">
+      <img src="IMG_20240926_212519_849.jpg" alt="Painting 03">
+    </div>
 
-.science span:nth-child(10) {
-  left: 76%;
-  top: 86%;
-  animation-delay: 4s;
-}
+    <div class="card">
+      <img src="IMG_20240926_212139_603.jpg" alt="Painting 04">
+    </div>
 
-.science span:nth-child(11) {
-  left: 30%;
-  top: 40%;
-  animation-delay: 7s;
-}
+    <div class="card">
+      <img src="IMG_20240926_213200_415.jpg" alt="Painting 05">
+    </div>
 
-.science span:nth-child(12) {
-  left: 84%;
-  top: 43%;
-  animation-delay: 1s;
-}
+    <div class="card">
+      <img src="IMG_20240620_093412_858.jpg" alt="Painting 06">
+    </div>
 
+    <div class="card">
+      <img src="IMG_20240620_093026_696.jpg" alt="Painting 07">
+    </div>
 
-@keyframes scienceMove {
+    <div class="card">
+      <img src="IMG_20241113_083554_129.jpg" alt="Painting 08">
+    </div>
 
-  0% {
-    transform: translate(0,0) rotate(0deg);
-  }
+    <div class="card">
+      <img src="IMG_20260809_170134.jpg" alt="Painting 09">
+    </div>
 
-  25% {
-    transform: translate(25px,-35px) rotate(8deg);
-  }
+    <div class="card">
+      <img src="IMG_20260809_170424.jpg" alt="Painting 10">
+    </div>
 
-  50% {
-    transform: translate(-20px,-65px) rotate(-8deg);
-  }
+  </div>
 
-  75% {
-    transform: translate(30px,-30px) rotate(5deg);
-  }
+</section>
 
-  100% {
-    transform: translate(0,0) rotate(0deg);
-  }
+<!-- PHOTOS -->
 
-}
+<section id="photos">
 
+  <h2 class="title">MY PHOTOS 📸</h2>
 
-@keyframes scienceGlow {
+  <div class="gallery">
 
-  from {
-    opacity: .15;
-  }
+    <div class="card">
+      <span>Photo 01</span>
+    </div>
 
-  to {
-    opacity: .65;
-  }
+    <div class="card">
+      <span>Photo 02</span>
+    </div>
 
-}
+    <div class="card">
+      <span>Photo 03</span>
+    </div>
 
+  </div>
 
-/* =========================
-   PAINT BRUSH STROKES
-========================= */
+</section>
 
-.brush {
-  position: absolute;
+<!-- ACHIEVEMENTS -->
 
-  width: 180px;
-  height: 18px;
+<section id="achievements">
 
-  border-radius: 50% 20% 50% 20%;
+  <h2 class="title">ACHIEVEMENTS 🏆</h2>
 
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(130,15,40,.15),
-      rgba(170,25,55,.55),
-      rgba(255,255,255,.15),
-      transparent
-    );
+  <div class="achievement">
 
-  filter: blur(1px);
+    <h3>My Creative Journey</h3>
 
-  opacity: .35;
+    <p>
+      This section will contain my awards,
+      certificates, competitions, achievements
+      and other memorable moments.
+    </p>
 
-  animation:
-    brushFloat 12s infinite ease-in-out,
-    brushRotate 8s infinite alternate;
-}
+  </div>
 
+</section>
 
-.brush1 {
-  left: -40px;
-  top: 25%;
-}
+<!-- CONTACT -->
 
-.brush2 {
-  right: -50px;
-  top: 42%;
-  width: 220px;
-  animation-delay: 2s;
-}
+<section id="contact">
 
-.brush3 {
-  left: 30%;
-  bottom: 8%;
-  width: 150px;
-  animation-delay: 4s;
-}
+  <h2 class="title">CONNECT WITH ME</h2>
 
-.brush4 {
-  left: 55%;
-  top: 12%;
-  width: 120px;
-  animation-delay: 6s;
-}
+  <div class="contact">
 
-.brush5 {
-  right: 20%;
-  bottom: 25%;
-  width: 190px;
-  animation-delay: 3s;
-}
+    <p>
+      Follow my creative journey and stay connected.
+    </p>
+
+    <div class="social">
+
+      <a href="#" target="_blank">
+        Instagram
+      </a>
+
+      <a href="#" target="_blank">
+        YouTube
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2026 4EVER VIRUU • Made with creativity 🎨
+</footer>
+
+<!-- PAINTING FULLSCREEN VIEWER -->
+
+<div class="painting-viewer"
+     id="paintingViewer"
+     onclick="closePainting()">
+
+  <span class="close">&times;</span>
+
+  <img id="viewerImage"
+       src=""
+       alt="Painting">
+
+</div>
+
+<script>
+
+document.querySelectorAll('.gallery .card img').forEach(function(img) {
+
+  img.onclick = function(event) {
+
+    event.stopPropagation();
+
+    document.getElementById('viewerImage').src = this.src;
+
+    document.getElementById('paintingViewer').style.display = 'flex';
+
+  };
+
+});
 
 
-@keyframes brushFloat {
+function closePainting() {
 
-  0% {
-    transform: translate(0,0);
-  }
-
-  50% {
-    transform: translate(80px,-40px);
-  }
-
-  100% {
-    transform: translate(-30px,50px);
-  }
+  document.getElementById('paintingViewer').style.display = 'none';
 
 }
 
+</script>
 
-@keyframes brushRotate {
-
-  from {
-    rotate: -12deg;
-  }
-
-  to {
-    rotate: 12deg;
-  }
-
-}
-
-
-/* =========================
-   PAINT DUST
-========================= */
-
-.paint-dust i {
-  position: absolute;
-
-  width: 4px;
-  height: 4px;
-
-  border-radius: 50%;
-
-  background: #a51d3b;
-
-  box-shadow:
-    0 0 8px rgba(170,25,55,.8);
-
-  animation: dustFloat 9s infinite ease-in-out;
-}
-
-
-/* Dust positions */
-
-.paint-dust i:nth-child(1)  { left:5%;  top:35%; }
-.paint-dust i:nth-child(2)  { left:14%; top:60%; animation-delay:1s; }
-.paint-dust i:nth-child(3)  { left:25%; top:25%; animation-delay:2s; }
-.paint-dust i:nth-child(4)  { left:35%; top:80%; animation-delay:3s; }
-.paint-dust i:nth-child(5)  { left:45%; top:30%; animation-delay:4s; }
-.paint-dust i:nth-child(6)  { left:55%; top:70%; animation-delay:2s; }
-.paint-dust i:nth-child(7)  { left:65%; top:18%; animation-delay:5s; }
-.paint-dust i:nth-child(8)  { left:75%; top:55%; animation-delay:1s; }
-.paint-dust i:nth-child(9)  { left:85%; top:30%; animation-delay:4s; }
-.paint-dust i:nth-child(10) { left:95%; top:75%; animation-delay:3s; }
-.paint-dust i:nth-child(11) { left:20%; top:90%; animation-delay:5s; }
-.paint-dust i:nth-child(12) { left:40%; top:50%; animation-delay:6s; }
-.paint-dust i:nth-child(13) { left:60%; top:90%; animation-delay:2s; }
-.paint-dust i:nth-child(14) { left:80%; top:80%; animation-delay:7s; }
-.paint-dust i:nth-child(15) { left:90%; top:10%; animation-delay:4s; }
-
-
-@keyframes dustFloat {
-
-  0% {
-    transform: translate(0,0) scale(.6);
-    opacity: .15;
-  }
-
-  50% {
-    transform: translate(35px,-45px) scale(1.5);
-    opacity: .8;
-  }
-
-  100% {
-    transform: translate(-20px,20px) scale(.6);
-    opacity: .15;
-  }
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px) {
-
-  .science span {
-    font-size: 11px;
-  }
-
-  .brush {
-    opacity: .22;
-    transform: scale(.7);
-  }
-
-}
-
-  </style>
 </body>
   </html>
