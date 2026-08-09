@@ -453,5 +453,364 @@
     document.getElementById('paintingViewer').style.display = 'none';
   }
 </script>
+<!-- 🎨⚛️π CREATIVE PARTICLES -->
+
+<div class="creative-bg">
+
+  <!-- Chemistry + Maths -->
+  <div class="science">
+    <span>H₂</span>
+    <span>CO₂</span>
+    <span>π</span>
+    <span>√x</span>
+    <span>∞</span>
+    <span>∑</span>
+    <span>Na⁺</span>
+    <span>x²</span>
+    <span>Δ</span>
+    <span>O₂</span>
+    <span>λ</span>
+    <span>∫</span>
+  </div>
+
+  <!-- Paint Brush Strokes -->
+  <div class="brush brush1"></div>
+  <div class="brush brush2"></div>
+  <div class="brush brush3"></div>
+  <div class="brush brush4"></div>
+  <div class="brush brush5"></div>
+
+  <!-- Tiny Paint Particles -->
+  <div class="paint-dust">
+    <i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+</div>
+
+
+<style>
+
+/* =========================
+   CREATIVE BACKGROUND
+========================= */
+
+.creative-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* =========================
+   CHEMISTRY + MATH
+========================= */
+
+.science span {
+  position: absolute;
+
+  color: rgba(255,255,255,0.18);
+
+  font-size: 15px;
+  font-weight: bold;
+
+  text-shadow:
+    0 0 8px rgba(150,20,50,0.7),
+    0 0 20px rgba(150,20,50,0.25);
+
+  animation:
+    scienceMove 14s infinite ease-in-out,
+    scienceGlow 4s infinite alternate;
+}
+
+
+/* Positions */
+
+.science span:nth-child(1) {
+  left: 7%;
+  top: 18%;
+  animation-delay: 0s;
+}
+
+.science span:nth-child(2) {
+  left: 23%;
+  top: 72%;
+  animation-delay: 2s;
+}
+
+.science span:nth-child(3) {
+  left: 38%;
+  top: 20%;
+  animation-delay: 4s;
+}
+
+.science span:nth-child(4) {
+  left: 55%;
+  top: 78%;
+  animation-delay: 1s;
+}
+
+.science span:nth-child(5) {
+  left: 70%;
+  top: 24%;
+  animation-delay: 3s;
+}
+
+.science span:nth-child(6) {
+  left: 88%;
+  top: 65%;
+  animation-delay: 5s;
+}
+
+.science span:nth-child(7) {
+  left: 92%;
+  top: 18%;
+  animation-delay: 2s;
+}
+
+.science span:nth-child(8) {
+  left: 13%;
+  top: 86%;
+  animation-delay: 6s;
+}
+
+.science span:nth-child(9) {
+  left: 48%;
+  top: 44%;
+  animation-delay: 3s;
+}
+
+.science span:nth-child(10) {
+  left: 76%;
+  top: 86%;
+  animation-delay: 4s;
+}
+
+.science span:nth-child(11) {
+  left: 30%;
+  top: 40%;
+  animation-delay: 7s;
+}
+
+.science span:nth-child(12) {
+  left: 84%;
+  top: 43%;
+  animation-delay: 1s;
+}
+
+
+@keyframes scienceMove {
+
+  0% {
+    transform: translate(0,0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(25px,-35px) rotate(8deg);
+  }
+
+  50% {
+    transform: translate(-20px,-65px) rotate(-8deg);
+  }
+
+  75% {
+    transform: translate(30px,-30px) rotate(5deg);
+  }
+
+  100% {
+    transform: translate(0,0) rotate(0deg);
+  }
+
+}
+
+
+@keyframes scienceGlow {
+
+  from {
+    opacity: .15;
+  }
+
+  to {
+    opacity: .65;
+  }
+
+}
+
+
+/* =========================
+   PAINT BRUSH STROKES
+========================= */
+
+.brush {
+  position: absolute;
+
+  width: 180px;
+  height: 18px;
+
+  border-radius: 50% 20% 50% 20%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(130,15,40,.15),
+      rgba(170,25,55,.55),
+      rgba(255,255,255,.15),
+      transparent
+    );
+
+  filter: blur(1px);
+
+  opacity: .35;
+
+  animation:
+    brushFloat 12s infinite ease-in-out,
+    brushRotate 8s infinite alternate;
+}
+
+
+.brush1 {
+  left: -40px;
+  top: 25%;
+}
+
+.brush2 {
+  right: -50px;
+  top: 42%;
+  width: 220px;
+  animation-delay: 2s;
+}
+
+.brush3 {
+  left: 30%;
+  bottom: 8%;
+  width: 150px;
+  animation-delay: 4s;
+}
+
+.brush4 {
+  left: 55%;
+  top: 12%;
+  width: 120px;
+  animation-delay: 6s;
+}
+
+.brush5 {
+  right: 20%;
+  bottom: 25%;
+  width: 190px;
+  animation-delay: 3s;
+}
+
+
+@keyframes brushFloat {
+
+  0% {
+    transform: translate(0,0);
+  }
+
+  50% {
+    transform: translate(80px,-40px);
+  }
+
+  100% {
+    transform: translate(-30px,50px);
+  }
+
+}
+
+
+@keyframes brushRotate {
+
+  from {
+    rotate: -12deg;
+  }
+
+  to {
+    rotate: 12deg;
+  }
+
+}
+
+
+/* =========================
+   PAINT DUST
+========================= */
+
+.paint-dust i {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #a51d3b;
+
+  box-shadow:
+    0 0 8px rgba(170,25,55,.8);
+
+  animation: dustFloat 9s infinite ease-in-out;
+}
+
+
+/* Dust positions */
+
+.paint-dust i:nth-child(1)  { left:5%;  top:35%; }
+.paint-dust i:nth-child(2)  { left:14%; top:60%; animation-delay:1s; }
+.paint-dust i:nth-child(3)  { left:25%; top:25%; animation-delay:2s; }
+.paint-dust i:nth-child(4)  { left:35%; top:80%; animation-delay:3s; }
+.paint-dust i:nth-child(5)  { left:45%; top:30%; animation-delay:4s; }
+.paint-dust i:nth-child(6)  { left:55%; top:70%; animation-delay:2s; }
+.paint-dust i:nth-child(7)  { left:65%; top:18%; animation-delay:5s; }
+.paint-dust i:nth-child(8)  { left:75%; top:55%; animation-delay:1s; }
+.paint-dust i:nth-child(9)  { left:85%; top:30%; animation-delay:4s; }
+.paint-dust i:nth-child(10) { left:95%; top:75%; animation-delay:3s; }
+.paint-dust i:nth-child(11) { left:20%; top:90%; animation-delay:5s; }
+.paint-dust i:nth-child(12) { left:40%; top:50%; animation-delay:6s; }
+.paint-dust i:nth-child(13) { left:60%; top:90%; animation-delay:2s; }
+.paint-dust i:nth-child(14) { left:80%; top:80%; animation-delay:7s; }
+.paint-dust i:nth-child(15) { left:90%; top:10%; animation-delay:4s; }
+
+
+@keyframes dustFloat {
+
+  0% {
+    transform: translate(0,0) scale(.6);
+    opacity: .15;
+  }
+
+  50% {
+    transform: translate(35px,-45px) scale(1.5);
+    opacity: .8;
+  }
+
+  100% {
+    transform: translate(-20px,20px) scale(.6);
+    opacity: .15;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+  .science span {
+    font-size: 11px;
+  }
+
+  .brush {
+    opacity: .22;
+    transform: scale(.7);
+  }
+
+}
+
+  </style>
 </body>
   </html>
