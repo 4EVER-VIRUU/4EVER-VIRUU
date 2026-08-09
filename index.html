@@ -397,6 +397,61 @@
   <footer>
     © 2026 4EVER VIRUU • Made with creativity 🎨
   </footer>
+<style>
+  .painting-viewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
 
+  .painting-viewer img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  .painting-viewer .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
+
+  .gallery .card img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery .card img:hover {
+    transform: scale(1.03);
+  }
+</style>
+
+<div class="painting-viewer" id="paintingViewer" onclick="closePainting()">
+  <span class="close">&times;</span>
+  <img id="viewerImage" src="" alt="Painting">
+</div>
+
+<script>
+  document.querySelectorAll('.gallery .card img').forEach(function(img) {
+    img.onclick = function(event) {
+      event.stopPropagation();
+      document.getElementById('viewerImage').src = this.src;
+      document.getElementById('paintingViewer').style.display = 'flex';
+    };
+  });
+
+  function closePainting() {
+    document.getElementById('paintingViewer').style.display = 'none';
+  }
+</script>
 </body>
   </html>
