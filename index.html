@@ -10,7 +10,159 @@
 <meta name="description" content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore paintings, photography, creative projects and achievements.">
 <meta name="application-name" content="ur.virroxzy">
 <meta property="og:site_name" content="ur.virroxzy">
-<style>
+/* =========================
+   NATIONAL JOURNEY
+========================= */
+
+.journey-section {
+  padding: 100px 7%;
+  background: linear-gradient(180deg, #030303, #07111c, #030303);
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-title {
+  text-align: center;
+  font-size: 45px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.journey-subtitle {
+  text-align: center;
+  color: #aaa;
+  max-width: 750px;
+  margin: 0 auto 60px;
+  font-size: 17px;
+}
+
+.journey-timeline {
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+.journey-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(#00c6ff, #ffffff, #00c6ff);
+  transform: translateX(-50%);
+}
+
+.journey-card {
+  width: 46%;
+  padding: 28px;
+  margin-bottom: 55px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  transition: 0.4s;
+}
+
+.journey-card:hover {
+  transform: translateY(-8px);
+  border-color: #00c6ff;
+}
+
+.journey-card:nth-child(odd) {
+  margin-right: auto;
+}
+
+.journey-card:nth-child(even) {
+  margin-left: auto;
+}
+
+.journey-card h3 {
+  color: #00c6ff;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.journey-card p {
+  color: #ddd;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.journey-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 18px;
+}
+
+.journey-video {
+  width: 100%;
+  border-radius: 18px;
+  margin-top: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.journey-highlight {
+  max-width: 900px;
+  margin: 70px auto 0;
+  padding: 40px;
+  text-align: center;
+  border-radius: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(0,198,255,0.12),
+    rgba(255,255,255,0.05)
+  );
+  border: 1px solid rgba(0,198,255,0.3);
+}
+
+.journey-highlight h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.journey-highlight p {
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.journey-button {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  padding: 14px 28px;
+  border-radius: 30px;
+  background: #00c6ff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.journey-button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 700px) {
+
+  .journey-title {
+    font-size: 32px;
+  }
+
+  .journey-timeline::before {
+    left: 10px;
+  }
+
+  .journey-card {
+    width: calc(100% - 35px);
+    margin-left: 35px !important;
+    margin-right: 0 !important;
+  }
+}
+  <style>
 * {
   margin: 0;
   padding: 0;
@@ -1069,5 +1221,335 @@ function closePainting() {
 <!-- 🌐 GLOBAL WIREFRAME BACKGROUND -->
 
 <div class="global-wireframe"></div>
+<!-- =========================
+     MY NATIONAL JOURNEY
+========================= -->
+
+<section class="journey-section" id="national-journey">
+
+  <h2 class="journey-title">MY NATIONAL JOURNEY ✈️</h2>
+
+  <p class="journey-subtitle">
+    From my first cultural fest to representing my school at the
+    National Level in Odisha — this is the journey that I will
+    always carry in my heart.
+  </p>
+
+  <div class="journey-timeline">
+
+    <!-- 2024 CULTURAL FEST -->
+    <div class="journey-card">
+
+      <h3>🎨 The Beginning — 2024</h3>
+
+      <p>
+        In 2024, I participated in the Cultural Fest for the first time
+        in the <strong>2-D Painting</strong> category.
+        It was the beginning of a journey that I never imagined would
+        take me all the way to the National Level.
+      </p>
+
+    </div>
+
+
+    <!-- CLUSTER -->
+    <div class="journey-card">
+
+      <h3>🏆 Cluster Level — 1st Place</h3>
+
+      <p>
+        My first competition was held at
+        <strong>Ajmer Saundane</strong>.
+        I gave my best and was extremely happy to secure
+        <strong>1st place</strong> at the Cluster Level.
+      </p>
+
+      <p>
+        That victory gave me the confidence to dream bigger.
+      </p>
+
+    </div>
+
+
+    <!-- STATE -->
+    <div class="journey-card">
+
+      <h3>🥇 State Level — 1st Place</h3>
+
+      <p>
+        The State Level competition was held at our own school,
+        <strong>EMRS Pimpri</strong>.
+        I participated in 2-D Painting once again and achieved
+        <strong>1st place</strong>.
+      </p>
+
+      <p>
+        When I went onto the stage, the students were cheering,
+        shouting and whistling loudly. That moment is still one of
+        my most unforgettable memories.
+      </p>
+
+    </div>
+
+
+    <!-- NATIONAL SELECTION -->
+    <div class="journey-card">
+
+      <h3>🇮🇳 Selected for Nationals</h3>
+
+      <p>
+        Then came the moment that changed everything.
+      </p>
+
+      <p>
+        <strong>Ojaswini Ma'am</strong> told me that the National Level
+        competition would be held in <strong>Odisha</strong> and that
+        our journey would be by flight.
+      </p>
+
+      <p>
+        Hearing that news made me incredibly excited.
+        It was a feeling that was almost impossible to express in words.
+      </p>
+
+      <p>
+        From our school, only two students were selected for the
+        National Level — <strong>me and Nivedita</strong>.
+      </p>
+
+    </div>
+
+
+    <!-- FLIGHT -->
+    <div class="journey-card">
+
+      <h3>✈️ My First Flight</h3>
+
+      <p>
+        When the day finally arrived, we travelled by an AC bus to
+        Mumbai's <strong>Chhatrapati Shivaji Maharaj International Airport</strong>.
+      </p>
+
+      <p>
+        After the checking and security procedures, we entered the
+        airport and finally boarded the plane.
+      </p>
+
+      <p>
+        Nivedita and I were sitting together.
+        When the plane started taking off, I felt an incredible
+        mixture of happiness, excitement and nervousness.
+        It was my first flight and a completely new experience for me.
+      </p>
+
+    </div>
+
+
+    <!-- ODISHA -->
+    <div class="journey-card">
+
+      <h3>🌴 Welcome to Odisha</h3>
+
+      <p>
+        After landing at <strong>Bhubaneswar Airport</strong>,
+        we collected our luggage and waited for our transport.
+        Soon, a large AC bus arrived to take us to our hotel.
+      </p>
+
+      <img
+        src="Lord_Jagannath_temple_at_night.jpg"
+        class="journey-image"
+        alt="Jagannath Temple, Odisha"
+      >
+
+    </div>
+
+
+    <!-- HOTEL -->
+    <div class="journey-card">
+
+      <h3>🏨 Ten Days in Odisha</h3>
+
+      <p>
+        We stayed in the same hotel for around ten days.
+        Our room had an AC, TV, refrigerator, washroom, balcony,
+        cupboard and a comfortable sofa.
+      </p>
+
+      <img
+        src="IMG_20241114_155728.jpg"
+        class="journey-image"
+        alt="Hotel memory"
+      >
+
+      <img
+        src="IMG_20241116_090217.jpg"
+        class="journey-image"
+        alt="Odisha journey"
+      >
+
+    </div>
+
+
+    <!-- EXPLORING -->
+    <div class="journey-card">
+
+      <h3>🛕 Exploring Odisha</h3>
+
+      <p>
+        On the first day, we were taken to some of the famous places
+        of Odisha. We got the opportunity to experience the culture,
+        history and beauty of the state.
+      </p>
+
+      <p>
+        Visiting places like the <strong>Jagannath Temple</strong>
+        and other famous locations made the journey even more special.
+      </p>
+
+      <img
+        src="Lord_Jagannath_temple_at_night.jpg"
+        class="journey-image"
+        alt="Jagannath Temple"
+      >
+
+      <img
+        src="01KR6DW9JDTPAXFVK8MSZHE1FZ.jpg"
+        class="journey-image"
+        alt="Odisha memory"
+      >
+
+    </div>
+
+
+    <!-- COMPETITION -->
+    <div class="journey-card">
+
+      <h3>🎨 The National Competition</h3>
+
+      <p>
+        From the second day onwards, our actual competition began.
+        The competition was held at a university.
+      </p>
+
+      <p>
+        Every day, a bus came to pick us up from the hotel and take us
+        to the university. We continued our competition and activities
+        for several days.
+      </p>
+
+      <p>
+        I was representing my school in the
+        <strong>2-D Painting</strong> category at the National Level.
+      </p>
+
+    </div>
+
+
+    <!-- MEMORIES -->
+    <div class="journey-card">
+
+      <h3>📸 Memories That Stay Forever</h3>
+
+      <p>
+        Beyond the competition, I made memories that I will never forget.
+        Meeting students from different places, travelling together,
+        exploring Odisha and experiencing everything for the first time
+        made those ten days truly unforgettable.
+      </p>
+
+      <img
+        src="FLAVOURS-1-1024x539.jpg"
+        class="journey-image"
+        alt="National journey memory"
+      >
+
+    </div>
+
+
+    <!-- AWARDS -->
+    <div class="journey-card">
+
+      <h3>🏅 The Final Result</h3>
+
+      <p>
+        Finally, after days of competition, the last day arrived —
+        the day of the prize distribution.
+      </p>
+
+      <p>
+        Nivedita secured <strong>1st place in Mimicry</strong>.
+        I secured <strong>2nd place in 2-D Painting</strong>
+        at the National Level.
+      </p>
+
+      <p>
+        Standing there with a National Level achievement was an
+        incredibly proud and emotional moment for me.
+      </p>
+
+      <img
+        src="caption.jpg"
+        class="journey-image"
+        alt="National Level memory"
+      >
+
+    </div>
+
+
+    <!-- VIDEO -->
+    <div class="journey-card">
+
+      <h3>🎥 A Memory in Motion</h3>
+
+      <p>
+        Some moments are better experienced than explained.
+        Here is one of the videos from my National Level journey.
+      </p>
+
+      <video
+        class="journey-video"
+        controls
+        playsinline
+      >
+        <source
+          src="VID_20250515_110456_102.mp4"
+          type="video/mp4"
+        >
+        Your browser does not support the video tag.
+      </video>
+
+    </div>
+
+  </div>
+
+
+  <!-- FINAL MESSAGE -->
+  <div class="journey-highlight">
+
+    <h2>✨ More Than Just a Competition</h2>
+
+    <p>
+      This journey taught me that a small beginning can lead to
+      something much bigger than we imagine.
+    </p>
+
+    <p>
+      From my first Cultural Fest, to Cluster Level,
+      then State Level, and finally the National Level in Odisha —
+      every step gave me confidence, memories and a reason to keep
+      creating.
+    </p>
+
+    <p>
+      <strong>
+        This wasn't just a competition.
+        It was a chapter of my life that I will remember forever. ❤️
+      </strong>
+    </p>
+
+  </div>
+
+</section>
 </body>
   </html>
