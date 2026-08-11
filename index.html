@@ -11,46 +11,43 @@
 <meta name="application-name" content="ur.virroxzy">
 <meta property="og:site_name" content="ur.virroxzy">
 
-
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <style>
-    .real-name {
-  font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: 26px;
-  font-weight: 600;
-  font-style: italic;
+       .real-name {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
   letter-spacing: 3px;
   text-align: center;
   color: white;
 
-  width: 0;
-  margin: 0 auto 10px;
+  width: fit-content;
+  margin: 0 auto 12px;
+
   white-space: nowrap;
-  overflow: hidden;
 
-  border-right: 3px solid white;
+  clip-path: inset(0 100% 0 0);
 
-  animation:
-    brushWrite 3s steps(20) forwards,
-    cursorBlink 0.7s infinite;
+  animation: brushReveal 3s ease-out forwards;
 }
 
-@keyframes brushWrite {
-  from {
-    width: 0;
+@keyframes brushReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-15px);
+    opacity: 0;
   }
 
-  to {
-    width: 270px;
+  30% {
+    opacity: 1;
   }
-}
 
-@keyframes cursorBlink {
-  50% {
-    border-color: transparent;
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+    opacity: 1;
   }
-}
-* {
-  margin: 0;
+} 
+ *{ margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
