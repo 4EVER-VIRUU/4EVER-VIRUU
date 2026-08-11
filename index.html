@@ -13,6 +13,23 @@
 
 
   <style>
+    .real-name {
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(15px);
+    animation: nameReveal 1.5s ease forwards;
+}
+
+@keyframes nameReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 * {
   margin: 0;
   padding: 0;
@@ -832,6 +849,8 @@ footer {
 
 <section class="hero" id="home">
   <div>
+    <div class="real-name">VISHAL TELAM</div>
+<h1>4EVER VIRUU</h1>
     <h1>4EVER VIRUU</h1>
     <p>Artist • Creator • Dreamer 🎨</p>
 
