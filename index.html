@@ -53,21 +53,31 @@
   scroll-behavior: smooth;
 }
     /* FEATURED ART - 3 CARDS CENTERED */
+/* FEATURED ART */
+.featured-art .title {
+  font-size: 34px;
+  text-align: center;
+  white-space: nowrap;
+  margin-bottom: 30px;
+}
+
 .featured-grid {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   width: 100%;
-  max-width: 380px;
-  margin: 25px auto 50px;
-  position: relative;
-  height: 230px;
+  max-width: 390px;
+  margin: 0 auto 50px;
+  height: 220px;
 }
 
+/* CARDS */
 .art-card {
-  position: absolute;
-  width: 100px;
-  height: 170px;
+  position: relative;
+  flex: 0 0 105px;
+  width: 105px;
+  height: 190px;
   overflow: hidden;
   border-radius: 14px;
   background: #120006;
@@ -75,32 +85,40 @@
   box-shadow: 0 0 20px rgba(255, 0, 80, 0.25);
 }
 
+/* IMAGE */
 .art-card img {
   width: 100%;
-  height: 135px;
+  height: 150px;
   object-fit: cover;
   display: block;
 }
 
-/* LEFT CARD */
+/* NAME */
+.art-name {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+}
+
+/* LEFT */
 .art-card:nth-child(1) {
-  left: 38px;
   transform: rotate(-10deg);
-  z-index: 1;
 }
 
-/* MIDDLE CARD */
+/* MIDDLE */
 .art-card:nth-child(2) {
-  left: 140px;
   transform: rotate(0deg);
-  z-index: 3;
 }
 
-/* RIGHT CARD */
+/* RIGHT */
 .art-card:nth-child(3) {
-  left: 242px;
   transform: rotate(10deg);
-  z-index: 2;
 }
     /* 🌐 DIGITAL NETWORK BACKGROUND */
 
