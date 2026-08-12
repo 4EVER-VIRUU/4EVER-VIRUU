@@ -52,6 +52,66 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+    /* ===== FEATURED ART ===== */
+
+.featured-art {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.featured-art .title {
+  font-size: 32px;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.art-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 0, 80, 0.45);
+  background: rgba(20, 0, 10, 0.6);
+  box-shadow: 0 0 25px rgba(255, 0, 80, 0.12);
+}
+
+.art-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.art-card:hover img {
+  transform: scale(1.08);
+}
+
+.art-name {
+  padding: 14px 8px;
+  font-size: 17px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+
+  .art-card img {
+    height: 360px;
+  }
+  }
 
     /* 🌐 DIGITAL NETWORK BACKGROUND */
 
@@ -985,7 +1045,42 @@ body > #network-bg {
     <a href="journey.html" class="btn">
   MY NATIONAL JOURNEY ✈️
     </a>
-    
+    <div class="quick-intro">
+      <!-- FEATURED ART -->
+
+<section class="featured-art" id="featured-art">
+
+  <h2 class="title">🎨 FEATURED ART</h2>
+
+  <div class="featured-grid">
+
+    <div class="art-card">
+      <img src="IMG_20260812_165745.jpg" alt="Colourful Eye Artwork">
+      <div class="art-name">COLOUR OF VISION 👁️</div>
+    </div>
+
+    <div class="art-card">
+      <img src="IMG_20260331_155158.jpg" alt="Dark Portrait Artwork">
+      <div class="art-name">DARK PORTRAIT 🖤</div>
+    </div>
+
+    <div class="art-card">
+      <img src="painting-woman-black-dress-with-long-black-coat_783884-443403.jpg" alt="Woman Black Dress Artwork">
+      <div class="art-name">SHADOWS & SOUL 🎨</div>
+    </div>
+
+  </div>
+
+</section>
+  <h2>✨ A LITTLE ABOUT ME</h2>
+  <p>
+    I’m <strong>Vishal Telam</strong>, known as <strong>4EVER VIRUU</strong> —
+    an artist, creator and dreamer. 🎨
+    I love turning ideas into paintings, creative visuals and unforgettable
+    moments.
+  </p>
+    </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
