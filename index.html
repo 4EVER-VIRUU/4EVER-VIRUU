@@ -849,6 +849,45 @@ body > #network-bg {
   box-shadow: 0 0 30px rgba(160, 20, 50, 0.5);
   transform: translateY(-4px);
     }
+    .quick-intro {
+  max-width: 700px;
+  margin: 45px auto 0;
+  padding: 25px 22px;
+  text-align: center;
+  border: 1px solid rgba(165, 29, 59, 0.5);
+  border-radius: 20px;
+  background: rgba(20, 5, 12, 0.45);
+  backdrop-filter: blur(8px);
+  animation: introFade 1.2s ease forwards;
+}
+
+.quick-intro h2 {
+  margin-bottom: 12px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+
+.quick-intro p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.quick-intro strong {
+  color: white;
+}
+
+@keyframes introFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 </style>
 </head>
 
@@ -945,6 +984,15 @@ body > #network-bg {
     <a href="journey.html" class="btn">
   MY NATIONAL JOURNEY ✈️
     </a>
+    <div class="quick-intro">
+  <h2>✨ A LITTLE ABOUT ME</h2>
+  <p>
+    I’m <strong>Vishal Telam</strong>, known as <strong>4EVER VIRUU</strong> —
+    an artist, creator and dreamer. 🎨
+    I love turning ideas into paintings, creative visuals and unforgettable
+    moments.
+  </p>
+    </div>
   </div>
 </section>
 
