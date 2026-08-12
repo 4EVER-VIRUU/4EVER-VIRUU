@@ -52,29 +52,27 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-    /* FEATURED ART - 3 CARDS FAN STYLE */
+    /* FEATURED ART - 3 CARDS CENTERED */
 .featured-grid {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 390px;
-  margin: 45px auto;
+  max-width: 380px;
+  margin: 25px auto 50px;
   position: relative;
   height: 230px;
 }
 
-/* प्रत्येक card */
 .art-card {
   position: absolute;
-  width: 105px;
+  width: 100px;
   height: 170px;
   overflow: hidden;
   border-radius: 14px;
   background: #120006;
   border: 1px solid rgba(255, 0, 80, 0.65);
   box-shadow: 0 0 20px rgba(255, 0, 80, 0.25);
-  transition: 0.4s ease;
 }
 
 .art-card img {
@@ -84,39 +82,25 @@
   display: block;
 }
 
-.art-name {
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 9px;
-  font-weight: bold;
-  color: white;
-}
-
-/* LEFT — 50° */
+/* LEFT CARD */
 .art-card:nth-child(1) {
-  transform: translateX(-105px) rotate(-12deg);
+  left: 38px;
+  transform: rotate(-10deg);
   z-index: 1;
 }
 
-/* MIDDLE — 90° / straight */
+/* MIDDLE CARD */
 .art-card:nth-child(2) {
-  transform: translateY(-8px) rotate(0deg);
+  left: 140px;
+  transform: rotate(0deg);
   z-index: 3;
 }
 
-/* RIGHT — 140° */
+/* RIGHT CARD */
 .art-card:nth-child(3) {
-  transform: translateX(105px) rotate(12deg);
+  left: 242px;
+  transform: rotate(10deg);
   z-index: 2;
-}
-
-/* Touch/hover effect */
-.art-card:hover {
-  transform: translateY(-15px) scale(1.08) rotate(0deg);
-  z-index: 10;
 }
     /* 🌐 DIGITAL NETWORK BACKGROUND */
 
