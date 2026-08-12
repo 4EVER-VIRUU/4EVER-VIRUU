@@ -954,6 +954,69 @@ body > #network-bg {
     transform: translateY(0);
   }
 }
+    /* ACHIEVEMENTS */
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 650px;
+  margin: 30px auto 60px;
+  padding: 0 20px;
+}
+
+.achievement-card {
+  padding: 22px 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 0, 80, 0.45);
+  border-radius: 18px;
+  background: rgba(30, 0, 12, 0.65);
+  box-shadow: 0 0 20px rgba(255, 0, 80, 0.12);
+  transition: 0.35s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 28px rgba(255, 0, 80, 0.3);
+}
+
+.achievement-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.achievement-card h3 {
+  font-size: 17px;
+  margin: 8px 0;
+  color: white;
+}
+
+.achievement-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cfcfcf;
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .achievement-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 12px;
+  }
+
+  .achievement-card {
+    padding: 18px 10px;
+  }
+
+  .achievement-card h3 {
+    font-size: 14px;
+  }
+
+  .achievement-card p {
+    font-size: 11px;
+  }
+}
 </style>
 </head>
 
@@ -1228,19 +1291,37 @@ body > #network-bg {
 
   <h2 class="title">ACHIEVEMENTS 🏆</h2>
 
-  <div class="achievement">
+  <div class="achievement-grid">
 
-    <h3>My Creative Journey</h3>
+    <div class="achievement-card">
+      <div class="achievement-icon">🥇</div>
+      <h3>National Level Winner</h3>
+      <p>Recognised for excellence in art and creative expression at the national level.</p>
+    </div>
 
-    <p>
-      This section will contain my awards,
-      certificates, competitions, achievements
-      and other memorable moments.
-    </p>
+    <div class="achievement-card">
+      <div class="achievement-icon">🎨</div>
+      <h3>Artist & Creator</h3>
+      <p>Building a creative journey through painting, visual art and original ideas.</p>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">🏅</div>
+      <h3>Art Competitions</h3>
+      <p>Participating in art competitions and continuously developing artistic skills.</p>
+    </div>
+
+    <div class="achievement-card">
+      <div class="achievement-icon">✨</div>
+      <h3>Creative Journey</h3>
+      <p>A growing collection of paintings, creative projects and memorable moments.</p>
+    </div>
 
   </div>
 
 </section>
+
+
 
 <!-- CONTACT -->
 
