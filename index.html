@@ -1185,6 +1185,47 @@ body > #network-bg {
     transform: rotate(360deg);
   }
 }
+    /* ✦ SECRET VIRUU MODE */
+
+.viruu-mode-btn {
+  display: block;
+  margin: 25px auto;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 0, 80, 0.7);
+  border-radius: 30px;
+  background: rgba(255, 0, 80, 0.08);
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.viruu-mode-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 0, 80, 0.5);
+}
+
+body.viruu-mode {
+  background: #030003;
+}
+
+body.viruu-mode::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 20%,
+    rgba(255, 0, 80, 0.12),
+    transparent 45%);
+  z-index: -1;
+}
+
+body.viruu-mode .viruu-mode-btn {
+  border-color: #00e5ff;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+    }
 </style>
 </head>
 
@@ -1267,6 +1308,11 @@ body > #network-bg {
   <img src="file_00000000f414820bbe7471d6736ffc75.png"
        alt="4EVER VIRUU">
 </div>
+  <!-- SECRET VIRUU MODE -->
+
+<button id="viruuModeBtn" class="viruu-mode-btn">
+  ✦ ENTER VIRUU MODE
+</button>
   
 </div>
 
@@ -1765,5 +1811,20 @@ resizeCanvas();
 
 requestAnimationFrame(animate);
 </script>
+  <script>
+const viruuModeBtn = document.getElementById("viruuModeBtn");
+
+viruuModeBtn.addEventListener("click", function () {
+
+  document.body.classList.toggle("viruu-mode");
+
+  if (document.body.classList.contains("viruu-mode")) {
+    viruuModeBtn.innerHTML = "✦ EXIT VIRUU MODE";
+  } else {
+    viruuModeBtn.innerHTML = "✦ ENTER VIRUU MODE";
+  }
+
+});
+  </script>
 </body>
   </html>
