@@ -1185,47 +1185,162 @@ body > #network-bg {
     transform: rotate(360deg);
   }
 }
-    /* ✦ SECRET VIRUU MODE */
+/* ============================= */
+/* ✦ SECRET VIRUU MODE ✦ */
+/* ============================= */
 
 .viruu-mode-btn {
   display: block;
   margin: 25px auto;
-  padding: 12px 24px;
-  border: 1px solid rgba(255, 0, 80, 0.7);
+  padding: 12px 26px;
+
+  border: 1px solid rgba(255, 0, 80, 0.75);
   border-radius: 30px;
-  background: rgba(255, 0, 80, 0.08);
-  color: white;
+
+  background: rgba(255, 0, 80, 0.07);
+  color: #fff;
+
   font-size: 13px;
-  letter-spacing: 1.5px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+
   cursor: pointer;
   transition: 0.35s ease;
+
+  box-shadow:
+    0 0 8px rgba(255, 0, 80, 0.25);
 }
 
 .viruu-mode-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 0, 80, 0.5);
+  box-shadow:
+    0 0 15px rgba(255, 0, 80, 0.5),
+    0 0 35px rgba(0, 220, 255, 0.2);
 }
 
+
+/* ============================= */
+/* CYBER MODE */
+/* ============================= */
+
 body.viruu-mode {
-  background: #030003;
+  background: #020405 !important;
+  color: #dff !important;
+  transition: background 0.6s ease;
 }
+
+
+/* CYBER GRID */
 
 body.viruu-mode::before {
   content: "";
   position: fixed;
   inset: 0;
+
   pointer-events: none;
+
   background:
-    radial-gradient(circle at 50% 20%,
-    rgba(255, 0, 80, 0.12),
-    transparent 45%);
-  z-index: -1;
+    linear-gradient(
+      rgba(0, 255, 200, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 200, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 35px 35px;
+
+  animation: cyberGrid 8s linear infinite;
+
+  z-index: 9990;
 }
 
+
+/* SCAN LINE */
+
+body.viruu-mode::after {
+  content: "";
+
+  position: fixed;
+  left: 0;
+  top: -10%;
+
+  width: 100%;
+  height: 2px;
+
+  background: rgba(0, 255, 200, 0.55);
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 200, 0.8);
+
+  pointer-events: none;
+
+  z-index: 9999;
+
+  animation: scanLine 4s linear infinite;
+}
+
+
+/* CYBER GLOW */
+
 body.viruu-mode .viruu-mode-btn {
-  border-color: #00e5ff;
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
-    }
+  border-color: #00ffd5;
+
+  color: #00ffd5;
+
+  background: rgba(0, 255, 210, 0.06);
+
+  box-shadow:
+    0 0 10px rgba(0, 255, 210, 0.45),
+    0 0 30px rgba(0, 255, 210, 0.15);
+}
+
+
+/* TEXT EFFECT */
+
+body.viruu-mode h1,
+body.viruu-mode h2,
+body.viruu-mode h3 {
+  text-shadow:
+    0 0 8px rgba(0, 255, 210, 0.35);
+}
+
+
+/* ANIMATIONS */
+
+@keyframes cyberGrid {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 35px 35px;
+  }
+}
+
+@keyframes scanLine {
+  from {
+    top: -10%;
+  }
+
+  to {
+    top: 110%;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .viruu-mode-btn {
+    font-size: 12px;
+    padding: 11px 21px;
+  }
+
+      }
 </style>
 </head>
 
@@ -1818,16 +1933,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!btn) return;
 
+  let audioCtx = null;
+
+  function playViruSound() {
+
+    try {
+
+      audioCtx =
+        audioCtx ||
+        new (window.AudioContext ||
+             window.webkitAudioContext)();
+
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+
+      const now = audioCtx.currentTime;
+
+      /* First electronic tone */
+      const osc1 = audioCtx.createOscillator();
+      const gain1 = audioCtx.createGain();
+
+      osc1.type = "sawtooth";
+
+      osc1.frequency.setValueAtTime(180, now);
+      osc1.frequency.exponentialRampToValueAtTime(
+        900,
+        now + 0.18
+      );
+
+      gain1.gain.setValueAtTime(0.0001, now);
+      gain1.gain.exponentialRampToValueAtTime(
+        0.08,
+        now + 0.02
+      );
+      gain1.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + 0.25
+      );
+
+      osc1.connect(gain1);
+      gain1.connect(audioCtx.destination);
+
+      osc1.start(now);
+      osc1.stop(now + 0.27);
+
+
+      /* Second digital beep */
+      const osc2 = audioCtx.createOscillator();
+      const gain2 = audioCtx.createGain();
+
+      osc2.type = "square";
+
+      osc2.frequency.setValueAtTime(
+        1200,
+        now + 0.16
+      );
+
+      gain2.gain.setValueAtTime(
+        0.0001,
+        now + 0.16
+      );
+
+      gain2.gain.exponentialRampToValueAtTime(
+        0.045,
+        now + 0.18
+      );
+
+      gain2.gain.exponentialRampToValueAtTime(
+        0.0001,
+        now + 0.32
+      );
+
+      osc2.connect(gain2);
+      gain2.connect(audioCtx.destination);
+
+      osc2.start(now + 0.16);
+      osc2.stop(now + 0.34);
+
+    } catch (error) {
+      console.log("Audio unavailable");
+    }
+  }
+
+
   btn.addEventListener("click", function () {
 
-    document.body.classList.toggle("viruu-mode");
+    const active =
+      document.body.classList.toggle("viruu-mode");
 
-    if (document.body.classList.contains("viruu-mode")) {
-      btn.textContent = "✦ EXIT VIRUU MODE";
-      document.body.style.filter = "saturate(1.5) contrast(1.08)";
+    playViruSound();
+
+    if (active) {
+
+      btn.textContent = "◉ VIRUU MODE ONLINE";
+
+      btn.style.pointerEvents = "none";
+
+      setTimeout(function () {
+        btn.style.pointerEvents = "auto";
+      }, 900);
+
     } else {
+
       btn.textContent = "✦ ENTER VIRUU MODE";
-      document.body.style.filter = "";
+
     }
 
   });
