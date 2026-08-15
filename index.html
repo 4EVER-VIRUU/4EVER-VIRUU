@@ -1403,6 +1403,35 @@ body.viruu-mode footer {
   position: relative;
   z-index: 9991;
 }
+    /* ===== PROFILE ALWAYS ON TOP ===== */
+
+.profile-photo {
+  position: relative !important;
+  z-index: 9999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.profile-photo img {
+  position: relative !important;
+  z-index: 10000 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
+/* Matrix/background ने content झाकू नये */
+.creative-bg,
+#network-bg,
+.network-glow,
+.network {
+  pointer-events: none !important;
+}
 
 </style>
 </head>
