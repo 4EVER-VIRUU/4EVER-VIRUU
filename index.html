@@ -1432,7 +1432,62 @@ body.viruu-mode footer {
 .network {
   pointer-events: none !important;
 }
+/* ===== VIRUU MODE PHOTO FIX ===== */
 
+body.viruu-active .profile-photo {
+    position: relative !important;
+    z-index: 999999 !important;
+    isolation: isolate !important;
+}
+
+body.viruu-active .profile-photo img {
+    position: relative !important;
+    z-index: 999999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Matrix layers stay behind */
+body.viruu-active #network-bg,
+body.viruu-active .network-glow,
+body.viruu-active .creative-bg,
+body.viruu-active .network {
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+/* Profile section above Matrix */
+body.viruu-active > * {
+    position: relative;
+}
+
+body.viruu-active .profile-photo {
+    transform: translateZ(0);
+}
+    .profile-photo {
+  position: relative;
+  z-index: 1000 !important;
+  display: block !important;
+}
+
+.profile-photo img {
+  position: relative;
+  z-index: 1001 !important;
+  display: block !important;
+    }
+ #network-bg,
+.network-glow,
+.creative-bg {
+  z-index: 0 !important;
+}
+
+nav,
+.profile-photo,
+.viruu-mode-btn {
+  position: relative;
+  z-index: 1000 !important;
+    }   
 </style>
 </head>
 
