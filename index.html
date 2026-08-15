@@ -1341,6 +1341,68 @@ body.viruu-mode h3 {
   }
 
       }
+/* ================================
+   VIRUU MODE — MATRIX BACKGROUND
+================================ */
+
+#viruuMatrix {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9990;
+  pointer-events: none;
+  opacity: 0;
+  background: #000;
+  transition: opacity .5s ease;
+}
+
+body.viruu-mode #viruuMatrix {
+  opacity: 1;
+}
+
+#viruuHud {
+  position: fixed;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9995;
+
+  padding: 9px 20px;
+  border: 1px solid #00ff9c;
+  border-radius: 30px;
+
+  color: #00ff9c;
+  background: rgba(0, 10, 5, .72);
+
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  box-shadow:
+    0 0 8px #00ff9c,
+    0 0 25px rgba(0,255,156,.35);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+body.viruu-mode #viruuHud {
+  opacity: 1;
+}
+
+/* VIRUU MODE मध्ये बाकी content थोडं cyber look */
+body.viruu-mode {
+  background: #000 !important;
+}
+
+body.viruu-mode nav,
+body.viruu-mode section,
+body.viruu-mode footer {
+  position: relative;
+  z-index: 9991;
+}
 </style>
 </head>
 
@@ -1348,6 +1410,12 @@ body.viruu-mode h3 {
 
 <canvas id="network-bg"></canvas>
 <div class="network-glow"></div>
+  <!-- VIRUU MODE MATRIX LAYER -->
+<canvas id="viruuMatrix"></canvas>
+
+<div id="viruuHud">
+  <span>VIRUU // SYSTEM ONLINE</span>
+</div>
 
 <!-- =========================
      ANIMATED BACKGROUND
@@ -2044,5 +2112,100 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+  <script>
+(() => {
+  const canvas = document.getElementById("viruuMatrix");
+
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  let width = 0;
+  let height = 0;
+  let fontSize = 16;
+  let columns = 0;
+  let drops = [];
+
+  const chars =
+    "01VIRUU<>[]{}//SYSTEM//ACCESS//ONLINE//404//NEXUS";
+
+  function resizeMatrix() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    fontSize = window.innerWidth < 600 ? 14 : 17;
+
+    columns = Math.floor(width / fontSize);
+
+    drops = Array.from(
+      { length: columns },
+      () => Math.random() * -50
+    );
+  }
+
+  function drawMatrix() {
+    if (!document.body.classList.contains("viruu-mode")) {
+      ctx.clearRect(0, 0, width, height);
+      requestAnimationFrame(drawMatrix);
+      return;
+    }
+
+    // dark transparent layer = glowing trail
+    ctx.fillStyle = "rgba(0, 0, 0, 0.075)";
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+
+      const char =
+        chars[Math.floor(Math.random() * chars.length)];
+
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+
+      // bright head
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = "#00ff9c";
+      ctx.fillStyle = "#00ff9c";
+
+      ctx.fillText(char, x, y);
+
+      // occasional cyan character
+      if (Math.random() > 0.94) {
+        ctx.shadowColor = "#00eaff";
+        ctx.fillStyle = "#00eaff";
+        ctx.fillText(char, x, y);
+      }
+
+      ctx.shadowBlur = 0;
+
+      drops[i]++;
+
+      // random reset
+      if (y > height && Math.random() > 0.975) {
+        drops[i] = Math.random() * -20;
+      }
+    }
+
+    requestAnimationFrame(drawMatrix);
+  }
+
+  window.addEventListener("resize", resizeMatrix);
+
+  resizeMatrix();
+  drawMatrix();
+})();
+  </script>
 </body>
   </html>
