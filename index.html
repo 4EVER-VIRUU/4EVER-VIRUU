@@ -16,17 +16,16 @@ content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore pa
 <meta property="og:site_name" content="Vishal N. Telam">
 
 <link rel="icon"
-      type="image/jpeg"
-      href="IMG_20260810_001027.jpg">
+type="image/jpeg"
+href="IMG_20260810_001027.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-      rel="stylesheet">
-
+rel="stylesheet">
 
 <style>
 
 /* =====================================================
-   BASIC
+   RESET
 ===================================================== */
 
 *{
@@ -37,18 +36,16 @@ content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore pa
 }
 
 html{
-  background:#050506;
+  background:#030304;
 }
 
 body{
-  margin:0;
   font-family:Arial,sans-serif;
-  background:transparent;
+  background:#030304;
   color:white;
   line-height:1.6;
   overflow-x:hidden;
 }
-
 
 /* =====================================================
    CINEMATIC BACKGROUND
@@ -57,33 +54,25 @@ body{
 #cinematic-bg{
 
   position:fixed;
-
   inset:0;
 
-  width:100%;
-  height:100%;
-
-  z-index:0;
-
+  z-index:-10;
   pointer-events:none;
 
   background:
     linear-gradient(
-      rgba(3,3,5,.18),
-      rgba(3,3,5,.42)
+      rgba(3,3,4,.58),
+      rgba(3,3,4,.78)
     ),
     url("Screenshot_2026-08-09-22-02-41-739-edit_com.google.android.googlequicksearchbox.jpg");
 
   background-size:cover;
-
   background-position:center;
-
   background-repeat:no-repeat;
 
   animation:
-    cinematicMove 12s
-    ease-in-out
-    infinite alternate;
+    cinematicMove 16s ease-in-out infinite alternate;
+
 }
 
 @keyframes cinematicMove{
@@ -98,71 +87,95 @@ body{
 
 }
 
-
 /* =====================================================
-   DARK + MAROON GLOW
+   BLACK / MAROON ATMOSPHERE
 ===================================================== */
 
 #glow-bg{
 
   position:fixed;
-
   inset:0;
 
-  z-index:1;
-
+  z-index:-9;
   pointer-events:none;
 
   background:
 
     radial-gradient(
-      circle at 18% 25%,
-      rgba(150,15,55,.18),
+      circle at 15% 20%,
+      rgba(145,10,45,.28),
       transparent 32%
     ),
 
     radial-gradient(
-      circle at 82% 75%,
-      rgba(90,10,45,.15),
+      circle at 85% 75%,
+      rgba(100,5,35,.24),
       transparent 34%
+    ),
+
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0,80,130,.045),
+      transparent 45%
+    ),
+
+    linear-gradient(
+      rgba(0,0,0,.12),
+      rgba(0,0,0,.30)
     );
 
 }
 
-
 /* =====================================================
-   NETWORK CANVAS
+   MAIN POLYGON CANVAS
 ===================================================== */
 
 #network-bg{
 
   position:fixed;
-
   inset:0;
 
   width:100%;
   height:100%;
 
-  z-index:2;
+  z-index:-7;
 
   pointer-events:none;
 
-  opacity:.35;
+  opacity:.88;
 
 }
 
+/* =====================================================
+   WORLD GLOBE CANVAS
+===================================================== */
+
+#world-bg{
+
+  position:fixed;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  z-index:-6;
+
+  pointer-events:none;
+
+  opacity:.34;
+
+}
 
 /* =====================================================
-   SCIENCE / MATH
+   MATH + CHEMISTRY
 ===================================================== */
 
 .science-bg{
 
   position:fixed;
-
   inset:0;
 
-  z-index:3;
+  z-index:-5;
 
   pointer-events:none;
 
@@ -174,54 +187,114 @@ body{
 
   position:absolute;
 
-  color:rgba(255,255,255,.16);
+  color:rgba(255,255,255,.20);
 
-  font-size:16px;
+  font-size:17px;
 
   font-weight:bold;
 
   text-shadow:
-    0 0 10px rgba(170,20,55,.8);
+    0 0 8px rgba(165,25,60,.8),
+    0 0 16px rgba(0,130,210,.25);
 
   animation:
-    scienceFloat
-    12s ease-in-out
-    infinite;
+    scienceFloat 15s ease-in-out infinite;
 
 }
 
-.science-bg span:nth-child(1){left:7%;top:18%}
-.science-bg span:nth-child(2){left:20%;top:75%}
-.science-bg span:nth-child(3){left:35%;top:22%}
-.science-bg span:nth-child(4){left:52%;top:80%}
-.science-bg span:nth-child(5){left:68%;top:20%}
-.science-bg span:nth-child(6){left:85%;top:65%}
-.science-bg span:nth-child(7){left:90%;top:18%}
-.science-bg span:nth-child(8){left:12%;top:85%}
-.science-bg span:nth-child(9){left:47%;top:45%}
-.science-bg span:nth-child(10){left:76%;top:85%}
-.science-bg span:nth-child(11){left:30%;top:40%}
-.science-bg span:nth-child(12){left:83%;top:42%}
+.science-bg span:nth-child(1){
+  left:7%;
+  top:18%;
+}
+
+.science-bg span:nth-child(2){
+  left:20%;
+  top:75%;
+}
+
+.science-bg span:nth-child(3){
+  left:35%;
+  top:22%;
+}
+
+.science-bg span:nth-child(4){
+  left:52%;
+  top:80%;
+}
+
+.science-bg span:nth-child(5){
+  left:68%;
+  top:20%;
+}
+
+.science-bg span:nth-child(6){
+  left:85%;
+  top:65%;
+}
+
+.science-bg span:nth-child(7){
+  left:90%;
+  top:18%;
+}
+
+.science-bg span:nth-child(8){
+  left:12%;
+  top:85%;
+}
+
+.science-bg span:nth-child(9){
+  left:47%;
+  top:45%;
+}
+
+.science-bg span:nth-child(10){
+  left:76%;
+  top:85%;
+}
+
+.science-bg span:nth-child(11){
+  left:30%;
+  top:40%;
+}
+
+.science-bg span:nth-child(12){
+  left:83%;
+  top:42%;
+}
+
+.science-bg span:nth-child(13){
+  left:55%;
+  top:12%;
+}
+
+.science-bg span:nth-child(14){
+  left:4%;
+  top:55%;
+}
+
+.science-bg span:nth-child(15){
+  left:72%;
+  top:45%;
+}
 
 @keyframes scienceFloat{
 
   0%{
-    transform:translate(0,0);
-    opacity:.12;
+    transform:translate(0,0) rotate(0deg);
+    opacity:.10;
   }
 
   50%{
-    transform:translate(30px,-40px);
-    opacity:.55;
+    transform:translate(25px,-35px) rotate(8deg);
+    opacity:.48;
   }
 
   100%{
-    transform:translate(-20px,20px);
-    opacity:.12;
+    transform:translate(-18px,22px) rotate(-5deg);
+    opacity:.10;
   }
 
 }
-
 
 /* =====================================================
    PAINT DUST
@@ -230,10 +303,9 @@ body{
 .paint-dust{
 
   position:fixed;
-
   inset:0;
 
-  z-index:4;
+  z-index:-4;
 
   pointer-events:none;
 
@@ -243,20 +315,18 @@ body{
 
   position:absolute;
 
-  width:4px;
-  height:4px;
+  width:3px;
+  height:3px;
 
   border-radius:50%;
 
-  background:#a51d3b;
+  background:#b51f48;
 
   box-shadow:
-    0 0 10px rgba(180,25,60,.9);
+    0 0 9px rgba(190,25,65,.9);
 
   animation:
-    dustFloat
-    8s ease-in-out
-    infinite;
+    dustFloat 9s ease-in-out infinite;
 
 }
 
@@ -279,31 +349,21 @@ body{
 @keyframes dustFloat{
 
   0%{
-    transform:
-      translate(0,0)
-      scale(.5);
-
+    transform:translate(0,0) scale(.5);
     opacity:.1;
   }
 
   50%{
-    transform:
-      translate(35px,-45px)
-      scale(1.5);
-
-    opacity:.8;
+    transform:translate(30px,-40px) scale(1.5);
+    opacity:.75;
   }
 
   100%{
-    transform:
-      translate(-20px,20px)
-      scale(.5);
-
+    transform:translate(-20px,20px) scale(.5);
     opacity:.1;
   }
 
 }
-
 
 /* =====================================================
    CONTENT
@@ -313,10 +373,9 @@ body{
 
   position:relative;
 
-  z-index:10;
+  z-index:5;
 
 }
-
 
 /* =====================================================
    NAVBAR
@@ -336,10 +395,9 @@ nav{
   display:flex;
 
   justify-content:space-between;
-
   align-items:center;
 
-  background:rgba(0,0,0,.48);
+  background:rgba(0,0,0,.68);
 
   backdrop-filter:blur(14px);
 
@@ -376,10 +434,9 @@ nav a{
 
 nav a:hover{
 
-  color:#ff2b68;
+  color:#ff315f;
 
 }
-
 
 /* =====================================================
    PROFILE
@@ -392,11 +449,6 @@ nav a:hover{
   padding-top:125px;
 
 }
-
-
-/* =====================================================
-   PROFILE RING
-===================================================== */
 
 .profile-photo{
 
@@ -426,18 +478,18 @@ nav a:hover{
   background:
     conic-gradient(
       #ff0055,
-      #7a00ff,
-      #00d9ff,
+      #78001f,
+      #00a8ff,
+      #ffffff,
       #ff0055
     );
 
   animation:
-    ringSpin
-    4s linear infinite;
+    ringSpin 5s linear infinite;
 
   box-shadow:
-    0 0 12px #ff0055,
-    0 0 25px rgba(122,0,255,.7);
+    0 0 14px #ff0055,
+    0 0 25px rgba(0,130,220,.35);
 
 }
 
@@ -472,52 +524,6 @@ nav a:hover{
 
 }
 
-
-/* =====================================================
-   VIRUU BUTTON
-===================================================== */
-
-.viruu-mode-btn{
-
-  display:block;
-
-  margin:25px auto;
-
-  padding:12px 26px;
-
-  border:
-    1px solid rgba(255,0,80,.75);
-
-  border-radius:30px;
-
-  background:
-    rgba(255,0,80,.07);
-
-  color:white;
-
-  font-size:13px;
-
-  font-weight:600;
-
-  letter-spacing:1.8px;
-
-  cursor:pointer;
-
-  transition:.35s;
-
-}
-
-.viruu-mode-btn:hover{
-
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 0 15px rgba(255,0,80,.5),
-    0 0 35px rgba(0,220,255,.2);
-
-}
-
-
 /* =====================================================
    HERO
 ===================================================== */
@@ -534,8 +540,7 @@ nav a:hover{
 
   text-align:center;
 
-  padding:
-    70px 20px 40px;
+  padding:70px 20px 40px;
 
 }
 
@@ -555,41 +560,29 @@ nav a:hover{
 
   letter-spacing:3px;
 
-  text-align:center;
-
   color:white;
 
   width:fit-content;
 
-  margin:
-    0 auto 12px;
+  margin:0 auto 12px;
 
   white-space:nowrap;
 
   animation:
-    nameReveal
-    2.5s ease forwards;
+    nameReveal 2.5s ease forwards;
 
 }
 
 @keyframes nameReveal{
 
   from{
-
     opacity:0;
-
-    transform:
-      translateX(-20px);
-
+    transform:translateX(-20px);
   }
 
   to{
-
     opacity:1;
-
-    transform:
-      translateX(0);
-
+    transform:translateX(0);
   }
 
 }
@@ -603,49 +596,39 @@ nav a:hover{
 
   font-weight:900;
 
+  text-shadow:
+    0 0 25px rgba(255,0,70,.16);
+
   animation:
-    titleIn
-    1.4s ease;
+    titleIn 1.4s ease;
 
 }
 
 .hero p{
 
-  color:#ddd;
+  color:#ccc;
 
   font-size:18px;
 
-  margin:
-    15px 0 30px;
+  margin:15px 0 30px;
 
 }
 
 @keyframes titleIn{
 
   from{
-
     opacity:0;
-
-    transform:
-      translateY(30px);
-
+    transform:translateY(30px);
     filter:blur(8px);
-
   }
 
   to{
-
     opacity:1;
-
-    transform:
-      translateY(0);
-
+    transform:translateY(0);
     filter:blur(0);
-
   }
 
 }
-
 
 /* =====================================================
    BUTTONS
@@ -670,7 +653,7 @@ nav a:hover{
   text-decoration:none;
 
   background:
-    rgba(120,10,35,.16);
+    rgba(120,10,35,.18);
 
   transition:.4s;
 
@@ -684,11 +667,9 @@ nav a:hover{
   box-shadow:
     0 0 30px rgba(160,20,50,.5);
 
-  transform:
-    translateY(-4px);
+  transform:translateY(-4px);
 
 }
-
 
 /* =====================================================
    QUICK INTRO
@@ -698,11 +679,9 @@ nav a:hover{
 
   max-width:700px;
 
-  margin:
-    45px auto 0;
+  margin:45px auto 0;
 
-  padding:
-    25px 22px;
+  padding:25px 22px;
 
   text-align:center;
 
@@ -712,7 +691,7 @@ nav a:hover{
   border-radius:20px;
 
   background:
-    rgba(20,5,12,.48);
+    rgba(20,5,12,.58);
 
   backdrop-filter:blur(8px);
 
@@ -738,7 +717,6 @@ nav a:hover{
 
 }
 
-
 /* =====================================================
    SECTIONS
 ===================================================== */
@@ -761,7 +739,6 @@ section{
 
 }
 
-
 /* =====================================================
    ABOUT
 ===================================================== */
@@ -774,12 +751,11 @@ section{
 
   text-align:center;
 
-  color:#ddd;
+  color:#ccc;
 
   font-size:17px;
 
 }
-
 
 /* =====================================================
    FEATURED ART
@@ -832,7 +808,6 @@ section{
 .art-card img{
 
   width:100%;
-
   height:135px;
 
   object-fit:cover;
@@ -902,7 +877,6 @@ section{
 
 }
 
-
 /* =====================================================
    GALLERY
 ===================================================== */
@@ -928,7 +902,7 @@ section{
     1px solid rgba(255,255,255,.10);
 
   background:
-    rgba(10,10,10,.42);
+    rgba(10,10,10,.55);
 
   display:flex;
 
@@ -963,7 +937,6 @@ section{
 .card img{
 
   width:100%;
-
   height:100%;
 
   object-fit:cover;
@@ -979,7 +952,6 @@ section{
   transform:scale(1.06);
 
 }
-
 
 /* =====================================================
    VIDEO
@@ -1013,7 +985,6 @@ section{
 
 }
 
-
 /* =====================================================
    ACHIEVEMENTS
 ===================================================== */
@@ -1029,18 +1000,15 @@ section{
 
   max-width:650px;
 
-  margin:
-    30px auto 60px;
+  margin:30px auto 60px;
 
-  padding:
-    0 20px;
+  padding:0 20px;
 
 }
 
 .achievement-card{
 
-  padding:
-    22px 15px;
+  padding:22px 15px;
 
   text-align:center;
 
@@ -1050,11 +1018,10 @@ section{
   border-radius:18px;
 
   background:
-    rgba(30,0,12,.52);
+    rgba(30,0,12,.62);
 
   box-shadow:
-    0 0 20px
-    rgba(255,0,80,.12);
+    0 0 20px rgba(255,0,80,.12);
 
   transition:.35s;
 
@@ -1062,12 +1029,10 @@ section{
 
 .achievement-card:hover{
 
-  transform:
-    translateY(-6px);
+  transform:translateY(-6px);
 
   box-shadow:
-    0 0 28px
-    rgba(255,0,80,.3);
+    0 0 28px rgba(255,0,80,.3);
 
 }
 
@@ -1097,7 +1062,6 @@ section{
 
 }
 
-
 /* =====================================================
    CONTACT
 ===================================================== */
@@ -1106,11 +1070,9 @@ section{
 
   max-width:650px;
 
-  margin:
-    30px auto 60px;
+  margin:30px auto 60px;
 
-  padding:
-    35px 20px;
+  padding:35px 20px;
 
   text-align:center;
 
@@ -1120,11 +1082,10 @@ section{
   border-radius:24px;
 
   background:
-    rgba(25,0,12,.52);
+    rgba(25,0,12,.62);
 
   box-shadow:
-    0 0 30px
-    rgba(255,0,80,.12);
+    0 0 30px rgba(255,0,80,.12);
 
 }
 
@@ -1156,8 +1117,7 @@ section{
 
   display:inline-block;
 
-  padding:
-    13px 25px;
+  padding:13px 25px;
 
   border:
     1px solid rgba(255,0,80,.6);
@@ -1177,12 +1137,10 @@ section{
 
 .social-pro a:hover{
 
-  transform:
-    translateY(-4px);
+  transform:translateY(-4px);
 
   box-shadow:
-    0 0 20px
-    rgba(255,0,80,.35);
+    0 0 20px rgba(255,0,80,.35);
 
 }
 
@@ -1192,8 +1150,7 @@ section{
 
   height:1px;
 
-  margin:
-    28px auto 18px;
+  margin:28px auto 18px;
 
   background:
     rgba(255,0,80,.4);
@@ -1210,7 +1167,6 @@ section{
 
 }
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
@@ -1219,8 +1175,7 @@ section{
 
   margin-top:70px;
 
-  padding:
-    45px 20px 30px;
+  padding:45px 20px 30px;
 
   text-align:center;
 
@@ -1228,7 +1183,7 @@ section{
     1px solid rgba(255,0,80,.35);
 
   background:
-    rgba(10,0,5,.58);
+    rgba(10,0,5,.78);
 
 }
 
@@ -1242,8 +1197,7 @@ section{
 
 .footer-brand p{
 
-  margin:
-    10px 0 20px;
+  margin:10px 0 20px;
 
   color:#aaa;
 
@@ -1255,8 +1209,7 @@ section{
 
   height:1px;
 
-  margin:
-    20px auto;
+  margin:20px auto;
 
   background:
     rgba(255,0,80,.6);
@@ -1280,7 +1233,6 @@ section{
   font-size:12px;
 
 }
-
 
 /* =====================================================
    IMAGE VIEWER
@@ -1335,205 +1287,6 @@ section{
 
 }
 
-
-/* =====================================================
-   VIRUU MATRIX
-===================================================== */
-
-#viruuMatrix{
-
-  position:fixed;
-
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  z-index:9990;
-
-  background:
-
-    radial-gradient(
-      circle at center,
-      rgba(0,255,150,.10),
-      rgba(0,0,0,.94) 65%
-    ),
-
-    #000;
-
-  opacity:0;
-
-  pointer-events:none;
-
-  transition:
-    opacity .5s ease;
-
-}
-
-body.viruu-active #viruuMatrix{
-
-  opacity:1;
-
-}
-
-
-/* =====================================================
-   SCANLINES
-===================================================== */
-
-#viruuScanlines{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:9991;
-
-  pointer-events:none;
-
-  opacity:0;
-
-  background:
-
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0,255,180,.035) 0px,
-      rgba(0,255,180,.035) 1px,
-      transparent 2px,
-      transparent 5px
-    );
-
-  transition:.4s;
-
-}
-
-body.viruu-active #viruuScanlines{
-
-  opacity:1;
-
-}
-
-
-/* =====================================================
-   HUD
-===================================================== */
-
-#viruuHud{
-
-  position:fixed;
-
-  top:22%;
-
-  left:50%;
-
-  transform:
-    translateX(-50%);
-
-  z-index:9995;
-
-  min-width:230px;
-
-  padding:
-    18px 30px;
-
-  color:#00ffae;
-
-  background:
-    rgba(0,0,0,.72);
-
-  border:
-    1px solid #00ffae;
-
-  border-radius:50px;
-
-  font-family:monospace;
-
-  font-size:14px;
-
-  letter-spacing:5px;
-
-  text-align:center;
-
-  box-shadow:
-    0 0 10px #00ffae,
-    0 0 35px rgba(0,255,174,.55);
-
-  opacity:0;
-
-  pointer-events:none;
-
-}
-
-body.viruu-active #viruuHud{
-
-  animation:
-    hudBoot
-    1s ease forwards;
-
-}
-
-@keyframes hudBoot{
-
-  from{
-
-    opacity:0;
-
-    transform:
-      translate(-50%,-20px)
-      scale(.8);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:
-      translate(-50%,0)
-      scale(1);
-
-  }
-
-}
-
-
-/* =====================================================
-   GLITCH
-===================================================== */
-
-body.viruu-glitch{
-
-  animation:
-    screenGlitch
-    .35s steps(2);
-
-}
-
-@keyframes screenGlitch{
-
-  0%{
-    transform:translate(0);
-  }
-
-  25%{
-    transform:translate(-3px,2px);
-  }
-
-  50%{
-    transform:translate(3px,-2px);
-  }
-
-  75%{
-    transform:translate(-2px,-1px);
-  }
-
-  100%{
-    transform:translate(0);
-  }
-
-}
-
-
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1542,8 +1295,7 @@ body.viruu-glitch{
 
   nav{
 
-    padding:
-      15px 5%;
+    padding:15px 5%;
 
   }
 
@@ -1563,8 +1315,7 @@ body.viruu-glitch{
 
   section{
 
-    padding:
-      70px 6%;
+    padding:70px 6%;
 
   }
 
@@ -1572,15 +1323,13 @@ body.viruu-glitch{
 
     gap:10px;
 
-    padding:
-      0 12px;
+    padding:0 12px;
 
   }
 
   .achievement-card{
 
-    padding:
-      18px 10px;
+    padding:18px 10px;
 
   }
 
@@ -1609,83 +1358,6 @@ body.viruu-glitch{
 
   }
 
-  #viruuHud{
-
-    top:20%;
-
-    min-width:190px;
-
-    padding:
-      16px 22px;
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-  }
-
-}
-
-
-/* =====================================================
-   SMALL MOBILE
-===================================================== */
-
-@media(max-width:400px){
-
-  nav .logo{
-
-    font-size:17px;
-
-  }
-
-  nav a{
-
-    font-size:9px;
-
-    margin-left:4px;
-
-  }
-
-  .hero h1{
-
-    font-size:42px;
-
-  }
-
-  .real-name{
-
-    font-size:18px;
-
-  }
-
-  .title{
-
-    font-size:30px;
-
-  }
-
-}
-
-
-/* =====================================================
-   REDUCE MOTION
-===================================================== */
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-
-    animation-duration:.01ms !important;
-
-    animation-iteration-count:1 !important;
-
-    scroll-behavior:auto !important;
-
-  }
-
 }
 
 </style>
@@ -1706,6 +1378,12 @@ body.viruu-glitch{
 
 <canvas id="network-bg"></canvas>
 
+<canvas id="world-bg"></canvas>
+
+
+<!-- =====================================================
+     MATH + CHEMISTRY SYMBOLS
+===================================================== -->
 
 <div class="science-bg">
 
@@ -1721,43 +1399,22 @@ body.viruu-glitch{
   <span>O₂</span>
   <span>λ</span>
   <span>∫</span>
-
-</div>
-
-
-<div class="paint-dust">
-
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
-  <i></i>
+  <span>CH₄</span>
+  <span>Ca²⁺</span>
+  <span>f(x)</span>
 
 </div>
 
 
 <!-- =====================================================
-     VIRUU MODE
+     PAINT DUST
 ===================================================== -->
 
-<canvas id="viruuMatrix"></canvas>
+<div class="paint-dust">
 
-<div id="viruuScanlines"></div>
-
-<div id="viruuHud">
-
-  VIRUU SYSTEM<br>
-  ONLINE
+  <i></i><i></i><i></i><i></i><i></i>
+  <i></i><i></i><i></i><i></i><i></i>
+  <i></i><i></i><i></i><i></i><i></i>
 
 </div>
 
@@ -1819,15 +1476,6 @@ body.viruu-glitch{
       alt="4EVER VIRUU">
 
   </div>
-
-
-  <button
-    id="viruuModeBtn"
-    class="viruu-mode-btn">
-
-    ✦ ENTER VIRUU MODE
-
-  </button>
 
 </div>
 
@@ -1893,16 +1541,10 @@ body.viruu-glitch{
       <p>
 
         I’m
-        <strong>
-          Vishal Telam
-        </strong>,
-
+        <strong>Vishal Telam</strong>,
         known as
-        <strong>
-          4EVER VIRUU
-        </strong>
+        <strong>4EVER VIRUU</strong>
         —
-
         an artist, creator and dreamer. 🎨
 
         I love turning ideas into paintings,
@@ -2188,9 +1830,9 @@ body.viruu-glitch{
   </div>
 
 
-  <!-- ===================================================
+  <!-- =================================================
        VIDEO
-  =================================================== -->
+  ================================================= -->
 
   <h2
     class="title"
@@ -2411,6 +2053,7 @@ body.viruu-glitch{
 
     </h3>
 
+
     <p>
 
       Artist • Creator • Dreamer
@@ -2511,7 +2154,7 @@ function closePainting(){
 
 
 /* =====================================================
-   NETWORK BACKGROUND
+   POLYGONAL WIREFRAME NETWORK
 ===================================================== */
 
 const canvas =
@@ -2520,18 +2163,25 @@ const canvas =
 const ctx =
   canvas.getContext("2d");
 
-let width;
-let height;
+let width=0;
+let height=0;
 
-let points=[];
+let nodes=[];
+
+let mouse={
+  x:-1000,
+  y:-1000
+};
 
 
-function resizeCanvas(){
+/* -----------------------------------------------------
+   RESIZE
+----------------------------------------------------- */
+
+function resizeNetwork(){
 
   width=window.innerWidth;
-
   height=window.innerHeight;
-
 
   const dpr=
     Math.min(
@@ -2539,20 +2189,17 @@ function resizeCanvas(){
       2
     );
 
-
   canvas.width=
     width*dpr;
 
   canvas.height=
     height*dpr;
 
-
   canvas.style.width=
     width+"px";
 
   canvas.style.height=
     height+"px";
-
 
   ctx.setTransform(
     dpr,
@@ -2563,90 +2210,43 @@ function resizeCanvas(){
     0
   );
 
-
-  createNetwork();
+  createNodes();
 
 }
 
 
-function createNetwork(){
+/* -----------------------------------------------------
+   CREATE NODES
+----------------------------------------------------- */
 
-  points=[];
+function createNodes(){
 
+  nodes=[];
 
   const mobile=
     window.innerWidth<700;
 
+  const count=
+    mobile ? 48 : 85;
 
-  const total=
-    mobile ? 45 : 80;
+  for(let i=0;i<count;i++){
 
+    nodes.push({
 
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
+      x:
+        Math.random()*width,
 
-    const angle=
-      Math.random()*Math.PI*2;
+      y:
+        Math.random()*height,
 
+      vx:
+        (Math.random()-.5)*.24,
 
-    const radius=
-      Math.sqrt(Math.random());
+      vy:
+        (Math.random()-.5)*.24,
 
-
-    const centerX=
-      width/2;
-
-
-    const centerY=
-      height*.55;
-
-
-    const radiusX=
-      Math.min(
-        width*.48,
-        620
-      );
-
-
-    const radiusY=
-      Math.min(
-        height*.42,
-        420
-      );
-
-
-    const x=
-      centerX+
-      Math.cos(angle)*
-      radiusX*
-      radius;
-
-
-    const y=
-      centerY+
-      Math.sin(angle)*
-      radiusY*
-      radius;
-
-
-    points.push({
-
-      x:x,
-
-      y:y,
-
-      baseX:x,
-
-      baseY:y,
-
-      size:
-        Math.random()*2+.7,
-
-      speed:
-        Math.random()*.5+.2,
+      radius:
+        Math.random()*1.7+.7,
 
       phase:
         Math.random()*Math.PI*2
@@ -2658,7 +2258,49 @@ function createNetwork(){
 }
 
 
-function animate(time){
+/* -----------------------------------------------------
+   MOUSE
+----------------------------------------------------- */
+
+window.addEventListener(
+  "mousemove",
+  function(e){
+
+    mouse.x=e.clientX;
+    mouse.y=e.clientY;
+
+  }
+);
+
+
+/* -----------------------------------------------------
+   TOUCH
+----------------------------------------------------- */
+
+window.addEventListener(
+  "touchmove",
+  function(e){
+
+    if(e.touches.length){
+
+      mouse.x=
+        e.touches[0].clientX;
+
+      mouse.y=
+        e.touches[0].clientY;
+
+    }
+
+  },
+  {passive:true}
+);
+
+
+/* -----------------------------------------------------
+   DRAW NETWORK
+----------------------------------------------------- */
+
+function animateNetwork(time){
 
   ctx.clearRect(
     0,
@@ -2667,96 +2309,108 @@ function animate(time){
     height
   );
 
-
-  const t=
-    time*.001;
+  const t=time*.001;
 
 
-  points.forEach(function(p){
+  /* MOVE */
 
-    p.x=
-      p.baseX+
-      Math.sin(
-        t*p.speed+p.phase
-      )*8;
+  nodes.forEach(function(n){
 
+    n.x+=n.vx;
+    n.y+=n.vy;
 
-    p.y=
-      p.baseY+
-      Math.cos(
-        t*p.speed+p.phase
-      )*8;
+    if(n.x<0 || n.x>width){
+
+      n.vx*=-1;
+
+    }
+
+    if(n.y<0 || n.y>height){
+
+      n.vy*=-1;
+
+    }
 
   });
 
 
-  /* CONNECTING LINES */
+  /* POLYGON CONNECTIONS */
 
-  for(
-    let i=0;
-    i<points.length;
-    i++
-  ){
+  for(let i=0;i<nodes.length;i++){
 
     for(
       let j=i+1;
-      j<points.length;
+      j<nodes.length;
       j++
     ){
 
-      const p1=
-        points[i];
+      const a=nodes[i];
+      const b=nodes[j];
 
-      const p2=
-        points[j];
-
-
-      const dx=
-        p1.x-p2.x;
-
-      const dy=
-        p1.y-p2.y;
-
+      const dx=a.x-b.x;
+      const dy=a.y-b.y;
 
       const distance=
         Math.sqrt(
-          dx*dx+
-          dy*dy
+          dx*dx+dy*dy
         );
 
 
-      if(distance<145){
+      if(distance<155){
 
         const opacity=
-          (1-distance/145)*.35;
+          (1-distance/155)*.32;
+
+
+        /* COLOR MIX:
+           MAROON + WHITE + SMALL BLUE
+        */
+
+        const mode=
+          (i+j)%11;
+
+
+        let stroke;
+
+
+        if(mode===0){
+
+          stroke=
+            `rgba(0,145,230,${opacity*.55})`;
+
+        }
+
+        else if(mode<4){
+
+          stroke=
+            `rgba(185,25,65,${opacity})`;
+
+        }
+
+        else{
+
+          stroke=
+            `rgba(235,235,235,${opacity*.55})`;
+
+        }
 
 
         ctx.beginPath();
 
-
         ctx.moveTo(
-          p1.x,
-          p1.y
+          a.x,
+          a.y
         );
-
 
         ctx.lineTo(
-          p2.x,
-          p2.y
+          b.x,
+          b.y
         );
 
-
         ctx.strokeStyle=
-          `rgba(
-            0,
-            170,
-            255,
-            ${opacity}
-          )`;
+          stroke;
 
-
-        ctx.lineWidth=.7;
-
+        ctx.lineWidth=.65;
 
         ctx.stroke();
 
@@ -2767,41 +2421,150 @@ function animate(time){
   }
 
 
-  /* GLOWING NODES */
+  /* TRIANGULAR / POLYGONAL FACES */
 
-  points.forEach(function(p){
+  for(let i=0;i<nodes.length;i++){
+
+    for(
+      let j=i+1;
+      j<nodes.length;
+      j++
+    ){
+
+      for(
+        let k=j+1;
+        k<nodes.length;
+        k++
+      ){
+
+        const a=nodes[i];
+        const b=nodes[j];
+        const c=nodes[k];
+
+
+        const ab=
+          Math.hypot(
+            a.x-b.x,
+            a.y-b.y
+          );
+
+        const bc=
+          Math.hypot(
+            b.x-c.x,
+            b.y-c.y
+          );
+
+        const ca=
+          Math.hypot(
+            c.x-a.x,
+            c.y-a.y
+          );
+
+
+        if(
+          ab<115 &&
+          bc<115 &&
+          ca<115
+        ){
+
+          ctx.beginPath();
+
+          ctx.moveTo(
+            a.x,
+            a.y
+          );
+
+          ctx.lineTo(
+            b.x,
+            b.y
+          );
+
+          ctx.lineTo(
+            c.x,
+            c.y
+          );
+
+          ctx.closePath();
+
+
+          ctx.fillStyle=
+            "rgba(120,5,35,.025)";
+
+          ctx.fill();
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  /* NODES */
+
+  nodes.forEach(function(n){
 
     const pulse=
       Math.sin(
-        t*2+p.phase
-      )*.4+1;
+        t*1.8+n.phase
+      )*.35+1;
+
+
+    const nearMouse=
+      Math.hypot(
+        n.x-mouse.x,
+        n.y-mouse.y
+      );
 
 
     ctx.beginPath();
 
-
     ctx.arc(
-      p.x,
-      p.y,
-      p.size*pulse,
+      n.x,
+      n.y,
+      n.radius*pulse,
       0,
       Math.PI*2
     );
 
 
-    ctx.fillStyle=
-      "rgba(0,190,255,.85)";
+    if(nearMouse<160){
+
+      ctx.fillStyle=
+        "rgba(0,165,240,.95)";
+
+      ctx.shadowColor=
+        "rgba(0,150,240,.9)";
+
+    }
+
+    else if(
+      Math.random()>.72
+    ){
+
+      ctx.fillStyle=
+        "rgba(255,255,255,.9)";
+
+      ctx.shadowColor=
+        "rgba(255,255,255,.6)";
+
+    }
+
+    else{
+
+      ctx.fillStyle=
+        "rgba(185,25,65,.95)";
+
+      ctx.shadowColor=
+        "rgba(180,20,60,.75)";
+
+    }
 
 
-    ctx.shadowBlur=12;
-
-
-    ctx.shadowColor=
-      "rgba(0,170,255,.9)";
-
+    ctx.shadowBlur=9;
 
     ctx.fill();
-
 
     ctx.shadowBlur=0;
 
@@ -2809,70 +2572,47 @@ function animate(time){
 
 
   requestAnimationFrame(
-    animate
+    animateNetwork
   );
 
 }
 
 
+resizeNetwork();
+
 window.addEventListener(
   "resize",
-  resizeCanvas
+  resizeNetwork
 );
 
-
-resizeCanvas();
-
-
 requestAnimationFrame(
-  animate
+  animateNetwork
 );
 
 
 /* =====================================================
-   VIRUU MATRIX
+   ROTATING WORLD / GLOBE WIREFRAME
 ===================================================== */
 
-const viruuBtn=
-  document.getElementById(
-    "viruuModeBtn"
-  );
+const worldCanvas=
+  document.getElementById("world-bg");
+
+const worldCtx=
+  worldCanvas.getContext("2d");
 
 
-const viruuCanvas=
-  document.getElementById(
-    "viruuMatrix"
-  );
+let worldW=0;
+let worldH=0;
+
+let globeAngle=0;
 
 
-const viruuCtx=
-  viruuCanvas.getContext("2d");
+function resizeWorld(){
 
-
-let matrixWidth=0;
-
-let matrixHeight=0;
-
-let matrixFont=17;
-
-let columns=0;
-
-let drops=[];
-
-
-const matrixChars=
-  "01ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
-  "{}[]<>/\\$#@%&*+-=_"+
-  "VIRUU4EVER";
-
-
-function resizeMatrix(){
-
-  matrixWidth=
+  worldW=
     window.innerWidth;
 
-
-  matrixHeight=
+  worldH=
     window.innerHeight;
 
 
@@ -2883,23 +2623,21 @@ function resizeMatrix(){
     );
 
 
-  viruuCanvas.width=
-    matrixWidth*dpr;
+  worldCanvas.width=
+    worldW*dpr;
+
+  worldCanvas.height=
+    worldH*dpr;
 
 
-  viruuCanvas.height=
-    matrixHeight*dpr;
+  worldCanvas.style.width=
+    worldW+"px";
+
+  worldCanvas.style.height=
+    worldH+"px";
 
 
-  viruuCanvas.style.width=
-    matrixWidth+"px";
-
-
-  viruuCanvas.style.height=
-    matrixHeight+"px";
-
-
-  viruuCtx.setTransform(
+  worldCtx.setTransform(
     dpr,
     0,
     0,
@@ -2908,281 +2646,205 @@ function resizeMatrix(){
     0
   );
 
-
-  matrixFont=
-    window.innerWidth<600
-      ? 14
-      : 17;
-
-
-  columns=
-    Math.floor(
-      matrixWidth/matrixFont
-    );
-
-
-  drops=
-    Array.from(
-      {length:columns},
-      ()=>
-        Math.random()*-80
-    );
-
 }
 
 
-function drawMatrix(){
+function drawWorld(time){
 
-  if(
-    !document.body.classList
-      .contains("viruu-active")
-  ){
-
-    viruuCtx.clearRect(
-      0,
-      0,
-      matrixWidth,
-      matrixHeight
-    );
-
-
-    requestAnimationFrame(
-      drawMatrix
-    );
-
-
-    return;
-
-  }
-
-
-  viruuCtx.fillStyle=
-    "rgba(0,0,0,.075)";
-
-
-  viruuCtx.fillRect(
+  worldCtx.clearRect(
     0,
     0,
-    matrixWidth,
-    matrixHeight
+    worldW,
+    worldH
   );
 
 
-  viruuCtx.font=
-    matrixFont+
-    "px monospace";
+  globeAngle=
+    time*.00008;
 
+
+  /* Keep globe mostly on right side */
+
+  const radius=
+    Math.min(
+      worldW,
+      worldH
+    )*.20;
+
+
+  const cx=
+    worldW*.82;
+
+  const cy=
+    worldH*.52;
+
+
+  /* Outer circle */
+
+  worldCtx.beginPath();
+
+  worldCtx.arc(
+    cx,
+    cy,
+    radius,
+    0,
+    Math.PI*2
+  );
+
+
+  worldCtx.strokeStyle=
+    "rgba(255,255,255,.16)";
+
+  worldCtx.lineWidth=1;
+
+  worldCtx.stroke();
+
+
+  /* Latitude */
 
   for(
-    let i=0;
-    i<drops.length;
+    let i=-3;
+    i<=3;
     i++
   ){
 
-    const char=
-      matrixChars[
-        Math.floor(
-          Math.random()*
-          matrixChars.length
-        )
-      ];
-
-
-    const x=
-      i*matrixFont;
-
-
     const y=
-      drops[i]*matrixFont;
+      cy+
+      (i/4)*radius;
 
 
-    viruuCtx.fillStyle=
-      Math.random()>.84
-        ? "#9affdf"
-        : "#00ff88";
+    const rx=
+      radius*
+      Math.sqrt(
+        Math.max(
+          0,
+          1-(i/4)*(i/4)
+        )
+      );
 
 
-    viruuCtx.shadowBlur=12;
+    worldCtx.beginPath();
 
-
-    viruuCtx.shadowColor=
-      "#00ff88";
-
-
-    viruuCtx.fillText(
-      char,
-      x,
-      y
+    worldCtx.ellipse(
+      cx,
+      y,
+      rx,
+      Math.abs(radius*.15),
+      0,
+      0,
+      Math.PI*2
     );
 
 
-    viruuCtx.shadowBlur=0;
+    worldCtx.strokeStyle=
+      i===0
+      ? "rgba(170,25,60,.32)"
+      : "rgba(255,255,255,.09)";
 
-
-    drops[i]+=
-      .45+
-      Math.random()*.8;
-
-
-    if(
-      y>matrixHeight &&
-      Math.random()>.965
-    ){
-
-      drops[i]=
-        Math.random()*-30;
-
-    }
+    worldCtx.stroke();
 
   }
 
 
+  /* Longitude */
+
+  for(
+    let i=0;
+    i<9;
+    i++
+  ){
+
+    const angle=
+      globeAngle+
+      i*Math.PI/9;
+
+
+    const squeeze=
+      Math.cos(angle);
+
+
+    worldCtx.beginPath();
+
+    worldCtx.ellipse(
+      cx,
+      cy,
+      Math.abs(radius*squeeze),
+      radius,
+      0,
+      0,
+      Math.PI*2
+    );
+
+
+    if(i===2 || i===6){
+
+      worldCtx.strokeStyle=
+        "rgba(0,140,225,.20)";
+
+    }
+
+    else{
+
+      worldCtx.strokeStyle=
+        "rgba(165,25,60,.18)";
+
+    }
+
+
+    worldCtx.stroke();
+
+  }
+
+
+  /* Small orbit ring */
+
+  worldCtx.beginPath();
+
+  worldCtx.ellipse(
+    cx,
+    cy,
+    radius*1.25,
+    radius*.35,
+    -0.3,
+    0,
+    Math.PI*2
+  );
+
+  worldCtx.strokeStyle=
+    "rgba(255,255,255,.10)";
+
+  worldCtx.stroke();
+
+
   requestAnimationFrame(
-    drawMatrix
+    drawWorld
   );
 
 }
 
 
-resizeMatrix();
-
+resizeWorld();
 
 window.addEventListener(
   "resize",
-  resizeMatrix
+  resizeWorld
+);
+
+requestAnimationFrame(
+  drawWorld
 );
 
 
-drawMatrix();
-
-
 /* =====================================================
-   CYBER SOUND
+   KEYBOARD / TOUCH SAFETY
 ===================================================== */
 
-let audioCtx=null;
-
-
-function cyberSound(){
-
-  try{
-
-    audioCtx=
-      audioCtx ||
-      new(
-        window.AudioContext ||
-        window.webkitAudioContext
-      )();
-
-
-    if(
-      audioCtx.state==="suspended"
-    ){
-
-      audioCtx.resume();
-
-    }
-
-
-    const now=
-      audioCtx.currentTime;
-
-
-    const osc=
-      audioCtx.createOscillator();
-
-
-    const gain=
-      audioCtx.createGain();
-
-
-    osc.type="sawtooth";
-
-
-    osc.frequency.setValueAtTime(
-      90,
-      now
-    );
-
-
-    osc.frequency.exponentialRampToValueAtTime(
-      520,
-      now+.35
-    );
-
-
-    gain.gain.setValueAtTime(
-      .0001,
-      now
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-      .12,
-      now+.03
-    );
-
-
-    gain.gain.exponentialRampToValueAtTime(
-      .0001,
-      now+.45
-    );
-
-
-    osc.connect(gain);
-
-
-    gain.connect(
-      audioCtx.destination
-    );
-
-
-    osc.start(now);
-
-
-    osc.stop(now+.5);
-
-  }
-
-  catch(e){
-
-    console.log(
-      "Audio unavailable"
-    );
-
-  }
-
-}
-
-
-/* =====================================================
-   VIRUU MODE BUTTON
-===================================================== */
-
-viruuBtn.addEventListener(
-  "click",
+document.addEventListener(
+  "mouseleave",
   function(){
 
-    cyberSound();
-
-
-    document.body.classList
-      .remove("viruu-glitch");
-
-
-    void document.body.offsetWidth;
-
-
-    document.body.classList
-      .add("viruu-glitch");
-
-
-    document.body.classList
-      .add("viruu-active");
-
-
-    viruuBtn.textContent=
-      "● VIRUU MODE ONLINE";
+    mouse.x=-1000;
+    mouse.y=-1000;
 
   }
 );
@@ -3193,4 +2855,4 @@ viruuBtn.addEventListener(
 
 </body>
 
-         </html>
+      </html>
