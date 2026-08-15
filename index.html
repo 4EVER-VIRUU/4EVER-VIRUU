@@ -1811,20 +1811,28 @@ resizeCanvas();
 
 requestAnimationFrame(animate);
 </script>
-  <script>
-const viruuModeBtn = document.getElementById("viruuModeBtn");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-viruuModeBtn.addEventListener("click", function () {
+  const btn = document.getElementById("viruuModeBtn");
 
-  document.body.classList.toggle("viruu-mode");
+  if (!btn) return;
 
-  if (document.body.classList.contains("viruu-mode")) {
-    viruuModeBtn.innerHTML = "✦ EXIT VIRUU MODE";
-  } else {
-    viruuModeBtn.innerHTML = "✦ ENTER VIRUU MODE";
-  }
+  btn.addEventListener("click", function () {
+
+    document.body.classList.toggle("viruu-mode");
+
+    if (document.body.classList.contains("viruu-mode")) {
+      btn.textContent = "✦ EXIT VIRUU MODE";
+      document.body.style.filter = "saturate(1.5) contrast(1.08)";
+    } else {
+      btn.textContent = "✦ ENTER VIRUU MODE";
+      document.body.style.filter = "";
+    }
+
+  });
 
 });
-  </script>
+</script>
 </body>
   </html>
