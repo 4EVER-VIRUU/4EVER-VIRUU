@@ -1403,64 +1403,7 @@ body.viruu-mode footer {
   position: relative;
   z-index: 9991;
 }
-    /* ===== VIRUU MODE : PROFILE PHOTO FIX ===== */
 
-.profile-photo {
-  position: relative;
-  z-index: 50;
-  width: 180px;
-  height: 180px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 50%;
-  overflow: visible;
-}
-
-.profile-photo img {
-  position: relative;
-  z-index: 52;
-  display: block;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Matrix background ने photo झाकू नये */
-#network-bg,
-.network,
-.network-glow,
-.creative-bg {
-  pointer-events: none;
-}
-
-/* Photo च्या मागे subtle green cyber glow */
-.profile-photo::before {
-  content: "";
-  position: absolute;
-  inset: -8px;
-  z-index: -1;
-  border-radius: 50%;
-  border: 2px solid #00ff88;
-  box-shadow:
-    0 0 10px #00ff88,
-    0 0 25px rgba(0,255,136,.7),
-    0 0 50px rgba(0,255,136,.35);
-  animation: viruuRing 2s linear infinite;
-}
-
-@keyframes viruuRing {
-  0% {
-    transform: rotate(0deg);
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    filter: hue-rotate(360deg);
-  }
-  }
 </style>
 </head>
 
