@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -11,12 +10,7 @@
 <meta name="description"
 content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore paintings, photography, creative projects and achievements.">
 
-<meta name="application-name" content="ur.virroxzy">
-
-<meta property="og:site_name" content="Vishal N. Telam">
-
-<link rel="icon"
-type="image/jpeg"
+<link rel="icon" type="image/jpeg"
 href="IMG_20260810_001027.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
@@ -24,9 +18,9 @@ rel="stylesheet">
 
 <style>
 
-/* =====================================================
+/* =========================================================
    RESET
-===================================================== */
+========================================================= */
 
 *{
   margin:0;
@@ -36,151 +30,154 @@ rel="stylesheet">
 }
 
 html{
-  background:#030304;
+  background:#050506;
 }
 
 body{
   font-family:Arial,sans-serif;
-  background:#030304;
+  background:#050506;
   color:white;
   line-height:1.6;
   overflow-x:hidden;
 }
 
-/* =====================================================
-   CINEMATIC BACKGROUND
-===================================================== */
+/* =========================================================
+   MAIN BACKGROUND
+========================================================= */
 
-#cinematic-bg{
-
+#background{
   position:fixed;
   inset:0;
-
-  z-index:-10;
+  z-index:0;
   pointer-events:none;
+  overflow:hidden;
 
   background:
-    linear-gradient(
-      rgba(3,3,4,.58),
-      rgba(3,3,4,.78)
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(145,10,50,.35),
+      transparent 35%
     ),
-    url("Screenshot_2026-08-09-22-02-41-739-edit_com.google.android.googlequicksearchbox.jpg");
-
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(110,5,45,.30),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0,80,130,.08),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #030304,
+      #16070d,
+      #050506,
+      #12050b,
+      #030304
+    );
 
   animation:
-    cinematicMove 16s ease-in-out infinite alternate;
+    backgroundMove 14s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove{
+
+  0%{
+    transform:scale(1);
+    filter:brightness(.9);
+  }
+
+  50%{
+    filter:brightness(1.05);
+  }
+
+  100%{
+    transform:scale(1.06);
+    filter:brightness(.92);
+  }
 
 }
 
-@keyframes cinematicMove{
+/* =========================================================
+   MAROON LIGHT WAVES
+========================================================= */
+
+#maroonGlow{
+  position:fixed;
+  inset:-20%;
+  z-index:1;
+  pointer-events:none;
+
+  background:
+
+    radial-gradient(
+      ellipse at 15% 30%,
+      rgba(190,20,70,.22),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      ellipse at 85% 70%,
+      rgba(150,10,55,.20),
+      transparent 30%
+    );
+
+  filter:blur(35px);
+
+  animation:
+    glowMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove{
 
   from{
-    transform:scale(1);
+    transform:translate(-30px,20px)
+    scale(1);
   }
 
   to{
-    transform:scale(1.055);
+    transform:translate(40px,-30px)
+    scale(1.15);
   }
 
 }
 
-/* =====================================================
-   BLACK / MAROON ATMOSPHERE
-===================================================== */
-
-#glow-bg{
-
-  position:fixed;
-  inset:0;
-
-  z-index:-9;
-  pointer-events:none;
-
-  background:
-
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(145,10,45,.28),
-      transparent 32%
-    ),
-
-    radial-gradient(
-      circle at 85% 75%,
-      rgba(100,5,35,.24),
-      transparent 34%
-    ),
-
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(0,80,130,.045),
-      transparent 45%
-    ),
-
-    linear-gradient(
-      rgba(0,0,0,.12),
-      rgba(0,0,0,.30)
-    );
-
-}
-
-/* =====================================================
-   MAIN POLYGON CANVAS
-===================================================== */
+/* =========================================================
+   POLYGONAL WORLD / NETWORK
+========================================================= */
 
 #network-bg{
 
   position:fixed;
+
   inset:0;
 
   width:100%;
   height:100%;
 
-  z-index:-7;
+  z-index:2;
 
   pointer-events:none;
 
-  opacity:.88;
-
+  opacity:.55;
 }
 
-/* =====================================================
-   WORLD GLOBE CANVAS
-===================================================== */
-
-#world-bg{
-
-  position:fixed;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  z-index:-6;
-
-  pointer-events:none;
-
-  opacity:.34;
-
-}
-
-/* =====================================================
-   MATH + CHEMISTRY
-===================================================== */
+/* =========================================================
+   WHITE MATH + CHEMISTRY SYMBOLS
+========================================================= */
 
 .science-bg{
 
   position:fixed;
+
   inset:0;
 
-  z-index:-5;
+  z-index:3;
 
   pointer-events:none;
 
   overflow:hidden;
-
 }
 
 .science-bg span{
@@ -194,192 +191,270 @@ body{
   font-weight:bold;
 
   text-shadow:
-    0 0 8px rgba(165,25,60,.8),
-    0 0 16px rgba(0,130,210,.25);
+    0 0 8px rgba(255,255,255,.15),
+    0 0 14px rgba(120,20,60,.6);
 
   animation:
-    scienceFloat 15s ease-in-out infinite;
+    scienceFloat 13s ease-in-out infinite;
 
 }
 
+/* positions */
+
 .science-bg span:nth-child(1){
-  left:7%;
+  left:6%;
   top:18%;
 }
 
 .science-bg span:nth-child(2){
-  left:20%;
-  top:75%;
+  left:18%;
+  top:72%;
 }
 
 .science-bg span:nth-child(3){
-  left:35%;
-  top:22%;
-}
-
-.science-bg span:nth-child(4){
-  left:52%;
-  top:80%;
-}
-
-.science-bg span:nth-child(5){
-  left:68%;
+  left:32%;
   top:20%;
 }
 
+.science-bg span:nth-child(4){
+  left:48%;
+  top:82%;
+}
+
+.science-bg span:nth-child(5){
+  left:64%;
+  top:17%;
+}
+
 .science-bg span:nth-child(6){
-  left:85%;
+  left:82%;
   top:65%;
 }
 
 .science-bg span:nth-child(7){
-  left:90%;
-  top:18%;
+  left:91%;
+  top:15%;
 }
 
 .science-bg span:nth-child(8){
   left:12%;
-  top:85%;
+  top:88%;
 }
 
 .science-bg span:nth-child(9){
-  left:47%;
-  top:45%;
-}
-
-.science-bg span:nth-child(10){
-  left:76%;
-  top:85%;
-}
-
-.science-bg span:nth-child(11){
-  left:30%;
-  top:40%;
-}
-
-.science-bg span:nth-child(12){
-  left:83%;
+  left:45%;
   top:42%;
 }
 
+.science-bg span:nth-child(10){
+  left:75%;
+  top:84%;
+}
+
+.science-bg span:nth-child(11){
+  left:27%;
+  top:43%;
+}
+
+.science-bg span:nth-child(12){
+  left:86%;
+  top:40%;
+}
+
 .science-bg span:nth-child(13){
-  left:55%;
-  top:12%;
+  left:57%;
+  top:30%;
 }
 
 .science-bg span:nth-child(14){
   left:4%;
-  top:55%;
+  top:52%;
 }
 
 .science-bg span:nth-child(15){
-  left:72%;
-  top:45%;
+  left:70%;
+  top:48%;
 }
 
 @keyframes scienceFloat{
 
   0%{
-    transform:translate(0,0) rotate(0deg);
+    transform:
+      translate(0,0)
+      rotate(0deg);
+
     opacity:.10;
   }
 
   50%{
-    transform:translate(25px,-35px) rotate(8deg);
-    opacity:.48;
+    transform:
+      translate(30px,-40px)
+      rotate(8deg);
+
+    opacity:.45;
   }
 
   100%{
-    transform:translate(-18px,22px) rotate(-5deg);
+    transform:
+      translate(-20px,20px)
+      rotate(-5deg);
+
     opacity:.10;
   }
 
 }
 
-/* =====================================================
+/* =========================================================
    PAINT DUST
-===================================================== */
+========================================================= */
 
 .paint-dust{
 
   position:fixed;
+
   inset:0;
 
-  z-index:-4;
+  z-index:4;
 
   pointer-events:none;
-
 }
 
 .paint-dust i{
 
   position:absolute;
 
-  width:3px;
-  height:3px;
+  width:4px;
+  height:4px;
 
   border-radius:50%;
 
-  background:#b51f48;
+  background:#c51d4d;
 
   box-shadow:
-    0 0 9px rgba(190,25,65,.9);
+    0 0 10px rgba(210,20,70,.9);
 
   animation:
-    dustFloat 9s ease-in-out infinite;
+    dustFloat 8s ease-in-out infinite;
 
 }
 
-.paint-dust i:nth-child(1){left:5%;top:35%}
-.paint-dust i:nth-child(2){left:15%;top:60%}
-.paint-dust i:nth-child(3){left:25%;top:25%}
-.paint-dust i:nth-child(4){left:35%;top:80%}
-.paint-dust i:nth-child(5){left:45%;top:30%}
-.paint-dust i:nth-child(6){left:55%;top:70%}
-.paint-dust i:nth-child(7){left:65%;top:18%}
-.paint-dust i:nth-child(8){left:75%;top:55%}
-.paint-dust i:nth-child(9){left:85%;top:30%}
-.paint-dust i:nth-child(10){left:95%;top:75%}
-.paint-dust i:nth-child(11){left:20%;top:90%}
-.paint-dust i:nth-child(12){left:40%;top:50%}
-.paint-dust i:nth-child(13){left:60%;top:90%}
-.paint-dust i:nth-child(14){left:80%;top:80%}
-.paint-dust i:nth-child(15){left:90%;top:10%}
+.paint-dust i:nth-child(1){
+  left:5%;
+  top:35%;
+}
+
+.paint-dust i:nth-child(2){
+  left:15%;
+  top:60%;
+}
+
+.paint-dust i:nth-child(3){
+  left:25%;
+  top:25%;
+}
+
+.paint-dust i:nth-child(4){
+  left:35%;
+  top:80%;
+}
+
+.paint-dust i:nth-child(5){
+  left:45%;
+  top:30%;
+}
+
+.paint-dust i:nth-child(6){
+  left:55%;
+  top:70%;
+}
+
+.paint-dust i:nth-child(7){
+  left:65%;
+  top:18%;
+}
+
+.paint-dust i:nth-child(8){
+  left:75%;
+  top:55%;
+}
+
+.paint-dust i:nth-child(9){
+  left:85%;
+  top:30%;
+}
+
+.paint-dust i:nth-child(10){
+  left:95%;
+  top:75%;
+}
+
+.paint-dust i:nth-child(11){
+  left:20%;
+  top:90%;
+}
+
+.paint-dust i:nth-child(12){
+  left:40%;
+  top:50%;
+}
+
+.paint-dust i:nth-child(13){
+  left:60%;
+  top:90%;
+}
+
+.paint-dust i:nth-child(14){
+  left:80%;
+  top:80%;
+}
+
+.paint-dust i:nth-child(15){
+  left:90%;
+  top:10%;
+}
 
 @keyframes dustFloat{
 
   0%{
-    transform:translate(0,0) scale(.5);
+    transform:
+      translate(0,0)
+      scale(.5);
+
     opacity:.1;
   }
 
   50%{
-    transform:translate(30px,-40px) scale(1.5);
-    opacity:.75;
+    transform:
+      translate(35px,-45px)
+      scale(1.5);
+
+    opacity:.8;
   }
 
   100%{
-    transform:translate(-20px,20px) scale(.5);
+    transform:
+      translate(-20px,20px)
+      scale(.5);
+
     opacity:.1;
   }
 
 }
 
-/* =====================================================
+/* =========================================================
    CONTENT
-===================================================== */
+========================================================= */
 
 .page-content{
 
   position:relative;
 
-  z-index:5;
-
+  z-index:10;
 }
 
-/* =====================================================
+/* =========================================================
    NAVBAR
-===================================================== */
+========================================================= */
 
 nav{
 
@@ -395,9 +470,11 @@ nav{
   display:flex;
 
   justify-content:space-between;
+
   align-items:center;
 
-  background:rgba(0,0,0,.68);
+  background:
+    rgba(3,3,5,.65);
 
   backdrop-filter:blur(14px);
 
@@ -434,13 +511,13 @@ nav a{
 
 nav a:hover{
 
-  color:#ff315f;
+  color:#ff2b68;
 
 }
 
-/* =====================================================
+/* =========================================================
    PROFILE
-===================================================== */
+========================================================= */
 
 .profile-area{
 
@@ -453,6 +530,7 @@ nav a:hover{
 .profile-photo{
 
   width:190px;
+
   height:190px;
 
   margin:auto;
@@ -478,18 +556,17 @@ nav a:hover{
   background:
     conic-gradient(
       #ff0055,
-      #78001f,
-      #00a8ff,
-      #ffffff,
+      #7a00ff,
+      #00d9ff,
       #ff0055
     );
 
   animation:
-    ringSpin 5s linear infinite;
+    ringSpin 4s linear infinite;
 
   box-shadow:
-    0 0 14px #ff0055,
-    0 0 25px rgba(0,130,220,.35);
+    0 0 12px #ff0055,
+    0 0 25px rgba(122,0,255,.7);
 
 }
 
@@ -501,8 +578,6 @@ nav a:hover{
 
   width:100%;
   height:100%;
-
-  display:block;
 
   object-fit:cover;
 
@@ -524,9 +599,9 @@ nav a:hover{
 
 }
 
-/* =====================================================
+/* =========================================================
    HERO
-===================================================== */
+========================================================= */
 
 .hero{
 
@@ -540,7 +615,8 @@ nav a:hover{
 
   text-align:center;
 
-  padding:70px 20px 40px;
+  padding:
+    70px 20px 40px;
 
 }
 
@@ -560,11 +636,14 @@ nav a:hover{
 
   letter-spacing:3px;
 
+  text-align:center;
+
   color:white;
 
   width:fit-content;
 
-  margin:0 auto 12px;
+  margin:
+    0 auto 12px;
 
   white-space:nowrap;
 
@@ -597,7 +676,7 @@ nav a:hover{
   font-weight:900;
 
   text-shadow:
-    0 0 25px rgba(255,0,70,.16);
+    0 0 25px rgba(255,255,255,.08);
 
   animation:
     titleIn 1.4s ease;
@@ -610,29 +689,38 @@ nav a:hover{
 
   font-size:18px;
 
-  margin:15px 0 30px;
+  margin:
+    15px 0 30px;
 
 }
 
 @keyframes titleIn{
 
   from{
+
     opacity:0;
+
     transform:translateY(30px);
+
     filter:blur(8px);
+
   }
 
   to{
+
     opacity:1;
+
     transform:translateY(0);
+
     filter:blur(0);
+
   }
 
 }
 
-/* =====================================================
+/* =========================================================
    BUTTONS
-===================================================== */
+========================================================= */
 
 .btn,
 .journey-button{
@@ -653,7 +741,7 @@ nav a:hover{
   text-decoration:none;
 
   background:
-    rgba(120,10,35,.18);
+    rgba(120,10,35,.20);
 
   transition:.4s;
 
@@ -665,15 +753,16 @@ nav a:hover{
   background:#8d1730;
 
   box-shadow:
-    0 0 30px rgba(160,20,50,.5);
+    0 0 30px
+    rgba(160,20,50,.5);
 
   transform:translateY(-4px);
 
 }
 
-/* =====================================================
+/* =========================================================
    QUICK INTRO
-===================================================== */
+========================================================= */
 
 .quick-intro{
 
@@ -691,7 +780,7 @@ nav a:hover{
   border-radius:20px;
 
   background:
-    rgba(20,5,12,.58);
+    rgba(20,5,12,.52);
 
   backdrop-filter:blur(8px);
 
@@ -717,9 +806,9 @@ nav a:hover{
 
 }
 
-/* =====================================================
+/* =========================================================
    SECTIONS
-===================================================== */
+========================================================= */
 
 section{
 
@@ -739,9 +828,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    ABOUT
-===================================================== */
+========================================================= */
 
 .about{
 
@@ -757,9 +846,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    FEATURED ART
-===================================================== */
+========================================================= */
 
 .featured-grid{
 
@@ -799,7 +888,8 @@ section{
     1px solid rgba(255,0,80,.65);
 
   box-shadow:
-    0 0 20px rgba(255,0,80,.25);
+    0 0 20px
+    rgba(255,0,80,.25);
 
   transition:.4s ease;
 
@@ -808,6 +898,7 @@ section{
 .art-card img{
 
   width:100%;
+
   height:135px;
 
   object-fit:cover;
@@ -877,9 +968,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    GALLERY
-===================================================== */
+========================================================= */
 
 .gallery{
 
@@ -937,6 +1028,7 @@ section{
 .card img{
 
   width:100%;
+
   height:100%;
 
   object-fit:cover;
@@ -953,9 +1045,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    VIDEO
-===================================================== */
+========================================================= */
 
 .video-box{
 
@@ -979,15 +1071,16 @@ section{
     1px solid rgba(255,255,255,.12);
 
   box-shadow:
-    0 0 35px rgba(130,15,40,.25);
+    0 0 35px
+    rgba(130,15,40,.25);
 
   background:#000;
 
 }
 
-/* =====================================================
+/* =========================================================
    ACHIEVEMENTS
-===================================================== */
+========================================================= */
 
 .achievement-grid{
 
@@ -1021,7 +1114,8 @@ section{
     rgba(30,0,12,.62);
 
   box-shadow:
-    0 0 20px rgba(255,0,80,.12);
+    0 0 20px
+    rgba(255,0,80,.12);
 
   transition:.35s;
 
@@ -1032,7 +1126,8 @@ section{
   transform:translateY(-6px);
 
   box-shadow:
-    0 0 28px rgba(255,0,80,.3);
+    0 0 28px
+    rgba(255,0,80,.3);
 
 }
 
@@ -1062,9 +1157,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    CONTACT
-===================================================== */
+========================================================= */
 
 .contact-pro{
 
@@ -1085,7 +1180,8 @@ section{
     rgba(25,0,12,.62);
 
   box-shadow:
-    0 0 30px rgba(255,0,80,.12);
+    0 0 30px
+    rgba(255,0,80,.12);
 
 }
 
@@ -1140,7 +1236,8 @@ section{
   transform:translateY(-4px);
 
   box-shadow:
-    0 0 20px rgba(255,0,80,.35);
+    0 0 20px
+    rgba(255,0,80,.35);
 
 }
 
@@ -1167,9 +1264,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
 .professional-footer{
 
@@ -1183,7 +1280,7 @@ section{
     1px solid rgba(255,0,80,.35);
 
   background:
-    rgba(10,0,5,.78);
+    rgba(10,0,5,.72);
 
 }
 
@@ -1234,9 +1331,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    IMAGE VIEWER
-===================================================== */
+========================================================= */
 
 .painting-viewer{
 
@@ -1287,9 +1384,9 @@ section{
 
 }
 
-/* =====================================================
+/* =========================================================
    MOBILE
-===================================================== */
+========================================================= */
 
 @media(max-width:600px){
 
@@ -1348,6 +1445,7 @@ section{
   .profile-photo{
 
     width:180px;
+
     height:180px;
 
   }
@@ -1358,32 +1456,85 @@ section{
 
   }
 
+  .science-bg span{
+
+    font-size:14px;
+
+  }
+
+}
+
+/* =========================================================
+   EXTRA MOBILE FIX
+========================================================= */
+
+@media(max-width:420px){
+
+  nav .logo{
+
+    font-size:17px;
+
+  }
+
+  nav a{
+
+    font-size:10px;
+
+    margin-left:4px;
+
+  }
+
+  .hero h1{
+
+    font-size:44px;
+
+  }
+
+  .featured-grid{
+
+    transform:scale(.9);
+
+  }
+
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *::before,
+  *::after{
+
+    animation-duration:.01ms !important;
+
+    animation-iteration-count:1 !important;
+
+    scroll-behavior:auto !important;
+
+  }
+
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<!-- =======================================================
+     BACKGROUND LAYERS
+======================================================= -->
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<div id="background"></div>
 
-<div id="cinematic-bg"></div>
-
-<div id="glow-bg"></div>
+<div id="maroonGlow"></div>
 
 <canvas id="network-bg"></canvas>
 
-<canvas id="world-bg"></canvas>
-
-
-<!-- =====================================================
-     MATH + CHEMISTRY SYMBOLS
-===================================================== -->
+<!-- MATH + CHEMISTRY -->
 
 <div class="science-bg">
 
@@ -1399,36 +1550,43 @@ section{
   <span>O₂</span>
   <span>λ</span>
   <span>∫</span>
-  <span>CH₄</span>
-  <span>Ca²⁺</span>
-  <span>f(x)</span>
+  <span>F = ma</span>
+  <span>H₂O</span>
+  <span>Σx</span>
 
 </div>
 
-
-<!-- =====================================================
-     PAINT DUST
-===================================================== -->
+<!-- PAINT PARTICLES -->
 
 <div class="paint-dust">
 
-  <i></i><i></i><i></i><i></i><i></i>
-  <i></i><i></i><i></i><i></i><i></i>
-  <i></i><i></i><i></i><i></i><i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
 
 </div>
 
-
-<!-- =====================================================
-     WEBSITE CONTENT
-===================================================== -->
+<!-- =======================================================
+     WEBSITE
+======================================================= -->
 
 <div class="page-content">
 
-
-<!-- =====================================================
+<!-- =======================================================
      NAVBAR
-===================================================== -->
+======================================================= -->
 
 <nav>
 
@@ -1450,10 +1608,6 @@ section{
       Art
     </a>
 
-    <a href="#photos">
-      Photos
-    </a>
-
     <a href="#contact">
       Contact
     </a>
@@ -1462,10 +1616,9 @@ section{
 
 </nav>
 
-
-<!-- =====================================================
+<!-- =======================================================
      PROFILE
-===================================================== -->
+======================================================= -->
 
 <div class="profile-area">
 
@@ -1479,10 +1632,9 @@ section{
 
 </div>
 
-
-<!-- =====================================================
+<!-- =======================================================
      HOME
-===================================================== -->
+======================================================= -->
 
 <section
   class="hero"
@@ -1496,20 +1648,17 @@ section{
 
     </div>
 
-
     <h1>
 
       4EVER VIRUU
 
     </h1>
 
-
     <p>
 
       Artist • Creator • Dreamer 🎨
 
     </p>
-
 
     <a
       href="#paintings"
@@ -1519,7 +1668,6 @@ section{
 
     </a>
 
-
     <a
       href="journey.html"
       class="journey-button">
@@ -1527,7 +1675,6 @@ section{
       MY NATIONAL JOURNEY ✈️
 
     </a>
-
 
     <div class="quick-intro">
 
@@ -1537,14 +1684,10 @@ section{
 
       </h2>
 
-
       <p>
 
-        I’m
-        <strong>Vishal Telam</strong>,
-        known as
-        <strong>4EVER VIRUU</strong>
-        —
+        I’m <strong>Vishal Telam</strong>,
+        known as <strong>4EVER VIRUU</strong> —
         an artist, creator and dreamer. 🎨
 
         I love turning ideas into paintings,
@@ -1558,10 +1701,9 @@ section{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      FEATURED ART
-===================================================== -->
+======================================================= -->
 
 <section>
 
@@ -1571,9 +1713,7 @@ section{
 
   </h2>
 
-
   <div class="featured-grid">
-
 
     <div class="art-card">
 
@@ -1589,7 +1729,6 @@ section{
 
     </div>
 
-
     <div class="art-card">
 
       <img
@@ -1603,7 +1742,6 @@ section{
       </div>
 
     </div>
-
 
     <div class="art-card">
 
@@ -1619,15 +1757,13 @@ section{
 
     </div>
 
-
   </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      ABOUT
-===================================================== -->
+======================================================= -->
 
 <section id="about">
 
@@ -1636,7 +1772,6 @@ section{
     ABOUT ME
 
   </h2>
-
 
   <div class="about">
 
@@ -1663,10 +1798,9 @@ section{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      PAINTINGS
-===================================================== -->
+======================================================= -->
 
 <section id="paintings">
 
@@ -1676,9 +1810,7 @@ section{
 
   </h2>
 
-
   <div class="gallery">
-
 
     <div class="card">
 
@@ -1688,7 +1820,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1696,7 +1827,6 @@ section{
         alt="Painting 02">
 
     </div>
-
 
     <div class="card">
 
@@ -1706,7 +1836,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1714,7 +1843,6 @@ section{
         alt="Painting 04">
 
     </div>
-
 
     <div class="card">
 
@@ -1724,7 +1852,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1732,7 +1859,6 @@ section{
         alt="Painting 06">
 
     </div>
-
 
     <div class="card">
 
@@ -1742,7 +1868,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1750,7 +1875,6 @@ section{
         alt="Painting 08">
 
     </div>
-
 
     <div class="card">
 
@@ -1760,7 +1884,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1769,27 +1892,23 @@ section{
 
     </div>
 
-
   </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      PHOTOS
-===================================================== -->
+======================================================= -->
 
 <section id="photos">
 
   <h2 class="title">
 
-    UR.V!RUU🥀
+    Ur.V!RUU🥀
 
   </h2>
 
-
   <div class="gallery">
-
 
     <div class="card">
 
@@ -1799,7 +1918,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1807,7 +1925,6 @@ section{
         alt="VIRUU Photo 02">
 
     </div>
-
 
     <div class="card">
 
@@ -1817,7 +1934,6 @@ section{
 
     </div>
 
-
     <div class="card">
 
       <img
@@ -1826,13 +1942,9 @@ section{
 
     </div>
 
-
   </div>
 
-
-  <!-- =================================================
-       VIDEO
-  ================================================= -->
+  <!-- VIDEO -->
 
   <h2
     class="title"
@@ -1841,7 +1953,6 @@ section{
     EMRS WINNER❓
 
   </h2>
-
 
   <div class="video-box">
 
@@ -1861,10 +1972,9 @@ section{
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      ACHIEVEMENTS
-===================================================== -->
+======================================================= -->
 
 <section id="achievements">
 
@@ -1874,9 +1984,7 @@ section{
 
   </h2>
 
-
   <div class="achievement-grid">
-
 
     <div class="achievement-card">
 
@@ -1885,9 +1993,7 @@ section{
       </div>
 
       <h3>
-
         National Level Winner
-
       </h3>
 
       <p>
@@ -1900,7 +2006,6 @@ section{
 
     </div>
 
-
     <div class="achievement-card">
 
       <div class="achievement-icon">
@@ -1908,9 +2013,7 @@ section{
       </div>
 
       <h3>
-
         Artist & Creator
-
       </h3>
 
       <p>
@@ -1922,7 +2025,6 @@ section{
 
     </div>
 
-
     <div class="achievement-card">
 
       <div class="achievement-icon">
@@ -1930,9 +2032,7 @@ section{
       </div>
 
       <h3>
-
         Art Competitions
-
       </h3>
 
       <p>
@@ -1945,7 +2045,6 @@ section{
 
     </div>
 
-
     <div class="achievement-card">
 
       <div class="achievement-icon">
@@ -1953,9 +2052,7 @@ section{
       </div>
 
       <h3>
-
         Creative Journey
-
       </h3>
 
       <p>
@@ -1967,15 +2064,13 @@ section{
 
     </div>
 
-
   </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      CONTACT
-===================================================== -->
+======================================================= -->
 
 <section id="contact">
 
@@ -1985,9 +2080,7 @@ section{
 
   </h2>
 
-
   <div class="contact-pro">
-
 
     <p class="contact-text">
 
@@ -1996,9 +2089,7 @@ section{
 
     </p>
 
-
     <div class="social-pro">
-
 
       <a
         href="https://www.instagram.com/ur.virroxzy"
@@ -2009,7 +2100,6 @@ section{
 
       </a>
 
-
       <a
         href="https://youtube.com/@4rtz-viruu"
         target="_blank"
@@ -2019,12 +2109,9 @@ section{
 
       </a>
 
-
     </div>
 
-
     <div class="contact-line"></div>
-
 
     <p class="contact-small">
 
@@ -2032,39 +2119,29 @@ section{
 
     </p>
 
-
   </div>
 
 </section>
 
-
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================= -->
 
 <footer class="professional-footer">
-
 
   <div class="footer-brand">
 
     <h3>
-
       4EVER VIRUU 🎨
-
     </h3>
 
-
     <p>
-
       Artist • Creator • Dreamer
-
     </p>
 
   </div>
 
-
   <div class="footer-line"></div>
-
 
   <p class="footer-copy">
 
@@ -2072,29 +2149,24 @@ section{
 
   </p>
 
-
   <p class="footer-made">
 
     Made with creativity & passion ✨
 
   </p>
 
-
 </footer>
-
 
 </div>
 
-
-<!-- =====================================================
+<!-- =======================================================
      IMAGE VIEWER
-===================================================== -->
+======================================================= -->
 
 <div
   class="painting-viewer"
   id="paintingViewer"
   onclick="closePainting()">
-
 
   <span class="close">
 
@@ -2102,83 +2174,66 @@ section{
 
   </span>
 
-
   <img
     id="viewerImage"
     src=""
     alt="Painting">
 
-
 </div>
 
-
-<!-- =====================================================
+<!-- =======================================================
      JAVASCRIPT
-===================================================== -->
+======================================================= -->
 
 <script>
 
-
-/* =====================================================
+/* =========================================================
    IMAGE VIEWER
-===================================================== */
+========================================================= */
 
 document
-  .querySelectorAll(".gallery .card img")
-  .forEach(function(img){
+.querySelectorAll(".gallery .card img")
+.forEach(function(img){
 
-    img.onclick=function(event){
+  img.onclick=function(event){
 
-      event.stopPropagation();
+    event.stopPropagation();
 
-      document
-        .getElementById("viewerImage")
-        .src=this.src;
+    document
+    .getElementById("viewerImage")
+    .src=this.src;
 
-      document
-        .getElementById("paintingViewer")
-        .style.display="flex";
+    document
+    .getElementById("paintingViewer")
+    .style.display="flex";
 
-    };
+  };
 
-  });
-
+});
 
 function closePainting(){
 
   document
-    .getElementById("paintingViewer")
-    .style.display="none";
+  .getElementById("paintingViewer")
+  .style.display="none";
 
 }
 
-
-/* =====================================================
-   POLYGONAL WIREFRAME NETWORK
-===================================================== */
+/* =========================================================
+   POLYGONAL WORLD / SCIENCE NETWORK
+========================================================= */
 
 const canvas =
-  document.getElementById("network-bg");
+document.getElementById("network-bg");
 
 const ctx =
-  canvas.getContext("2d");
+canvas.getContext("2d");
 
 let width=0;
 let height=0;
+let points=[];
 
-let nodes=[];
-
-let mouse={
-  x:-1000,
-  y:-1000
-};
-
-
-/* -----------------------------------------------------
-   RESIZE
------------------------------------------------------ */
-
-function resizeNetwork(){
+function resizeCanvas(){
 
   width=window.innerWidth;
   height=window.innerHeight;
@@ -2189,11 +2244,8 @@ function resizeNetwork(){
       2
     );
 
-  canvas.width=
-    width*dpr;
-
-  canvas.height=
-    height*dpr;
+  canvas.width=width*dpr;
+  canvas.height=height*dpr;
 
   canvas.style.width=
     width+"px";
@@ -2210,46 +2262,90 @@ function resizeNetwork(){
     0
   );
 
-  createNodes();
+  createNetwork();
 
 }
 
+/* =========================================================
+   CREATE WORLD-LIKE POLYGON STRUCTURE
+========================================================= */
 
-/* -----------------------------------------------------
-   CREATE NODES
------------------------------------------------------ */
+function createNetwork(){
 
-function createNodes(){
-
-  nodes=[];
+  points=[];
 
   const mobile=
     window.innerWidth<700;
 
-  const count=
-    mobile ? 48 : 85;
+  const total=
+    mobile ? 48 : 82;
 
-  for(let i=0;i<count;i++){
+  /*
+    Large elliptical world structure
+  */
 
-    nodes.push({
+  const centerX=
+    width/2;
 
-      x:
-        Math.random()*width,
+  const centerY=
+    height*.50;
 
-      y:
-        Math.random()*height,
+  const radiusX=
+    Math.min(
+      width*.48,
+      620
+    );
 
-      vx:
-        (Math.random()-.5)*.24,
+  const radiusY=
+    Math.min(
+      height*.40,
+      400
+    );
 
-      vy:
-        (Math.random()-.5)*.24,
+  for(
+    let i=0;
+    i<total;
+    i++
+  ){
 
-      radius:
-        Math.random()*1.7+.7,
+    const angle=
+      Math.random()*
+      Math.PI*2;
+
+    const radius=
+      Math.sqrt(
+        Math.random()
+      );
+
+    const x=
+      centerX+
+      Math.cos(angle)*
+      radiusX*
+      radius;
+
+    const y=
+      centerY+
+      Math.sin(angle)*
+      radiusY*
+      radius;
+
+    points.push({
+
+      x:x,
+      y:y,
+
+      baseX:x,
+      baseY:y,
+
+      size:
+        Math.random()*1.8+.7,
+
+      speed:
+        Math.random()*.45+.15,
 
       phase:
-        Math.random()*Math.PI*2
+        Math.random()*
+        Math.PI*2
 
     });
 
@@ -2257,50 +2353,11 @@ function createNodes(){
 
 }
 
+/* =========================================================
+   ANIMATION
+========================================================= */
 
-/* -----------------------------------------------------
-   MOUSE
------------------------------------------------------ */
-
-window.addEventListener(
-  "mousemove",
-  function(e){
-
-    mouse.x=e.clientX;
-    mouse.y=e.clientY;
-
-  }
-);
-
-
-/* -----------------------------------------------------
-   TOUCH
------------------------------------------------------ */
-
-window.addEventListener(
-  "touchmove",
-  function(e){
-
-    if(e.touches.length){
-
-      mouse.x=
-        e.touches[0].clientX;
-
-      mouse.y=
-        e.touches[0].clientY;
-
-    }
-
-  },
-  {passive:true}
-);
-
-
-/* -----------------------------------------------------
-   DRAW NETWORK
------------------------------------------------------ */
-
-function animateNetwork(time){
+function animate(time){
 
   ctx.clearRect(
     0,
@@ -2309,108 +2366,95 @@ function animateNetwork(time){
     height
   );
 
-  const t=time*.001;
+  const t=
+    time*.001;
 
+  /* moving nodes */
 
-  /* MOVE */
+  points.forEach(function(p){
 
-  nodes.forEach(function(n){
+    p.x=
+      p.baseX+
+      Math.sin(
+        t*p.speed+
+        p.phase
+      )*7;
 
-    n.x+=n.vx;
-    n.y+=n.vy;
-
-    if(n.x<0 || n.x>width){
-
-      n.vx*=-1;
-
-    }
-
-    if(n.y<0 || n.y>height){
-
-      n.vy*=-1;
-
-    }
+    p.y=
+      p.baseY+
+      Math.cos(
+        t*p.speed+
+        p.phase
+      )*7;
 
   });
 
+  /* =======================================================
+     POLYGONAL CONNECTIONS
+  ======================================================= */
 
-  /* POLYGON CONNECTIONS */
-
-  for(let i=0;i<nodes.length;i++){
+  for(
+    let i=0;
+    i<points.length;
+    i++
+  ){
 
     for(
       let j=i+1;
-      j<nodes.length;
+      j<points.length;
       j++
     ){
 
-      const a=nodes[i];
-      const b=nodes[j];
+      const p1=
+        points[i];
 
-      const dx=a.x-b.x;
-      const dy=a.y-b.y;
+      const p2=
+        points[j];
+
+      const dx=
+        p1.x-p2.x;
+
+      const dy=
+        p1.y-p2.y;
 
       const distance=
         Math.sqrt(
-          dx*dx+dy*dy
+          dx*dx+
+          dy*dy
         );
-
 
       if(distance<155){
 
         const opacity=
-          (1-distance/155)*.32;
-
-
-        /* COLOR MIX:
-           MAROON + WHITE + SMALL BLUE
-        */
-
-        const mode=
-          (i+j)%11;
-
-
-        let stroke;
-
-
-        if(mode===0){
-
-          stroke=
-            `rgba(0,145,230,${opacity*.55})`;
-
-        }
-
-        else if(mode<4){
-
-          stroke=
-            `rgba(185,25,65,${opacity})`;
-
-        }
-
-        else{
-
-          stroke=
-            `rgba(235,235,235,${opacity*.55})`;
-
-        }
-
+          (1-distance/155)
+          *.28;
 
         ctx.beginPath();
 
         ctx.moveTo(
-          a.x,
-          a.y
+          p1.x,
+          p1.y
         );
 
         ctx.lineTo(
-          b.x,
-          b.y
+          p2.x,
+          p2.y
         );
 
-        ctx.strokeStyle=
-          stroke;
+        /*
+          Mostly blue,
+          with slight white visibility
+        */
 
-        ctx.lineWidth=.65;
+        ctx.strokeStyle=
+          `rgba(
+            45,
+            170,
+            225,
+            ${opacity}
+          )`;
+
+        ctx.lineWidth=.7;
 
         ctx.stroke();
 
@@ -2420,287 +2464,21 @@ function animateNetwork(time){
 
   }
 
+  /* =======================================================
+     WORLD LATITUDE-LIKE LINES
+  ======================================================= */
 
-  /* TRIANGULAR / POLYGONAL FACES */
+  ctx.save();
 
-  for(let i=0;i<nodes.length;i++){
-
-    for(
-      let j=i+1;
-      j<nodes.length;
-      j++
-    ){
-
-      for(
-        let k=j+1;
-        k<nodes.length;
-        k++
-      ){
-
-        const a=nodes[i];
-        const b=nodes[j];
-        const c=nodes[k];
-
-
-        const ab=
-          Math.hypot(
-            a.x-b.x,
-            a.y-b.y
-          );
-
-        const bc=
-          Math.hypot(
-            b.x-c.x,
-            b.y-c.y
-          );
-
-        const ca=
-          Math.hypot(
-            c.x-a.x,
-            c.y-a.y
-          );
-
-
-        if(
-          ab<115 &&
-          bc<115 &&
-          ca<115
-        ){
-
-          ctx.beginPath();
-
-          ctx.moveTo(
-            a.x,
-            a.y
-          );
-
-          ctx.lineTo(
-            b.x,
-            b.y
-          );
-
-          ctx.lineTo(
-            c.x,
-            c.y
-          );
-
-          ctx.closePath();
-
-
-          ctx.fillStyle=
-            "rgba(120,5,35,.025)";
-
-          ctx.fill();
-
-        }
-
-      }
-
-    }
-
-  }
-
-
-  /* NODES */
-
-  nodes.forEach(function(n){
-
-    const pulse=
-      Math.sin(
-        t*1.8+n.phase
-      )*.35+1;
-
-
-    const nearMouse=
-      Math.hypot(
-        n.x-mouse.x,
-        n.y-mouse.y
-      );
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-      n.x,
-      n.y,
-      n.radius*pulse,
-      0,
-      Math.PI*2
-    );
-
-
-    if(nearMouse<160){
-
-      ctx.fillStyle=
-        "rgba(0,165,240,.95)";
-
-      ctx.shadowColor=
-        "rgba(0,150,240,.9)";
-
-    }
-
-    else if(
-      Math.random()>.72
-    ){
-
-      ctx.fillStyle=
-        "rgba(255,255,255,.9)";
-
-      ctx.shadowColor=
-        "rgba(255,255,255,.6)";
-
-    }
-
-    else{
-
-      ctx.fillStyle=
-        "rgba(185,25,65,.95)";
-
-      ctx.shadowColor=
-        "rgba(180,20,60,.75)";
-
-    }
-
-
-    ctx.shadowBlur=9;
-
-    ctx.fill();
-
-    ctx.shadowBlur=0;
-
-  });
-
-
-  requestAnimationFrame(
-    animateNetwork
+  ctx.translate(
+    width/2,
+    height*.50
   );
 
-}
+  ctx.strokeStyle=
+    "rgba(70,170,220,.10)";
 
-
-resizeNetwork();
-
-window.addEventListener(
-  "resize",
-  resizeNetwork
-);
-
-requestAnimationFrame(
-  animateNetwork
-);
-
-
-/* =====================================================
-   ROTATING WORLD / GLOBE WIREFRAME
-===================================================== */
-
-const worldCanvas=
-  document.getElementById("world-bg");
-
-const worldCtx=
-  worldCanvas.getContext("2d");
-
-
-let worldW=0;
-let worldH=0;
-
-let globeAngle=0;
-
-
-function resizeWorld(){
-
-  worldW=
-    window.innerWidth;
-
-  worldH=
-    window.innerHeight;
-
-
-  const dpr=
-    Math.min(
-      window.devicePixelRatio || 1,
-      2
-    );
-
-
-  worldCanvas.width=
-    worldW*dpr;
-
-  worldCanvas.height=
-    worldH*dpr;
-
-
-  worldCanvas.style.width=
-    worldW+"px";
-
-  worldCanvas.style.height=
-    worldH+"px";
-
-
-  worldCtx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
-
-}
-
-
-function drawWorld(time){
-
-  worldCtx.clearRect(
-    0,
-    0,
-    worldW,
-    worldH
-  );
-
-
-  globeAngle=
-    time*.00008;
-
-
-  /* Keep globe mostly on right side */
-
-  const radius=
-    Math.min(
-      worldW,
-      worldH
-    )*.20;
-
-
-  const cx=
-    worldW*.82;
-
-  const cy=
-    worldH*.52;
-
-
-  /* Outer circle */
-
-  worldCtx.beginPath();
-
-  worldCtx.arc(
-    cx,
-    cy,
-    radius,
-    0,
-    Math.PI*2
-  );
-
-
-  worldCtx.strokeStyle=
-    "rgba(255,255,255,.16)";
-
-  worldCtx.lineWidth=1;
-
-  worldCtx.stroke();
-
-
-  /* Latitude */
+  ctx.lineWidth=.7;
 
   for(
     let i=-3;
@@ -2709,150 +2487,113 @@ function drawWorld(time){
   ){
 
     const y=
-      cy+
-      (i/4)*radius;
+      i*55;
 
+    ctx.beginPath();
 
-    const rx=
-      radius*
-      Math.sqrt(
-        Math.max(
-          0,
-          1-(i/4)*(i/4)
-        )
-      );
-
-
-    worldCtx.beginPath();
-
-    worldCtx.ellipse(
-      cx,
+    ctx.ellipse(
+      0,
       y,
-      rx,
-      Math.abs(radius*.15),
+      Math.min(
+        width*.35,
+        450
+      ),
+      35,
       0,
       0,
       Math.PI*2
     );
 
-
-    worldCtx.strokeStyle=
-      i===0
-      ? "rgba(170,25,60,.32)"
-      : "rgba(255,255,255,.09)";
-
-    worldCtx.stroke();
+    ctx.stroke();
 
   }
 
-
-  /* Longitude */
+  /* longitude-like lines */
 
   for(
-    let i=0;
-    i<9;
+    let i=-4;
+    i<=4;
     i++
   ){
 
-    const angle=
-      globeAngle+
-      i*Math.PI/9;
+    const x=
+      i*70;
 
+    ctx.beginPath();
 
-    const squeeze=
-      Math.cos(angle);
-
-
-    worldCtx.beginPath();
-
-    worldCtx.ellipse(
-      cx,
-      cy,
-      Math.abs(radius*squeeze),
-      radius,
+    ctx.ellipse(
+      x,
+      0,
+      40,
+      Math.min(
+        height*.34,
+        350
+      ),
       0,
       0,
       Math.PI*2
     );
 
-
-    if(i===2 || i===6){
-
-      worldCtx.strokeStyle=
-        "rgba(0,140,225,.20)";
-
-    }
-
-    else{
-
-      worldCtx.strokeStyle=
-        "rgba(165,25,60,.18)";
-
-    }
-
-
-    worldCtx.stroke();
+    ctx.stroke();
 
   }
 
+  ctx.restore();
 
-  /* Small orbit ring */
+  /* =======================================================
+     NODES
+  ======================================================= */
 
-  worldCtx.beginPath();
+  points.forEach(function(p){
 
-  worldCtx.ellipse(
-    cx,
-    cy,
-    radius*1.25,
-    radius*.35,
-    -0.3,
-    0,
-    Math.PI*2
-  );
+    const pulse=
+      Math.sin(
+        t*2+
+        p.phase
+      )*.35+1;
 
-  worldCtx.strokeStyle=
-    "rgba(255,255,255,.10)";
+    ctx.beginPath();
 
-  worldCtx.stroke();
+    ctx.arc(
+      p.x,
+      p.y,
+      p.size*pulse,
+      0,
+      Math.PI*2
+    );
 
+    ctx.fillStyle=
+      "rgba(70,185,235,.78)";
+
+    ctx.shadowBlur=10;
+
+    ctx.shadowColor=
+      "rgba(40,160,220,.65)";
+
+    ctx.fill();
+
+    ctx.shadowBlur=0;
+
+  });
 
   requestAnimationFrame(
-    drawWorld
+    animate
   );
 
 }
 
-
-resizeWorld();
+resizeCanvas();
 
 window.addEventListener(
   "resize",
-  resizeWorld
+  resizeCanvas
 );
 
 requestAnimationFrame(
-  drawWorld
+  animate
 );
-
-
-/* =====================================================
-   KEYBOARD / TOUCH SAFETY
-===================================================== */
-
-document.addEventListener(
-  "mouseleave",
-  function(){
-
-    mouse.x=-1000;
-    mouse.y=-1000;
-
-  }
-);
-
 
 </script>
 
-
 </body>
-
-      </html>
+   </html>
