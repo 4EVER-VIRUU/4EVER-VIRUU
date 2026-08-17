@@ -626,235 +626,6 @@ nav a:hover{
 
 }
 
-/* =========================================
-   PAINT BRUSH NAME REVEAL
-========================================= */
-
-.brush-name{
-  position:relative;
-  display:inline-block;
-
-  margin:0 auto 15px;
-
-  font-family:'Permanent Marker', cursive;
-  font-size:25px;
-  letter-spacing:3px;
-
-  color:#fff;
-
-  overflow:hidden;
-
-  opacity:1;
-}
-
-/* Text starts hidden */
-.brush-name span{
-  display:block;
-
-  opacity:0;
-
-  clip-path:inset(0 100% 0 0);
-
-  animation:
-    brushTextReveal 3.2s
-    cubic-bezier(.65,0,.25,1)
-    .5s forwards;
-
-  text-shadow:
-    0 0 8px rgba(255,255,255,.35);
-}
-
-/* Moving paint brush */
-.brush-stroke{
-  position:absolute;
-
-  top:-8px;
-  left:-35px;
-
-  width:45px;
-  height:55px;
-
-  z-index:5;
-
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255,255,255,.15) 15%,
-      #ffffff 45%,
-      #a51d3b 65%,
-      rgba(165,29,59,.15) 90%,
-      transparent 100%
-    );
-
-  filter:
-    blur(1px)
-    drop-shadow(
-      0 0 10px rgba(165,29,59,.8)
-    );
-
-  transform:
-    skewX(-12deg)
-    rotate(-3deg);
-
-  animation:
-    brushMove 3.2s
-    cubic-bezier(.65,0,.25,1)
-    .5s forwards;
-}
-
-/* Uneven paint-brush edges */
-.brush-name::before{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  bottom:0;
-
-  width:100%;
-  height:5px;
-
-  z-index:4;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #a51d3b 0px,
-      #a51d3b 8px,
-      transparent 8px,
-      transparent 13px
-    );
-
-  opacity:0;
-
-  transform:scaleX(0);
-
-  transform-origin:left;
-
-  animation:
-    paintLine 3.2s
-    cubic-bezier(.65,0,.25,1)
-    .5s forwards;
-}
-
-/* Text gets painted */
-@keyframes brushTextReveal{
-
-  0%{
-    opacity:1;
-    clip-path:inset(
-      0 100% 0 0
-    );
-  }
-
-  20%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:1;
-    clip-path:inset(
-      0 0 0 0
-    );
-  }
-}
-
-/* Brush travels across the name */
-@keyframes brushMove{
-
-  0%{
-    left:-45px;
-  }
-
-  10%{
-    transform:
-      skewX(-12deg)
-      rotate(-5deg)
-      scaleY(.9);
-  }
-
-  45%{
-    transform:
-      skewX(-8deg)
-      rotate(2deg)
-      scaleY(1.15);
-  }
-
-  75%{
-    transform:
-      skewX(-15deg)
-      rotate(-2deg)
-      scaleY(.95);
-  }
-
-  100%{
-    left:calc(100% + 20px);
-
-    opacity:0;
-  }
-}
-
-/* Little paint line underneath */
-@keyframes paintLine{
-
-  0%{
-    opacity:0;
-    transform:scaleX(0);
-  }
-
-  25%{
-    opacity:.8;
-  }
-
-  100%{
-    opacity:.65;
-    transform:scaleX(1);
-  }
-}
-
-/* Final subtle glow */
-.brush-name span{
-  animation:
-    brushTextReveal 3.2s
-    cubic-bezier(.65,0,.25,1)
-    .5s forwards,
-    paintedGlow 3s
-    ease-in-out
-    3.7s infinite;
-}
-
-@keyframes paintedGlow{
-
-  0%,100%{
-    text-shadow:
-      0 0 5px rgba(255,255,255,.3),
-      0 0 12px rgba(165,29,59,.25);
-  }
-
-  50%{
-    text-shadow:
-      0 0 8px rgba(255,255,255,.65),
-      0 0 22px rgba(165,29,59,.65);
-  }
-}
-
-/* Mobile */
-@media(max-width:600px){
-
-  .brush-name{
-    font-size:22px;
-    letter-spacing:2px;
-  }
-
-  .brush-stroke{
-    width:38px;
-  }
-
-   }
-
 .hero h1{
 
   font-size:
@@ -1703,6 +1474,213 @@ section{
 
     scroll-behavior:auto !important;
 
+  }
+
+}
+   /* =========================================
+   REAL PAINT BRUSH REVEAL
+========================================= */
+
+.brush-name{
+  position:relative;
+  display:inline-block;
+
+  font-family:'Permanent Marker', cursive;
+  font-size:25px;
+  letter-spacing:3px;
+
+  color:white;
+
+  margin:0 auto 12px;
+
+  white-space:nowrap;
+
+  overflow:hidden;
+}
+
+/* TEXT */
+.brush-name span{
+  display:block;
+
+  opacity:0;
+
+  clip-path:inset(0 100% 0 0);
+
+  animation:textPaint 2.8s
+    cubic-bezier(.65,0,.25,1)
+    .4s forwards;
+}
+
+/* MOVING BRUSH */
+.paint-brush{
+  position:absolute;
+
+  z-index:10;
+
+  left:-70px;
+  top:50%;
+
+  width:75px;
+  height:38px;
+
+  transform:
+    translateY(-50%)
+    rotate(-4deg);
+
+  pointer-events:none;
+
+  /* brush bristles */
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.95) 0px,
+      rgba(255,255,255,.95) 2px,
+      rgba(165,29,59,.9) 3px,
+      rgba(165,29,59,.9) 5px,
+      transparent 6px,
+      transparent 8px
+    );
+
+  border-radius:
+    5px 20px 20px 5px;
+
+  filter:
+    blur(.4px)
+    drop-shadow(
+      0 2px 7px rgba(165,29,59,.8)
+    );
+
+  animation:
+    brushPainting 2.8s
+    cubic-bezier(.65,0,.25,1)
+    .4s forwards;
+}
+
+/* BRUSH HANDLE */
+.paint-brush::after{
+  content:"";
+
+  position:absolute;
+
+  right:-45px;
+  top:50%;
+
+  width:50px;
+  height:7px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6b241d,
+      #d19a70,
+      #713321
+    );
+
+  border-radius:20px;
+
+  transform:
+    translateY(-50%)
+    rotate(-7deg);
+
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.5);
+}
+
+/* BRUSH PAINTING MOTION */
+
+@keyframes brushPainting{
+
+  0%{
+    left:-80px;
+    transform:
+      translateY(-50%)
+      rotate(-7deg)
+      scaleY(.8);
+  }
+
+  15%{
+    transform:
+      translateY(-50%)
+      rotate(-2deg)
+      scaleY(1.15);
+  }
+
+  35%{
+    transform:
+      translateY(-50%)
+      rotate(3deg)
+      scaleY(.95);
+  }
+
+  55%{
+    transform:
+      translateY(-50%)
+      rotate(-2deg)
+      scaleY(1.12);
+  }
+
+  75%{
+    transform:
+      translateY(-50%)
+      rotate(2deg)
+      scaleY(.95);
+  }
+
+  100%{
+    left:calc(100% + 80px);
+
+    opacity:0;
+
+    transform:
+      translateY(-50%)
+      rotate(-4deg);
+  }
+}
+
+/* TEXT GETS PAINTED */
+
+@keyframes textPaint{
+
+  0%{
+    opacity:0;
+
+    clip-path:
+      inset(0 100% 0 0);
+  }
+
+  8%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:1;
+
+    clip-path:
+      inset(0 0 0 0);
+  }
+}
+
+/* FINAL PAINTED LOOK */
+
+.brush-name span{
+  text-shadow:
+    0 0 5px rgba(255,255,255,.25),
+    0 0 12px rgba(165,29,59,.3);
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .brush-name{
+    font-size:22px;
+    letter-spacing:2px;
+  }
+
+  .paint-brush{
+    width:60px;
+    height:32px;
   }
 
 }
