@@ -625,6 +625,52 @@ nav a:hover{
   width:100%;
 
 }
+   .real-name{
+  font-family:'Permanent Marker',cursive;
+  font-size:25px;
+  letter-spacing:3px;
+  text-align:center;
+  color:white;
+  width:fit-content;
+  margin:0 auto 12px;
+  white-space:nowrap;
+
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  transform:translateX(-25px);
+
+  animation:vishalPaint 3s cubic-bezier(.65,0,.25,1) .3s forwards;
+}
+
+@keyframes vishalPaint{
+
+  0%{
+    opacity:0;
+    clip-path:inset(0 100% 0 0);
+    transform:translateX(-25px);
+    filter:blur(4px);
+  }
+
+  15%{
+    opacity:1;
+  }
+
+  50%{
+    clip-path:inset(0 45% 0 0);
+    transform:translateX(0);
+    filter:blur(0);
+  }
+
+  100%{
+    opacity:1;
+    clip-path:inset(0 0 0 0);
+    transform:translateX(0);
+    filter:blur(0);
+    text-shadow:
+      0 0 8px rgba(255,255,255,.5),
+      0 0 20px rgba(165,29,59,.5);
+  }
+   }
 
 .hero h1{
 
@@ -2757,6 +2803,27 @@ window.addEventListener(
 
 requestAnimationFrame(
   animate
+);
+   /* =========================================
+   VISHAL TELAM PAINT ANIMATION
+========================================= */
+
+const vishalName =
+  document.getElementById("vishalName");
+
+function replayVishalAnimation(){
+
+  vishalName.style.animation = "none";
+
+  void vishalName.offsetWidth;
+
+  vishalName.style.animation =
+    "vishalPaint 3s cubic-bezier(.65,0,.25,1) .3s forwards";
+}
+
+window.addEventListener(
+  "load",
+  replayVishalAnimation
 );
 
 </script>
