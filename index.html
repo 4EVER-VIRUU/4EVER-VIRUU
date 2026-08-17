@@ -626,45 +626,234 @@ nav a:hover{
 
 }
 
-.real-name{
+/* =========================================
+   PAINT BRUSH NAME REVEAL
+========================================= */
 
-  font-family:
-    'Permanent Marker',
-    cursive;
+.brush-name{
+  position:relative;
+  display:inline-block;
 
+  margin:0 auto 15px;
+
+  font-family:'Permanent Marker', cursive;
   font-size:25px;
-
   letter-spacing:3px;
 
-  text-align:center;
+  color:#fff;
 
-  color:white;
+  overflow:hidden;
 
-  width:fit-content;
+  opacity:1;
+}
 
-  margin:
-    0 auto 12px;
+/* Text starts hidden */
+.brush-name span{
+  display:block;
 
-  white-space:nowrap;
+  opacity:0;
+
+  clip-path:inset(0 100% 0 0);
 
   animation:
-    nameReveal 2.5s ease forwards;
+    brushTextReveal 3.2s
+    cubic-bezier(.65,0,.25,1)
+    .5s forwards;
 
+  text-shadow:
+    0 0 8px rgba(255,255,255,.35);
 }
 
-@keyframes nameReveal{
+/* Moving paint brush */
+.brush-stroke{
+  position:absolute;
 
-  from{
-    opacity:0;
-    transform:translateX(-20px);
-  }
+  top:-8px;
+  left:-35px;
 
-  to{
+  width:45px;
+  height:55px;
+
+  z-index:5;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,.15) 15%,
+      #ffffff 45%,
+      #a51d3b 65%,
+      rgba(165,29,59,.15) 90%,
+      transparent 100%
+    );
+
+  filter:
+    blur(1px)
+    drop-shadow(
+      0 0 10px rgba(165,29,59,.8)
+    );
+
+  transform:
+    skewX(-12deg)
+    rotate(-3deg);
+
+  animation:
+    brushMove 3.2s
+    cubic-bezier(.65,0,.25,1)
+    .5s forwards;
+}
+
+/* Uneven paint-brush edges */
+.brush-name::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  bottom:0;
+
+  width:100%;
+  height:5px;
+
+  z-index:4;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #a51d3b 0px,
+      #a51d3b 8px,
+      transparent 8px,
+      transparent 13px
+    );
+
+  opacity:0;
+
+  transform:scaleX(0);
+
+  transform-origin:left;
+
+  animation:
+    paintLine 3.2s
+    cubic-bezier(.65,0,.25,1)
+    .5s forwards;
+}
+
+/* Text gets painted */
+@keyframes brushTextReveal{
+
+  0%{
     opacity:1;
-    transform:translateX(0);
+    clip-path:inset(
+      0 100% 0 0
+    );
   }
 
+  20%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:1;
+    clip-path:inset(
+      0 0 0 0
+    );
+  }
 }
+
+/* Brush travels across the name */
+@keyframes brushMove{
+
+  0%{
+    left:-45px;
+  }
+
+  10%{
+    transform:
+      skewX(-12deg)
+      rotate(-5deg)
+      scaleY(.9);
+  }
+
+  45%{
+    transform:
+      skewX(-8deg)
+      rotate(2deg)
+      scaleY(1.15);
+  }
+
+  75%{
+    transform:
+      skewX(-15deg)
+      rotate(-2deg)
+      scaleY(.95);
+  }
+
+  100%{
+    left:calc(100% + 20px);
+
+    opacity:0;
+  }
+}
+
+/* Little paint line underneath */
+@keyframes paintLine{
+
+  0%{
+    opacity:0;
+    transform:scaleX(0);
+  }
+
+  25%{
+    opacity:.8;
+  }
+
+  100%{
+    opacity:.65;
+    transform:scaleX(1);
+  }
+}
+
+/* Final subtle glow */
+.brush-name span{
+  animation:
+    brushTextReveal 3.2s
+    cubic-bezier(.65,0,.25,1)
+    .5s forwards,
+    paintedGlow 3s
+    ease-in-out
+    3.7s infinite;
+}
+
+@keyframes paintedGlow{
+
+  0%,100%{
+    text-shadow:
+      0 0 5px rgba(255,255,255,.3),
+      0 0 12px rgba(165,29,59,.25);
+  }
+
+  50%{
+    text-shadow:
+      0 0 8px rgba(255,255,255,.65),
+      0 0 22px rgba(165,29,59,.65);
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+  .brush-name{
+    font-size:22px;
+    letter-spacing:2px;
+  }
+
+  .brush-stroke{
+    width:38px;
+  }
+
+   }
 
 .hero h1{
 
@@ -1642,11 +1831,10 @@ section{
 
   <div class="hero-content">
 
-    <div class="real-name">
-
-      VISHAL N. TELAM
-
-    </div>
+    <div class="brush-name">
+  <span>VISHAL N. TELAM</span>
+  <i class="brush-stroke"></i>
+</div>
 
     <h1>
 
