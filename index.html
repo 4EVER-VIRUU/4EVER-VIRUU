@@ -672,20 +672,110 @@ nav a:hover{
   }
    }
 
+/* =========================================
+   4EVER VIRUU — CINEMATIC TEXT ANIMATION
+========================================= */
+
 .hero h1{
-
-  font-size:
-    clamp(48px,12vw,110px);
-
+  font-size:clamp(48px,12vw,110px);
   letter-spacing:8px;
-
   font-weight:900;
 
+  color:white;
+
+  opacity:0;
+
+  transform:
+    translateY(35px)
+    scale(.75);
+
+  filter:blur(10px);
+
   text-shadow:
-    0 0 25px rgba(255,255,255,.08);
+    0 0 0 rgba(255,255,255,0);
 
   animation:
-    titleIn 1.4s ease;
+    viruuReveal 1.8s
+    cubic-bezier(.16,1,.3,1)
+    .5s forwards;
+}
+
+
+/* TEXT REVEAL */
+
+@keyframes viruuReveal{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translateY(35px)
+      scale(.75);
+
+    filter:blur(12px);
+
+    letter-spacing:18px;
+
+    text-shadow:
+      0 0 0 rgba(255,255,255,0);
+  }
+
+  30%{
+    opacity:.35;
+
+    transform:
+      translateY(15px)
+      scale(.88);
+
+    filter:blur(6px);
+
+    letter-spacing:13px;
+  }
+
+  65%{
+    opacity:.85;
+
+    transform:
+      translateY(-3px)
+      scale(1.04);
+
+    filter:blur(1px);
+
+    letter-spacing:9px;
+
+    text-shadow:
+      0 0 15px rgba(255,255,255,.3),
+      0 0 30px rgba(165,29,59,.45);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:blur(0);
+
+    letter-spacing:8px;
+
+    text-shadow:
+      0 0 10px rgba(255,255,255,.25),
+      0 0 25px rgba(165,29,59,.45);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+  .hero h1{
+    font-size:44px;
+    letter-spacing:4px;
+  }
 
 }
 
@@ -700,29 +790,6 @@ nav a:hover{
 
 }
 
-@keyframes titleIn{
-
-  from{
-
-    opacity:0;
-
-    transform:translateY(30px);
-
-    filter:blur(8px);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-    filter:blur(0);
-
-  }
-
-}
 
 /* =========================================================
    BUTTONS
@@ -1860,10 +1927,8 @@ section{
   <i class="brush-stroke"></i>
 </div>
 
-    <h1>
-
-      4EVER VIRUU
-
+    <h1 class="viruu-title">
+  <span>4EVER VIRUU</span>
     </h1>
 
     <p>
