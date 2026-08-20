@@ -1786,6 +1786,156 @@ section{
 
 }
 
+/* =========================================
+   VISHAL N. TELAM — PAINT REVEAL
+========================================= */
+
+.real-name{
+  display:inline-block;
+  overflow:hidden;
+
+  opacity:0;
+  transform:translateX(-35px);
+
+  clip-path:inset(0 100% 0 0);
+
+  animation:
+    vishalReveal 2.5s
+    cubic-bezier(.65,0,.25,1)
+    .3s forwards;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.25),
+    0 0 20px rgba(165,29,59,.5);
+}
+
+@keyframes vishalReveal{
+
+  0%{
+    opacity:0;
+    transform:translateX(-35px);
+    clip-path:inset(0 100% 0 0);
+  }
+
+  20%{
+    opacity:1;
+  }
+
+  70%{
+    clip-path:inset(0 15% 0 0);
+    transform:translateX(5px);
+  }
+
+  100%{
+    opacity:1;
+    transform:translateX(0);
+    clip-path:inset(0 0 0 0);
+  }
+}
+
+
+/* =========================================
+   4EVER VIRUU — CINEMATIC REVEAL
+========================================= */
+
+.viruu-title{
+  opacity:0;
+  transform:
+    translateY(40px)
+    scale(.75);
+
+  filter:blur(12px);
+
+  animation:
+    viruuCinematic 2.2s
+    cubic-bezier(.16,1,.3,1)
+    1.4s forwards;
+}
+
+.viruu-title span{
+  display:inline-block;
+
+  animation:
+    viruuGlow 3s
+    ease-in-out
+    3.2s
+    infinite alternate;
+}
+
+@keyframes viruuCinematic{
+
+  0%{
+    opacity:0;
+    transform:
+      translateY(40px)
+      scale(.75);
+
+    filter:blur(12px);
+    letter-spacing:20px;
+  }
+
+  35%{
+    opacity:.4;
+    transform:
+      translateY(15px)
+      scale(.88);
+
+    filter:blur(6px);
+    letter-spacing:14px;
+  }
+
+  70%{
+    opacity:.9;
+    transform:
+      translateY(-4px)
+      scale(1.04);
+
+    filter:blur(1px);
+    letter-spacing:9px;
+  }
+
+  100%{
+    opacity:1;
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:blur(0);
+    letter-spacing:8px;
+  }
+}
+
+@keyframes viruuGlow{
+
+  0%{
+    text-shadow:
+      0 0 5px rgba(255,255,255,.15),
+      0 0 15px rgba(165,29,59,.25);
+  }
+
+  100%{
+    text-shadow:
+      0 0 12px rgba(255,255,255,.35),
+      0 0 30px rgba(255,0,85,.55),
+      0 0 55px rgba(122,0,255,.25);
+  }
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .real-name{
+    font-size:22px;
+  }
+
+  .viruu-title{
+    font-size:44px;
+  }
+
+}
+
 </style>
 
 </head>
