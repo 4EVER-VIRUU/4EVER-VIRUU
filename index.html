@@ -1935,7 +1935,346 @@ section{
   }
 
 }
+/* =========================================
+   ABOUT VIRUU BUTTON
+========================================= */
 
+.viruu-info-btn{
+
+  position:fixed;
+
+  right:18px;
+  bottom:20px;
+
+  z-index:5000;
+
+  padding:10px 16px;
+
+  border:1px solid rgba(165,29,59,.8);
+
+  border-radius:25px;
+
+  background:
+    rgba(5,5,8,.78);
+
+  backdrop-filter:blur(10px);
+
+  color:white;
+
+  font-size:11px;
+
+  letter-spacing:1.5px;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 15px rgba(165,29,59,.25);
+
+  transition:.35s;
+}
+
+.viruu-info-btn:hover{
+
+  transform:translateY(-4px);
+
+  background:
+    rgba(165,29,59,.35);
+
+  box-shadow:
+    0 0 28px rgba(165,29,59,.55);
+}
+
+
+/* =========================================
+   POPUP BACKGROUND
+========================================= */
+
+.viruu-info-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:6000;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:25px;
+
+  background:
+    rgba(0,0,0,.80);
+
+  backdrop-filter:blur(14px);
+}
+
+
+/* =========================================
+   POPUP CARD
+========================================= */
+
+.viruu-info-card{
+
+  position:relative;
+
+  width:min(390px,92vw);
+
+  padding:35px 25px;
+
+  text-align:center;
+
+  border-radius:25px;
+
+  border:
+    1px solid rgba(165,29,59,.75);
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(25,5,13,.97),
+      rgba(5,7,12,.97)
+    );
+
+  box-shadow:
+
+    0 0 30px
+    rgba(165,29,59,.3),
+
+    0 0 80px
+    rgba(0,90,150,.12);
+
+  animation:
+    viruuCardIn .45s ease forwards;
+}
+
+
+@keyframes viruuCardIn{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(30px)
+      scale(.92);
+
+    filter:blur(8px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:blur(0);
+  }
+}
+
+
+/* =========================================
+   SYMBOL
+========================================= */
+
+.info-symbol{
+
+  font-size:28px;
+
+  color:#ff2b68;
+
+  margin-bottom:8px;
+
+  text-shadow:
+    0 0 15px rgba(255,40,100,.7);
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.viruu-info-card h2{
+
+  font-size:25px;
+
+  letter-spacing:3px;
+
+  margin-bottom:5px;
+}
+
+
+/* =========================================
+   TAG
+========================================= */
+
+.info-tag{
+
+  color:#999;
+
+  font-size:9px;
+
+  letter-spacing:2px;
+
+  margin-bottom:20px;
+}
+
+
+/* =========================================
+   INFO ITEMS
+========================================= */
+
+.info-item{
+
+  color:#ddd;
+
+  font-size:14px;
+
+  margin:12px 0;
+
+  text-align:left;
+
+  padding-left:20px;
+}
+
+.info-item span{
+
+  margin-left:7px;
+
+}
+
+
+/* =========================================
+   LINE
+========================================= */
+
+.info-line{
+
+  width:75%;
+
+  height:1px;
+
+  margin:20px auto;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(165,29,59,.8),
+      transparent
+    );
+}
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.secret-text{
+
+  color:#eee;
+
+  font-family:
+    'Permanent Marker',
+    cursive;
+
+  font-size:14px;
+
+  margin-top:15px;
+}
+
+
+.info-sign{
+
+  margin-top:10px;
+
+  color:#a51d3b;
+
+  letter-spacing:3px;
+
+  font-size:10px;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.viruu-close{
+
+  position:absolute;
+
+  top:12px;
+  right:15px;
+
+  width:35px;
+  height:35px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:
+    rgba(255,255,255,.06);
+
+  color:white;
+
+  font-size:25px;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.viruu-close:hover{
+
+  background:#a51d3b;
+
+  transform:rotate(90deg);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+  .viruu-info-btn{
+
+    right:12px;
+
+    bottom:14px;
+
+    padding:9px 13px;
+
+    font-size:9px;
+  }
+
+  .viruu-info-card{
+
+    padding:32px 20px;
+  }
+
+  .viruu-info-card h2{
+
+    font-size:21px;
+
+    letter-spacing:2px;
+  }
+
+  .info-item{
+
+    font-size:13px;
+
+  }
+
+   }
 </style>
 
 </head>
@@ -3026,7 +3365,122 @@ window.addEventListener(
   replayVishalAnimation
 );
 
-</script>
+   /* =========================================
+   ABOUT VIRUU POPUP
+========================================= */
 
+function openViruInfo(){
+
+  document
+    .getElementById("viruuInfo")
+    .style.display="flex";
+
+}
+
+
+function closeViruInfo(){
+
+  document
+    .getElementById("viruuInfo")
+    .style.display="none";
+
+}
+
+
+/* CLOSE WHEN CLICKING OUTSIDE CARD */
+
+document
+  .getElementById("viruuInfo")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(event.target === this){
+
+        closeViruInfo();
+
+      }
+
+    }
+  );
+</script>
+<!-- =========================================
+     ABOUT VIRUU BUTTON
+========================================= -->
+
+<button class="viruu-info-btn" onclick="openViruInfo()">
+  ⓘ ABOUT VIRUU
+</button>
+
+
+<!-- =========================================
+     ABOUT VIRUU POPUP
+========================================= -->
+
+<div id="viruuInfo" class="viruu-info-overlay">
+
+  <div class="viruu-info-card">
+
+    <button
+      class="viruu-close"
+      onclick="closeViruInfo()">
+      ×
+    </button>
+
+    <div class="info-symbol">
+      𓆩✦𓆪
+    </div>
+
+    <h2>
+      VISHAL N. TELAM
+    </h2>
+
+    <p class="info-tag">
+      4EVER VIRUU • CREATOR PROFILE
+    </p>
+
+    <div class="info-line"></div>
+
+    <div class="info-item">
+      🎨 <span>Artist & Creator</span>
+    </div>
+
+    <div class="info-item">
+      🇮🇳 <span>India • Maharashtra</span>
+    </div>
+
+    <div class="info-item">
+      📍 <span>Nashik District</span>
+    </div>
+
+    <div class="info-item">
+      🎂 <span>Born • August 2009</span>
+    </div>
+
+    <div class="info-item">
+      🏫 <span>Student & Creative Explorer</span>
+    </div>
+
+    <div class="info-item">
+      🎯 <span>Future Architect</span>
+    </div>
+
+    <div class="info-item">
+      🖌️ <span>Painting • Photography • Creativity</span>
+    </div>
+
+    <div class="info-line"></div>
+
+    <div class="secret-text">
+      “Create. Dream. Leave a mark.”
+    </div>
+
+    <div class="info-sign">
+      — 4EVER VIRUU
+    </div>
+
+  </div>
+
+</div>
 </body>
    </html>
