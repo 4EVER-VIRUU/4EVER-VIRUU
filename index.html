@@ -1,20 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>VISHAL TELAM | 4EVER VIRUU</title>
 
 <meta name="description"
-content="4EVER VIRUU — Personal portfolio of an artist and creator. Explore paintings, photography, creative projects and achievements.">
+content="VISHAL TELAM — 4EVER VIRUU. Artist, Creator & Dreamer. Explore paintings, photography, creative projects, achievements and my national journey.">
 
-<link rel="icon" type="image/jpeg"
-href="IMG_20260810_001027.jpg">
+<meta name="author"
+content="VISHAL TELAM">
+
+<meta name="robots"
+content="index, follow">
+
+<meta name="theme-color"
+content="#050506">
+
+<link rel="canonical"
+href="https://4ever-viruu.github.io/">
+
+<!-- FAVICON -->
+
+<link rel="icon"
+      type="image/png"
+      href="file_00000000f414820bbe7471d6736ffc75.png">
+
+<!-- GOOGLE FONT -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-rel="stylesheet">
+      rel="stylesheet">
+
+
+<!-- OPEN GRAPH -->
+
+<meta property="og:title"
+      content="VISHAL TELAM | 4EVER VIRUU">
+
+<meta property="og:description"
+      content="Artist • Creator • Dreamer 🎨">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:url"
+      content="https://4ever-viruu.github.io/">
+
+<meta property="og:image"
+      content="https://4ever-viruu.github.io/file_00000000f414820bbe7471d6736ffc75.png">
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "VISHAL TELAM",
+  "alternateName": "4EVER VIRUU",
+  "url": "https://4ever-viruu.github.io/",
+  "image": "https://4ever-viruu.github.io/file_00000000f414820bbe7471d6736ffc75.png",
+  "jobTitle": "Artist and Creator",
+  "sameAs": [
+    "https://www.instagram.com/ur.virroxzy",
+    "https://youtube.com/@4rtz-viruu"
+  ]
+}
+
+</script>
+
 
 <style>
 
@@ -34,40 +101,166 @@ html{
 }
 
 body{
+
   font-family:Arial,sans-serif;
+
   background:#050506;
+
   color:white;
+
   line-height:1.6;
+
   overflow-x:hidden;
 }
+
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+#loader{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:99999;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-direction:column;
+
+  background:#030304;
+
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
+
+}
+
+#loader.hide{
+
+  opacity:0;
+
+  visibility:hidden;
+
+}
+
+.loader-ring{
+
+  width:90px;
+
+  height:90px;
+
+  border-radius:50%;
+
+  border:2px solid rgba(255,255,255,.08);
+
+  border-top-color:#ff0055;
+
+  border-right-color:#7a00ff;
+
+  border-bottom-color:#00d9ff;
+
+  animation:
+    loaderSpin 1.3s linear infinite;
+
+  box-shadow:
+    0 0 20px rgba(255,0,85,.35),
+    0 0 35px rgba(0,150,255,.18);
+
+}
+
+.loader-text{
+
+  margin-top:25px;
+
+  font-family:
+    'Permanent Marker',
+    cursive;
+
+  font-size:20px;
+
+  letter-spacing:4px;
+
+  animation:
+    loaderPulse 1.4s ease-in-out infinite alternate;
+
+}
+
+.loader-sub{
+
+  margin-top:7px;
+
+  color:#777;
+
+  font-size:10px;
+
+  letter-spacing:3px;
+
+}
+
+@keyframes loaderSpin{
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+@keyframes loaderPulse{
+
+  from{
+    opacity:.35;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
 
 /* =========================================================
    MAIN BACKGROUND
 ========================================================= */
 
 #background{
+
   position:fixed;
+
   inset:0;
+
   z-index:0;
+
   pointer-events:none;
+
   overflow:hidden;
 
   background:
+
     radial-gradient(
       circle at 20% 25%,
       rgba(145,10,50,.35),
       transparent 35%
     ),
+
     radial-gradient(
       circle at 80% 75%,
       rgba(110,5,45,.30),
       transparent 38%
     ),
+
     radial-gradient(
       circle at 50% 50%,
       rgba(0,80,130,.08),
       transparent 45%
     ),
+
     linear-gradient(
       135deg,
       #030304,
@@ -79,34 +272,48 @@ body{
 
   animation:
     backgroundMove 14s ease-in-out infinite alternate;
+
 }
 
 @keyframes backgroundMove{
 
   0%{
+
     transform:scale(1);
+
     filter:brightness(.9);
+
   }
 
   50%{
+
     filter:brightness(1.05);
+
   }
 
   100%{
+
     transform:scale(1.06);
+
     filter:brightness(.92);
+
   }
 
 }
 
+
 /* =========================================================
-   MAROON LIGHT WAVES
+   MAROON GLOW
 ========================================================= */
 
 #maroonGlow{
+
   position:fixed;
+
   inset:-20%;
+
   z-index:1;
+
   pointer-events:none;
 
   background:
@@ -127,24 +334,32 @@ body{
 
   animation:
     glowMove 10s ease-in-out infinite alternate;
+
 }
 
 @keyframes glowMove{
 
   from{
-    transform:translate(-30px,20px)
-    scale(1);
+
+    transform:
+      translate(-30px,20px)
+      scale(1);
+
   }
 
   to{
-    transform:translate(40px,-30px)
-    scale(1.15);
+
+    transform:
+      translate(40px,-30px)
+      scale(1.15);
+
   }
 
 }
 
+
 /* =========================================================
-   POLYGONAL WORLD / NETWORK
+   NETWORK
 ========================================================= */
 
 #network-bg{
@@ -154,6 +369,7 @@ body{
   inset:0;
 
   width:100%;
+
   height:100%;
 
   z-index:2;
@@ -161,10 +377,12 @@ body{
   pointer-events:none;
 
   opacity:.55;
+
 }
 
+
 /* =========================================================
-   WHITE MATH + CHEMISTRY SYMBOLS
+   SCIENCE BACKGROUND
 ========================================================= */
 
 .science-bg{
@@ -178,6 +396,7 @@ body{
   pointer-events:none;
 
   overflow:hidden;
+
 }
 
 .science-bg span{
@@ -198,8 +417,6 @@ body{
     scienceFloat 13s ease-in-out infinite;
 
 }
-
-/* positions */
 
 .science-bg span:nth-child(1){
   left:6%;
@@ -279,30 +496,37 @@ body{
 @keyframes scienceFloat{
 
   0%{
+
     transform:
       translate(0,0)
       rotate(0deg);
 
     opacity:.10;
+
   }
 
   50%{
+
     transform:
       translate(30px,-40px)
       rotate(8deg);
 
     opacity:.45;
+
   }
 
   100%{
+
     transform:
       translate(-20px,20px)
       rotate(-5deg);
 
     opacity:.10;
+
   }
 
 }
+
 
 /* =========================================================
    PAINT DUST
@@ -317,6 +541,7 @@ body{
   z-index:4;
 
   pointer-events:none;
+
 }
 
 .paint-dust i{
@@ -324,6 +549,7 @@ body{
   position:absolute;
 
   width:4px;
+
   height:4px;
 
   border-radius:50%;
@@ -416,30 +642,37 @@ body{
 @keyframes dustFloat{
 
   0%{
+
     transform:
       translate(0,0)
       scale(.5);
 
     opacity:.1;
+
   }
 
   50%{
+
     transform:
       translate(35px,-45px)
       scale(1.5);
 
     opacity:.8;
+
   }
 
   100%{
+
     transform:
       translate(-20px,20px)
       scale(.5);
 
     opacity:.1;
+
   }
 
 }
+
 
 /* =========================================================
    CONTENT
@@ -450,7 +683,9 @@ body{
   position:relative;
 
   z-index:10;
+
 }
+
 
 /* =========================================================
    NAVBAR
@@ -461,6 +696,7 @@ nav{
   position:fixed;
 
   top:0;
+
   left:0;
 
   width:100%;
@@ -474,7 +710,7 @@ nav{
   align-items:center;
 
   background:
-    rgba(3,3,5,.65);
+    rgba(3,3,5,.72);
 
   backdrop-filter:blur(14px);
 
@@ -492,6 +728,14 @@ nav{
   font-weight:bold;
 
   letter-spacing:2px;
+
+}
+
+.nav-links{
+
+  display:flex;
+
+  align-items:center;
 
 }
 
@@ -514,6 +758,66 @@ nav a:hover{
   color:#ff2b68;
 
 }
+
+
+/* HAMBURGER */
+
+.menu-btn{
+
+  display:none;
+
+  width:42px;
+
+  height:38px;
+
+  border:1px solid rgba(255,0,85,.5);
+
+  border-radius:10px;
+
+  background:rgba(255,0,85,.06);
+
+  cursor:pointer;
+
+  padding:8px;
+
+}
+
+.menu-btn span{
+
+  display:block;
+
+  height:2px;
+
+  margin:5px 0;
+
+  background:white;
+
+  transition:.3s;
+
+}
+
+.menu-btn.active span:nth-child(1){
+
+  transform:
+    translateY(7px)
+    rotate(45deg);
+
+}
+
+.menu-btn.active span:nth-child(2){
+
+  opacity:0;
+
+}
+
+.menu-btn.active span:nth-child(3){
+
+  transform:
+    translateY(-7px)
+    rotate(-45deg);
+
+}
+
 
 /* =========================================================
    PROFILE
@@ -577,6 +881,7 @@ nav a:hover{
   z-index:2;
 
   width:100%;
+
   height:100%;
 
   object-fit:cover;
@@ -598,6 +903,7 @@ nav a:hover{
   }
 
 }
+
 
 /* =========================================================
    HERO
@@ -625,48 +931,108 @@ nav a:hover{
   width:100%;
 
 }
-   .real-name {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 25px;
-  letter-spacing: 3px;
-  text-align: center;
-  color: white;
 
-  width: fit-content;
-  margin: 0 auto 12px;
 
-  white-space: nowrap;
+/* =========================================================
+   VISHAL N TELAM — PAINT REVEAL
+========================================================= */
 
-  clip-path: inset(0 100% 0 0);
+.real-name{
 
-  animation: brushReveal 3s ease-out forwards;
+  position:relative;
+
+  display:inline-block;
+
+  font-family:
+    'Permanent Marker',
+    cursive;
+
+  font-size:25px;
+
+  letter-spacing:3px;
+
+  color:white;
+
+  width:fit-content;
+
+  margin:
+    0 auto 12px;
+
+  white-space:nowrap;
+
+  opacity:0;
+
+  transform:translateX(-35px);
+
+  clip-path:
+    inset(0 100% 0 0);
+
+  animation:
+    vishalReveal
+    2.5s
+    cubic-bezier(.65,0,.25,1)
+    .4s
+    forwards;
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,.25),
+    0 0 15px rgba(165,29,59,.5);
+
 }
 
-@keyframes brushReveal {
-  0% {
-    clip-path: inset(0 100% 0 0);
-    transform: translateX(-15px);
-    opacity: 0;
+@keyframes vishalReveal{
+
+  0%{
+
+    opacity:0;
+
+    transform:translateX(-35px);
+
+    clip-path:
+      inset(0 100% 0 0);
+
   }
 
-  30% {
-    opacity: 1;
+  15%{
+
+    opacity:1;
+
   }
 
-  100% {
-    clip-path: inset(0 0 0 0);
-    transform: translateX(0);
-    opacity: 1;
+  65%{
+
+    transform:translateX(5px);
+
+    clip-path:
+      inset(0 12% 0 0);
+
   }
+
+  100%{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+    clip-path:
+      inset(0 0 0 0);
+
+  }
+
 }
 
-/* =========================================
-   4EVER VIRUU — CINEMATIC TEXT ANIMATION
-========================================= */
+
+/* =========================================================
+   4EVER VIRUU CINEMATIC
+========================================================= */
 
 .hero h1{
-  font-size:clamp(48px,12vw,110px);
+
+  font-size:
+    clamp(48px,12vw,110px);
+
   letter-spacing:8px;
+
   font-weight:900;
 
   color:white;
@@ -674,42 +1040,52 @@ nav a:hover{
   opacity:0;
 
   transform:
-    translateY(35px)
+    translateY(40px)
     scale(.75);
 
-  filter:blur(10px);
-
-  text-shadow:
-    0 0 0 rgba(255,255,255,0);
+  filter:blur(12px);
 
   animation:
-    viruuReveal 1.8s
+    viruuCinematic
+    2.2s
     cubic-bezier(.16,1,.3,1)
-    .5s forwards;
+    1.5s
+    forwards;
+
 }
 
+.hero h1 span{
 
-/* TEXT REVEAL */
+  display:inline-block;
 
-@keyframes viruuReveal{
+  animation:
+    viruuGlow
+    3s
+    ease-in-out
+    3.7s
+    infinite alternate;
+
+}
+
+@keyframes viruuCinematic{
 
   0%{
+
     opacity:0;
 
     transform:
-      translateY(35px)
+      translateY(40px)
       scale(.75);
 
     filter:blur(12px);
 
-    letter-spacing:18px;
+    letter-spacing:20px;
 
-    text-shadow:
-      0 0 0 rgba(255,255,255,0);
   }
 
-  30%{
-    opacity:.35;
+  35%{
+
+    opacity:.4;
 
     transform:
       translateY(15px)
@@ -717,26 +1093,26 @@ nav a:hover{
 
     filter:blur(6px);
 
-    letter-spacing:13px;
+    letter-spacing:14px;
+
   }
 
-  65%{
-    opacity:.85;
+  70%{
+
+    opacity:.9;
 
     transform:
-      translateY(-3px)
+      translateY(-4px)
       scale(1.04);
 
     filter:blur(1px);
 
     letter-spacing:9px;
 
-    text-shadow:
-      0 0 15px rgba(255,255,255,.3),
-      0 0 30px rgba(165,29,59,.45);
   }
 
   100%{
+
     opacity:1;
 
     transform:
@@ -747,25 +1123,35 @@ nav a:hover{
 
     letter-spacing:8px;
 
+  }
+
+}
+
+@keyframes viruuGlow{
+
+  from{
+
     text-shadow:
-      0 0 10px rgba(255,255,255,.25),
-      0 0 25px rgba(165,29,59,.45);
+      0 0 5px rgba(255,255,255,.15),
+      0 0 15px rgba(165,29,59,.25);
+
   }
-}
 
+  to{
 
-/* =========================================
-   MOBILE
-========================================= */
+    text-shadow:
+      0 0 12px rgba(255,255,255,.35),
+      0 0 30px rgba(255,0,85,.55),
+      0 0 55px rgba(122,0,255,.25);
 
-@media(max-width:600px){
-
-  .hero h1{
-    font-size:44px;
-    letter-spacing:4px;
   }
 
 }
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
 
 .hero p{
 
@@ -821,6 +1207,7 @@ nav a:hover{
 
 }
 
+
 /* =========================================================
    QUICK INTRO
 ========================================================= */
@@ -829,9 +1216,11 @@ nav a:hover{
 
   max-width:700px;
 
-  margin:45px auto 0;
+  margin:
+    45px auto 0;
 
-  padding:25px 22px;
+  padding:
+    25px 22px;
 
   text-align:center;
 
@@ -867,13 +1256,15 @@ nav a:hover{
 
 }
 
+
 /* =========================================================
    SECTIONS
 ========================================================= */
 
 section{
 
-  padding:90px 8%;
+  padding:
+    90px 8%;
 
 }
 
@@ -888,6 +1279,34 @@ section{
   letter-spacing:2px;
 
 }
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+  opacity:0;
+
+  transform:
+    translateY(50px);
+
+  transition:
+    opacity .9s ease,
+    transform .9s ease;
+
+}
+
+.reveal.active{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+
+}
+
 
 /* =========================================================
    ABOUT
@@ -907,6 +1326,7 @@ section{
 
 }
 
+
 /* =========================================================
    FEATURED ART
 ========================================================= */
@@ -923,7 +1343,8 @@ section{
 
   max-width:390px;
 
-  margin:45px auto;
+  margin:
+    45px auto;
 
   position:relative;
 
@@ -1029,6 +1450,7 @@ section{
 
 }
 
+
 /* =========================================================
    GALLERY
 ========================================================= */
@@ -1106,6 +1528,7 @@ section{
 
 }
 
+
 /* =========================================================
    VIDEO
 ========================================================= */
@@ -1139,6 +1562,7 @@ section{
 
 }
 
+
 /* =========================================================
    ACHIEVEMENTS
 ========================================================= */
@@ -1154,15 +1578,18 @@ section{
 
   max-width:650px;
 
-  margin:30px auto 60px;
+  margin:
+    30px auto 60px;
 
-  padding:0 20px;
+  padding:
+    0 20px;
 
 }
 
 .achievement-card{
 
-  padding:22px 15px;
+  padding:
+    22px 15px;
 
   text-align:center;
 
@@ -1184,7 +1611,8 @@ section{
 
 .achievement-card:hover{
 
-  transform:translateY(-6px);
+  transform:
+    translateY(-6px);
 
   box-shadow:
     0 0 28px
@@ -1218,6 +1646,7 @@ section{
 
 }
 
+
 /* =========================================================
    CONTACT
 ========================================================= */
@@ -1226,9 +1655,11 @@ section{
 
   max-width:650px;
 
-  margin:30px auto 60px;
+  margin:
+    30px auto 60px;
 
-  padding:35px 20px;
+  padding:
+    35px 20px;
 
   text-align:center;
 
@@ -1274,7 +1705,8 @@ section{
 
   display:inline-block;
 
-  padding:13px 25px;
+  padding:
+    13px 25px;
 
   border:
     1px solid rgba(255,0,80,.6);
@@ -1294,7 +1726,8 @@ section{
 
 .social-pro a:hover{
 
-  transform:translateY(-4px);
+  transform:
+    translateY(-4px);
 
   box-shadow:
     0 0 20px
@@ -1308,7 +1741,8 @@ section{
 
   height:1px;
 
-  margin:28px auto 18px;
+  margin:
+    28px auto 18px;
 
   background:
     rgba(255,0,80,.4);
@@ -1325,6 +1759,7 @@ section{
 
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1333,7 +1768,8 @@ section{
 
   margin-top:70px;
 
-  padding:45px 20px 30px;
+  padding:
+    45px 20px 30px;
 
   text-align:center;
 
@@ -1355,7 +1791,8 @@ section{
 
 .footer-brand p{
 
-  margin:10px 0 20px;
+  margin:
+    10px 0 20px;
 
   color:#aaa;
 
@@ -1367,7 +1804,8 @@ section{
 
   height:1px;
 
-  margin:20px auto;
+  margin:
+    20px auto;
 
   background:
     rgba(255,0,80,.6);
@@ -1391,6 +1829,7 @@ section{
   font-size:12px;
 
 }
+
 
 /* =========================================================
    IMAGE VIEWER
@@ -1427,6 +1866,9 @@ section{
 
   border-radius:12px;
 
+  box-shadow:
+    0 0 50px rgba(255,0,85,.15);
+
 }
 
 .painting-viewer .close{
@@ -1445,61 +1887,81 @@ section{
 
 }
 
+
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
   nav{
 
-    padding:15px 5%;
+    padding:
+      14px 5%;
+
+  }
+
+  .menu-btn{
+
+    display:block;
+
+  }
+
+  .nav-links{
+
+    position:absolute;
+
+    top:70px;
+
+    right:5%;
+
+    width:180px;
+
+    padding:12px;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+    background:
+      rgba(5,5,8,.95);
+
+    backdrop-filter:blur(15px);
+
+    border:
+      1px solid rgba(255,0,85,.35);
+
+    border-radius:15px;
+
+    box-shadow:
+      0 15px 40px rgba(0,0,0,.5);
+
+  }
+
+  .nav-links.open{
+
+    display:flex;
 
   }
 
   nav a{
 
-    margin-left:7px;
+    margin:0;
 
-    font-size:11px;
+    padding:12px;
 
-  }
+    font-size:13px;
 
-  .hero h1{
-
-    letter-spacing:4px;
-
-  }
-
-  section{
-
-    padding:70px 6%;
+    border-bottom:
+      1px solid rgba(255,255,255,.06);
 
   }
 
-  .achievement-grid{
+  nav a:last-child{
 
-    gap:10px;
-
-    padding:0 12px;
-
-  }
-
-  .achievement-card{
-
-    padding:18px 10px;
-
-  }
-
-  .achievement-card h3{
-
-    font-size:14px;
-
-  }
-
-  .achievement-card p{
-
-    font-size:11px;
+    border-bottom:none;
 
   }
 
@@ -1515,18 +1977,69 @@ section{
 
     font-size:22px;
 
+    letter-spacing:2px;
+
   }
 
-  .science-bg span{
+  .hero h1{
+
+    font-size:44px;
+
+    letter-spacing:4px;
+
+  }
+
+  .hero p{
+
+    font-size:17px;
+
+  }
+
+  section{
+
+    padding:
+      70px 6%;
+
+  }
+
+  .title{
+
+    font-size:30px;
+
+  }
+
+  .achievement-grid{
+
+    gap:10px;
+
+    padding:0 5px;
+
+  }
+
+  .achievement-card{
+
+    padding:
+      18px 10px;
+
+  }
+
+  .achievement-card h3{
 
     font-size:14px;
 
   }
 
+  .achievement-card p{
+
+    font-size:11px;
+
+  }
+
 }
 
+
 /* =========================================================
-   EXTRA MOBILE FIX
+   SMALL MOBILE
 ========================================================= */
 
 @media(max-width:420px){
@@ -1537,17 +2050,17 @@ section{
 
   }
 
-  nav a{
+  .hero h1{
 
-    font-size:10px;
+    font-size:40px;
 
-    margin-left:4px;
+    letter-spacing:3px;
 
   }
 
-  .hero h1{
+  .real-name{
 
-    font-size:44px;
+    font-size:20px;
 
   }
 
@@ -1557,7 +2070,15 @@ section{
 
   }
 
+  .quick-intro{
+
+    padding:
+      22px 16px;
+
+  }
+
 }
+
 
 /* =========================================================
    REDUCED MOTION
@@ -1575,714 +2096,41 @@ section{
 
     scroll-behavior:auto !important;
 
-  }
+    transition:none !important;
 
-}
-   /* =========================================
-   REAL PAINT BRUSH REVEAL
-========================================= */
-
-.brush-name{
-  position:relative;
-  display:inline-block;
-
-  font-family:'Permanent Marker', cursive;
-  font-size:25px;
-  letter-spacing:3px;
-
-  color:white;
-
-  margin:0 auto 12px;
-
-  white-space:nowrap;
-
-  overflow:hidden;
-}
-
-/* TEXT */
-.brush-name span{
-  display:block;
-
-  opacity:0;
-
-  clip-path:inset(0 100% 0 0);
-
-  animation:textPaint 2.8s
-    cubic-bezier(.65,0,.25,1)
-    .4s forwards;
-}
-
-/* MOVING BRUSH */
-.paint-brush{
-  position:absolute;
-
-  z-index:10;
-
-  left:-70px;
-  top:50%;
-
-  width:75px;
-  height:38px;
-
-  transform:
-    translateY(-50%)
-    rotate(-4deg);
-
-  pointer-events:none;
-
-  /* brush bristles */
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.95) 0px,
-      rgba(255,255,255,.95) 2px,
-      rgba(165,29,59,.9) 3px,
-      rgba(165,29,59,.9) 5px,
-      transparent 6px,
-      transparent 8px
-    );
-
-  border-radius:
-    5px 20px 20px 5px;
-
-  filter:
-    blur(.4px)
-    drop-shadow(
-      0 2px 7px rgba(165,29,59,.8)
-    );
-
-  animation:
-    brushPainting 2.8s
-    cubic-bezier(.65,0,.25,1)
-    .4s forwards;
-}
-
-/* BRUSH HANDLE */
-.paint-brush::after{
-  content:"";
-
-  position:absolute;
-
-  right:-45px;
-  top:50%;
-
-  width:50px;
-  height:7px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #6b241d,
-      #d19a70,
-      #713321
-    );
-
-  border-radius:20px;
-
-  transform:
-    translateY(-50%)
-    rotate(-7deg);
-
-  box-shadow:
-    0 2px 5px rgba(0,0,0,.5);
-}
-
-/* BRUSH PAINTING MOTION */
-
-@keyframes brushPainting{
-
-  0%{
-    left:-80px;
-    transform:
-      translateY(-50%)
-      rotate(-7deg)
-      scaleY(.8);
-  }
-
-  15%{
-    transform:
-      translateY(-50%)
-      rotate(-2deg)
-      scaleY(1.15);
-  }
-
-  35%{
-    transform:
-      translateY(-50%)
-      rotate(3deg)
-      scaleY(.95);
-  }
-
-  55%{
-    transform:
-      translateY(-50%)
-      rotate(-2deg)
-      scaleY(1.12);
-  }
-
-  75%{
-    transform:
-      translateY(-50%)
-      rotate(2deg)
-      scaleY(.95);
-  }
-
-  100%{
-    left:calc(100% + 80px);
-
-    opacity:0;
-
-    transform:
-      translateY(-50%)
-      rotate(-4deg);
-  }
-}
-
-/* TEXT GETS PAINTED */
-
-@keyframes textPaint{
-
-  0%{
-    opacity:0;
-
-    clip-path:
-      inset(0 100% 0 0);
-  }
-
-  8%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:1;
-
-    clip-path:
-      inset(0 0 0 0);
-  }
-}
-
-/* FINAL PAINTED LOOK */
-
-.brush-name span{
-  text-shadow:
-    0 0 5px rgba(255,255,255,.25),
-    0 0 12px rgba(165,29,59,.3);
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .brush-name{
-    font-size:22px;
-    letter-spacing:2px;
-  }
-
-  .paint-brush{
-    width:60px;
-    height:32px;
   }
 
 }
 
-/* =========================================
-   VISHAL N. TELAM — PAINT REVEAL
-========================================= */
-
-.real-name{
-  display:inline-block;
-  overflow:hidden;
-
-  opacity:0;
-  transform:translateX(-35px);
-
-  clip-path:inset(0 100% 0 0);
-
-  animation:
-    vishalReveal 2.5s
-    cubic-bezier(.65,0,.25,1)
-    .3s forwards;
-
-  text-shadow:
-    0 0 8px rgba(255,255,255,.25),
-    0 0 20px rgba(165,29,59,.5);
-}
-
-@keyframes vishalReveal{
-
-  0%{
-    opacity:0;
-    transform:translateX(-35px);
-    clip-path:inset(0 100% 0 0);
-  }
-
-  20%{
-    opacity:1;
-  }
-
-  70%{
-    clip-path:inset(0 15% 0 0);
-    transform:translateX(5px);
-  }
-
-  100%{
-    opacity:1;
-    transform:translateX(0);
-    clip-path:inset(0 0 0 0);
-  }
-}
-
-
-/* =========================================
-   4EVER VIRUU — CINEMATIC REVEAL
-========================================= */
-
-.viruu-title{
-  opacity:0;
-  transform:
-    translateY(40px)
-    scale(.75);
-
-  filter:blur(12px);
-
-  animation:
-    viruuCinematic 2.2s
-    cubic-bezier(.16,1,.3,1)
-    1.4s forwards;
-}
-
-.viruu-title span{
-  display:inline-block;
-
-  animation:
-    viruuGlow 3s
-    ease-in-out
-    3.2s
-    infinite alternate;
-}
-
-@keyframes viruuCinematic{
-
-  0%{
-    opacity:0;
-    transform:
-      translateY(40px)
-      scale(.75);
-
-    filter:blur(12px);
-    letter-spacing:20px;
-  }
-
-  35%{
-    opacity:.4;
-    transform:
-      translateY(15px)
-      scale(.88);
-
-    filter:blur(6px);
-    letter-spacing:14px;
-  }
-
-  70%{
-    opacity:.9;
-    transform:
-      translateY(-4px)
-      scale(1.04);
-
-    filter:blur(1px);
-    letter-spacing:9px;
-  }
-
-  100%{
-    opacity:1;
-    transform:
-      translateY(0)
-      scale(1);
-
-    filter:blur(0);
-    letter-spacing:8px;
-  }
-}
-
-@keyframes viruuGlow{
-
-  0%{
-    text-shadow:
-      0 0 5px rgba(255,255,255,.15),
-      0 0 15px rgba(165,29,59,.25);
-  }
-
-  100%{
-    text-shadow:
-      0 0 12px rgba(255,255,255,.35),
-      0 0 30px rgba(255,0,85,.55),
-      0 0 55px rgba(122,0,255,.25);
-  }
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .real-name{
-    font-size:22px;
-  }
-
-  .viruu-title{
-    font-size:44px;
-  }
-
-}
-/* =========================================
-   ABOUT VIRUU BUTTON
-========================================= */
-
-.viruu-info-btn{
-
-  position:fixed;
-
-  right:18px;
-  bottom:20px;
-
-  z-index:5000;
-
-  padding:10px 16px;
-
-  border:1px solid rgba(165,29,59,.8);
-
-  border-radius:25px;
-
-  background:
-    rgba(5,5,8,.78);
-
-  backdrop-filter:blur(10px);
-
-  color:white;
-
-  font-size:11px;
-
-  letter-spacing:1.5px;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 0 15px rgba(165,29,59,.25);
-
-  transition:.35s;
-}
-
-.viruu-info-btn:hover{
-
-  transform:translateY(-4px);
-
-  background:
-    rgba(165,29,59,.35);
-
-  box-shadow:
-    0 0 28px rgba(165,29,59,.55);
-}
-
-
-/* =========================================
-   POPUP BACKGROUND
-========================================= */
-
-.viruu-info-overlay{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:6000;
-
-  display:none;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:25px;
-
-  background:
-    rgba(0,0,0,.80);
-
-  backdrop-filter:blur(14px);
-}
-
-
-/* =========================================
-   POPUP CARD
-========================================= */
-
-.viruu-info-card{
-
-  position:relative;
-
-  width:min(390px,92vw);
-
-  padding:35px 25px;
-
-  text-align:center;
-
-  border-radius:25px;
-
-  border:
-    1px solid rgba(165,29,59,.75);
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(25,5,13,.97),
-      rgba(5,7,12,.97)
-    );
-
-  box-shadow:
-
-    0 0 30px
-    rgba(165,29,59,.3),
-
-    0 0 80px
-    rgba(0,90,150,.12);
-
-  animation:
-    viruuCardIn .45s ease forwards;
-}
-
-
-@keyframes viruuCardIn{
-
-  from{
-
-    opacity:0;
-
-    transform:
-      translateY(30px)
-      scale(.92);
-
-    filter:blur(8px);
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:
-      translateY(0)
-      scale(1);
-
-    filter:blur(0);
-  }
-}
-
-
-/* =========================================
-   SYMBOL
-========================================= */
-
-.info-symbol{
-
-  font-size:28px;
-
-  color:#ff2b68;
-
-  margin-bottom:8px;
-
-  text-shadow:
-    0 0 15px rgba(255,40,100,.7);
-}
-
-
-/* =========================================
-   NAME
-========================================= */
-
-.viruu-info-card h2{
-
-  font-size:25px;
-
-  letter-spacing:3px;
-
-  margin-bottom:5px;
-}
-
-
-/* =========================================
-   TAG
-========================================= */
-
-.info-tag{
-
-  color:#999;
-
-  font-size:9px;
-
-  letter-spacing:2px;
-
-  margin-bottom:20px;
-}
-
-
-/* =========================================
-   INFO ITEMS
-========================================= */
-
-.info-item{
-
-  color:#ddd;
-
-  font-size:14px;
-
-  margin:12px 0;
-
-  text-align:left;
-
-  padding-left:20px;
-}
-
-.info-item span{
-
-  margin-left:7px;
-
-}
-
-
-/* =========================================
-   LINE
-========================================= */
-
-.info-line{
-
-  width:75%;
-
-  height:1px;
-
-  margin:20px auto;
-
-  background:
-
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(165,29,59,.8),
-      transparent
-    );
-}
-
-
-/* =========================================
-   QUOTE
-========================================= */
-
-.secret-text{
-
-  color:#eee;
-
-  font-family:
-    'Permanent Marker',
-    cursive;
-
-  font-size:14px;
-
-  margin-top:15px;
-}
-
-
-.info-sign{
-
-  margin-top:10px;
-
-  color:#a51d3b;
-
-  letter-spacing:3px;
-
-  font-size:10px;
-}
-
-
-/* =========================================
-   CLOSE BUTTON
-========================================= */
-
-.viruu-close{
-
-  position:absolute;
-
-  top:12px;
-  right:15px;
-
-  width:35px;
-  height:35px;
-
-  border:0;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,255,255,.06);
-
-  color:white;
-
-  font-size:25px;
-
-  cursor:pointer;
-
-  transition:.3s;
-}
-
-.viruu-close:hover{
-
-  background:#a51d3b;
-
-  transform:rotate(90deg);
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media(max-width:600px){
-
-  .viruu-info-btn{
-
-    right:12px;
-
-    bottom:14px;
-
-    padding:9px 13px;
-
-    font-size:9px;
-  }
-
-  .viruu-info-card{
-
-    padding:32px 20px;
-  }
-
-  .viruu-info-card h2{
-
-    font-size:21px;
-
-    letter-spacing:2px;
-  }
-
-  .info-item{
-
-    font-size:13px;
-
-  }
-
-   }
 </style>
 
 </head>
 
+
 <body>
 
+
 <!-- =======================================================
-     BACKGROUND LAYERS
+     LOADING SCREEN
+======================================================= -->
+
+<div id="loader">
+
+  <div class="loader-ring"></div>
+
+  <div class="loader-text">
+    4EVER VIRUU
+  </div>
+
+  <div class="loader-sub">
+    INITIALIZING CREATIVE WORLD...
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     BACKGROUND
 ======================================================= -->
 
 <div id="background"></div>
@@ -2291,20 +2139,23 @@ section{
 
 <canvas id="network-bg"></canvas>
 
-<!-- MATH + CHEMISTRY -->
+
+<!-- =======================================================
+     SCIENCE SYMBOLS
+======================================================= -->
 
 <div class="science-bg">
 
   <span>H₂</span>
-  <span>CO₂</span>
+  <span>viruu</span>
   <span>π</span>
   <span>√x</span>
   <span>∞</span>
   <span>∑</span>
-  <span>Na⁺</span>
+  <span>N</span>
   <span>x²</span>
   <span>Δ</span>
-  <span>O₂</span>
+  <span>virroxzy</span>
   <span>λ</span>
   <span>∫</span>
   <span>F = ma</span>
@@ -2313,7 +2164,10 @@ section{
 
 </div>
 
-<!-- PAINT PARTICLES -->
+
+<!-- =======================================================
+     PAINT DUST
+======================================================= -->
 
 <div class="paint-dust">
 
@@ -2335,11 +2189,13 @@ section{
 
 </div>
 
+
 <!-- =======================================================
-     WEBSITE
+     WEBSITE CONTENT
 ======================================================= -->
 
 <div class="page-content">
+
 
 <!-- =======================================================
      NAVBAR
@@ -2351,7 +2207,19 @@ section{
     4EVER VIRUU
   </div>
 
-  <div>
+  <button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="Open menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+
+  <div class="nav-links" id="navLinks">
 
     <a href="#home">
       Home
@@ -2365,6 +2233,14 @@ section{
       Art
     </a>
 
+    <a href="#photos">
+      Photos
+    </a>
+
+    <a href="#achievements">
+      Achievements
+    </a>
+
     <a href="#contact">
       Contact
     </a>
@@ -2372,6 +2248,7 @@ section{
   </div>
 
 </nav>
+
 
 <!-- =======================================================
      PROFILE
@@ -2383,11 +2260,12 @@ section{
 
     <img
       src="file_00000000f414820bbe7471d6736ffc75.png"
-      alt="4EVER VIRUU">
+      alt="VISHAL N. TELAM - 4EVER VIRUU">
 
   </div>
 
 </div>
+
 
 <!-- =======================================================
      HOME
@@ -2399,17 +2277,25 @@ section{
 
   <div class="hero-content">
 
-    <div class="real-name">VISHAL N. TELAM</div>
+
+    <div class="real-name">
+      VISHAL N. TELAM
+    </div>
+
 
     <h1 class="viruu-title">
-  <span>4EVER VIRUU</span>
+
+      <span>
+        4EVER VIRUU
+      </span>
+
     </h1>
 
+
     <p>
-
       Artist • Creator • Dreamer 🎨
-
     </p>
+
 
     <a
       href="#paintings"
@@ -2419,6 +2305,7 @@ section{
 
     </a>
 
+
     <a
       href="journey.html"
       class="journey-button">
@@ -2427,12 +2314,11 @@ section{
 
     </a>
 
-    <div class="quick-intro">
+
+    <div class="quick-intro reveal">
 
       <h2>
-
         ✨ A LITTLE ABOUT ME
-
       </h2>
 
       <p>
@@ -2448,9 +2334,11 @@ section{
 
     </div>
 
+
   </div>
 
 </section>
+
 
 <!-- =======================================================
      FEATURED ART
@@ -2458,59 +2346,57 @@ section{
 
 <section>
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     • FEATURED ART •
-
   </h2>
 
-  <div class="featured-grid">
+
+  <div class="featured-grid reveal">
+
 
     <div class="art-card">
 
       <img
         src="IMG_20260812_165745.jpg"
-        alt="Colourful Eye Artwork">
+        alt="Colour of Vision artwork">
 
       <div class="art-name">
-
         COLOUR OF VISION 👁️
-
       </div>
 
     </div>
+
 
     <div class="art-card">
 
       <img
         src="IMG_20260331_155158.jpg"
-        alt="Dark Portrait Artwork">
+        alt="Dark portrait artwork">
 
       <div class="art-name">
-
         DARK PORTRAIT 🖤
-
       </div>
 
     </div>
+
 
     <div class="art-card">
 
       <img
         src="painting-woman-black-dress-with-long-black-coat_783884-443403.jpg"
-        alt="Woman Black Dress Artwork">
+        alt="Woman black dress artwork">
 
       <div class="art-name">
-
         SHADOWS & SOUL 🎨
-
       </div>
 
     </div>
 
+
   </div>
 
 </section>
+
 
 <!-- =======================================================
      ABOUT
@@ -2518,13 +2404,12 @@ section{
 
 <section id="about">
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     ABOUT ME
-
   </h2>
 
-  <div class="about">
+
+  <div class="about reveal">
 
     <p>
 
@@ -2549,103 +2434,125 @@ section{
 
 </section>
 
+
 <!-- =======================================================
      PAINTINGS
 ======================================================= -->
 
 <section id="paintings">
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     MY PAINTINGS 🎨
-
   </h2>
+
 
   <div class="gallery">
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240620_084046_046.jpg"
-        alt="Painting 01">
+        alt="VISHAL N TELAM Painting 01"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_२०२४१०२८_१९४००६.jpg"
-        alt="Painting 02">
+        alt="VISHAL N TELAM Painting 02"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240926_212519_849.jpg"
-        alt="Painting 03">
+        alt="VISHAL N TELAM Painting 03"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240926_212139_603.jpg"
-        alt="Painting 04">
+        alt="VISHAL N TELAM Painting 04"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240926_213200_415.jpg"
-        alt="Painting 05">
+        alt="VISHAL N TELAM Painting 05"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240620_093412_858.jpg"
-        alt="Painting 06">
+        alt="VISHAL N TELAM Painting 06"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20240620_093026_696.jpg"
-        alt="Painting 07">
+        alt="VISHAL N TELAM Painting 07"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20241113_083554_129.jpg"
-        alt="Painting 08">
+        alt="VISHAL N TELAM Painting 08"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20260809_170134.jpg"
-        alt="Painting 09">
+        alt="VISHAL N TELAM Painting 09"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20260809_170424.jpg"
-        alt="Painting 10">
+        alt="VISHAL N TELAM Painting 10"
+        loading="lazy">
 
     </div>
+
 
   </div>
 
 </section>
+
 
 <!-- =======================================================
      PHOTOS
@@ -2653,63 +2560,74 @@ section{
 
 <section id="photos">
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     UR.V!RUU🥀
-
   </h2>
+
 
   <div class="gallery">
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="file_00000000f414820bbe7471d6736ffc75.png"
-        alt="VIRUU Photo 01">
+        alt="VIRUU Photo 01"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="file_00000000ed3c820b9d1c1e1b805f059a.png"
-        alt="VIRUU Photo 02">
+        alt="VIRUU Photo 02"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20260809_233027.jpg"
-        alt="VIRUU Photo 03">
+        alt="VIRUU Photo 03"
+        loading="lazy">
 
     </div>
 
-    <div class="card">
+
+    <div class="card reveal">
 
       <img
         src="IMG_20260809_232919.jpg"
-        alt="VIRUU Photo 04">
+        alt="VIRUU Photo 04"
+        loading="lazy">
 
     </div>
 
+
   </div>
+
 
   <!-- VIDEO -->
 
   <h2
-    class="title"
+    class="title reveal"
     style="margin-top:80px;">
 
     EMRS WINNER❓
 
   </h2>
 
-  <div class="video-box">
+
+  <div class="video-box reveal">
 
     <video
       controls
-      playsinline>
+      playsinline
+      preload="metadata">
 
       <source
         src="lv_0_20260731012855.mp4"
@@ -2723,21 +2641,22 @@ section{
 
 </section>
 
+
 <!-- =======================================================
      ACHIEVEMENTS
 ======================================================= -->
 
 <section id="achievements">
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     ACHIEVEMENTS 🏆
-
   </h2>
+
 
   <div class="achievement-grid">
 
-    <div class="achievement-card">
+
+    <div class="achievement-card reveal">
 
       <div class="achievement-icon">
         🥇
@@ -2757,7 +2676,8 @@ section{
 
     </div>
 
-    <div class="achievement-card">
+
+    <div class="achievement-card reveal">
 
       <div class="achievement-icon">
         🎨
@@ -2776,7 +2696,8 @@ section{
 
     </div>
 
-    <div class="achievement-card">
+
+    <div class="achievement-card reveal">
 
       <div class="achievement-icon">
         🏅
@@ -2796,7 +2717,8 @@ section{
 
     </div>
 
-    <div class="achievement-card">
+
+    <div class="achievement-card reveal">
 
       <div class="achievement-icon">
         ✨
@@ -2815,9 +2737,11 @@ section{
 
     </div>
 
+
   </div>
 
 </section>
+
 
 <!-- =======================================================
      CONTACT
@@ -2825,13 +2749,12 @@ section{
 
 <section id="contact">
 
-  <h2 class="title">
-
+  <h2 class="title reveal">
     CONNECT WITH ME ✨
-
   </h2>
 
-  <div class="contact-pro">
+
+  <div class="contact-pro reveal">
 
     <p class="contact-text">
 
@@ -2839,6 +2762,7 @@ section{
       explore my artwork and stay connected. 🎨
 
     </p>
+
 
     <div class="social-pro">
 
@@ -2851,6 +2775,7 @@ section{
 
       </a>
 
+
       <a
         href="https://youtube.com/@4rtz-viruu"
         target="_blank"
@@ -2862,7 +2787,9 @@ section{
 
     </div>
 
+
     <div class="contact-line"></div>
+
 
     <p class="contact-small">
 
@@ -2873,6 +2800,7 @@ section{
   </div>
 
 </section>
+
 
 <!-- =======================================================
      FOOTER
@@ -2892,7 +2820,9 @@ section{
 
   </div>
 
+
   <div class="footer-line"></div>
+
 
   <p class="footer-copy">
 
@@ -2900,15 +2830,18 @@ section{
 
   </p>
 
+
   <p class="footer-made">
 
-    Made with creativity & passion ✨
+    VISHAL N. TELAM • Made with creativity & passion ✨
 
   </p>
 
 </footer>
 
+
 </div>
+
 
 <!-- =======================================================
      IMAGE VIEWER
@@ -2920,17 +2853,16 @@ section{
   onclick="closePainting()">
 
   <span class="close">
-
     &times;
-
   </span>
 
   <img
     id="viewerImage"
     src=""
-    alt="Painting">
+    alt="Artwork">
 
 </div>
+
 
 <!-- =======================================================
      JAVASCRIPT
@@ -2938,71 +2870,220 @@ section{
 
 <script>
 
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    setTimeout(
+      function(){
+
+        document
+          .getElementById("loader")
+          .classList.add("hide");
+
+      },
+      1200
+    );
+
+  }
+);
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+  document.getElementById("menuBtn");
+
+const navLinks =
+  document.getElementById("navLinks");
+
+
+menuBtn.addEventListener(
+  "click",
+  function(){
+
+    menuBtn.classList.toggle("active");
+
+    navLinks.classList.toggle("open");
+
+  }
+);
+
+
+/* CLOSE MENU AFTER CLICK */
+
+document
+  .querySelectorAll(".nav-links a")
+  .forEach(
+    function(link){
+
+      link.addEventListener(
+        "click",
+        function(){
+
+          menuBtn.classList.remove("active");
+
+          navLinks.classList.remove("open");
+
+        }
+      );
+
+    }
+  );
+
+
 /* =========================================================
    IMAGE VIEWER
 ========================================================= */
 
 document
-.querySelectorAll(".gallery .card img")
-.forEach(function(img){
+  .querySelectorAll(".gallery .card img")
+  .forEach(
+    function(img){
 
-  img.onclick=function(event){
+      img.onclick =
+        function(event){
 
-    event.stopPropagation();
+          event.stopPropagation();
 
-    document
-    .getElementById("viewerImage")
-    .src=this.src;
+          document
+            .getElementById("viewerImage")
+            .src =
+            this.src;
 
-    document
-    .getElementById("paintingViewer")
-    .style.display="flex";
+          document
+            .getElementById("paintingViewer")
+            .style.display =
+            "flex";
 
-  };
+        };
 
-});
+    }
+  );
+
 
 function closePainting(){
 
   document
-  .getElementById("paintingViewer")
-  .style.display="none";
+    .getElementById("paintingViewer")
+    .style.display =
+    "none";
 
 }
 
+
 /* =========================================================
-   POLYGONAL WORLD / SCIENCE NETWORK
+   ESCAPE CLOSE
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closePainting();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+  new IntersectionObserver(
+    function(entries){
+
+      entries.forEach(
+        function(entry){
+
+          if(entry.isIntersecting){
+
+            entry
+              .target
+              .classList
+              .add("active");
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+revealElements.forEach(
+  function(element){
+
+    revealObserver.observe(element);
+
+  }
+);
+
+
+/* =========================================================
+   NETWORK BACKGROUND
 ========================================================= */
 
 const canvas =
-document.getElementById("network-bg");
+  document.getElementById("network-bg");
 
 const ctx =
-canvas.getContext("2d");
+  canvas.getContext("2d");
 
 let width=0;
 let height=0;
 let points=[];
 
+
 function resizeCanvas(){
 
-  width=window.innerWidth;
-  height=window.innerHeight;
+  width =
+    window.innerWidth;
 
-  const dpr=
+  height =
+    window.innerHeight;
+
+
+  const dpr =
     Math.min(
       window.devicePixelRatio || 1,
       2
     );
 
-  canvas.width=width*dpr;
-  canvas.height=height*dpr;
 
-  canvas.style.width=
+  canvas.width =
+    width*dpr;
+
+  canvas.height =
+    height*dpr;
+
+
+  canvas.style.width =
     width+"px";
 
-  canvas.style.height=
+  canvas.style.height =
     height+"px";
+
 
   ctx.setTransform(
     dpr,
@@ -3013,45 +3094,50 @@ function resizeCanvas(){
     0
   );
 
+
   createNetwork();
 
 }
 
+
 /* =========================================================
-   CREATE WORLD-LIKE POLYGON STRUCTURE
+   CREATE NETWORK
 ========================================================= */
 
 function createNetwork(){
 
   points=[];
 
-  const mobile=
-    window.innerWidth<700;
 
-  const total=
+  const mobile =
+    window.innerWidth < 700;
+
+
+  const total =
     mobile ? 48 : 82;
 
-  /*
-    Large elliptical world structure
-  */
 
-  const centerX=
+  const centerX =
     width/2;
 
-  const centerY=
+
+  const centerY =
     height*.50;
 
-  const radiusX=
+
+  const radiusX =
     Math.min(
       width*.48,
       620
     );
 
-  const radiusY=
+
+  const radiusY =
     Math.min(
       height*.40,
       400
     );
+
 
   for(
     let i=0;
@@ -3059,26 +3145,30 @@ function createNetwork(){
     i++
   ){
 
-    const angle=
+    const angle =
       Math.random()*
       Math.PI*2;
 
-    const radius=
+
+    const radius =
       Math.sqrt(
         Math.random()
       );
 
-    const x=
+
+    const x =
       centerX+
       Math.cos(angle)*
       radiusX*
       radius;
 
-    const y=
+
+    const y =
       centerY+
       Math.sin(angle)*
       radiusY*
       radius;
+
 
     points.push({
 
@@ -3104,8 +3194,9 @@ function createNetwork(){
 
 }
 
+
 /* =========================================================
-   ANIMATION
+   NETWORK ANIMATION
 ========================================================= */
 
 function animate(time){
@@ -3117,32 +3208,36 @@ function animate(time){
     height
   );
 
-  const t=
+
+  const t =
     time*.001;
 
-  /* moving nodes */
 
-  points.forEach(function(p){
+  /* MOVING NODES */
 
-    p.x=
-      p.baseX+
-      Math.sin(
-        t*p.speed+
-        p.phase
-      )*7;
+  points.forEach(
+    function(p){
 
-    p.y=
-      p.baseY+
-      Math.cos(
-        t*p.speed+
-        p.phase
-      )*7;
+      p.x =
+        p.baseX+
+        Math.sin(
+          t*p.speed+
+          p.phase
+        )*7;
 
-  });
 
-  /* =======================================================
-     POLYGONAL CONNECTIONS
-  ======================================================= */
+      p.y =
+        p.baseY+
+        Math.cos(
+          t*p.speed+
+          p.phase
+        )*7;
+
+    }
+  );
+
+
+  /* CONNECTIONS */
 
   for(
     let i=0;
@@ -3156,54 +3251,58 @@ function animate(time){
       j++
     ){
 
-      const p1=
+      const p1 =
         points[i];
 
-      const p2=
+      const p2 =
         points[j];
 
-      const dx=
+
+      const dx =
         p1.x-p2.x;
 
-      const dy=
+
+      const dy =
         p1.y-p2.y;
 
-      const distance=
+
+      const distance =
         Math.sqrt(
           dx*dx+
           dy*dy
         );
 
+
       if(distance<155){
 
-        const opacity=
+        const opacity =
           (1-distance/155)
           *.28;
 
+
         ctx.beginPath();
+
 
         ctx.moveTo(
           p1.x,
           p1.y
         );
 
+
         ctx.lineTo(
           p2.x,
           p2.y
         );
 
-        /*
-          Mostly blue,
-          with slight white visibility
-        */
 
-        ctx.strokeStyle=
+        ctx.strokeStyle =
           `rgba(
             45,
             170,
             225,
             ${opacity}
           )`;
+
 
         ctx.lineWidth=.7;
 
@@ -3215,21 +3314,24 @@ function animate(time){
 
   }
 
-  /* =======================================================
-     WORLD LATITUDE-LIKE LINES
-  ======================================================= */
+
+  /* WORLD LATITUDE */
 
   ctx.save();
+
 
   ctx.translate(
     width/2,
     height*.50
   );
 
-  ctx.strokeStyle=
+
+  ctx.strokeStyle =
     "rgba(70,170,220,.10)";
 
+
   ctx.lineWidth=.7;
+
 
   for(
     let i=-3;
@@ -3237,10 +3339,12 @@ function animate(time){
     i++
   ){
 
-    const y=
+    const y =
       i*55;
 
+
     ctx.beginPath();
+
 
     ctx.ellipse(
       0,
@@ -3255,11 +3359,13 @@ function animate(time){
       Math.PI*2
     );
 
+
     ctx.stroke();
 
   }
 
-  /* longitude-like lines */
+
+  /* LONGITUDE */
 
   for(
     let i=-4;
@@ -3267,10 +3373,12 @@ function animate(time){
     i++
   ){
 
-    const x=
+    const x =
       i*70;
 
+
     ctx.beginPath();
+
 
     ctx.ellipse(
       x,
@@ -3285,47 +3393,58 @@ function animate(time){
       Math.PI*2
     );
 
+
     ctx.stroke();
 
   }
 
+
   ctx.restore();
 
-  /* =======================================================
-     NODES
-  ======================================================= */
 
-  points.forEach(function(p){
+  /* NODES */
 
-    const pulse=
-      Math.sin(
-        t*2+
-        p.phase
-      )*.35+1;
+  points.forEach(
+    function(p){
 
-    ctx.beginPath();
+      const pulse =
+        Math.sin(
+          t*2+
+          p.phase
+        )*.35+1;
 
-    ctx.arc(
-      p.x,
-      p.y,
-      p.size*pulse,
-      0,
-      Math.PI*2
-    );
 
-    ctx.fillStyle=
-      "rgba(70,185,235,.78)";
+      ctx.beginPath();
 
-    ctx.shadowBlur=10;
 
-    ctx.shadowColor=
-      "rgba(40,160,220,.65)";
+      ctx.arc(
+        p.x,
+        p.y,
+        p.size*pulse,
+        0,
+        Math.PI*2
+      );
 
-    ctx.fill();
 
-    ctx.shadowBlur=0;
+      ctx.fillStyle =
+        "rgba(70,185,235,.78)";
 
-  });
+
+      ctx.shadowBlur=10;
+
+
+      ctx.shadowColor =
+        "rgba(40,160,220,.65)";
+
+
+      ctx.fill();
+
+
+      ctx.shadowBlur=0;
+
+    }
+  );
+
 
   requestAnimationFrame(
     animate
@@ -3333,154 +3452,23 @@ function animate(time){
 
 }
 
+
 resizeCanvas();
+
 
 window.addEventListener(
   "resize",
   resizeCanvas
 );
 
+
 requestAnimationFrame(
   animate
 );
-   /* =========================================
-   VISHAL TELAM PAINT ANIMATION
-========================================= */
 
-const vishalName =
-  document.getElementById("vishalName");
-
-function replayVishalAnimation(){
-
-  vishalName.style.animation = "none";
-
-  void vishalName.offsetWidth;
-
-  vishalName.style.animation =
-    "vishalPaint 3s cubic-bezier(.65,0,.25,1) .3s forwards";
-}
-
-window.addEventListener(
-  "load",
-  replayVishalAnimation
-);
-
-   /* =========================================
-   ABOUT VIRUU POPUP
-========================================= */
-
-function openViruInfo(){
-
-  document
-    .getElementById("viruuInfo")
-    .style.display="flex";
-
-}
-
-
-function closeViruInfo(){
-
-  document
-    .getElementById("viruuInfo")
-    .style.display="none";
-
-}
-
-
-/* CLOSE WHEN CLICKING OUTSIDE CARD */
-
-document
-  .getElementById("viruuInfo")
-  .addEventListener(
-    "click",
-    function(event){
-
-      if(event.target === this){
-
-        closeViruInfo();
-
-      }
-
-    }
-  );
 </script>
-<!-- =========================================
-     ABOUT VIRUU BUTTON
-========================================= -->
-
-<button class="viruu-info-btn" onclick="openViruInfo()">
-  ⓘ ABOUT VIRUU
-</button>
 
 
-<!-- =========================================
-     ABOUT VIRUU POPUP
-========================================= -->
-
-<div id="viruuInfo" class="viruu-info-overlay">
-
-  <div class="viruu-info-card">
-
-    <button
-      class="viruu-close"
-      onclick="closeViruInfo()">
-      ×
-    </button>
-
-    <div class="info-symbol">
-      𓆩✦𓆪
-    </div>
-
-    <h2>
-      VISHAL N. TELAM
-    </h2>
-
-    <p class="info-tag">
-      4EVER VIRUU • CREATOR PROFILE
-    </p>
-
-    <div class="info-line"></div>
-
-    <div class="info-item">
-      🎨 <span>Artist & Creator</span>
-    </div>
-
-    <div class="info-item">
-      🇮🇳 <span>India • Maharashtra</span>
-    </div>
-
-    <div class="info-item">
-      📍 <span>Nashik District</span>
-    </div>
-
-    <div class="info-item">
-      🎂 <span>Born • August 2009</span>
-    </div>
-
-    <div class="info-item">
-      🏫 <span>Student & Creative Explorer</span>
-    </div>
-
-    <div class="info-item">
-      🎯 <span>Future Architect</span>
-    </div>
-
-    <div class="info-item">
-      🖌️ <span>Painting • Photography • Creativity</span>
-    </div>
-
-    <div class="info-line"></div>
-
-    <div class="secret-text">
-      “Create. Dream. Leave a mark.”
-    </div>
-
-    <div class="info-sign">
-      — 4EVER VIRUU
-    </div>
-
-  </div>
-
-</div>
 </body>
+
    </html>
