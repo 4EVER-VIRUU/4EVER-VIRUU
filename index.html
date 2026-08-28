@@ -1439,16 +1439,34 @@ section{
 
 }
 
-.art-card:hover{
+/* =========================================================
+   FEATURED ART — SMOOTH HOVER ONLY
+========================================================= */
 
-  transform:
-    translateY(-15px)
-    scale(1.08)
-    rotate(0deg);
-
-  z-index:10;
-
+.art-card{
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    box-shadow .45s ease,
+    border-color .45s ease;
 }
+
+/* Hover effect ONLY on devices with real mouse */
+@media (hover: hover) and (pointer: fine){
+
+  .art-card:hover{
+    transform:
+      translateY(-15px)
+      scale(1.08)
+      rotate(0deg);
+
+    z-index:10;
+
+    box-shadow:
+      0 15px 35px
+      rgba(255,0,80,.35);
+  }
+
+      }
 
 
 /* =========================================================
