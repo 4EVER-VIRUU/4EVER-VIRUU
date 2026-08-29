@@ -4,13 +4,754 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>4EVER VIRUU | Artist Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
+<meta name="description" content="4EVER VIRUU - Vishal Telam Artist Portfolio">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="icon" href="file_00000000f414820bbe7471d6736ffc75.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+
+body{
+
+background:#050505;
+color:white;
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+
+}
+
+
+/* ================= BACKGROUND ================= */
+
+
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(circle at 20% 20%,#8b0035aa,transparent 35%),
+radial-gradient(circle at 80% 80%,#001d44aa,transparent 35%),
+linear-gradient(135deg,#050505,#16000d);
+
+z-index:-2;
+
+animation:bgMove 12s infinite alternate;
+
+}
+
+
+
+@keyframes bgMove{
+
+100%{
+transform:scale(1.08);
+}
+
+}
+
+
+
+/* ================= LOADER ================= */
+
+
+#loader{
+
+position:fixed;
+inset:0;
+
+background:#000;
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+z-index:9999;
+
+}
+
+
+#loader h1{
+
+font-size:45px;
+letter-spacing:8px;
+
+font-family:'Orbitron';
+
+animation:glitch 1s infinite;
+
+}
+
+
+#loader p{
+
+margin-top:20px;
+color:#ff0055;
+
+}
+
+
+
+@keyframes glitch{
+
+50%{
+
+text-shadow:
+3px 0 cyan,
+-3px 0 red;
+
+}
+
+}
+
+
+
+/* ================= NAVBAR ================= */
+
+
+nav{
+
+position:fixed;
+
+top:0;
+width:100%;
+
+padding:20px 7%;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:#000000aa;
+
+backdrop-filter:blur(15px);
+
+z-index:1000;
+
+border-bottom:1px solid #ffffff22;
+
+}
+
+
+.logo{
+
+font-size:24px;
+font-weight:900;
+letter-spacing:3px;
+
+}
+
+
+
+nav a{
+
+color:white;
+text-decoration:none;
+
+margin-left:20px;
+
+font-size:14px;
+
+transition:.3s;
+
+}
+
+
+
+nav a:hover{
+
+color:#ff0055;
+
+}
+
+
+
+/* ================= HERO ================= */
+
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+padding-top:80px;
+
+}
+
+
+
+.profile{
+
+width:220px;
+height:220px;
+
+border-radius:50%;
+
+padding:6px;
+
+background:
+linear-gradient(45deg,#ff0055,#00ffff,#8b00ff);
+
+animation:float 4s infinite;
+
+}
+
+
+
+.profile img{
+
+width:100%;
+height:100%;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid black;
+
+}
+
+
+
+@keyframes float{
+
+50%{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+
+
+.hero h2{
+
+font-family:'Permanent Marker';
+
+font-size:35px;
+
+margin-top:35px;
+
+}
+
+
+
+.hero h1{
+
+font-family:'Orbitron';
+
+font-size:80px;
+
+letter-spacing:10px;
+
+margin:15px;
+
+text-shadow:
+0 0 20px #ff0055;
+
+}
+
+
+
+.hero p{
+
+font-size:20px;
+
+color:#ccc;
+
+}
+
+
+/* ================= BUTTON ================= */
+
+
+.btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 35px;
+
+border-radius:40px;
+
+border:1px solid #ff0055;
+
+color:white;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+
+.btn:hover{
+
+background:#ff0055;
+
+box-shadow:0 0 30px #ff0055;
+
+}
+
+   /* ================= SECTION COMMON ================= */
+
+section{
+
+padding:90px 8%;
+
+}
+
+
+.title{
+
+text-align:center;
+
+font-size:42px;
+
+letter-spacing:3px;
+
+margin-bottom:50px;
+
+}
+
+
+/* ================= JOURNEY ================= */
+
+
+.timeline{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+.timeline-card{
+
+width:280px;
+
+padding:30px;
+
+background:#ffffff10;
+
+border:1px solid #ff005555;
+
+border-radius:20px;
+
+text-align:center;
+
+transition:.5s;
+
+}
+
+
+
+.timeline-card:hover{
+
+transform:translateY(-15px);
+
+box-shadow:
+0 0 30px #ff0055;
+
+}
+
+
+
+.timeline-card h2{
+
+color:#ff0055;
+
+font-size:35px;
+
+}
+
+
+
+/* ================= ARTVERSE ================= */
+
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.art-card{
+
+height:300px;
+
+border-radius:20px;
+
+overflow:hidden;
+
+background:#111;
+
+border:1px solid #ffffff22;
+
+transition:.5s;
+
+}
+
+
+
+.art-card img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:.6s;
+
+}
+
+
+
+.art-card:hover{
+
+transform:
+translateY(-10px)
+scale(1.03);
+
+box-shadow:
+0 0 35px #00ffff;
+
+}
+
+
+
+.art-card:hover img{
+
+transform:scale(1.1);
+
+}
+
+
+
+/* ================= ARCHIVE ================= */
+
+
+.archive{
+
+text-align:center;
+
+background:
+linear-gradient(
+135deg,
+#16000d,
+#000
+);
+
+border-top:
+1px solid #ff005555;
+
+border-bottom:
+1px solid #ff005555;
+
+}
+
+
+
+.archive h2{
+
+font-size:45px;
+
+font-family:'Orbitron';
+
+}
+
+
+
+.archive p{
+
+color:#aaa;
+
+margin:20px;
+
+}
+
+
+
+.secret-btn{
+
+padding:15px 35px;
+
+border-radius:30px;
+
+background:transparent;
+
+color:white;
+
+border:1px solid cyan;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+
+
+.secret-btn:hover{
+
+background:cyan;
+
+color:black;
+
+box-shadow:
+0 0 30px cyan;
+
+}
+
+
+
+/* ================= ABOUT ================= */
+
+
+.about-box{
+
+max-width:700px;
+
+margin:auto;
+
+padding:35px;
+
+background:#ffffff08;
+
+border-radius:25px;
+
+border:1px solid #ffffff22;
+
+text-align:center;
+
+line-height:1.8;
+
+}
+
+
+
+.skills{
+
+margin-top:25px;
+
+}
+
+
+
+.skill{
+
+margin:15px 0;
+
+}
+
+
+
+.bar{
+
+height:8px;
+
+background:#222;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+
+
+.fill{
+
+height:100%;
+
+background:
+linear-gradient(90deg,#ff0055,#00ffff);
+
+}
+
+
+
+
+/* ================= CONTACT ================= */
+
+
+.contact-box{
+
+max-width:600px;
+
+margin:auto;
+
+text-align:center;
+
+padding:35px;
+
+background:#ffffff08;
+
+border-radius:25px;
+
+}
+
+
+
+.social{
+
+margin-top:25px;
+
+}
+
+
+
+.social a{
+
+display:inline-block;
+
+margin:10px;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+border:1px solid #ff0055;
+
+color:white;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+
+
+.social a:hover{
+
+background:#ff0055;
+
+box-shadow:
+0 0 25px #ff0055;
+
+}
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer{
+
+padding:35px;
+
+text-align:center;
+
+background:#000;
+
+color:#aaa;
+
+}
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:700px){
+
+
+nav{
+
+padding:18px;
+
+}
+
+
+nav a{
+
+font-size:11px;
+
+margin-left:8px;
+
+}
+
+
+.hero h1{
+
+font-size:45px;
+
+letter-spacing:5px;
+
+}
+
+
+.hero h2{
+
+font-size:25px;
+
+}
+
+
+.profile{
+
+width:180px;
+
+height:180px;
+
+}
+
+
+.title{
+
+font-size:32px;
+
+}
+
+
+   }
+
+   </style>
 
 </head>
 
@@ -22,7 +763,7 @@
 
 <div id="loader">
 
-<h1 class="glitch">
+<h1>
 VIRUU-VERSE
 </h1>
 
@@ -36,48 +777,45 @@ Initializing Creativity...
 
 <!-- NAVBAR -->
 
-<header>
+<nav>
 
 <div class="logo">
 4EVER VIRUU
 </div>
 
 
-<nav>
+<div>
 
 <a href="#home">Home</a>
 <a href="#journey">Journey</a>
-<a href="#art">Artverse</a>
+<a href="#art">Art</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 
+</div>
+
 </nav>
 
-
-</header>
 
 
 
 
 <!-- HERO -->
 
-<section id="home" class="hero">
+<section class="hero" id="home">
 
 
-<div class="profile-card">
+<div class="profile">
 
-<img src="profile.jpg">
+<img src="file_00000000f414820bbe7471d6736ffc75.png">
 
 </div>
 
 
 
-<div class="hero-text">
-
-
-<h3>
+<h2>
 VISHAL TELAM
-</h3>
+</h2>
 
 
 <h1>
@@ -85,32 +823,19 @@ VISHAL TELAM
 </h1>
 
 
-<h2>
-Artist • Creator • Dreamer 🎨
-</h2>
-
-
 <p>
-Turning imagination into reality
+Artist • Creator • Dreamer 🎨
 </p>
 
 
 
-<button>
+<a class="btn" href="#art">
 Explore My Art
-</button>
-
-
-
-<button>
-MY NATIONAL JOURNEY 🚀
-</button>
-
-
-</div>
+</a>
 
 
 </section>
+
 
 
 
@@ -119,41 +844,41 @@ MY NATIONAL JOURNEY 🚀
 
 <!-- JOURNEY -->
 
-
 <section id="journey">
 
 
-<h1>
-MY NATIONAL JOURNEY 🏆
-</h1>
+<h2 class="title">
+MY JOURNEY 🏆
+</h2>
 
 
 
 <div class="timeline">
 
 
-<div class="box">
+<div class="timeline-card">
 
 <h2>
 2024
 </h2>
 
 <p>
-Started my artistic journey
+Started my artistic journey 🎨
 </p>
 
 </div>
 
 
 
-<div class="box">
+
+<div class="timeline-card">
 
 <h2>
 2025
 </h2>
 
 <p>
-National Level Achievement
+National Level Achievement 🥇
 </p>
 
 </div>
@@ -161,14 +886,14 @@ National Level Achievement
 
 
 
-<div class="box">
+<div class="timeline-card">
 
 <h2>
 2026
 </h2>
 
 <p>
-Building 4EVER VIRUU
+Creating 4EVER VIRUU Universe 🌌
 </p>
 
 </div>
@@ -177,8 +902,8 @@ Building 4EVER VIRUU
 
 </div>
 
-</section>
 
+</section>
 
 
 
@@ -188,56 +913,44 @@ Building 4EVER VIRUU
 
 <!-- ARTVERSE -->
 
-
 <section id="art">
 
 
-<h1>
+<h2 class="title">
 ARTVERSE 🎨
-</h1>
+</h2>
 
 
 
 <div class="gallery">
 
 
-<div class="card">
+<div class="art-card">
 
-<img src="art1.jpg">
-
-<h3>
-Portrait Art
-</h3>
+<img src="IMG_20260812_165745.jpg">
 
 </div>
 
 
+<div class="art-card">
 
-
-<div class="card">
-
-<img src="art2.jpg">
-
-<h3>
-Dark Art
-</h3>
+<img src="IMG_20260331_155158.jpg">
 
 </div>
 
 
+<div class="art-card">
 
-
-
-<div class="card">
-
-<img src="art3.jpg">
-
-<h3>
-Sketches
-</h3>
+<img src="painting-woman-black-dress-with-long-black-coat_783884-443403.jpg">
 
 </div>
 
+
+<div class="art-card">
+
+<img src="IMG_20260809_170424.jpg">
+
+</div>
 
 
 
@@ -245,6 +958,7 @@ Sketches
 
 
 </section>
+
 
 
 
@@ -258,18 +972,20 @@ Sketches
 <section class="archive">
 
 
-<h1>
+<h2>
 🔐 FORBIDDEN ARCHIVE
-</h1>
+</h2>
 
 
 <p>
-A hidden world of my creations
+A secret room of my hidden creations...
 </p>
 
 
-<button>
-ENTER SECRET ROOM
+<button class="secret-btn">
+
+ENTER ARCHIVE
+
 </button>
 
 
@@ -287,45 +1003,127 @@ ENTER SECRET ROOM
 <section id="about">
 
 
-<h1>
+<h2 class="title">
 ABOUT VIRUU
-</h1>
-
-
-
-<div class="about-card">
-
-
-<h2>
-VISHAL TELAM
 </h2>
+
+
+
+<div class="about-box">
 
 
 <p>
 
-Artist 🎨 <br>
-Creator 💻 <br>
-Editor 🎬 <br>
-Dreamer 🚀
+I am Vishal Telam,
+known as 4EVER VIRUU.
 
-<br><br>
+An artist and creator who loves
+painting, creativity and exploring
+new ideas.
 
-Skills:
-
-<br>
-
-Painting █████████ 95%
-
-<br>
-
-Editing ███████ 80%
-
-<br>
-
-Coding █████ 60%
-
+Every artwork represents a story,
+emotion and imagination.
 
 </p>
+
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+Painting 95%
+
+<div class="bar">
+
+<div class="fill" style="width:95%"></div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="skill">
+
+Editing 80%
+
+<div class="bar">
+
+<div class="fill" style="width:80%"></div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="skill">
+
+Coding 60%
+
+<div class="bar">
+
+<div class="fill" style="width:60%"></div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- CONTACT -->
+
+
+<section id="contact">
+
+
+<h2 class="title">
+CONNECT ✨
+</h2>
+
+
+
+<div class="contact-box">
+
+
+<p>
+Follow my creative journey 🎨
+</p>
+
+
+
+<div class="social">
+
+
+<a href="https://www.instagram.com/ur.virroxzy">
+Instagram
+</a>
+
+
+<a href="https://youtube.com/@4rtz-viruu">
+YouTube
+</a>
+
+
+</div>
 
 
 </div>
@@ -340,41 +1138,151 @@ Coding █████ 60%
 
 
 
-<!-- CONTACT -->
-
-
-<section id="contact">
-
-
-<h1>
-CONNECT WITH ME
-</h1>
-
-
-<p>
-Instagram • YouTube • Email
-</p>
-
-
-</section>
-
-
-
-
-
-
 <footer>
 
 © 2026 4EVER VIRUU
+
+<br>
+
+Artist • Creator • Dreamer
 
 </footer>
 
 
 
 
-<script src="script.js"></script>
+
+
+
+
+<script>
+
+
+// LOADER REMOVE
+
+
+window.onload=function(){
+
+setTimeout(()=>{
+
+document.getElementById("loader").style.display="none";
+
+},2000);
+
+};
+
+
+
+
+
+// 3D PROFILE EFFECT
+
+
+const profile =
+document.querySelector(".profile");
+
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+
+let x =
+(window.innerWidth/2-e.clientX)/30;
+
+
+let y =
+(window.innerHeight/2-e.clientY)/30;
+
+
+
+profile.style.transform =
+`
+rotateY(${x}deg)
+rotateX(${y}deg)
+`;
+
+
+
+});
+
+
+
+
+
+
+// SECRET ARCHIVE
+
+
+document.querySelector(".secret-btn")
+.onclick=function(){
+
+
+alert(
+"🔐 ACCESS DENIED\n\nHidden archive is under construction..."
+);
+
+
+};
+
+
+
+
+
+// SCROLL REVEAL
+
+
+const cards =
+document.querySelectorAll(
+".timeline-card,.art-card,.about-box"
+);
+
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+cards.forEach(card=>{
+
+
+let top =
+card.getBoundingClientRect().top;
+
+
+if(top < window.innerHeight-80){
+
+card.style.opacity="1";
+
+card.style.transform="translateY(0)";
+
+}
+
+
+});
+
+
+});
+
+
+
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+card.style.transition="1s";
+
+});
+
+
+
+</script>
 
 
 </body>
 
-   </html>
+</html>
