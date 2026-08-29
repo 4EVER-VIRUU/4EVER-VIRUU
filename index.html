@@ -1,2855 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>4EVER VIRUU | VISHAL TELAM</title>
+<title>4EVER VIRUU | Artist Portfolio</title>
 
-<meta name="description"
-content="4EVER VIRUU — Personal portfolio of Vishal Telam. Artist, creator and dreamer. Explore paintings, photography, creative projects and achievements.">
+<link rel="stylesheet" href="style.css">
 
-<meta name="theme-color" content="#080308">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
 
-<link rel="icon" type="image/jpeg"
-href="IMG_20260810_001027.jpg">
-
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
-rel="stylesheet">
-
-<style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-html{
-  background:#050506;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#050506;
-  color:white;
-  line-height:1.6;
-  overflow-x:hidden;
-}
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-#background{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at 20% 25%,
-      rgba(145,10,50,.35),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 80% 75%,
-      rgba(110,5,45,.30),
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(0,80,130,.08),
-      transparent 45%
-    ),
-    linear-gradient(
-      135deg,
-      #030304,
-      #16070d,
-      #050506,
-      #12050b,
-      #030304
-    );
-
-  animation:
-    backgroundMove 14s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundMove{
-
-  0%{
-    transform:scale(1);
-    filter:brightness(.9);
-  }
-
-  50%{
-    filter:brightness(1.05);
-  }
-
-  100%{
-    transform:scale(1.06);
-    filter:brightness(.92);
-  }
-
-}
-
-/* =========================================================
-   MAROON GLOW
-========================================================= */
-
-#maroonGlow{
-  position:fixed;
-  inset:-20%;
-  z-index:1;
-  pointer-events:none;
-
-  background:
-    radial-gradient(
-      ellipse at 15% 30%,
-      rgba(190,20,70,.22),
-      transparent 28%
-    ),
-    radial-gradient(
-      ellipse at 85% 70%,
-      rgba(150,10,55,.20),
-      transparent 30%
-    );
-
-  filter:blur(35px);
-
-  animation:
-    glowMove 10s ease-in-out infinite alternate;
-}
-
-@keyframes glowMove{
-
-  from{
-    transform:translate(-30px,20px) scale(1);
-  }
-
-  to{
-    transform:translate(40px,-30px) scale(1.15);
-  }
-
-}
-
-/* =========================================================
-   NETWORK
-========================================================= */
-
-#network-bg{
-  position:fixed;
-  inset:0;
-  width:100%;
-  height:100%;
-  z-index:2;
-  pointer-events:none;
-  opacity:.55;
-}
-
-/* =========================================================
-   SCIENCE
-========================================================= */
-
-.science-bg{
-  position:fixed;
-  inset:0;
-  z-index:3;
-  pointer-events:none;
-  overflow:hidden;
-}
-
-.science-bg span{
-  position:absolute;
-  color:rgba(255,255,255,.20);
-  font-size:17px;
-  font-weight:bold;
-
-  text-shadow:
-    0 0 8px rgba(255,255,255,.15),
-    0 0 14px rgba(120,20,60,.6);
-
-  animation:
-    scienceFloat 13s ease-in-out infinite;
-}
-
-.science-bg span:nth-child(1){left:6%;top:18%;}
-.science-bg span:nth-child(2){left:18%;top:72%;}
-.science-bg span:nth-child(3){left:32%;top:20%;}
-.science-bg span:nth-child(4){left:48%;top:82%;}
-.science-bg span:nth-child(5){left:64%;top:17%;}
-.science-bg span:nth-child(6){left:82%;top:65%;}
-.science-bg span:nth-child(7){left:91%;top:15%;}
-.science-bg span:nth-child(8){left:12%;top:88%;}
-.science-bg span:nth-child(9){left:45%;top:42%;}
-.science-bg span:nth-child(10){left:75%;top:84%;}
-.science-bg span:nth-child(11){left:27%;top:43%;}
-.science-bg span:nth-child(12){left:86%;top:40%;}
-.science-bg span:nth-child(13){left:57%;top:30%;}
-.science-bg span:nth-child(14){left:4%;top:52%;}
-.science-bg span:nth-child(15){left:70%;top:48%;}
-
-@keyframes scienceFloat{
-
-  0%{
-    transform:translate(0,0) rotate(0deg);
-    opacity:.10;
-  }
-
-  50%{
-    transform:translate(30px,-40px) rotate(8deg);
-    opacity:.45;
-  }
-
-  100%{
-    transform:translate(-20px,20px) rotate(-5deg);
-    opacity:.10;
-  }
-
-}
-
-/* =========================================================
-   PAINT DUST
-========================================================= */
-
-.paint-dust{
-  position:fixed;
-  inset:0;
-  z-index:4;
-  pointer-events:none;
-}
-
-.paint-dust i{
-  position:absolute;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:#c51d4d;
-
-  box-shadow:
-    0 0 10px rgba(210,20,70,.9);
-
-  animation:
-    dustFloat 8s ease-in-out infinite;
-}
-
-.paint-dust i:nth-child(1){left:5%;top:35%;}
-.paint-dust i:nth-child(2){left:15%;top:60%;}
-.paint-dust i:nth-child(3){left:25%;top:25%;}
-.paint-dust i:nth-child(4){left:35%;top:80%;}
-.paint-dust i:nth-child(5){left:45%;top:30%;}
-.paint-dust i:nth-child(6){left:55%;top:70%;}
-.paint-dust i:nth-child(7){left:65%;top:18%;}
-.paint-dust i:nth-child(8){left:75%;top:55%;}
-.paint-dust i:nth-child(9){left:85%;top:30%;}
-.paint-dust i:nth-child(10){left:95%;top:75%;}
-.paint-dust i:nth-child(11){left:20%;top:90%;}
-.paint-dust i:nth-child(12){left:40%;top:50%;}
-.paint-dust i:nth-child(13){left:60%;top:90%;}
-.paint-dust i:nth-child(14){left:80%;top:80%;}
-.paint-dust i:nth-child(15){left:90%;top:10%;}
-
-@keyframes dustFloat{
-
-  0%{
-    transform:translate(0,0) scale(.5);
-    opacity:.1;
-  }
-
-  50%{
-    transform:translate(35px,-45px) scale(1.5);
-    opacity:.8;
-  }
-
-  100%{
-    transform:translate(-20px,20px) scale(.5);
-    opacity:.1;
-  }
-
-}
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.page-content{
-  position:relative;
-  z-index:10;
-}
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-
-  padding:18px 7%;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  background:rgba(3,3,5,.65);
-
-  backdrop-filter:blur(14px);
-
-  border-bottom:
-    1px solid rgba(255,255,255,.08);
-
-  z-index:1000;
-}
-
-.logo{
-  font-size:22px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin-left:20px;
-  font-size:14px;
-  transition:.3s;
-}
-
-nav a:hover{
-  color:#ff2b68;
-}
-
-/* =========================================================
-   PROFILE
-========================================================= */
-
-.profile-area{
-  text-align:center;
-  padding-top:125px;
-}
-
-.profile-photo{
-  width:190px;
-  height:190px;
-
-  margin:auto;
-  padding:5px;
-
-  position:relative;
-  border-radius:50%;
-}
-
-.profile-photo::before{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  border-radius:50%;
-
-  background:
-    conic-gradient(
-      #ff0055,
-      #7a00ff,
-      #00d9ff,
-      #ff0055
-    );
-
-  animation:
-    ringSpin 4s linear infinite;
-
-  box-shadow:
-    0 0 12px #ff0055,
-    0 0 25px rgba(122,0,255,.7);
-}
-
-.profile-photo img{
-  position:relative;
-  z-index:2;
-
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  border-radius:50%;
-
-  border:4px solid #080808;
-}
-
-@keyframes ringSpin{
-
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
-
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-  min-height:100vh;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  text-align:center;
-
-  padding:
-    70px 20px 40px;
-}
-
-.hero-content{
-  width:100%;
-}
-
-/* =========================================================
-   VISHAL TELAM PAINT REVEAL
-========================================================= */
-
-.brush-name{
-  position:relative;
-
-  display:inline-block;
-
-  font-family:'Permanent Marker',cursive;
-
-  font-size:25px;
-
-  letter-spacing:3px;
-
-  color:white;
-
-  margin:
-    0 auto 12px;
-
-  white-space:nowrap;
-
-  overflow:hidden;
-}
-
-.brush-name span{
-  display:block;
-
-  opacity:0;
-
-  clip-path:
-    inset(0 100% 0 0);
-
-  animation:
-    textPaint 2.8s
-    cubic-bezier(.65,0,.25,1)
-    .4s forwards;
-}
-
-.paint-brush{
-  position:absolute;
-
-  z-index:10;
-
-  left:-80px;
-
-  top:50%;
-
-  width:75px;
-  height:38px;
-
-  transform:
-    translateY(-50%)
-    rotate(-4deg);
-
-  pointer-events:none;
-
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.95) 0px,
-      rgba(255,255,255,.95) 2px,
-      rgba(165,29,59,.9) 3px,
-      rgba(165,29,59,.9) 5px,
-      transparent 6px,
-      transparent 8px
-    );
-
-  border-radius:
-    5px 20px 20px 5px;
-
-  filter:
-    blur(.4px)
-    drop-shadow(
-      0 2px 7px rgba(165,29,59,.8)
-    );
-
-  animation:
-    brushPainting 2.8s
-    cubic-bezier(.65,0,.25,1)
-    .4s forwards;
-}
-
-.paint-brush::after{
-  content:"";
-
-  position:absolute;
-
-  right:-45px;
-  top:50%;
-
-  width:50px;
-  height:7px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #6b241d,
-      #d19a70,
-      #713321
-    );
-
-  border-radius:20px;
-
-  transform:
-    translateY(-50%)
-    rotate(-7deg);
-
-  box-shadow:
-    0 2px 5px rgba(0,0,0,.5);
-}
-
-@keyframes brushPainting{
-
-  0%{
-    left:-80px;
-
-    transform:
-      translateY(-50%)
-      rotate(-7deg)
-      scaleY(.8);
-  }
-
-  15%{
-    transform:
-      translateY(-50%)
-      rotate(-2deg)
-      scaleY(1.15);
-  }
-
-  35%{
-    transform:
-      translateY(-50%)
-      rotate(3deg)
-      scaleY(.95);
-  }
-
-  55%{
-    transform:
-      translateY(-50%)
-      rotate(-2deg)
-      scaleY(1.12);
-  }
-
-  75%{
-    transform:
-      translateY(-50%)
-      rotate(2deg)
-      scaleY(.95);
-  }
-
-  100%{
-    left:calc(100% + 80px);
-
-    opacity:0;
-
-    transform:
-      translateY(-50%)
-      rotate(-4deg);
-  }
-
-}
-
-@keyframes textPaint{
-
-  0%{
-    opacity:0;
-
-    clip-path:
-      inset(0 100% 0 0);
-  }
-
-  8%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:1;
-
-    clip-path:
-      inset(0 0 0 0);
-  }
-
-}
-
-.brush-name span{
-  text-shadow:
-    0 0 5px rgba(255,255,255,.25),
-    0 0 12px rgba(165,29,59,.3);
-}
-
-/* =========================================================
-   4EVER VIRUU CINEMATIC TEXT
-========================================================= */
-
-.hero h1{
-  font-size:
-    clamp(48px,12vw,110px);
-
-  letter-spacing:8px;
-
-  font-weight:900;
-
-  color:white;
-
-  opacity:0;
-
-  transform:
-    translateY(35px)
-    scale(.75);
-
-  filter:blur(10px);
-
-  animation:
-    viruuReveal 1.8s
-    cubic-bezier(.16,1,.3,1)
-    .5s forwards;
-}
-
-@keyframes viruuReveal{
-
-  0%{
-    opacity:0;
-
-    transform:
-      translateY(35px)
-      scale(.75);
-
-    filter:blur(12px);
-
-    letter-spacing:18px;
-  }
-
-  30%{
-    opacity:.35;
-
-    transform:
-      translateY(15px)
-      scale(.88);
-
-    filter:blur(6px);
-
-    letter-spacing:13px;
-  }
-
-  65%{
-    opacity:.85;
-
-    transform:
-      translateY(-3px)
-      scale(1.04);
-
-    filter:blur(1px);
-
-    letter-spacing:9px;
-
-    text-shadow:
-      0 0 15px rgba(255,255,255,.3),
-      0 0 30px rgba(165,29,59,.45);
-  }
-
-  100%{
-    opacity:1;
-
-    transform:
-      translateY(0)
-      scale(1);
-
-    filter:blur(0);
-
-    letter-spacing:8px;
-
-    text-shadow:
-      0 0 10px rgba(255,255,255,.25),
-      0 0 25px rgba(165,29,59,.45);
-  }
-
-}
-
-.hero p{
-  color:#ccc;
-  font-size:18px;
-  margin:15px 0 30px;
-}
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.btn,
-.journey-button{
-  display:inline-block;
-
-  padding:13px 28px;
-
-  margin:5px;
-
-  border:
-    1px solid #a51d3b;
-
-  border-radius:30px;
-
-  color:white;
-
-  text-decoration:none;
-
-  background:
-    rgba(120,10,35,.20);
-
-  transition:.4s;
-}
-
-.btn:hover,
-.journey-button:hover{
-  background:#8d1730;
-
-  box-shadow:
-    0 0 30px rgba(160,20,50,.5);
-
-  transform:translateY(-4px);
-}
-
-/* =========================================================
-   QUICK INTRO
-========================================================= */
-
-.quick-intro{
-  max-width:700px;
-
-  margin:45px auto 0;
-
-  padding:25px 22px;
-
-  text-align:center;
-
-  border:
-    1px solid rgba(165,29,59,.5);
-
-  border-radius:20px;
-
-  background:
-    rgba(20,5,12,.52);
-
-  backdrop-filter:blur(8px);
-}
-
-.quick-intro h2{
-  margin-bottom:12px;
-
-  font-size:22px;
-
-  letter-spacing:2px;
-}
-
-.quick-intro p{
-  margin:0;
-  line-height:1.7;
-  font-size:16px;
-}
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-section{
-  padding:90px 8%;
-}
-
-.title{
-  text-align:center;
-
-  font-size:38px;
-
-  margin-bottom:45px;
-
-  letter-spacing:2px;
-}
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about{
-  max-width:800px;
-
-  margin:auto;
-
-  text-align:center;
-
-  color:#ccc;
-
-  font-size:17px;
-}
-
-/* =========================================================
-   FEATURED ART — SMOOTH UNIVERSAL CAROUSEL
-========================================================= */
-
-.featured-wrapper{
-  width:100%;
-  max-width:520px;
-
-  margin:35px auto 20px;
-
-  position:relative;
-
-  touch-action:pan-y;
-}
-
-.featured-grid{
-  position:relative;
-
-  width:100%;
-
-  height:250px;
-
-  overflow:visible;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  user-select:none;
-
-  -webkit-user-select:none;
-
-  perspective:900px;
-}
-
-.art-card{
-  position:absolute;
-
-  width:115px;
-  height:185px;
-
-  overflow:hidden;
-
-  border-radius:15px;
-
-  background:#120006;
-
-  border:
-    1px solid rgba(255,0,80,.65);
-
-  box-shadow:
-    0 0 20px rgba(255,0,80,.25);
-
-  cursor:pointer;
-
-  will-change:
-    transform,
-    opacity;
-
-  transform:
-    translate3d(0,0,0);
-
-  transition:
-    transform .55s cubic-bezier(.22,1,.36,1),
-    opacity .45s ease,
-    box-shadow .45s ease;
-
-  -webkit-tap-highlight-color:transparent;
-}
-
-.art-card img{
-  width:100%;
-  height:145px;
-
-  object-fit:cover;
-
-  display:block;
-
-  pointer-events:none;
-}
-
-.art-name{
-  height:40px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  text-align:center;
-
-  padding:3px;
-
-  font-size:9px;
-
-  font-weight:bold;
-
-  color:white;
-}
-
-/* CENTER */
-
-.art-card[data-position="0"]{
-  transform:
-    translate3d(0,-8px,0)
-    scale(1.05)
-    rotate(0deg);
-
-  z-index:5;
-
-  box-shadow:
-    0 0 30px
-    rgba(255,0,80,.35);
-}
-
-/* LEFT */
-
-.art-card[data-position="-1"]{
-  transform:
-    translate3d(-130px,0,0)
-    scale(.90)
-    rotate(-12deg);
-
-  z-index:3;
-
-  opacity:.9;
-}
-
-/* RIGHT */
-
-.art-card[data-position="1"]{
-  transform:
-    translate3d(130px,0,0)
-    scale(.90)
-    rotate(12deg);
-
-  z-index:3;
-
-  opacity:.9;
-}
-
-/* FAR LEFT / RIGHT */
-
-.art-card[data-position="-2"]{
-  transform:
-    translate3d(-250px,25px,0)
-    scale(.65)
-    rotate(-18deg);
-
-  z-index:1;
-
-  opacity:0;
-
-  pointer-events:none;
-}
-
-.art-card[data-position="2"]{
-  transform:
-    translate3d(250px,25px,0)
-    scale(.65)
-    rotate(18deg);
-
-  z-index:1;
-
-  opacity:0;
-
-  pointer-events:none;
-}
-
-/* TOUCH FEEDBACK */
-
-.art-card:active{
-  filter:brightness(1.15);
-}
-
-/* =========================================================
-   CAROUSEL ARROWS
-========================================================= */
-
-.carousel-controls{
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  gap:15px;
-
-  margin-top:10px;
-}
-
-.carousel-btn{
-  width:42px;
-  height:42px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(255,0,80,.55);
-
-  background:
-    rgba(30,0,12,.65);
-
-  color:white;
-
-  font-size:20px;
-
-  cursor:pointer;
-
-  transition:.3s;
-
-  -webkit-tap-highlight-color:transparent;
-}
-
-.carousel-btn:hover{
-  background:#8d1730;
-
-  box-shadow:
-    0 0 20px rgba(255,0,80,.3);
-
-  transform:scale(1.08);
-}
-
-.carousel-dots{
-  display:flex;
-
-  gap:7px;
-
-  justify-content:center;
-
-  align-items:center;
-}
-
-.carousel-dot{
-  width:6px;
-  height:6px;
-
-  border-radius:50%;
-
-  background:#555;
-
-  transition:.3s;
-}
-
-.carousel-dot.active{
-  width:20px;
-
-  border-radius:10px;
-
-  background:#ff2b68;
-
-  box-shadow:
-    0 0 10px rgba(255,43,104,.5);
-}
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery{
-  display:grid;
-
-  grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-  gap:20px;
-}
-
-.card{
-  height:280px;
-
-  border-radius:18px;
-
-  border:
-    1px solid rgba(255,255,255,.10);
-
-  background:
-    rgba(10,10,10,.55);
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  text-align:center;
-
-  transition:.5s;
-
-  overflow:hidden;
-
-  backdrop-filter:blur(5px);
-}
-
-.card:hover{
-  transform:
-    translateY(-10px)
-    scale(1.02);
-
-  border-color:#a51d3b;
-
-  box-shadow:
-    0 15px 40px rgba(120,10,35,.3);
-}
-
-.card img{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-
-  cursor:pointer;
-
-  transition:.6s;
-}
-
-.card:hover img{
-  transform:scale(1.06);
-}
-
-/* =========================================================
-   VIDEO
-========================================================= */
-
-.video-box{
-  max-width:850px;
-
-  margin:auto;
-
-  text-align:center;
-}
-
-.video-box video{
-  width:100%;
-
-  max-height:500px;
-
-  border-radius:20px;
-
-  border:
-    1px solid rgba(255,255,255,.12);
-
-  box-shadow:
-    0 0 35px rgba(130,15,40,.25);
-
-  background:#000;
-}
-
-/* =========================================================
-   ACHIEVEMENTS
-========================================================= */
-
-.achievement-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:15px;
-
-  max-width:650px;
-
-  margin:30px auto 60px;
-
-  padding:0 20px;
-}
-
-.achievement-card{
-  padding:22px 15px;
-
-  text-align:center;
-
-  border:
-    1px solid rgba(255,0,80,.45);
-
-  border-radius:18px;
-
-  background:
-    rgba(30,0,12,.62);
-
-  box-shadow:
-    0 0 20px rgba(255,0,80,.12);
-
-  transition:.35s;
-}
-
-.achievement-card:hover{
-  transform:translateY(-6px);
-
-  box-shadow:
-    0 0 28px rgba(255,0,80,.3);
-}
-
-.achievement-icon{
-  font-size:32px;
-  margin-bottom:8px;
-}
-
-.achievement-card h3{
-  font-size:17px;
-  margin:8px 0;
-}
-
-.achievement-card p{
-  font-size:13px;
-  line-height:1.6;
-  color:#ccc;
-}
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-pro{
-  max-width:650px;
-
-  margin:30px auto 60px;
-
-  padding:35px 20px;
-
-  text-align:center;
-
-  border:
-    1px solid rgba(255,0,80,.45);
-
-  border-radius:24px;
-
-  background:
-    rgba(25,0,12,.62);
-
-  box-shadow:
-    0 0 30px rgba(255,0,80,.12);
-}
-
-.contact-text{
-  color:#d0d0d0;
-
-  font-size:16px;
-
-  line-height:1.7;
-
-  margin-bottom:25px;
-}
-
-.social-pro{
-  display:flex;
-
-  justify-content:center;
-
-  gap:15px;
-
-  flex-wrap:wrap;
-}
-
-.social-pro a{
-  display:inline-block;
-
-  padding:13px 25px;
-
-  border:
-    1px solid rgba(255,0,80,.6);
-
-  border-radius:30px;
-
-  color:white;
-
-  text-decoration:none;
-
-  background:
-    rgba(255,0,80,.05);
-
-  transition:.3s;
-}
-
-.social-pro a:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 0 20px rgba(255,0,80,.35);
-}
-
-.contact-line{
-  width:70%;
-
-  height:1px;
-
-  margin:28px auto 18px;
-
-  background:
-    rgba(255,0,80,.4);
-}
-
-.contact-small{
-  color:#999;
-
-  font-size:12px;
-
-  letter-spacing:2px;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.professional-footer{
-  margin-top:70px;
-
-  padding:45px 20px 30px;
-
-  text-align:center;
-
-  border-top:
-    1px solid rgba(255,0,80,.35);
-
-  background:
-    rgba(10,0,5,.72);
-}
-
-.footer-brand h3{
-  font-size:24px;
-  letter-spacing:3px;
-}
-
-.footer-brand p{
-  margin:10px 0 20px;
-  color:#aaa;
-}
-
-.footer-line{
-  width:100px;
-  height:1px;
-
-  margin:20px auto;
-
-  background:
-    rgba(255,0,80,.6);
-}
-
-.footer-copy{
-  color:#ddd;
-  font-size:13px;
-}
-
-.footer-made{
-  margin-top:8px;
-  color:#777;
-  font-size:12px;
-}
-
-/* =========================================================
-   IMAGE VIEWER
-========================================================= */
-
-.painting-viewer{
-  display:none;
-
-  position:fixed;
-  inset:0;
-
-  background:
-    rgba(0,0,0,.94);
-
-  z-index:9998;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:20px;
-}
-
-.painting-viewer img{
-  max-width:95%;
-  max-height:90vh;
-
-  object-fit:contain;
-
-  border-radius:12px;
-}
-
-.painting-viewer .close{
-  position:absolute;
-
-  top:20px;
-  right:25px;
-
-  color:white;
-
-  font-size:35px;
-
-  cursor:pointer;
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
-
-  nav{
-    padding:15px 5%;
-  }
-
-  nav a{
-    margin-left:7px;
-    font-size:11px;
-  }
-
-  .hero h1{
-    font-size:44px;
-    letter-spacing:4px;
-  }
-
-  section{
-    padding:70px 6%;
-  }
-
-  .achievement-grid{
-    gap:10px;
-    padding:0 12px;
-  }
-
-  .achievement-card{
-    padding:18px 10px;
-  }
-
-  .achievement-card h3{
-    font-size:14px;
-  }
-
-  .achievement-card p{
-    font-size:11px;
-  }
-
-  .profile-photo{
-    width:180px;
-    height:180px;
-  }
-
-  .brush-name{
-    font-size:22px;
-    letter-spacing:2px;
-  }
-
-  .paint-brush{
-    width:60px;
-    height:32px;
-  }
-
-  .science-bg span{
-    font-size:14px;
-  }
-
-  .featured-grid{
-    height:235px;
-  }
-
-  .art-card{
-    width:105px;
-    height:175px;
-  }
-
-  .art-card img{
-    height:137px;
-  }
-
-  .art-card[data-position="-1"]{
-    transform:
-      translate3d(-105px,0,0)
-      scale(.88)
-      rotate(-10deg);
-  }
-
-  .art-card[data-position="1"]{
-    transform:
-      translate3d(105px,0,0)
-      scale(.88)
-      rotate(10deg);
-  }
-
-  .art-card[data-position="-2"]{
-    transform:
-      translate3d(-200px,20px,0)
-      scale(.65)
-      rotate(-15deg);
-  }
-
-  .art-card[data-position="2"]{
-    transform:
-      translate3d(200px,20px,0)
-      scale(.65)
-      rotate(15deg);
-  }
-
-}
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media(max-width:420px){
-
-  nav .logo{
-    font-size:17px;
-  }
-
-  nav a{
-    font-size:10px;
-    margin-left:4px;
-  }
-
-  .hero h1{
-    font-size:44px;
-  }
-
-  .featured-grid{
-    transform:scale(.92);
-  }
-
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-  *,
-  *::before,
-  *::after{
-
-    animation-duration:.01ms !important;
-
-    animation-iteration-count:1 !important;
-
-    scroll-behavior:auto !important;
-  }
-
-}
-
-</style>
 </head>
+
 
 <body>
 
-<!-- =======================================================
-     BACKGROUND
-======================================================= -->
 
-<div id="background"></div>
+<!-- LOADER -->
 
-<div id="maroonGlow"></div>
+<div id="loader">
 
-<canvas id="network-bg"></canvas>
+<h1 class="glitch">
+VIRUU-VERSE
+</h1>
 
-<div class="science-bg">
-
-  <span>Viruu</span>
-  <span>Virroxzy</span>
-  <span>π</span>
-  <span>√x</span>
-  <span>∞</span>
-  <span>∑</span>
-  <span>N</span>
-  <span>x²</span>
-  <span>Δ</span>
-  <span>4ever</span>
-  <span>λ</span>
-  <span>∫</span>
-  <span>F = ma</span>
-  <span>11:11<3</span>
-  <span>Σx</span>
+<p>
+Initializing Creativity...
+</p>
 
 </div>
 
-<div class="paint-dust">
 
-  <i></i><i></i><i></i><i></i><i></i>
-  <i></i><i></i><i></i><i></i><i></i>
-  <i></i><i></i><i></i><i></i><i></i>
 
+<!-- NAVBAR -->
+
+<header>
+
+<div class="logo">
+4EVER VIRUU
 </div>
 
-<!-- =======================================================
-     WEBSITE
-======================================================= -->
-
-<div class="page-content">
-
-<!-- =======================================================
-     NAVBAR
-======================================================= -->
 
 <nav>
 
-  <div class="logo">
-    4EVER VIRUU
-  </div>
-
-  <div>
-
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#paintings">Art</a>
-    <a href="#contact">Contact</a>
-
-  </div>
+<a href="#home">Home</a>
+<a href="#journey">Journey</a>
+<a href="#art">Artverse</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
-<!-- =======================================================
-     PROFILE
-======================================================= -->
 
-<div class="profile-area">
+</header>
 
-  <div class="profile-photo">
 
-    <img
-      src="file_00000000f414820bbe7471d6736ffc75.png"
-      alt="Vishal Telam">
 
-  </div>
+
+<!-- HERO -->
+
+<section id="home" class="hero">
+
+
+<div class="profile-card">
+
+<img src="profile.jpg">
 
 </div>
 
-<!-- =======================================================
-     HOME
-======================================================= -->
 
-<section
-  class="hero"
-  id="home">
 
-  <div class="hero-content">
+<div class="hero-text">
 
-    <div class="brush-name">
 
-      <span>VISHAL TELAM</span>
+<h3>
+VISHAL TELAM
+</h3>
 
-      <div class="paint-brush"></div>
 
-    </div>
+<h1>
+4EVER VIRUU
+</h1>
 
-    <h1 class="viruu-title">
-      <span>4EVER VIRUU</span>
-    </h1>
 
-    <p>
-      Artist • Creator • Dreamer 🎨
-    </p>
+<h2>
+Artist • Creator • Dreamer 🎨
+</h2>
 
-    <a
-      href="#paintings"
-      class="btn">
 
-      Explore My Art
+<p>
+Turning imagination into reality
+</p>
 
-    </a>
 
-    <a
-      href="journey.html"
-      class="journey-button">
 
-      MY NATIONAL JOURNEY ✈️
+<button>
+Explore My Art
+</button>
 
-    </a>
 
-    <div class="quick-intro">
 
-      <h2>
-        ✨ A LITTLE ABOUT ME
-      </h2>
+<button>
+MY NATIONAL JOURNEY 🚀
+</button>
 
-      <p>
 
-        I’m <strong>Vishal Telam</strong>,
-        known as <strong>4EVER VIRUU</strong> —
-        an artist, creator and dreamer. 🎨
+</div>
 
-        I love turning ideas into paintings,
-        creative visuals and unforgettable moments.
-
-      </p>
-
-    </div>
-
-  </div>
 
 </section>
 
-<!-- =======================================================
-     FEATURED ART
-======================================================= -->
 
-<section>
 
-  <h2 class="title">
-    • FEATURED ART •
-  </h2>
 
-  <div class="featured-wrapper">
 
-    <div
-      class="featured-grid"
-      id="featuredGrid">
 
-      <div
-        class="art-card"
-        data-index="0"
-        data-position="-1">
+<!-- JOURNEY -->
 
-        <img
-          src="IMG_20260812_165745.jpg"
-          alt="Colourful Eye Artwork">
 
-        <div class="art-name">
-          COLOUR OF VISION 👁️
-        </div>
+<section id="journey">
 
-      </div>
 
-      <div
-        class="art-card"
-        data-index="1"
-        data-position="0">
+<h1>
+MY NATIONAL JOURNEY 🏆
+</h1>
 
-        <img
-          src="IMG_20260331_155158.jpg"
-          alt="Dark Portrait Artwork">
 
-        <div class="art-name">
-          DARK PORTRAIT 🖤
-        </div>
 
-      </div>
+<div class="timeline">
 
-      <div
-        class="art-card"
-        data-index="2"
-        data-position="1">
 
-        <img
-          src="painting-woman-black-dress-with-long-black-coat_783884-443403.jpg"
-          alt="Woman Black Dress Artwork">
+<div class="box">
 
-        <div class="art-name">
-          SHADOWS & SOUL 🎨
-        </div>
+<h2>
+2024
+</h2>
 
-      </div>
+<p>
+Started my artistic journey
+</p>
 
-    </div>
+</div>
 
-    <div class="carousel-controls">
 
-      <button
-        class="carousel-btn"
-        id="prevArt"
-        aria-label="Previous artwork">
 
-        ‹
+<div class="box">
 
-      </button>
+<h2>
+2025
+</h2>
 
-      <div
-        class="carousel-dots"
-        id="carouselDots">
+<p>
+National Level Achievement
+</p>
 
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
-        <span class="carousel-dot"></span>
+</div>
 
-      </div>
 
-      <button
-        class="carousel-btn"
-        id="nextArt"
-        aria-label="Next artwork">
 
-        ›
 
-      </button>
+<div class="box">
 
-    </div>
+<h2>
+2026
+</h2>
 
-  </div>
+<p>
+Building 4EVER VIRUU
+</p>
+
+</div>
+
+
+
+</div>
 
 </section>
 
-<!-- =======================================================
-     ABOUT
-======================================================= -->
+
+
+
+
+
+
+
+<!-- ARTVERSE -->
+
+
+<section id="art">
+
+
+<h1>
+ARTVERSE 🎨
+</h1>
+
+
+
+<div class="gallery">
+
+
+<div class="card">
+
+<img src="art1.jpg">
+
+<h3>
+Portrait Art
+</h3>
+
+</div>
+
+
+
+
+<div class="card">
+
+<img src="art2.jpg">
+
+<h3>
+Dark Art
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="art3.jpg">
+
+<h3>
+Sketches
+</h3>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- FORBIDDEN ARCHIVE -->
+
+
+<section class="archive">
+
+
+<h1>
+🔐 FORBIDDEN ARCHIVE
+</h1>
+
+
+<p>
+A hidden world of my creations
+</p>
+
+
+<button>
+ENTER SECRET ROOM
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ABOUT -->
+
 
 <section id="about">
 
-  <h2 class="title">
-    ABOUT ME
-  </h2>
 
-  <div class="about">
+<h1>
+ABOUT VIRUU
+</h1>
 
-    <p>
 
-      Welcome to my personal creative space.
 
-      I am Viruu, an artist and creator who loves
-      painting, photography, creativity and exploring
-      new ideas.
+<div class="about-card">
 
-      This website is a collection of my artwork,
-      projects, achievements and creative journey.
 
-      Every creation represents an idea, an emotion
-      or a moment from my journey.
+<h2>
+VISHAL TELAM
+</h2>
 
-      I believe that creativity has no limits
-      and that every artist has a unique story to tell.
 
-    </p>
+<p>
 
-  </div>
+Artist 🎨 <br>
+Creator 💻 <br>
+Editor 🎬 <br>
+Dreamer 🚀
 
-</section>
+<br><br>
 
-<!-- =======================================================
-     PAINTINGS
-======================================================= -->
+Skills:
 
-<section id="paintings">
+<br>
 
-  <h2 class="title">
-    MY PAINTINGS 🎨
-  </h2>
+Painting █████████ 95%
 
-  <div class="gallery">
+<br>
 
-    <div class="card">
-      <img
-        src="IMG_20240620_084046_046.jpg"
-        alt="Painting 01">
-    </div>
+Editing ███████ 80%
 
-    <div class="card">
-      <img
-        src="IMG_२०२४१०२८_१९४००६.jpg"
-        alt="Painting 02">
-    </div>
+<br>
 
-    <div class="card">
-      <img
-        src="IMG_20240926_212519_849.jpg"
-        alt="Painting 03">
-    </div>
+Coding █████ 60%
 
-    <div class="card">
-      <img
-        src="IMG_20240926_212139_603.jpg"
-        alt="Painting 04">
-    </div>
 
-    <div class="card">
-      <img
-        src="IMG_20240926_213200_415.jpg"
-        alt="Painting 05">
-    </div>
+</p>
 
-    <div class="card">
-      <img
-        src="IMG_20240620_093412_858.jpg"
-        alt="Painting 06">
-    </div>
 
-    <div class="card">
-      <img
-        src="IMG_20240620_093026_696.jpg"
-        alt="Painting 07">
-    </div>
+</div>
 
-    <div class="card">
-      <img
-        src="IMG_20241113_083554_129.jpg"
-        alt="Painting 08">
-    </div>
-
-    <div class="card">
-      <img
-        src="IMG_20260809_170134.jpg"
-        alt="Painting 09">
-    </div>
-
-    <div class="card">
-      <img
-        src="IMG_20260809_170424.jpg"
-        alt="Painting 10">
-    </div>
-
-  </div>
 
 </section>
 
-<!-- =======================================================
-     PHOTOS
-======================================================= -->
 
-<section id="photos">
 
-  <h2 class="title">
-    UR.V!RUU🥀
-  </h2>
 
-  <div class="gallery">
 
-    <div class="card">
-      <img
-        src="file_00000000f414820bbe7471d6736ffc75.png"
-        alt="VIRUU Photo 01">
-    </div>
 
-    <div class="card">
-      <img
-        src="file_00000000ed3c820b9d1c1e1b805f059a.png"
-        alt="VIRUU Photo 02">
-    </div>
 
-    <div class="card">
-      <img
-        src="IMG_20260809_233027.jpg"
-        alt="VIRUU Photo 03">
-    </div>
 
-    <div class="card">
-      <img
-        src="IMG_20260809_232919.jpg"
-        alt="VIRUU Photo 04">
-    </div>
+<!-- CONTACT -->
 
-  </div>
-
-  <h2
-    class="title"
-    style="margin-top:80px;">
-
-    EMRS WINNER❓
-
-  </h2>
-
-  <div class="video-box">
-
-    <video
-      controls
-      playsinline>
-
-      <source
-        src="lv_0_20260731012855.mp4"
-        type="video/mp4">
-
-      Your browser does not support the video tag.
-
-    </video>
-
-  </div>
-
-</section>
-
-<!-- =======================================================
-     ACHIEVEMENTS
-======================================================= -->
-
-<section id="achievements">
-
-  <h2 class="title">
-    ACHIEVEMENTS 🏆
-  </h2>
-
-  <div class="achievement-grid">
-
-    <div class="achievement-card">
-
-      <div class="achievement-icon">
-        🥇
-      </div>
-
-      <h3>
-        National Level Winner
-      </h3>
-
-      <p>
-        Recognised for excellence in art
-        and creative expression at the
-        national level.
-      </p>
-
-    </div>
-
-    <div class="achievement-card">
-
-      <div class="achievement-icon">
-        🎨
-      </div>
-
-      <h3>
-        Artist & Creator
-      </h3>
-
-      <p>
-        Building a creative journey through
-        painting, visual art and original ideas.
-      </p>
-
-    </div>
-
-    <div class="achievement-card">
-
-      <div class="achievement-icon">
-        🏅
-      </div>
-
-      <h3>
-        Art Competitions
-      </h3>
-
-      <p>
-        Participating in art competitions
-        and continuously developing
-        artistic skills.
-      </p>
-
-    </div>
-
-    <div class="achievement-card">
-
-      <div class="achievement-icon">
-        ✨
-      </div>
-
-      <h3>
-        Creative Journey
-      </h3>
-
-      <p>
-        A growing collection of paintings,
-        creative projects and memorable moments.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =======================================================
-     CONTACT
-======================================================= -->
 
 <section id="contact">
 
-  <h2 class="title">
-    CONNECT WITH ME ✨
-  </h2>
 
-  <div class="contact-pro">
+<h1>
+CONNECT WITH ME
+</h1>
 
-    <p class="contact-text">
 
-      Follow my creative journey,
-      explore my artwork and stay connected. 🎨
+<p>
+Instagram • YouTube • Email
+</p>
 
-    </p>
-
-    <div class="social-pro">
-
-      <a
-        href="https://www.instagram.com/ur.virroxzy"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        📸 Instagram
-
-      </a>
-
-      <a
-        href="https://youtube.com/@4rtz-viruu"
-        target="_blank"
-        rel="noopener noreferrer">
-
-        ▶️ YouTube
-
-      </a>
-
-    </div>
-
-    <div class="contact-line"></div>
-
-    <p class="contact-small">
-
-      ART • CREATIVITY • DREAMS • 4EVER VIRUU 🎨
-
-    </p>
-
-  </div>
 
 </section>
 
-<!-- =======================================================
-     FOOTER
-======================================================= -->
 
-<footer class="professional-footer">
 
-  <div class="footer-brand">
 
-    <h3>
-      4EVER VIRUU 🎨
-    </h3>
 
-    <p>
-      Artist • Creator • Dreamer
-    </p>
 
-  </div>
+<footer>
 
-  <div class="footer-line"></div>
-
-  <p class="footer-copy">
-    © 2026 4EVER VIRUU
-  </p>
-
-  <p class="footer-made">
-    Made with creativity & passion ✨
-  </p>
+© 2026 4EVER VIRUU
 
 </footer>
 
-</div>
 
-<!-- =======================================================
-     IMAGE VIEWER
-======================================================= -->
 
-<div
-  class="painting-viewer"
-  id="paintingViewer">
 
-  <span
-    class="close"
-    id="viewerClose">
+<script src="script.js"></script>
 
-    &times;
-
-  </span>
-
-  <img
-    id="viewerImage"
-    src=""
-    alt="Artwork">
-
-</div>
-
-<!-- =======================================================
-     JAVASCRIPT
-======================================================= -->
-
-<script>
-
-/* =========================================================
-   IMAGE VIEWER
-========================================================= */
-
-const viewer =
-  document.getElementById("paintingViewer");
-
-const viewerImage =
-  document.getElementById("viewerImage");
-
-const viewerClose =
-  document.getElementById("viewerClose");
-
-document
-.querySelectorAll(".gallery .card img")
-.forEach(function(img){
-
-  img.addEventListener("click",function(event){
-
-    event.stopPropagation();
-
-    viewerImage.src=this.src;
-
-    viewer.style.display="flex";
-
-  });
-
-});
-
-function closePainting(){
-
-  viewer.style.display="none";
-
-  viewerImage.src="";
-
-}
-
-viewerClose.addEventListener(
-  "click",
-  closePainting
-);
-
-viewer.addEventListener(
-  "click",
-  function(event){
-
-    if(event.target === viewer){
-      closePainting();
-    }
-
-  }
-);
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Escape"){
-      closePainting();
-    }
-
-  }
-);
-
-
-/* =========================================================
-   FEATURED ART — UNIVERSAL CAROUSEL
-   TOUCH + MOUSE + KEYBOARD
-========================================================= */
-
-const cards =
-  Array.from(
-    document.querySelectorAll(
-      "#featuredGrid .art-card"
-    )
-  );
-
-const prevButton =
-  document.getElementById("prevArt");
-
-const nextButton =
-  document.getElementById("nextArt");
-
-const dots =
-  Array.from(
-    document.querySelectorAll(
-      "#carouselDots .carousel-dot"
-    )
-  );
-
-let activeIndex=1;
-
-function positionForCard(index){
-
-  let difference =
-    index-activeIndex;
-
-  /*
-     Make the carousel circular.
-  */
-
-  if(difference > 1){
-    difference -= cards.length;
-  }
-
-  if(difference < -1){
-    difference += cards.length;
-  }
-
-  return difference;
-
-}
-
-function updateCarousel(){
-
-  cards.forEach(function(card,index){
-
-    const position =
-      positionForCard(index);
-
-    card.dataset.position =
-      position;
-
-  });
-
-  dots.forEach(function(dot,index){
-
-    dot.classList.toggle(
-      "active",
-      index === activeIndex
-    );
-
-  });
-
-}
-
-function nextArtwork(){
-
-  activeIndex =
-    (activeIndex + 1) %
-    cards.length;
-
-  updateCarousel();
-
-}
-
-function previousArtwork(){
-
-  activeIndex =
-    (activeIndex - 1 + cards.length) %
-    cards.length;
-
-  updateCarousel();
-
-}
-
-/*
-   Clicking a card moves that card
-   smoothly to the center.
-*/
-
-cards.forEach(function(card,index){
-
-  card.addEventListener(
-    "click",
-    function(){
-
-      if(index === activeIndex){
-        return;
-      }
-
-      activeIndex=index;
-
-      updateCarousel();
-
-    }
-  );
-
-});
-
-prevButton.addEventListener(
-  "click",
-  previousArtwork
-);
-
-nextButton.addEventListener(
-  "click",
-  nextArtwork
-);
-
-
-/* =========================================================
-   TOUCH SWIPE
-========================================================= */
-
-const featuredGrid =
-  document.getElementById("featuredGrid");
-
-let touchStartX=0;
-let touchStartY=0;
-
-featuredGrid.addEventListener(
-  "touchstart",
-  function(event){
-
-    const touch =
-      event.changedTouches[0];
-
-    touchStartX =
-      touch.clientX;
-
-    touchStartY =
-      touch.clientY;
-
-  },
-  {
-    passive:true
-  }
-);
-
-featuredGrid.addEventListener(
-  "touchend",
-  function(event){
-
-    const touch =
-      event.changedTouches[0];
-
-    const endX =
-      touch.clientX;
-
-    const endY =
-      touch.clientY;
-
-    const dx =
-      endX-touchStartX;
-
-    const dy =
-      endY-touchStartY;
-
-    /*
-       Only treat it as a swipe
-       when horizontal movement
-       is clearly dominant.
-    */
-
-    if(
-      Math.abs(dx)>45 &&
-      Math.abs(dx)>Math.abs(dy)
-    ){
-
-      if(dx<0){
-        nextArtwork();
-      }else{
-        previousArtwork();
-      }
-
-    }
-
-  },
-  {
-    passive:true
-  }
-);
-
-
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    /*
-       Don't interfere while typing
-       in an input/textarea.
-    */
-
-    const tag =
-      document.activeElement.tagName;
-
-    if(
-      tag === "INPUT" ||
-      tag === "TEXTAREA"
-    ){
-      return;
-    }
-
-    if(event.key === "ArrowRight"){
-      nextArtwork();
-    }
-
-    if(event.key === "ArrowLeft"){
-      previousArtwork();
-    }
-
-  }
-);
-
-
-/* =========================================================
-   INITIALIZE CAROUSEL
-========================================================= */
-
-updateCarousel();
-
-
-/* =========================================================
-   POLYGONAL NETWORK
-========================================================= */
-
-const canvas =
-  document.getElementById("network-bg");
-
-const ctx =
-  canvas.getContext("2d");
-
-let width=0;
-let height=0;
-let points=[];
-
-function resizeCanvas(){
-
-  width=
-    window.innerWidth;
-
-  height=
-    window.innerHeight;
-
-  const dpr =
-    Math.min(
-      window.devicePixelRatio || 1,
-      2
-    );
-
-  canvas.width =
-    width*dpr;
-
-  canvas.height =
-    height*dpr;
-
-  canvas.style.width =
-    width+"px";
-
-  canvas.style.height =
-    height+"px";
-
-  ctx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
-  );
-
-  createNetwork();
-
-}
-
-function createNetwork(){
-
-  points=[];
-
-  const mobile =
-    window.innerWidth<700;
-
-  const total =
-    mobile ? 48 : 82;
-
-  const centerX =
-    width/2;
-
-  const centerY =
-    height*.50;
-
-  const radiusX =
-    Math.min(
-      width*.48,
-      620
-    );
-
-  const radiusY =
-    Math.min(
-      height*.40,
-      400
-    );
-
-  for(
-    let i=0;
-    i<total;
-    i++
-  ){
-
-    const angle =
-      Math.random()*
-      Math.PI*2;
-
-    const radius =
-      Math.sqrt(
-        Math.random()
-      );
-
-    const x =
-      centerX+
-      Math.cos(angle)*
-      radiusX*
-      radius;
-
-    const y =
-      centerY+
-      Math.sin(angle)*
-      radiusY*
-      radius;
-
-    points.push({
-
-      x:x,
-      y:y,
-
-      baseX:x,
-      baseY:y,
-
-      size:
-        Math.random()*1.8+.7,
-
-      speed:
-        Math.random()*.45+.15,
-
-      phase:
-        Math.random()*
-        Math.PI*2
-
-    });
-
-  }
-
-}
-
-function animate(time){
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-  const t =
-    time*.001;
-
-  points.forEach(function(p){
-
-    p.x =
-      p.baseX+
-      Math.sin(
-        t*p.speed+
-        p.phase
-      )*7;
-
-    p.y =
-      p.baseY+
-      Math.cos(
-        t*p.speed+
-        p.phase
-      )*7;
-
-  });
-
-  /*
-     Connections
-  */
-
-  for(
-    let i=0;
-    i<points.length;
-    i++
-  ){
-
-    for(
-      let j=i+1;
-      j<points.length;
-      j++
-    ){
-
-      const p1 =
-        points[i];
-
-      const p2 =
-        points[j];
-
-      const dx =
-        p1.x-p2.x;
-
-      const dy =
-        p1.y-p2.y;
-
-      const distance =
-        Math.sqrt(
-          dx*dx+
-          dy*dy
-        );
-
-      if(distance<155){
-
-        const opacity =
-          (1-distance/155)*.28;
-
-        ctx.beginPath();
-
-        ctx.moveTo(
-          p1.x,
-          p1.y
-        );
-
-        ctx.lineTo(
-          p2.x,
-          p2.y
-        );
-
-        ctx.strokeStyle =
-          `rgba(
-            45,
-            170,
-            225,
-            ${opacity}
-          )`;
-
-        ctx.lineWidth=.7;
-
-        ctx.stroke();
-
-      }
-
-    }
-
-  }
-
-  /*
-     Latitude-like lines
-  */
-
-  ctx.save();
-
-  ctx.translate(
-    width/2,
-    height*.50
-  );
-
-  ctx.strokeStyle =
-    "rgba(70,170,220,.10)";
-
-  ctx.lineWidth=.7;
-
-  for(
-    let i=-3;
-    i<=3;
-    i++
-  ){
-
-    const y =
-      i*55;
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-      0,
-      y,
-      Math.min(
-        width*.35,
-        450
-      ),
-      35,
-      0,
-      0,
-      Math.PI*2
-    );
-
-    ctx.stroke();
-
-  }
-
-  /*
-     Longitude-like lines
-  */
-
-  for(
-    let i=-4;
-    i<=4;
-    i++
-  ){
-
-    const x =
-      i*70;
-
-    ctx.beginPath();
-
-    ctx.ellipse(
-      x,
-      0,
-      40,
-      Math.min(
-        height*.34,
-        350
-      ),
-      0,
-      0,
-      Math.PI*2
-    );
-
-    ctx.stroke();
-
-  }
-
-  ctx.restore();
-
-  /*
-     Nodes
-  */
-
-  points.forEach(function(p){
-
-    const pulse =
-      Math.sin(
-        t*2+
-        p.phase
-      )*.35+1;
-
-    ctx.beginPath();
-
-    ctx.arc(
-      p.x,
-      p.y,
-      p.size*pulse,
-      0,
-      Math.PI*2
-    );
-
-    ctx.fillStyle =
-      "rgba(70,185,235,.78)";
-
-    ctx.shadowBlur=10;
-
-    ctx.shadowColor =
-      "rgba(40,160,220,.65)";
-
-    ctx.fill();
-
-    ctx.shadowBlur=0;
-
-  });
-
-  requestAnimationFrame(
-    animate
-  );
-
-}
-
-resizeCanvas();
-
-window.addEventListener(
-  "resize",
-  resizeCanvas
-);
-
-requestAnimationFrame(
-  animate
-);
-
-</script>
 
 </body>
-      </html>
+
+   </html>
