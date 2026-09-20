@@ -1555,7 +1555,82 @@ section{
   }
 
 }
+/* =========================================================
+   VIRUU 3D CHARACTER
+========================================================= */
 
+.viruu-3d-character{
+  position:absolute;
+
+  right:4%;
+  top:145px;
+
+  width:360px;
+
+  z-index:12;
+
+  pointer-events:none;
+
+  animation:
+    characterFloat 5s ease-in-out infinite;
+}
+
+.viruu-3d-character img{
+  width:100%;
+  height:auto;
+
+  display:block;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 0 18px rgba(165,29,59,.45))
+    drop-shadow(0 20px 25px rgba(0,0,0,.6));
+}
+
+@keyframes characterFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .viruu-3d-character{
+    position:relative;
+
+    top:auto;
+    right:auto;
+
+    width:min(330px,85vw);
+
+    margin:20px auto -30px;
+
+    display:flex;
+
+    justify-content:center;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .viruu-3d-character{
+    width:280px;
+
+    margin-top:10px;
+    margin-bottom:-20px;
+  }
+
+   }
 </style>
 </head>
 
@@ -1649,7 +1724,14 @@ section{
 <!-- =======================================================
      HOME
 ======================================================= -->
+<div class="viruu-3d-character">
 
+  <img
+  src="file_00000000c3dc8211b64b24b74b1c9384.png"
+  alt="4EVER VIRUU 3D Character">
+
+</div>
+   
 <section
   class="hero"
   id="home">
