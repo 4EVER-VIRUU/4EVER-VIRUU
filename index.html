@@ -1737,6 +1737,121 @@ section{
         margin-bottom: -110px !important;
     }
        }
+   /* ===== MY UNIVERSE ===== */
+
+.my-universe {
+    padding: 90px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.universe-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.universe-heading span {
+    font-size: 14px;
+    letter-spacing: 6px;
+    opacity: .7;
+}
+
+.universe-heading h2 {
+    margin: 8px 0;
+    font-size: clamp(42px, 8vw, 75px);
+    letter-spacing: 5px;
+    background: linear-gradient(90deg,#fff,#b90035,#fff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.universe-heading p {
+    opacity: .65;
+}
+
+.universe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.universe-card {
+    position: relative;
+    padding: 32px;
+    min-height: 250px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 24px;
+    background: rgba(10,10,18,.65);
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+
+    transition:
+        transform .45s cubic-bezier(.16,1,.3,1),
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.universe-card::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -70px;
+    top: -70px;
+    border-radius: 50%;
+    background: rgba(180,0,60,.18);
+    filter: blur(35px);
+}
+
+.universe-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255,0,80,.5);
+    box-shadow: 0 20px 60px rgba(120,0,40,.3);
+}
+
+.universe-icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.universe-card h3 {
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.universe-card p {
+    line-height: 1.7;
+    opacity: .72;
+    max-width: 470px;
+}
+
+.universe-tag {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: .5;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .my-universe {
+        padding: 60px 15px;
+    }
+
+    .universe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .universe-card {
+        min-height: 220px;
+        padding: 25px;
+    }
+   }
+   
 </style>
 </head>
 
@@ -2014,6 +2129,65 @@ section{
 
    </div>
 
+   <!-- ===== MY UNIVERSE ===== -->
+<section class="my-universe" id="universe">
+
+    <div class="universe-heading">
+        <span>MY</span>
+        <h2>UNIVERSE</h2>
+        <p>A few worlds that define my creativity.</p>
+    </div>
+
+    <div class="universe-grid">
+
+        <!-- PAINTING -->
+        <div class="universe-card painting-card">
+            <div class="universe-icon">🎨</div>
+            <h3>PAINTING</h3>
+            <p>
+                I turn ideas, emotions and imagination into art.
+                Portraits, sketches and creative experiments are
+                where my journey begins.
+            </p>
+            <span class="universe-tag">ART • PORTRAITS • SKETCHING</span>
+        </div>
+
+        <!-- EDITING -->
+        <div class="universe-card editing-card">
+            <div class="universe-icon">🎬</div>
+            <h3>EDITING</h3>
+            <p>
+                I transform ordinary moments into cinematic visuals
+                using transitions, effects, motion and storytelling.
+            </p>
+            <span class="universe-tag">VIDEO • VFX • CINEMATIC</span>
+        </div>
+
+        <!-- CODING -->
+        <div class="universe-card coding-card">
+            <div class="universe-icon">💻</div>
+            <h3>CODING</h3>
+            <p>
+                I'm learning to turn creativity into interactive
+                digital experiences through web development and Python.
+            </p>
+            <span class="universe-tag">WEB • PYTHON • CREATIVE CODE</span>
+        </div>
+
+        <!-- EXPLORING -->
+        <div class="universe-card exploring-card">
+            <div class="universe-icon">🌌</div>
+            <h3>EXPLORING</h3>
+            <p>
+                Always experimenting, learning and discovering
+                something new in art, technology and creativity.
+            </p>
+            <span class="universe-tag">IDEAS • LEARNING • EXPERIMENTS</span>
+        </div>
+
+    </div>
+
+</section>
 <!-- =======================================================
      ABOUT
 ======================================================= -->
