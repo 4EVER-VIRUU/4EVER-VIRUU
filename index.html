@@ -1737,118 +1737,519 @@ section{
         margin-bottom: -110px !important;
     }
        }
-   /* ===== MY UNIVERSE ===== */
-
-.my-universe {
-    padding: 90px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.universe-heading {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.universe-heading span {
-    font-size: 14px;
-    letter-spacing: 6px;
-    opacity: .7;
-}
-
-.universe-heading h2 {
-    margin: 8px 0;
-    font-size: clamp(42px, 8vw, 75px);
-    letter-spacing: 5px;
-    background: linear-gradient(90deg,#fff,#b90035,#fff);
-    -webkit-background-clip: text;
-    color: transparent;
-}
-
-.universe-heading p {
-    opacity: .65;
-}
-
-.universe-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.universe-card {
-    position: relative;
-    padding: 32px;
-    min-height: 250px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 24px;
-    background: rgba(10,10,18,.65);
-    backdrop-filter: blur(14px);
-    overflow: hidden;
-
+   
     transition:
         transform .45s cubic-bezier(.16,1,.3,1),
         border-color .4s ease,
         box-shadow .4s ease;
 }
+/* =================================
+   MY UNIVERSE
+================================= */
 
-.universe-card::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    right: -70px;
-    top: -70px;
-    border-radius: 50%;
-    background: rgba(180,0,60,.18);
-    filter: blur(35px);
+.my-universe-launcher {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5px auto 35px;
 }
 
-.universe-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    border-color: rgba(255,0,80,.5);
-    box-shadow: 0 20px 60px rgba(120,0,40,.3);
-}
+.universe-main-btn {
+    position: relative;
+    padding: 14px 28px;
 
-.universe-icon {
-    font-size: 42px;
-    margin-bottom: 18px;
-}
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50px;
 
-.universe-card h3 {
-    font-size: 25px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(120,0,45,.8),
+            rgba(15,10,25,.9)
+        );
+
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
     letter-spacing: 3px;
-    margin-bottom: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(170,0,70,.2),
+        inset 0 0 20px rgba(255,255,255,.04);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
 }
 
-.universe-card p {
-    line-height: 1.7;
-    opacity: .72;
-    max-width: 470px;
+.universe-main-btn span {
+    margin: 0 8px;
+    color: #ff4778;
 }
 
-.universe-tag {
-    display: inline-block;
-    margin-top: 18px;
-    font-size: 10px;
+.universe-main-btn:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    border-color: rgba(255,50,110,.7);
+
+    box-shadow:
+        0 0 35px rgba(220,0,80,.45),
+        0 15px 45px rgba(0,0,0,.4);
+}
+
+
+/* =================================
+   OVERLAY
+================================= */
+
+.universe-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80,0,40,.35),
+            rgba(2,2,8,.97) 65%
+        );
+
+    backdrop-filter: blur(18px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.08);
+
+    transition:
+        opacity .55s ease,
+        transform .65s cubic-bezier(.16,1,.3,1),
+        visibility .55s;
+}
+
+.universe-overlay.active {
+
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* =================================
+   CLOSE
+================================= */
+
+.universe-close {
+
+    position: absolute;
+
+    top: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.universe-close:hover {
+
+    transform: rotate(90deg) scale(1.1);
+
+    background: rgba(255,0,70,.2);
+
+    border-color: #ff4778;
+}
+
+
+/* =================================
+   CONTAINER
+================================= */
+
+.universe-container {
+
+    width: min(900px, 90%);
+
+    text-align: center;
+
+    position: relative;
+}
+
+
+/* =================================
+   TITLE
+================================= */
+
+.universe-title span {
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    opacity: .55;
+}
+
+.universe-title h2 {
+
+    margin: 8px 0;
+
+    font-size: clamp(40px, 8vw, 75px);
+
+    letter-spacing: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ff3e73,
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+.universe-title p {
+
+    opacity: .55;
+
+    margin-bottom: 35px;
+}
+
+
+/* =================================
+   OPTIONS
+================================= */
+
+.universe-options {
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 15px;
+}
+
+.universe-option {
+
+    min-height: 180px;
+
+    padding: 25px 12px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.015)
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+
+    transform:
+        translateY(50px)
+        scale(.85);
+
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.16,1,.3,1),
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.universe-overlay.active
+.universe-option {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* STAGGER */
+
+.universe-overlay.active
+.universe-option:nth-child(1) {
+    transition-delay: .15s;
+}
+
+.universe-overlay.active
+.universe-option:nth-child(2) {
+    transition-delay: .25s;
+}
+
+.universe-overlay.active
+.universe-option:nth-child(3) {
+    transition-delay: .35s;
+}
+
+.universe-overlay.active
+.universe-option:nth-child(4) {
+    transition-delay: .45s;
+}
+
+
+.universe-option:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.04);
+
+    border-color: rgba(255,50,110,.6);
+
+    box-shadow:
+        0 20px 50px rgba(150,0,60,.3);
+}
+
+
+.world-icon {
+
+    display: block;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.world-name {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
     letter-spacing: 2px;
-    opacity: .5;
 }
 
-/* MOBILE */
+.world-name + small {
+
+    display: block;
+
+    margin-top: 8px;
+
+    opacity: .45;
+
+    font-size: 10px;
+}
+
+
+/* =================================
+   INFORMATION PANEL
+================================= */
+
+.universe-info {
+
+    display: none;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px)
+        scale(.9);
+
+    transition:
+        opacity .5s ease,
+        transform .6s cubic-bezier(.16,1,.3,1);
+}
+
+.universe-info.active {
+
+    display: block;
+
+    animation:
+        universeInfoIn .65s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+}
+
+@keyframes universeInfoIn {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(.85);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+}
+
+.universe-back {
+
+    position: absolute;
+
+    left: 0;
+    top: -5px;
+
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+.universe-back:hover {
+
+    border-color: #ff4778;
+
+    transform: translateX(-4px);
+}
+
+.info-icon {
+
+    font-size: 65px;
+
+    margin-bottom: 10px;
+}
+
+.universe-info h3 {
+
+    font-size: clamp(30px,6vw,55px);
+
+    letter-spacing: 4px;
+
+    margin: 5px 0 15px;
+
+    color: #ff4778;
+}
+
+.universe-info p {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    opacity: .7;
+
+    font-size: 15px;
+}
+
+.info-tags {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.info-tags span {
+
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: rgba(255,255,255,.04);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    opacity: .7;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
 
 @media (max-width: 700px) {
 
-    .my-universe {
-        padding: 60px 15px;
+    .universe-options {
+
+        grid-template-columns: repeat(2,1fr);
+
+        gap: 12px;
     }
 
-    .universe-grid {
-        grid-template-columns: 1fr;
+    .universe-option {
+
+        min-height: 145px;
+
+        padding: 18px 8px;
     }
 
-    .universe-card {
-        min-height: 220px;
-        padding: 25px;
+    .world-icon {
+
+        font-size: 32px;
+    }
+
+    .universe-title h2 {
+
+        letter-spacing: 3px;
+    }
+
+    .universe-close {
+
+        top: 15px;
+        right: 15px;
+    }
+
+    .universe-back {
+
+        position: static;
+
+        margin-bottom: 25px;
     }
    }
    
@@ -2128,66 +2529,88 @@ section{
     </model-viewer>
 
    </div>
+<!-- ===== MY UNIVERSE BUTTON ===== -->
 
-   <!-- ===== MY UNIVERSE ===== -->
-<section class="my-universe" id="universe">
+<div class="my-universe-launcher">
 
-    <div class="universe-heading">
-        <span>MY</span>
-        <h2>UNIVERSE</h2>
-        <p>A few worlds that define my creativity.</p>
+    <button id="universeOpenBtn" class="universe-main-btn">
+        <span>✦</span>
+        MY UNIVERSE
+        <span>↗</span>
+    </button>
+
+</div>
+
+
+<!-- ===== MY UNIVERSE OVERLAY ===== -->
+
+<div id="universeOverlay" class="universe-overlay">
+
+    <button id="universeCloseBtn" class="universe-close">
+        ✕
+    </button>
+
+    <div class="universe-container">
+
+        <div class="universe-title">
+            <span>WELCOME TO</span>
+            <h2>MY UNIVERSE</h2>
+            <p>Explore the worlds that shape my creativity.</p>
+        </div>
+
+
+        <!-- 4 OPTIONS -->
+
+        <div id="universeOptions" class="universe-options">
+
+            <button class="universe-option" data-world="painting">
+                <span class="world-icon">🎨</span>
+                <span class="world-name">PAINTING</span>
+                <small>My artistic world</small>
+            </button>
+
+            <button class="universe-option" data-world="editing">
+                <span class="world-icon">🎬</span>
+                <span class="world-name">EDITING</span>
+                <small>Frames in motion</small>
+            </button>
+
+            <button class="universe-option" data-world="coding">
+                <span class="world-icon">💻</span>
+                <span class="world-name">CODING</span>
+                <small>Ideas become digital</small>
+            </button>
+
+            <button class="universe-option" data-world="exploring">
+                <span class="world-icon">🌌</span>
+                <span class="world-name">EXPLORING</span>
+                <small>Always discovering</small>
+            </button>
+
+        </div>
+
+
+        <!-- INFORMATION PANEL -->
+
+        <div id="universeInfo" class="universe-info">
+
+            <button id="universeBackBtn" class="universe-back">
+                ← BACK
+            </button>
+
+            <div id="infoIcon" class="info-icon"></div>
+
+            <h3 id="infoTitle"></h3>
+
+            <p id="infoText"></p>
+
+            <div id="infoTags" class="info-tags"></div>
+
+        </div>
+
     </div>
 
-    <div class="universe-grid">
-
-        <!-- PAINTING -->
-        <div class="universe-card painting-card">
-            <div class="universe-icon">🎨</div>
-            <h3>PAINTING</h3>
-            <p>
-                I turn ideas, emotions and imagination into art.
-                Portraits, sketches and creative experiments are
-                where my journey begins.
-            </p>
-            <span class="universe-tag">ART • PORTRAITS • SKETCHING</span>
-        </div>
-
-        <!-- EDITING -->
-        <div class="universe-card editing-card">
-            <div class="universe-icon">🎬</div>
-            <h3>EDITING</h3>
-            <p>
-                I transform ordinary moments into cinematic visuals
-                using transitions, effects, motion and storytelling.
-            </p>
-            <span class="universe-tag">VIDEO • VFX • CINEMATIC</span>
-        </div>
-
-        <!-- CODING -->
-        <div class="universe-card coding-card">
-            <div class="universe-icon">💻</div>
-            <h3>CODING</h3>
-            <p>
-                I'm learning to turn creativity into interactive
-                digital experiences through web development and Python.
-            </p>
-            <span class="universe-tag">WEB • PYTHON • CREATIVE CODE</span>
-        </div>
-
-        <!-- EXPLORING -->
-        <div class="universe-card exploring-card">
-            <div class="universe-icon">🌌</div>
-            <h3>EXPLORING</h3>
-            <p>
-                Always experimenting, learning and discovering
-                something new in art, technology and creativity.
-            </p>
-            <span class="universe-tag">IDEAS • LEARNING • EXPERIMENTS</span>
-        </div>
-
-    </div>
-
-</section>
+               </div>
 <!-- =======================================================
      ABOUT
 ======================================================= -->
@@ -5193,6 +5616,193 @@ animatedElements.forEach(element => {
     cinematicObserver.observe(element);
 });
   </script>
-   
+
+   <script>
+/* =================================
+   MY UNIVERSE INTERACTION
+================================= */
+
+const universeOpenBtn =
+    document.getElementById("universeOpenBtn");
+
+const universeOverlay =
+    document.getElementById("universeOverlay");
+
+const universeCloseBtn =
+    document.getElementById("universeCloseBtn");
+
+const universeBackBtn =
+    document.getElementById("universeBackBtn");
+
+const universeOptions =
+    document.getElementById("universeOptions");
+
+const universeInfo =
+    document.getElementById("universeInfo");
+
+const infoIcon =
+    document.getElementById("infoIcon");
+
+const infoTitle =
+    document.getElementById("infoTitle");
+
+const infoText =
+    document.getElementById("infoText");
+
+const infoTags =
+    document.getElementById("infoTags");
+
+
+/* INFORMATION */
+
+const universeData = {
+
+    painting: {
+        icon: "🎨",
+        title: "PAINTING",
+        text:
+        "I turn ideas, emotions and imagination into art. " +
+        "Portraits, sketches and creative experiments are " +
+        "where my artistic journey begins.",
+        tags:
+        ["PORTRAITS", "SKETCHING", "ACRYLIC", "CREATIVE ART"]
+    },
+
+    editing: {
+        icon: "🎬",
+        title: "EDITING",
+        text:
+        "I transform ordinary moments into cinematic visuals " +
+        "using transitions, effects, motion and storytelling.",
+        tags:
+        ["VIDEO EDITING", "VFX", "TRANSITIONS", "CINEMATIC"]
+    },
+
+    coding: {
+        icon: "💻",
+        title: "CODING",
+        text:
+        "I'm learning to turn creativity into interactive " +
+        "digital experiences through web development and Python.",
+        tags:
+        ["HTML", "CSS", "PYTHON", "WEB"]
+    },
+
+    exploring: {
+        icon: "🌌",
+        title: "EXPLORING",
+        text:
+        "Always experimenting, learning and discovering " +
+        "something new in art, technology and creativity.",
+        tags:
+        ["IDEAS", "LEARNING", "EXPERIMENTS", "DISCOVERY"]
+    }
+
+};
+
+
+/* OPEN */
+
+universeOpenBtn.addEventListener("click", () => {
+
+    universeOverlay.classList.add("active");
+
+    universeOptions.style.display = "grid";
+
+    universeInfo.classList.remove("active");
+
+});
+
+
+/* CLOSE */
+
+universeCloseBtn.addEventListener("click", () => {
+
+    universeOverlay.classList.remove("active");
+
+});
+
+
+/* WORLD CLICK */
+
+document
+.querySelectorAll(".universe-option")
+.forEach(option => {
+
+    option.addEventListener("click", () => {
+
+        const world =
+            option.dataset.world;
+
+        const data =
+            universeData[world];
+
+        infoIcon.textContent =
+            data.icon;
+
+        infoTitle.textContent =
+            data.title;
+
+        infoText.textContent =
+            data.text;
+
+        infoTags.innerHTML =
+            data.tags
+            .map(tag => `<span>${tag}</span>`)
+            .join("");
+
+        universeOptions.style.display =
+            "none";
+
+        universeInfo.classList.add(
+            "active"
+        );
+
+    });
+
+});
+
+
+/* BACK */
+
+universeBackBtn.addEventListener(
+    "click",
+    () => {
+
+        universeInfo.classList.remove(
+            "active"
+        );
+
+        setTimeout(() => {
+
+            universeOptions.style.display =
+                "grid";
+
+        }, 200);
+
+    }
+);
+
+
+/* ESC KEY */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            universeOverlay.classList.remove(
+                "active"
+            );
+
+        }
+
+    }
+);
+
+                            </script>
 </body>
    </html>
