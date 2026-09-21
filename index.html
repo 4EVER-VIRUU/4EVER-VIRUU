@@ -1634,7 +1634,34 @@ section{
   }
 
    }
+/* 3D CHARACTER CINEMATIC ENTRANCE */
+.viruu-3d-character {
+    opacity: 0;
+    transform: translateY(50px) scale(0.75);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
 
+.viruu-3d-character.show-3d {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.viruu-3d-character::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 180px;
+    height: 35px;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 90, 0.25);
+    filter: blur(25px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+   
 </style>
 </head>
 
@@ -4873,5 +4900,23 @@ document.getElementById("timeCapsule").addEventListener("click",function(e){
 });
 
 </script>
+
+   <script>
+const viruu3D = document.querySelector('.viruu-3d-character');
+
+const observer3D = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            viruu3D.classList.add('show-3d');
+        }
+    });
+}, {
+    threshold: 0.25
+});
+
+if (viruu3D) {
+    observer3D.observe(viruu3D);
+}
+   </script>
 </body>
    </html>
