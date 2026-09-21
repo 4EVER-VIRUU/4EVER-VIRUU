@@ -1562,7 +1562,7 @@ section{
    VIRUU 3D CHARACTER
 ========================================================= */
 
-.viruu-3d-character{
+.viruu-png-character{
   position:absolute;
 
   right:4%;
@@ -1578,7 +1578,7 @@ section{
     characterFloat 5s ease-in-out infinite;
 }
 
-.viruu-3d-character img{
+.viruu-png-character img{
   width:100%;
   height:auto;
 
@@ -1607,7 +1607,7 @@ section{
 
 @media(max-width:900px){
 
-  .viruu-3d-character{
+  .viruu-png-character{
     position:relative;
 
     top:auto;
@@ -1626,7 +1626,7 @@ section{
 
 @media(max-width:600px){
 
-  .viruu-3d-character{
+  .viruu-png-character{
     width:280px;
 
     margin-top:10px;
@@ -1635,7 +1635,7 @@ section{
 
    }
 /* 3D CHARACTER CINEMATIC ENTRANCE */
-.viruu-3d-character {
+.viruu-png-character {
     opacity: 0;
     transform: translateY(50px) scale(0.75);
     transition:
@@ -1643,12 +1643,12 @@ section{
         transform 1.2s cubic-bezier(.2,.8,.2,1);
 }
 
-.viruu-3d-character.show-3d {
+.viruu-png-character.show-3d {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
 
-.viruu-3d-character::after {
+.viruu-png-character::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -1717,7 +1717,7 @@ section{
     transform: translateY(0);
 }
    .viruu-png-character {
-    width: 220px;
+    width: 125px;
     max-width: 60%;
     margin: 0 auto;
 
