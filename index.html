@@ -2252,6 +2252,283 @@ section{
         margin-bottom: 25px;
     }
    }
+
+   /* =================================
+   4EVER VIRUU — ART REEL
+================================= */
+
+.art-reel-section {
+    padding: 70px 0 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.art-reel-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.art-reel-heading span {
+    font-size: 10px;
+    letter-spacing: 6px;
+    opacity: .5;
+}
+
+.art-reel-heading h2 {
+    margin: 8px 0;
+    font-size: clamp(35px, 7vw, 65px);
+    letter-spacing: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ff315f,
+        #fff
+    );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.art-reel-heading p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    opacity: .45;
+}
+
+
+/* ===== CHAIN AREA ===== */
+
+.chain-stage {
+    position: relative;
+
+    width: 100%;
+    height: 270px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+}
+
+
+/* chain */
+
+.chain-line {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    height: 7px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #777 0 18px,
+            #222 18px 30px
+        );
+
+    box-shadow:
+        0 0 12px rgba(255,255,255,.15);
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+/* handle */
+
+.chain-handle {
+
+    position: absolute;
+
+    left: 25px;
+
+    z-index: 20;
+
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #444,
+            #111
+        );
+
+    border: 2px solid #999;
+
+    font-size: 34px;
+
+    cursor: grab;
+
+    user-select: none;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,.15);
+
+    transition:
+        transform .15s ease,
+        box-shadow .3s ease;
+}
+
+.chain-handle:active {
+    cursor: grabbing;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 35px rgba(255,40,90,.5);
+}
+
+
+/* =================================
+   FILM STRIP
+================================= */
+
+.film-strip {
+
+    position: absolute;
+
+    left: 100px;
+
+    top: 50%;
+
+    height: 190px;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    transform:
+        translateX(-110%)
+        translateY(-50%);
+
+    opacity: 0;
+
+    will-change: transform, opacity;
+}
+
+
+/* film background */
+
+.film-strip::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #111;
+
+    border-top: 10px dashed #333;
+    border-bottom: 10px dashed #333;
+
+    z-index: -1;
+}
+
+
+/* frames */
+
+.film-frame {
+
+    flex: 0 0 auto;
+
+    width: 260px;
+    height: 150px;
+
+    padding: 8px;
+
+    background: #090909;
+
+    border: 1px solid #444;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.5);
+
+    overflow: hidden;
+
+    transform:
+        rotate(-1deg)
+        scale(.92);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.film-frame:nth-child(even) {
+    transform:
+        rotate(1deg)
+        scale(.92);
+}
+
+.film-frame:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 40px rgba(180,0,50,.35);
+}
+
+.film-frame img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .art-reel-section {
+        padding-top: 50px;
+    }
+
+    .chain-stage {
+        height: 230px;
+    }
+
+    .chain-handle {
+        width: 58px;
+        height: 58px;
+        font-size: 27px;
+        left: 15px;
+    }
+
+    .film-strip {
+        left: 80px;
+        height: 160px;
+    }
+
+    .film-frame {
+        width: 210px;
+        height: 120px;
+    }
+
+                      }
    
 </style>
 </head>
@@ -2719,6 +2996,60 @@ section{
     </div>
 
   </div>
+
+</section>
+
+   <!-- ===== CINEMATIC ART REEL ===== -->
+
+<section class="art-reel-section">
+
+    <div class="art-reel-heading">
+        <span>4EVER VIRUU</span>
+        <h2>THE ART REEL</h2>
+        <p>DRAG THE CHAIN → REVEAL MY ART</p>
+    </div>
+
+    <div class="chain-stage">
+
+        <div class="chain-line"></div>
+
+        <div class="chain-handle" id="chainHandle">
+            ⛓️
+        </div>
+
+        <div class="film-strip" id="filmStrip">
+
+            <div class="film-frame">
+                <img src="IMG_२०२४१०२८_१९४००६.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20240620_084046_046.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20241113_083554_129.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20260809_170134.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20260809_170424.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20260921_213457.jpg">
+            </div>
+
+            <div class="film-frame">
+                <img src="IMG_20260921_213355.jpg">
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -5804,5 +6135,121 @@ document.addEventListener(
 );
 
                             </script>
+
+   <script>
+/* =================================
+   CINEMATIC CHAIN DRAG
+================================= */
+
+const chainHandle =
+    document.getElementById("chainHandle");
+
+const filmStrip =
+    document.getElementById("filmStrip");
+
+const chainStage =
+    document.querySelector(".chain-stage");
+
+let dragging = false;
+let startX = 0;
+let progress = 0;
+
+
+function updateFilm(x) {
+
+    const rect =
+        chainStage.getBoundingClientRect();
+
+    const maxDistance =
+        rect.width - 110;
+
+    progress =
+        Math.max(
+            0,
+            Math.min(
+                1,
+                (x - rect.left - 35) /
+                maxDistance
+            )
+        );
+
+
+    /* move chain */
+
+    chainHandle.style.left =
+        (15 + progress *
+        (rect.width - 90)) + "px";
+
+
+    /* reveal film */
+
+    const reveal =
+        -110 + progress * 110;
+
+    filmStrip.style.transform =
+        `translateX(${reveal}%) translateY(-50%)`;
+
+    filmStrip.style.opacity =
+        Math.min(1, progress * 2);
+
+}
+
+
+/* =========================
+   MOUSE
+========================= */
+
+chainHandle.addEventListener(
+    "pointerdown",
+    event => {
+
+        dragging = true;
+
+        startX =
+            event.clientX;
+
+        chainHandle.setPointerCapture(
+            event.pointerId
+        );
+
+        chainHandle.style.cursor =
+            "grabbing";
+    }
+);
+
+
+chainHandle.addEventListener(
+    "pointermove",
+    event => {
+
+        if (!dragging) return;
+
+        updateFilm(event.clientX);
+
+    }
+);
+
+
+chainHandle.addEventListener(
+    "pointerup",
+    () => {
+
+        dragging = false;
+
+        chainHandle.style.cursor =
+            "grab";
+
+    }
+);
+
+
+/* =========================
+   INITIAL STATE
+========================= */
+
+filmStrip.style.opacity = "0";
+
+   </script>
+   
 </body>
    </html>
