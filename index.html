@@ -1716,6 +1716,22 @@ section{
     filter: blur(0);
     transform: translateY(0);
 }
+   .viruu-png-character {
+    width: 220px;
+    max-width: 60%;
+    margin: 0 auto;
+
+    opacity: 0;
+    filter: blur(12px);
+    transition:
+        opacity 1.2s ease,
+        filter 1.2s ease;
+}
+
+.viruu-png-character.show {
+    opacity: 1;
+    filter: blur(0);
+}
 </style>
 </head>
 
