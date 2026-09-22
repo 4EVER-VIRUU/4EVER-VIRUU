@@ -3041,6 +3041,134 @@ section {
 .profile-area .chain,
 .profile-area .profile-chain-system {
     position: absolute !important;
+   }
+   /* =========================================================
+   VIRUU PROFILE — FINAL 4 CHAIN SYSTEM
+   ========================================================= */
+
+.profile-area {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+}
+
+/* Container */
+.profile-area .profile-chains {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 8 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+}
+
+/* Hide the old SVG chain system */
+.profile-area .profile-chain-system {
+    display: none !important;
+}
+
+/* Common chain */
+.profile-area .profile-chains .chain {
+    position: absolute !important;
+    display: block !important;
+
+    width: 170px !important;
+    height: 11px !important;
+
+    border-radius: 20px !important;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #222 0px,
+            #222 12px,
+            #eeeeee 13px,
+            #ffffff 20px,
+            #555 25px,
+            #222 32px
+        ) !important;
+
+    box-shadow:
+        0 0 5px rgba(255,255,255,.9),
+        0 0 14px rgba(255,255,255,.45) !important;
+
+    transform-origin: left center !important;
+
+    margin: 0 !important;
+}
+
+/* =========================================================
+   TOP LEFT
+   ========================================================= */
+
+.profile-area .chain-tl {
+    left: calc(50% - 150px) !important;
+    top: calc(50% - 150px) !important;
+    transform: rotate(225deg) !important;
+}
+
+/* =========================================================
+   TOP RIGHT
+   ========================================================= */
+
+.profile-area .chain-tr {
+    left: calc(50% + 150px) !important;
+    top: calc(50% - 150px) !important;
+    transform: rotate(315deg) !important;
+}
+
+/* =========================================================
+   BOTTOM LEFT
+   ========================================================= */
+
+.profile-area .chain-bl {
+    left: calc(50% - 150px) !important;
+    top: calc(50% + 150px) !important;
+    transform: rotate(135deg) !important;
+}
+
+/* =========================================================
+   BOTTOM RIGHT
+   ========================================================= */
+
+.profile-area .chain-br {
+    left: calc(50% + 150px) !important;
+    top: calc(50% + 150px) !important;
+    transform: rotate(45deg) !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .profile-area .profile-chains .chain {
+        width: 125px !important;
+        height: 9px !important;
+    }
+
+    .profile-area .chain-tl {
+        left: calc(50% - 112px) !important;
+        top: calc(50% - 112px) !important;
+    }
+
+    .profile-area .chain-tr {
+        left: calc(50% + 112px) !important;
+        top: calc(50% - 112px) !important;
+    }
+
+    .profile-area .chain-bl {
+        left: calc(50% - 112px) !important;
+        top: calc(50% + 112px) !important;
+    }
+
+    .profile-area .chain-br {
+        left: calc(50% + 112px) !important;
+        top: calc(50% + 112px) !important;
+    }
 }
    
 </style>
