@@ -2787,6 +2787,219 @@ section{
         border-width: 1.5px;
     }
        }
+   /* =========================================
+   FINAL — PROFILE CHAIN FIX
+========================================= */
+
+.profile-photo {
+    position: relative;
+    overflow: visible !important;
+}
+
+/* Chain area */
+.profile-chain-lock {
+    position: absolute;
+    inset: -12%;
+    z-index: 3;
+    pointer-events: none;
+    overflow: visible;
+}
+
+/* Chain itself */
+.profile-chain {
+    position: absolute;
+
+    width: 48%;
+    height: 8px;
+
+    border-radius: 10px;
+
+    opacity: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #111 0px,
+            #777 6px,
+            #e8e8e8 9px,
+            #555 13px,
+            #111 19px
+        );
+
+    border: 1px solid #aaa;
+
+    box-shadow:
+        0 0 4px rgba(255,255,255,.8),
+        0 0 10px rgba(255,30,90,.45),
+        0 3px 7px rgba(0,0,0,.8);
+
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================
+   TOP LEFT
+========================= */
+
+.chain-tl {
+    left: -4%;
+    top: 17%;
+
+    transform:
+        rotate(42deg)
+        translateX(-80px);
+
+    animation-name: finalTL;
+    animation-delay: .2s;
+}
+
+
+/* =========================
+   TOP RIGHT
+========================= */
+
+.chain-tr {
+    right: -4%;
+    top: 17%;
+
+    transform:
+        rotate(-42deg)
+        translateX(80px);
+
+    animation-name: finalTR;
+    animation-delay: .35s;
+}
+
+
+/* =========================
+   BOTTOM LEFT
+========================= */
+
+.chain-bl {
+    left: -4%;
+    bottom: 17%;
+
+    transform:
+        rotate(-42deg)
+        translateX(-80px);
+
+    animation-name: finalBL;
+    animation-delay: .5s;
+}
+
+
+/* =========================
+   BOTTOM RIGHT
+========================= */
+
+.chain-br {
+    right: -4%;
+    bottom: 17%;
+
+    transform:
+        rotate(42deg)
+        translateX(80px);
+
+    animation-name: finalBR;
+    animation-delay: .65s;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes finalTL {
+    0% {
+        opacity: 0;
+        transform: rotate(42deg) translateX(-80px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(42deg) translateX(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(42deg) translateX(0);
+    }
+}
+
+@keyframes finalTR {
+    0% {
+        opacity: 0;
+        transform: rotate(-42deg) translateX(80px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(-42deg) translateX(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(-42deg) translateX(0);
+    }
+}
+
+@keyframes finalBL {
+    0% {
+        opacity: 0;
+        transform: rotate(-42deg) translateX(-80px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(-42deg) translateX(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(-42deg) translateX(0);
+    }
+}
+
+@keyframes finalBR {
+    0% {
+        opacity: 0;
+        transform: rotate(42deg) translateX(80px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(42deg) translateX(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(42deg) translateX(0);
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width:600px) {
+
+    .profile-chain-lock {
+        inset: -10%;
+    }
+
+    .profile-chain {
+        width: 45%;
+        height: 6px;
+    }
+   }
+   .profile-chain-lock {
+    z-index: 1;
+   }
+   .profile-photo img {
+    position: relative;
+    z-index: 2;
+   }
 
 </style>
 </head>
