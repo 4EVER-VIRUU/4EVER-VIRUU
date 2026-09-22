@@ -2650,6 +2650,180 @@ section{
         stroke-width: 2.2;
     }
    }
+   /* =====================================================
+   🔥 VIRUU PROFILE — FINAL 4 CHAIN LOCK
+   ===================================================== */
+
+/* Main profile container */
+.profile-area {
+    position: relative !important;
+    isolation: isolate !important;
+}
+
+/* Hide the OLD SVG chain system */
+.profile-chain-system {
+    display: none !important;
+}
+
+/* New 4-chain layer */
+.profile-chains {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    z-index: 2 !important;
+    overflow: visible !important;
+}
+
+/* Chain base */
+.profile-chains .chain {
+    position: absolute !important;
+    display: block !important;
+
+    width: clamp(150px, 27vw, 320px) !important;
+    height: 11px !important;
+
+    border-radius: 999px !important;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #eeeeee 0px,
+            #eeeeee 13px,
+            #222222 13px,
+            #222222 27px
+        ) !important;
+
+    border: 2px solid #888 !important;
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 12px rgba(255,255,255,.75),
+        0 0 25px rgba(255,0,100,.35) !important;
+
+    transform-origin: center center !important;
+}
+
+
+/* =====================================================
+   ⛓️ TOP LEFT
+   ===================================================== */
+
+.chain-tl {
+    left: calc(50% - 145px) !important;
+    top: calc(50% - 145px) !important;
+    transform: rotate(45deg) !important;
+}
+
+
+/* =====================================================
+   ⛓️ TOP RIGHT
+   ===================================================== */
+
+.chain-tr {
+    left: calc(50% + 5px) !important;
+    top: calc(50% - 145px) !important;
+    transform: rotate(-45deg) !important;
+}
+
+
+/* =====================================================
+   ⛓️ BOTTOM LEFT
+   ===================================================== */
+
+.chain-bl {
+    left: calc(50% - 145px) !important;
+    top: calc(50% + 135px) !important;
+    transform: rotate(-45deg) !important;
+}
+
+
+/* =====================================================
+   ⛓️ BOTTOM RIGHT
+   ===================================================== */
+
+.chain-br {
+    left: calc(50% + 5px) !important;
+    top: calc(50% + 135px) !important;
+    transform: rotate(45deg) !important;
+}
+
+
+/* =====================================================
+   👤 PROFILE PHOTO MUST BE ABOVE CHAINS
+   ===================================================== */
+
+.profile-photo {
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+
+/* =====================================================
+   📱 MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .profile-chains .chain {
+        width: 165px !important;
+        height: 9px !important;
+    }
+
+    .chain-tl {
+        left: calc(50% - 125px) !important;
+        top: calc(50% - 125px) !important;
+    }
+
+    .chain-tr {
+        left: calc(50% - 40px) !important;
+        top: calc(50% - 125px) !important;
+    }
+
+    .chain-bl {
+        left: calc(50% - 125px) !important;
+        top: calc(50% + 115px) !important;
+    }
+
+    .chain-br {
+        left: calc(50% - 40px) !important;
+        top: calc(50% + 115px) !important;
+    }
+}
+
+
+/* =====================================================
+   🖥️ LAPTOP / TV / DIGITAL BOARD
+   ===================================================== */
+
+@media (min-width: 1000px) {
+
+    .profile-chains .chain {
+        width: clamp(220px, 24vw, 400px) !important;
+        height: 14px !important;
+    }
+
+    .chain-tl {
+        left: calc(50% - 190px) !important;
+        top: calc(50% - 190px) !important;
+    }
+
+    .chain-tr {
+        left: calc(50% - 30px) !important;
+        top: calc(50% - 190px) !important;
+    }
+
+    .chain-bl {
+        left: calc(50% - 190px) !important;
+        top: calc(50% + 170px) !important;
+    }
+
+    .chain-br {
+        left: calc(50% - 30px) !important;
+        top: calc(50% + 170px) !important;
+    }
+   }
    
 </style>
 </head>
@@ -2730,6 +2904,13 @@ section{
 ======================================================= -->
 
 <div class="profile-area">
+
+   <div class="profile-chains">
+    <span class="chain chain-tl"></span>
+    <span class="chain chain-tr"></span>
+    <span class="chain chain-bl"></span>
+    <span class="chain chain-br"></span>
+   </div>
 
   <div class="profile-photo">
 
