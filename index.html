@@ -2529,7 +2529,339 @@ section{
     }
 
                       }
-   
+   /* =========================================
+   CINEMATIC PROFILE CHAIN LOCK
+========================================= */
+
+.profile-chain-lock {
+    position: absolute;
+    inset: -35%;
+    z-index: 8;
+    pointer-events: none;
+    overflow: visible;
+}
+
+
+/* CHAIN BASE */
+
+.profile-chain {
+    position: absolute;
+
+    width: 62%;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255,255,255,.35))
+        drop-shadow(0 0 12px rgba(255,20,90,.25));
+
+    opacity: 0;
+}
+
+
+/* INDIVIDUAL CHAIN LINKS */
+
+.profile-chain span {
+    flex: 1;
+    height: 12px;
+
+    border: 2px solid #a8a8a8;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeeee 0%,
+            #555 28%,
+            #111 55%,
+            #aaa 75%,
+            #222 100%
+        );
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.7),
+        0 1px 4px rgba(0,0,0,.8);
+
+    transform: rotate(35deg);
+}
+
+
+/* TOP LEFT */
+
+.chain-tl {
+    left: -5%;
+    top: 18%;
+
+    transform:
+        rotate(42deg)
+        translateX(-160px);
+
+    transform-origin: right center;
+
+    animation:
+        chainTL 1.1s cubic-bezier(.16,1,.3,1) .25s forwards;
+}
+
+
+/* TOP RIGHT */
+
+.chain-tr {
+    right: -5%;
+    top: 18%;
+
+    transform:
+        rotate(-42deg)
+        translateX(160px);
+
+    transform-origin: left center;
+
+    animation:
+        chainTR 1.1s cubic-bezier(.16,1,.3,1) .4s forwards;
+}
+
+
+/* BOTTOM LEFT */
+
+.chain-bl {
+    left: -5%;
+    bottom: 18%;
+
+    transform:
+        rotate(-42deg)
+        translateX(-160px);
+
+    transform-origin: right center;
+
+    animation:
+        chainBL 1.1s cubic-bezier(.16,1,.3,1) .55s forwards;
+}
+
+
+/* BOTTOM RIGHT */
+
+.chain-br {
+    right: -5%;
+    bottom: 18%;
+
+    transform:
+        rotate(42deg)
+        translateX(160px);
+
+    transform-origin: left center;
+
+    animation:
+        chainBR 1.1s cubic-bezier(.16,1,.3,1) .7s forwards;
+}
+
+
+/* =========================================
+   CINEMATIC ENTRANCE
+========================================= */
+
+@keyframes chainTL {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(42deg)
+            translateX(-160px);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            rotate(42deg)
+            translateX(12px);
+    }
+
+    82% {
+        transform:
+            rotate(42deg)
+            translateX(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(42deg)
+            translateX(0);
+    }
+}
+
+
+@keyframes chainTR {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(-42deg)
+            translateX(160px);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            rotate(-42deg)
+            translateX(-12px);
+    }
+
+    82% {
+        transform:
+            rotate(-42deg)
+            translateX(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(-42deg)
+            translateX(0);
+    }
+}
+
+
+@keyframes chainBL {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(-42deg)
+            translateX(-160px);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            rotate(-42deg)
+            translateX(12px);
+    }
+
+    82% {
+        transform:
+            rotate(-42deg)
+            translateX(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(-42deg)
+            translateX(0);
+    }
+}
+
+
+@keyframes chainBR {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(42deg)
+            translateX(160px);
+    }
+
+    65% {
+        opacity: 1;
+        transform:
+            rotate(42deg)
+            translateX(-12px);
+    }
+
+    82% {
+        transform:
+            rotate(42deg)
+            translateX(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(42deg)
+            translateX(0);
+    }
+}
+
+
+/* =========================================
+   IMPACT FLASH
+========================================= */
+
+.chain-lock-flash {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 35%;
+    aspect-ratio: 1;
+
+    transform: translate(-50%, -50%) scale(.2);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9) 0%,
+            rgba(255,30,90,.5) 15%,
+            rgba(255,0,60,0) 65%
+        );
+
+    opacity: 0;
+
+    animation:
+        chainImpact .8s ease 1.65s forwards;
+}
+
+
+@keyframes chainImpact {
+
+    0% {
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(.2);
+    }
+
+    30% {
+        opacity: .9;
+        transform: translate(-50%,-50%) scale(1.25);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%,-50%) scale(1.8);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width:600px) {
+
+    .profile-chain-lock {
+        inset: -28%;
+    }
+
+    .profile-chain {
+        height: 13px;
+        width: 68%;
+        gap: 2px;
+    }
+
+    .profile-chain span {
+        height: 9px;
+        border-width: 1.5px;
+    }
+                   }
+   .profile-photo {
+    position: relative;
+    overflow: visible;
+   }
 </style>
 </head>
 
@@ -2615,9 +2947,18 @@ section{
     <img
       src="file_00000000f414820bbe7471d6736ffc75.png"
       alt="Vishal Telam">
+     
+<div class="profile-chain-lock">
 
+    <div class="profile-chain chain-tl"></div>
+    <div class="profile-chain chain-tr"></div>
+    <div class="profile-chain chain-bl"></div>
+    <div class="profile-chain chain-br"></div>
+
+    <div class="chain-lock-flash"></div>
+
+</div>
   </div>
-
 </div>
 
 <!-- =======================================================
