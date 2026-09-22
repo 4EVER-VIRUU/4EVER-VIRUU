@@ -2959,6 +2959,89 @@ section{
         height: 15px !important;
     }
 }
+   /* =====================================================
+   🔒 VIRUU PROFILE CHAINS — STRICTLY LOCKED TO PROFILE
+   ===================================================== */
+
+.profile-area {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+}
+
+.profile-chains {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+}
+
+.profile-chains .chain {
+    position: absolute !important;
+    display: block !important;
+    pointer-events: none !important;
+
+    /* IMPORTANT: never fixed */
+    position: absolute !important;
+}
+
+/* TOP LEFT */
+.profile-chains .chain-tl {
+    left: 0 !important;
+    top: 0 !important;
+}
+
+/* TOP RIGHT */
+.profile-chains .chain-tr {
+    right: 0 !important;
+    top: 0 !important;
+}
+
+/* BOTTOM LEFT */
+.profile-chains .chain-bl {
+    left: 0 !important;
+    bottom: 0 !important;
+}
+
+/* BOTTOM RIGHT */
+.profile-chains .chain-br {
+    right: 0 !important;
+    bottom: 0 !important;
+}
+
+/* Never allow chains to escape the profile section */
+.profile-area::before,
+.profile-area::after {
+    pointer-events: none !important;
+}
+
+/* Keep paintings/art sections ABOVE any escaped old chain layers */
+.art-reel-section,
+.art-section,
+.paintings-section,
+.my-paintings,
+section {
+    position: relative;
+    z-index: 10;
+}
+
+/* Extra safety: any chain system inside profile only */
+.profile-area .profile-chain-system {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+/* Kill accidental fixed positioning */
+.profile-area .chain,
+.profile-area .profile-chain-system {
+    position: absolute !important;
+}
    
 </style>
 </head>
