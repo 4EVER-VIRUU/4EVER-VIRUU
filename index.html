@@ -3400,6 +3400,278 @@ section {
         height: clamp(24px, 1.4vw, 42px) !important;
     }
 }
+   /* =========================================================
+   🔗 4EVER VIRUU — REAL RECTANGULAR METAL CHAINS
+   ========================================================= */
+
+.profile-area {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    isolation: isolate !important;
+}
+
+.profile-photo {
+    position: relative !important;
+    z-index: 10 !important;
+    overflow: visible !important;
+}
+
+/* Chain layer belongs ONLY to profile */
+.profile-chain-system {
+    position: absolute !important;
+
+    left: -50% !important;
+    top: -50% !important;
+
+    width: 200% !important;
+    height: 200% !important;
+
+    pointer-events: none !important;
+
+    z-index: -1 !important;
+
+    overflow: visible !important;
+}
+
+
+/* =========================================================
+   INDIVIDUAL CHAIN
+   ========================================================= */
+
+.real-chain {
+    position: absolute !important;
+
+    width: 72% !important;
+    height: 30px !important;
+
+    left: 50% !important;
+    top: 50% !important;
+
+    transform-origin: 0 50% !important;
+
+    /*
+      Metallic base
+    */
+    background:
+        linear-gradient(
+            135deg,
+            #181818 0%,
+            #777 12%,
+            #eeeeee 25%,
+            #555 40%,
+            #ffffff 52%,
+            #777 68%,
+            #eeeeee 82%,
+            #222 100%
+        ) !important;
+
+    border: 3px solid #999 !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        inset 0 3px 3px rgba(255,255,255,.8),
+        inset 0 -4px 5px rgba(0,0,0,.85),
+        0 4px 8px rgba(0,0,0,.8),
+        0 0 12px rgba(255,255,255,.25) !important;
+}
+
+
+/* =========================================================
+   HOLLOW CENTER → RECTANGULAR LINK LOOK
+   ========================================================= */
+
+.real-chain::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    left: 7px !important;
+    right: 7px !important;
+    top: 6px !important;
+    bottom: 6px !important;
+
+    background: rgba(8,8,8,.92) !important;
+
+    border-radius: 6px !important;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,.12),
+        inset 0 -2px 4px rgba(0,0,0,.9) !important;
+}
+
+
+/* =========================================================
+   REPEATED LINK JOINTS
+   ========================================================= */
+
+.real-chain::before {
+    content: "" !important;
+
+    position: absolute !important;
+
+    top: -3px !important;
+    bottom: -3px !important;
+
+    left: 0 !important;
+    right: 0 !important;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 28px,
+
+            rgba(255,255,255,.9) 29px,
+            rgba(255,255,255,.9) 31px,
+
+            transparent 32px,
+            transparent 56px
+        ) !important;
+
+    border-radius: 12px !important;
+
+    opacity: .8 !important;
+
+    mix-blend-mode: screen !important;
+}
+
+
+/* =========================================================
+   ⛓️ TOP LEFT
+   ========================================================= */
+
+.chain-tl {
+    transform:
+        translate(0, 0)
+        rotate(225deg) !important;
+}
+
+
+/* =========================================================
+   ⛓️ TOP RIGHT
+   ========================================================= */
+
+.chain-tr {
+    transform:
+        translate(0, 0)
+        rotate(315deg) !important;
+}
+
+
+/* =========================================================
+   ⛓️ BOTTOM LEFT
+   ========================================================= */
+
+.chain-bl {
+    transform:
+        translate(0, 0)
+        rotate(135deg) !important;
+}
+
+
+/* =========================================================
+   ⛓️ BOTTOM RIGHT
+   ========================================================= */
+
+.chain-br {
+    transform:
+        translate(0, 0)
+        rotate(45deg) !important;
+}
+
+
+/* =========================================================
+   📱 MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .real-chain {
+        width: 90vw !important;
+        height: 23px !important;
+        border-width: 2px !important;
+        border-radius: 9px !important;
+    }
+
+    .real-chain::after {
+        left: 6px !important;
+        right: 6px !important;
+        top: 5px !important;
+        bottom: 5px !important;
+    }
+}
+
+
+/* =========================================================
+   📱 LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (orientation: landscape) and (max-height: 600px) {
+
+    .real-chain {
+        width: 72vw !important;
+        height: 20px !important;
+    }
+}
+
+
+/* =========================================================
+   💻 LAPTOP / DESKTOP
+   ========================================================= */
+
+@media (min-width: 900px) {
+
+    .real-chain {
+        width: 70vw !important;
+        height: 28px !important;
+    }
+}
+
+
+/* =========================================================
+   📺 LARGE TV / DIGITAL BOARD
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+    .real-chain {
+        width: 68vw !important;
+        height: 38px !important;
+    }
+   }
+   .real-chain {
+    animation:
+        chainLockIn 1.2s cubic-bezier(.16,1,.3,1) both;
+}
+
+.chain-tr {
+    animation-delay: .08s;
+}
+
+.chain-bl {
+    animation-delay: .16s;
+}
+
+.chain-br {
+    animation-delay: .24s;
+}
+
+@keyframes chainLockIn {
+
+    from {
+        opacity: 0;
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+   }
    
 </style>
 </head>
@@ -3481,70 +3753,21 @@ section {
 
 <div class="profile-area">
 
-   <div class="profile-chains">
-    <span class="chain chain-tl"></span>
-    <span class="chain chain-tr"></span>
-    <span class="chain chain-bl"></span>
-    <span class="chain chain-br"></span>
-   </div>
-
   <div class="profile-photo">
 
     <img
       src="file_00000000f414820bbe7471d6736ffc75.png"
       alt="Vishal Telam">
 
-     <!-- ===== PROFILE CHAIN LOCK ===== -->
-<svg class="profile-chain-system"
-     viewBox="0 0 100 100"
-     preserveAspectRatio="xMidYMid meet"
-     aria-hidden="true">
+     <!-- ===== REAL METAL PROFILE CHAINS ===== -->
+<div class="profile-chain-system">
 
-    <defs>
-        <linearGradient id="metalChain"
-                        x1="0%" y1="0%"
-                        x2="100%" y2="0%">
-            <stop offset="0%"   stop-color="#222"/>
-            <stop offset="25%"  stop-color="#eee"/>
-            <stop offset="45%"  stop-color="#555"/>
-            <stop offset="65%"  stop-color="#fff"/>
-            <stop offset="100%" stop-color="#222"/>
-        </linearGradient>
+    <div class="real-chain chain-tl"></div>
+    <div class="real-chain chain-tr"></div>
+    <div class="real-chain chain-bl"></div>
+    <div class="real-chain chain-br"></div>
 
-        <filter id="chainGlow">
-            <feGaussianBlur stdDeviation="1.2" result="blur"/>
-            <feMerge>
-                <feMergeNode in="blur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-    </defs>
-
-    <!-- TOP LEFT -->
-    <line class="lock-chain"
-          x1="34.4" y1="34.4"
-          x2="16" y2="16"
-          pathLength="100"/>
-
-    <!-- TOP RIGHT -->
-    <line class="lock-chain"
-          x1="65.6" y1="34.4"
-          x2="84" y2="16"
-          pathLength="100"/>
-
-    <!-- BOTTOM LEFT -->
-    <line class="lock-chain"
-          x1="34.4" y1="65.6"
-          x2="7" y2="93"
-          pathLength="100"/>
-
-    <!-- BOTTOM RIGHT -->
-    <line class="lock-chain"
-          x1="65.6" y1="65.6"
-          x2="93" y2="93"
-          pathLength="100"/>
-
-</svg>
+</div>
 
 </div>
 
