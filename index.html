@@ -2698,40 +2698,78 @@ section{
     }
    }
 /* =========================================
-   FINAL — 4 CHAINS LOCK THE PROFILE
+   FINAL BOTTOM CHAINS
+   FIXED TO PROFILE RING
 ========================================= */
 
-/* Bottom-left */
 .chain-bl {
-    width: 115% !important;
-    left: -42% !important;
-    bottom: 7% !important;
+    width: 70% !important;
+
+    left: -25% !important;
+    bottom: 3% !important;
 
     transform-origin: right center !important;
 
-    animation-delay: .2s !important;
+    transform: rotate(-42deg) !important;
+
+    animation: bottomLeftLock 1s
+        cubic-bezier(.16,1,.3,1)
+        .2s forwards !important;
 }
 
 
-/* Bottom-right */
 .chain-br {
-    width: 115% !important;
-    right: -42% !important;
-    bottom: 7% !important;
+    width: 70% !important;
+
+    right: -25% !important;
+    bottom: 3% !important;
 
     transform-origin: left center !important;
 
-    animation-delay: .2s !important;
+    transform: rotate(42deg) !important;
+
+    animation: bottomRightLock 1s
+        cubic-bezier(.16,1,.3,1)
+        .2s forwards !important;
 }
 
 
-/* All 4 arrive together */
-.chain-tl,
-.chain-tr,
-.chain-bl,
-.chain-br {
-    animation-delay: .2s !important;
+/* Bottom-left enters from outside */
+@keyframes bottomLeftLock {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(-42deg)
+            translateX(-80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(-42deg)
+            translateX(0);
+    }
 }
+
+
+/* Bottom-right enters from outside */
+@keyframes bottomRightLock {
+
+    0% {
+        opacity: 0;
+        transform:
+            rotate(42deg)
+            translateX(80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(42deg)
+            translateX(0);
+    }
+   }
    
 </style>
 </head>
