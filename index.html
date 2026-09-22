@@ -2697,16 +2697,40 @@ section{
         right: -38%;
     }
    }
-   /* ===== BOTTOM CHAINS ONLY ===== */
+/* =========================================
+   FINAL — 4 CHAINS LOCK THE PROFILE
+========================================= */
 
+/* Bottom-left */
 .chain-bl {
-    width: 100%;
-    left: -106%;
+    width: 115% !important;
+    left: -42% !important;
+    bottom: 7% !important;
+
+    transform-origin: right center !important;
+
+    animation-delay: .2s !important;
 }
 
+
+/* Bottom-right */
 .chain-br {
-    width: 100%;
-    right: -106%;
+    width: 115% !important;
+    right: -42% !important;
+    bottom: 7% !important;
+
+    transform-origin: left center !important;
+
+    animation-delay: .2s !important;
+}
+
+
+/* All 4 arrive together */
+.chain-tl,
+.chain-tr,
+.chain-bl,
+.chain-br {
+    animation-delay: .2s !important;
 }
    
 </style>
