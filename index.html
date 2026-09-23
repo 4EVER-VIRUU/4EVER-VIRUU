@@ -1653,106 +1653,104 @@ section{
     pointer-events: none;
 }
 
-
-/* =========================================================
-   STATIC COSMIC CENTER
-========================================================= */
-
-.cosmic-center {
-
-    z-index: 0;
-
-    filter:
-        drop-shadow(0 0 8px rgba(255,170,40,.35))
-        drop-shadow(0 0 22px rgba(255,90,20,.2));
-}
-
-
-/* =========================================================
-   4 ORBITS
-========================================================= */
-
 .cosmic-orbit {
+    position: absolute;
+
+    width: 135%;
+    height: 135%;
+
+    left: 56%;
+    top: 55%;
+
+    object-fit: contain;
+
     z-index: 1;
+    pointer-events: none;
 
     transform-origin: center center;
 }
 
-
-/* ORBIT 1
-   CLOCKWISE — FAST
-========================================================= */
-
 .orbit-1 {
-    animation:
-        orbitClockwise 11s linear infinite;
+    animation: orbit1 11s linear infinite;
 }
-
-
-/* ORBIT 2
-   ANTI-CLOCKWISE — MEDIUM
-========================================================= */
 
 .orbit-2 {
-    animation:
-        orbitAntiClockwise 17s linear infinite;
+    animation: orbit2 17s linear infinite;
 }
-
-
-/* ORBIT 3
-   CLOCKWISE — SLOW
-========================================================= */
 
 .orbit-3 {
-    animation:
-        orbitClockwise 25s linear infinite;
+    animation: orbit3 25s linear infinite;
 }
-
-
-/* ORBIT 4
-   ANTI-CLOCKWISE — VERY SLOW
-========================================================= */
 
 .orbit-4 {
-    animation:
-        orbitAntiClockwise 36s linear infinite;
+    animation: orbit4 36s linear infinite;
 }
 
 
-/* =========================================================
-   ROTATION
-========================================================= */
-
-@keyframes orbitClockwise {
-
+/* CLOCKWISE */
+@keyframes orbit1 {
     from {
-        transform:
-            translate(-50%, -50%)
-            rotate(0deg);
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(0deg);
     }
 
     to {
-        transform:
-            translate(-50%, -50%)
-            rotate(360deg);
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(360deg);
     }
 }
 
 
-@keyframes orbitAntiClockwise {
-
+/* ANTI-CLOCKWISE */
+@keyframes orbit2 {
     from {
-        transform:
-            translate(-50%, -50%)
-            rotate(360deg);
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(360deg);
     }
 
     to {
-        transform:
-            translate(-50%, -50%)
-            rotate(0deg);
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(0deg);
     }
 }
+
+
+/* CLOCKWISE */
+@keyframes orbit3 {
+    from {
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(0deg);
+    }
+
+    to {
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ANTI-CLOCKWISE */
+@keyframes orbit4 {
+    from {
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(360deg);
+    }
+
+    to {
+        margin-left: -50%;
+        margin-top: -50%;
+        transform: rotate(0deg);
+    }
+}
+
+
 
 
 /* =========================================================
