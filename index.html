@@ -2678,6 +2678,31 @@ section{
         opacity: .82;
     }
        }
+   .cosmic-ring-image {
+    position: absolute;
+    width: 105%;
+    height: auto;
+
+    left: 53%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 1;
+    pointer-events: none;
+
+    animation: cosmicReverseSpin 18s linear infinite;
+}
+
+@keyframes cosmicReverseSpin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
    
 </style>
 </head>
