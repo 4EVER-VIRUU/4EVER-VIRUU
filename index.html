@@ -2631,41 +2631,77 @@ section{
     display: block;
 }
 
+/* ================================
+   CINEMATIC ORBIT ROTATION
+================================ */
+
 .orbit-1 {
-    animation: orbitTest1 4s linear infinite !important;
+    animation: orbitCinematic1 22s linear infinite !important;
 }
 
 .orbit-2 {
-    animation: orbitTest2 6s linear infinite !important;
+    animation: orbitCinematic2 31s linear infinite !important;
 }
 
 .orbit-3 {
-    animation: orbitTest3 8s linear infinite !important;
+    animation: orbitCinematic3 44s linear infinite !important;
 }
 
 .orbit-4 {
-    animation: orbitTest4 10s linear infinite !important;
+    animation: orbitCinematic4 58s linear infinite !important;
 }
 
-@keyframes orbitTest1 {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+
+/* CLOCKWISE — 22s */
+
+@keyframes orbitCinematic1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-@keyframes orbitTest2 {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(-360deg); }
+
+/* ANTI-CLOCKWISE — 31s */
+
+@keyframes orbitCinematic2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
 }
 
-@keyframes orbitTest3 {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+
+/* CLOCKWISE — 44s */
+
+@keyframes orbitCinematic3 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-@keyframes orbitTest4 {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(-360deg); }
-       }
+
+/* ANTI-CLOCKWISE — 58s */
+
+@keyframes orbitCinematic4 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
    
 </style>
 </head>
