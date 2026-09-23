@@ -1558,191 +1558,300 @@ section{
   }
 
 }
+
 /* =========================================================
-   VIRUU 3D CHARACTER
+   VIRUU 3D CHARACTER + 4 INDEPENDENT COSMIC ORBITS
 ========================================================= */
 
-.viruu-png-character{
-  position:absolute;
-
-  right:4%;
-  top:145px;
-
-  width:360px;
-
-  z-index:12;
-
-  pointer-events:none;
-
-  animation:
-    characterFloat 5s ease-in-out infinite;
-}
-
-.viruu-png-character img{
-  width:100%;
-  height:auto;
-
-  display:block;
-
-  object-fit:contain;
-
-  filter:
-    drop-shadow(0 0 18px rgba(165,29,59,.45))
-    drop-shadow(0 20px 25px rgba(0,0,0,.6));
-}
-
-@keyframes characterFloat{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-12px);
-  }
-
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .viruu-png-character{
-    position:relative;
-
-    top:auto;
-    right:auto;
-
-    width:min(330px,85vw);
-
-    margin:20px auto -30px;
-
-    display:flex;
-
-    justify-content:center;
-  }
-
-}
-
-@media(max-width:600px){
-
-  .viruu-png-character{
-    width:280px;
-
-    margin-top:10px;
-    margin-bottom:-20px;
-  }
-
-   }
-/* 3D CHARACTER CINEMATIC ENTRANCE */
 .viruu-png-character {
+    position: absolute;
+
+    right: 4%;
+    top: 145px;
+
+    width: 360px;
+
+    z-index: 12;
+
+    pointer-events: none;
+
+    /* Entrance animation */
     opacity: 0;
-    transform: translateY(50px) scale(0.75);
+    filter: blur(12px);
+
+    transform: translateY(70px) scale(.82);
+
     transition:
         opacity 1.2s ease,
-        transform 1.2s cubic-bezier(.2,.8,.2,1);
+        filter 1.2s ease,
+        transform 1.2s cubic-bezier(.16,1,.3,1);
 }
 
+
+/* =========================================================
+   CHARACTER VISIBLE STATE
+========================================================= */
+
+.viruu-png-character.show,
 .viruu-png-character.show-3d {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    filter: blur(0);
+
+    transform:
+        translateY(0)
+        scale(1);
 }
+
+
+/* =========================================================
+   COSMIC SYSTEM
+========================================================= */
 
 .viruu-png-character::after {
     content: "";
+
     position: absolute;
+
     left: 50%;
     bottom: 10px;
+
     width: 180px;
     height: 35px;
+
     transform: translateX(-50%);
-    background: rgba(255, 0, 90, 0.25);
+
+    background: rgba(255, 0, 90, .25);
+
     filter: blur(25px);
+
     border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   ALL COSMIC LAYERS
+========================================================= */
+
+.cosmic-center,
+.cosmic-orbit {
+    position: absolute;
+
+    width: 135%;
+    height: 135%;
+
+    left: 56%;
+    top: 55%;
+
+    transform: translate(-50%, -50%);
+
+    object-fit: contain;
+
     pointer-events: none;
 }
-  /* ===== PNG CHARACTER ===== */
-.viruu-png-character {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(70px) scale(.82);
-    transition:
-        opacity 1.2s ease,
-        filter 1.2s ease,
-        transform 1.2s cubic-bezier(.16,1,.3,1);
+
+
+/* =========================================================
+   STATIC COSMIC CENTER
+========================================================= */
+
+.cosmic-center {
+
+    z-index: 0;
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,170,40,.35))
+        drop-shadow(0 0 22px rgba(255,90,20,.2));
 }
 
-.viruu-png-character.show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0) scale(1);
-}
-   /* ===== GLB CHARACTER ===== */
-.viruu-3d-model {
-    opacity: 0;
-    filter: blur(15px);
-    transform:
-        translateY(90px)
-        scale(.65)
-        rotateX(12deg);
 
-    transition:
-        opacity 1.4s ease,
-        filter 1.4s ease,
-        transform 1.5s cubic-bezier(.16,1,.3,1);
+/* =========================================================
+   4 ORBITS
+========================================================= */
+
+.cosmic-orbit {
+    z-index: 1;
+
+    transform-origin: center center;
 }
 
-.viruu-3d-model.show {
-    opacity: 1;
-    filter: blur(0);
-    transform:
-        translateY(0)
-        scale(1)
-        rotateX(0deg);
-   }
-   /* ===== PNG CHARACTER ===== */
-.viruu-png-character {
-    opacity: 0;
-    filter: blur(12px);
-    transform: translateY(70px);
-    transition:
-        opacity 1.2s ease,
-        filter 1.2s ease,
-        transform 1.2s cubic-bezier(.16,1,.3,1);
+
+/* ORBIT 1
+   CLOCKWISE — FAST
+========================================================= */
+
+.orbit-1 {
+    animation:
+        orbitClockwise 11s linear infinite;
 }
 
-.viruu-png-character.show {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-}
-   .viruu-png-character {
-    width: 305px;
-    max-width: 60%;
-    margin: 0 auto;
 
-    opacity: 0;
-    filter: blur(12px);
-    transition:
-        opacity 1.2s ease,
-        filter 1.2s ease;
+/* ORBIT 2
+   ANTI-CLOCKWISE — MEDIUM
+========================================================= */
+
+.orbit-2 {
+    animation:
+        orbitAntiClockwise 17s linear infinite;
 }
 
-.viruu-png-character.show {
-    opacity: 1;
-    filter: blur(0);
+
+/* ORBIT 3
+   CLOCKWISE — SLOW
+========================================================= */
+
+.orbit-3 {
+    animation:
+        orbitClockwise 25s linear infinite;
 }
-   @media (max-width: 600px) {
+
+
+/* ORBIT 4
+   ANTI-CLOCKWISE — VERY SLOW
+========================================================= */
+
+.orbit-4 {
+    animation:
+        orbitAntiClockwise 36s linear infinite;
+}
+
+
+/* =========================================================
+   ROTATION
+========================================================= */
+
+@keyframes orbitClockwise {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+@keyframes orbitAntiClockwise {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+}
+
+
+/* =========================================================
+   3D CHARACTER IMAGE
+========================================================= */
+
+.viruu-character-image {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 18px rgba(165,29,59,.45))
+        drop-shadow(0 20px 25px rgba(0,0,0,.6));
+
+    animation:
+        characterFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CHARACTER FLOAT
+========================================================= */
+
+@keyframes characterFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
     .viruu-png-character {
+
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: min(330px, 85vw);
+
+        margin: 20px auto -30px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .viruu-png-character {
+
+        width: 280px;
+
+        margin-top: 10px;
         margin-bottom: -110px !important;
     }
+
+
+    .cosmic-center,
+    .cosmic-orbit {
+
+        width: 135%;
+        height: 135%;
+
+        left: 56%;
+        top: 55%;
+    }
+
        }
-   
-    transition:
-        transform .45s cubic-bezier(.16,1,.3,1),
-        border-color .4s ease,
-        box-shadow .4s ease;
-}
+
 /* =================================
    MY UNIVERSE
 ================================= */
@@ -2798,20 +2907,47 @@ section{
 
    
    <div class="viruu-png-character">
-      
-      <div class="viruu-cosmic-ring">
+
+    <!-- STATIC COSMIC CENTER -->
     <img
-        src="file_00000000395481fdbe686a39d4979245.png"
+        src="cosmic-center.png"
         alt=""
-        class="cosmic-ring-image"
-    />
+        class="cosmic-center"
+    >
+
+    <!-- 4 INDEPENDENT ORBITS -->
+    <img
+        src="orbit-1.png"
+        alt=""
+        class="cosmic-orbit orbit-1"
+    >
+
+    <img
+        src="orbit-2.png"
+        alt=""
+        class="cosmic-orbit orbit-2"
+    >
+
+    <img
+        src="orbit-3.png"
+        alt=""
+        class="cosmic-orbit orbit-3"
+    >
+
+    <img
+        src="orbit-4.png"
+        alt=""
+        class="cosmic-orbit orbit-4"
+    >
+
+    <!-- 3D CHARACTER -->
+    <img
+        src="file_00000000c3dc8211b64b24b74b1c9384.png"
+        alt="4EVER VIRUU 3D Character"
+        class="viruu-character-image"
+    >
+
    </div>
-
-  <img
-    src="file_00000000c3dc8211b64b24b74b1c9384.png"
-    alt="4EVER VIRUU 3D Character">
-
-</div>
    
    <section
   class="hero"
