@@ -2529,7 +2529,167 @@ section{
     }
 
                       }
+/* =========================================================
+   VIRUU COSMIC ROTATING RING
+========================================================= */
 
+.viruu-cosmic-ring {
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: cosmicFloat 6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   COSMIC IMAGE
+========================================================= */
+
+.cosmic-ring-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    mix-blend-mode: screen;
+
+    opacity: 0.88;
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,170,50,.8))
+        drop-shadow(0 0 22px rgba(255,100,20,.55))
+        drop-shadow(0 0 45px rgba(255,30,90,.28));
+
+    animation:
+        cosmicRotate 22s linear infinite,
+        cosmicPulse 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CHARACTER ABOVE THE RING
+========================================================= */
+
+.viruu-png-character {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================================
+   360° ROTATION
+========================================================= */
+
+@keyframes cosmicRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   COSMIC GLOW PULSE
+========================================================= */
+
+@keyframes cosmicPulse {
+
+    0% {
+        opacity: .72;
+
+        filter:
+            drop-shadow(0 0 7px rgba(255,170,50,.6))
+            drop-shadow(0 0 18px rgba(255,80,20,.4));
+    }
+
+    50% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(0 0 12px rgba(255,190,70,.95))
+            drop-shadow(0 0 32px rgba(255,80,20,.65))
+            drop-shadow(0 0 55px rgba(255,20,100,.3));
+    }
+
+    100% {
+        opacity: .72;
+
+        filter:
+            drop-shadow(0 0 7px rgba(255,170,50,.6))
+            drop-shadow(0 0 18px rgba(255,80,20,.4));
+    }
+}
+
+
+/* =========================================================
+   SUBTLE FLOAT
+========================================================= */
+
+@keyframes cosmicFloat {
+
+    0% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -8px;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .viruu-cosmic-ring {
+        width: 330px;
+        height: 330px;
+    }
+
+    .cosmic-ring-image {
+        opacity: .82;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .viruu-cosmic-ring {
+        width: 290px;
+        height: 290px;
+    }
+   }
    
 </style>
 </head>
@@ -2622,7 +2782,19 @@ section{
 <!-- =======================================================
      HOME
 ======================================================= --> 
-<div class="viruu-png-character">
+<!-- =========================================
+     VIRUU COSMIC ROTATING RING
+========================================= -->
+
+<div class="viruu-cosmic-ring">
+    <img
+        src="large-promo.png"
+        alt=""
+        class="cosmic-ring-image"
+    />
+</div>
+   
+   <div class="viruu-png-character">
 
   <img
     src="file_00000000c3dc8211b64b24b74b1c9384.png"
