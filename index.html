@@ -2529,9 +2529,8 @@ section{
     }
 
                       }
-
 /* =========================================
-   FINAL — PROFILE CHAIN FIX
+   VIRUU — EDGE-TO-EDGE PROFILE CHAINS
 ========================================= */
 
 .profile-photo {
@@ -2539,60 +2538,60 @@ section{
     overflow: visible !important;
 }
 
-/* Chain area */
+/* Chain container */
 .profile-chain-lock {
     position: absolute;
-    inset: -12%;
+    inset: -5%;
     z-index: 3;
     pointer-events: none;
     overflow: visible;
 }
 
-/* Chain itself */
+/* Individual chain */
 .profile-chain {
     position: absolute;
 
-    width: 48%;
-    height: 8px;
+    /* LONG */
+    width: 115%;
+    height: 7px;
 
     border-radius: 10px;
-
     opacity: 0;
 
     background:
         repeating-linear-gradient(
             90deg,
-            #111 0px,
-            #777 6px,
-            #e8e8e8 9px,
-            #555 13px,
+            #0d0d0d 0px,
+            #555 5px,
+            #f0f0f0 9px,
+            #777 13px,
             #111 19px
         );
 
     border: 1px solid #aaa;
 
     box-shadow:
-        0 0 4px rgba(255,255,255,.8),
-        0 0 10px rgba(255,30,90,.45),
-        0 3px 7px rgba(0,0,0,.8);
+        0 0 5px rgba(255,255,255,.9),
+        0 0 12px rgba(255,30,90,.55),
+        0 3px 8px rgba(0,0,0,.9);
 
-    animation-duration: 1s;
+    animation-duration: 1.2s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(.16,1,.3,1);
 }
 
 
 /* =========================
-   TOP LEFT
+   TOP LEFT → EDGE
 ========================= */
 
 .chain-tl {
-    left: -4%;
-    top: 17%;
+    left: -45%;
+    top: 18%;
 
     transform:
         rotate(42deg)
-        translateX(-80px);
+        translateX(-120px);
 
     animation-name: finalTL;
     animation-delay: .2s;
@@ -2600,16 +2599,16 @@ section{
 
 
 /* =========================
-   TOP RIGHT
+   TOP RIGHT → EDGE
 ========================= */
 
 .chain-tr {
-    right: -4%;
-    top: 17%;
+    right: -45%;
+    top: 18%;
 
     transform:
         rotate(-42deg)
-        translateX(80px);
+        translateX(120px);
 
     animation-name: finalTR;
     animation-delay: .35s;
@@ -2617,16 +2616,16 @@ section{
 
 
 /* =========================
-   BOTTOM LEFT
+   BOTTOM LEFT → EDGE
 ========================= */
 
 .chain-bl {
-    left: -4%;
-    bottom: 17%;
+    left: -45%;
+    bottom: 18%;
 
     transform:
         rotate(-42deg)
-        translateX(-80px);
+        translateX(-120px);
 
     animation-name: finalBL;
     animation-delay: .5s;
@@ -2634,16 +2633,16 @@ section{
 
 
 /* =========================
-   BOTTOM RIGHT
+   BOTTOM RIGHT → EDGE
 ========================= */
 
 .chain-br {
-    right: -4%;
-    bottom: 17%;
+    right: -45%;
+    bottom: 18%;
 
     transform:
         rotate(42deg)
-        translateX(80px);
+        translateX(120px);
 
     animation-name: finalBR;
     animation-delay: .65s;
@@ -2651,18 +2650,18 @@ section{
 
 
 /* =========================
-   ANIMATIONS
+   CINEMATIC ENTRANCE
 ========================= */
 
 @keyframes finalTL {
     0% {
         opacity: 0;
-        transform: rotate(42deg) translateX(-80px);
+        transform: rotate(42deg) translateX(-120px);
     }
 
     70% {
         opacity: 1;
-        transform: rotate(42deg) translateX(5px);
+        transform: rotate(42deg) translateX(8px);
     }
 
     100% {
@@ -2674,12 +2673,12 @@ section{
 @keyframes finalTR {
     0% {
         opacity: 0;
-        transform: rotate(-42deg) translateX(80px);
+        transform: rotate(-42deg) translateX(120px);
     }
 
     70% {
         opacity: 1;
-        transform: rotate(-42deg) translateX(-5px);
+        transform: rotate(-42deg) translateX(-8px);
     }
 
     100% {
@@ -2691,12 +2690,12 @@ section{
 @keyframes finalBL {
     0% {
         opacity: 0;
-        transform: rotate(-42deg) translateX(-80px);
+        transform: rotate(-42deg) translateX(-120px);
     }
 
     70% {
         opacity: 1;
-        transform: rotate(-42deg) translateX(5px);
+        transform: rotate(-42deg) translateX(8px);
     }
 
     100% {
@@ -2708,12 +2707,12 @@ section{
 @keyframes finalBR {
     0% {
         opacity: 0;
-        transform: rotate(42deg) translateX(80px);
+        transform: rotate(42deg) translateX(120px);
     }
 
     70% {
         opacity: 1;
-        transform: rotate(42deg) translateX(-5px);
+        transform: rotate(42deg) translateX(-8px);
     }
 
     100% {
@@ -2723,26 +2722,42 @@ section{
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE — REACH SCREEN EDGES
+========================================= */
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
 
     .profile-chain-lock {
-        inset: -10%;
+        inset: -8%;
     }
 
     .profile-chain {
-        width: 45%;
+        width: 135%;
         height: 6px;
     }
+
+    .chain-tl {
+        left: -58%;
+        top: 18%;
+    }
+
+    .chain-tr {
+        right: -58%;
+        top: 18%;
+    }
+
+    .chain-bl {
+        left: -58%;
+        bottom: 18%;
+    }
+
+    .chain-br {
+        right: -58%;
+        bottom: 18%;
+    }
    }
-   .profile-chain-lock {
-    z-index: 1;
-   }
-   .profile-photo img {
-    position: relative;
-    z-index: 2;
-   }
+
    
 </style>
 </head>
