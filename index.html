@@ -2529,9 +2529,8 @@ section{
     }
 
                       }
-
-  /* =========================================
-   FIXED SIDE CHAINS
+/* =========================================
+   4EVER VIRUU — FIXED SIDE CHAINS
 ========================================= */
 
 .fixed-side-chains {
@@ -2539,98 +2538,80 @@ section{
     inset: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-.side-chain {
-    position: fixed;
-
-    width: 90px;
-    height: auto;
-
-    top: 50%;
-
-    pointer-events: none;
-    user-select: none;
-
-    object-fit: contain;
-}
-
-/* LEFT */
-.side-chain-left {
-    left: -42px;
-    transform: translateY(-50%) rotate(-35deg);
-}
-
-/* RIGHT */
-.side-chain-right {
-    right: -42px;
-    transform: translateY(-50%) scaleX(-1) rotate(-35deg);
-}
-
-
-/* 📱 MOBILE */
-@media (max-width: 600px) {
-
-    .side-chain {
-        width: 72px;
-    }
-
-    .side-chain-left {
-        left: -34px;
-    }
-
-    .side-chain-right {
-        right: -34px;
-    }
-}
-
-
-/* 📱 MOBILE LANDSCAPE */
-@media (max-width: 900px) and (orientation: landscape) {
-
-    .side-chain {
-        width: 68px;
-    }
-
-    .side-chain-left {
-        left: -32px;
-    }
-
-    .side-chain-right {
-        right: -32px;
-    }
-}
-   /* ===== SIDE CHAINS ===== */
-
-.fixed-side-chains {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
     z-index: 99999;
+    pointer-events: none;
 }
 
 .fixed-side-chains img {
-    position: fixed;
-    display: block;
-    width: 100px;
-    height: auto;
-    top: 50%;
-    opacity: 1;
+    position: fixed !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: 110px !important;
+    height: auto !important;
+
+    top: 50% !important;
+
+    pointer-events: none;
+    user-select: none;
 }
 
-.side-chain-left {
-    left: -35px;
-    transform: translateY(-50%) rotate(-35deg);
+/* LEFT SIDE */
+.fixed-side-chains .side-chain-left {
+    left: -38px !important;
+    right: auto !important;
+
+    transform: translateY(-50%) rotate(-35deg) !important;
 }
 
-.side-chain-right {
-    right: -35px;
-    transform: translateY(-50%) scaleX(-1) rotate(-35deg);
-       }
+/* RIGHT SIDE */
+.fixed-side-chains .side-chain-right {
+    right: -38px !important;
+    left: auto !important;
+
+    transform: translateY(-50%) scaleX(-1) rotate(-35deg) !important;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .fixed-side-chains img {
+        width: 85px !important;
+    }
+
+    .fixed-side-chains .side-chain-left {
+        left: -30px !important;
+    }
+
+    .fixed-side-chains .side-chain-right {
+        right: -30px !important;
+    }
+}
+
+
+/* ================================
+   LANDSCAPE MOBILE
+================================ */
+
+@media (max-width: 900px) and (orientation: landscape) {
+
+    .fixed-side-chains img {
+        width: 75px !important;
+    }
+
+    .fixed-side-chains .side-chain-left {
+        left: -27px !important;
+    }
+
+    .fixed-side-chains .side-chain-right {
+        right: -27px !important;
+    }
+}
    
 </style>
 </head>
@@ -6352,24 +6333,21 @@ filmStrip.style.opacity = "0";
 
    </script>
 
-   <script>
+ <!-- ===== FIXED SIDE CHAINS ===== -->
+<div class="fixed-side-chains" aria-hidden="true">
 
-      
-
-<!-- SIDE CHAINS TEST -->
-<div class="fixed-side-chains">
     <img
-        src="file_0000000079a88211a51b16d83eb75a9b.png"
+        src="./file_0000000079a88211a51b16d83eb75a9b.png"
         class="side-chain-left"
         alt=""
     >
 
     <img
-        src="file_0000000079a88211a51b16d83eb75a9b.png"
+        src="./file_0000000079a88211a51b16d83eb75a9b.png"
         class="side-chain-right"
         alt=""
     >
-</div>
-           
+
+</div>       
 </body>
    </html>
