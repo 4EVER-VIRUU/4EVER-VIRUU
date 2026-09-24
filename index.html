@@ -2702,6 +2702,135 @@ section{
         transform: rotate(-360deg);
     }
 }
+   <style>
+
+/* ===== VIRUU AI ===== */
+
+.viruu-ai-button{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:9998;
+  padding:13px 20px;
+  border:1px solid #720020;
+  border-radius:30px;
+  background:#090909;
+  color:#fff;
+  letter-spacing:2px;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(114,0,32,.35);
+}
+
+.viruu-ai-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(10px);
+}
+
+.viruu-ai-overlay.active{
+  display:flex;
+}
+
+.viruu-ai-box{
+  width:min(92%,430px);
+  height:min(80vh,600px);
+  display:flex;
+  flex-direction:column;
+  padding:25px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  background:linear-gradient(145deg,#090909,#190007);
+  box-shadow:0 0 50px rgba(114,0,32,.35);
+}
+
+.viruu-ai-close{
+  align-self:flex-end;
+  border:0;
+  background:none;
+  color:#aaa;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.viruu-ai-title{
+  text-align:center;
+  margin:5px 0 20px;
+}
+
+.viruu-ai-title span{
+  color:#a0002d;
+}
+
+.viruu-ai-title h2{
+  margin:5px 0;
+  color:#fff;
+  letter-spacing:5px;
+}
+
+.viruu-ai-title small{
+  color:#666;
+  letter-spacing:2px;
+}
+
+.viruu-ai-chat{
+  flex:1;
+  overflow-y:auto;
+  padding:10px 0;
+}
+
+.viruu-ai-message{
+  max-width:82%;
+  margin:10px 0;
+  padding:12px 15px;
+  border-radius:15px;
+  line-height:1.5;
+  font-size:14px;
+}
+
+.viruu-ai-message.ai{
+  background:#160007;
+  border:1px solid rgba(114,0,32,.5);
+  color:#ddd;
+}
+
+.viruu-ai-message.user{
+  margin-left:auto;
+  background:#242424;
+  color:#fff;
+}
+
+.viruu-ai-input{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.viruu-ai-input input{
+  flex:1;
+  min-width:0;
+  padding:13px;
+  border:1px solid #333;
+  border-radius:14px;
+  outline:none;
+  background:#111;
+  color:#fff;
+}
+
+.viruu-ai-input button{
+  width:48px;
+  border:0;
+  border-radius:14px;
+  background:#720020;
+  color:#fff;
+  cursor:pointer;
+}
+
+</style>
    
 </style>
 </head>
@@ -6460,6 +6589,215 @@ filmStrip.style.opacity = "0";
 
    </script>
 
+<!-- ===== VIRUU AI ===== -->
 
+<button id="viruuAIButton" class="viruu-ai-button">
+  ✦ VIRUU AI
+</button>
+
+<div id="viruuAI" class="viruu-ai-overlay">
+
+  <div class="viruu-ai-box">
+
+    <button id="viruuAIClose" class="viruu-ai-close">✕</button>
+
+    <div class="viruu-ai-title">
+      <span>✦</span>
+      <h2>VIRUU AI</h2>
+      <small>CREATIVE INTELLIGENCE</small>
+    </div>
+
+    <div id="viruuAIChat" class="viruu-ai-chat">
+      <div class="viruu-ai-message ai">
+        Hey! I'm VIRUU AI ✦<br>
+        Ask me anything.
+      </div>
+    </div>
+
+    <div class="viruu-ai-input">
+      <input
+        id="viruuAIInput"
+        type="text"
+        placeholder="Ask VIRUU AI..."
+        autocomplete="off"
+      >
+
+      <button id="viruuAISend">➤</button>
+    </div>
+
+  </div>
+
+</div>
+
+   <script>
+
+const viruuAIButton =
+  document.getElementById("viruuAIButton");
+
+const viruuAI =
+  document.getElementById("viruuAI");
+
+const viruuAIClose =
+  document.getElementById("viruuAIClose");
+
+const viruuAIInput =
+  document.getElementById("viruuAIInput");
+
+const viruuAISend =
+  document.getElementById("viruuAISend");
+
+const viruuAIChat =
+  document.getElementById("viruuAIChat");
+
+const VIRUU_AI_URL =
+  "https://viruu-ai.vtelam155.workers.dev";
+
+
+function addVIRUUMessage(text,type){
+
+  const message =
+    document.createElement("div");
+
+  message.className =
+    "viruu-ai-message " + type;
+
+  message.textContent = text;
+
+  viruuAIChat.appendChild(message);
+
+  viruuAIChat.scrollTop =
+    viruuAIChat.scrollHeight;
+
+}
+
+
+viruuAIButton.addEventListener("click",()=>{
+
+  viruuAI.classList.add("active");
+
+  viruuAIInput.focus();
+
+});
+
+
+viruuAIClose.addEventListener("click",()=>{
+
+  viruuAI.classList.remove("active");
+
+});
+
+
+viruuAI.addEventListener("click",(e)=>{
+
+  if(e.target === viruuAI){
+
+    viruuAI.classList.remove("active");
+
+  }
+
+});
+
+
+async function sendVIRUUMessage(){
+
+  const message =
+    viruuAIInput.value.trim();
+
+  if(!message) return;
+
+  addVIRUUMessage(message,"user");
+
+  viruuAIInput.value = "";
+
+  addVIRUUMessage(
+    "VIRUU AI is thinking...",
+    "ai"
+  );
+
+  try{
+
+    const response =
+      await fetch(VIRUU_AI_URL,{
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+          message:message
+        })
+      });
+
+    const data =
+      await response.json();
+
+    const thinking =
+      viruuAIChat.lastElementChild;
+
+    if(thinking){
+
+      thinking.remove();
+
+    }
+
+    if(data.reply){
+
+      addVIRUUMessage(
+        data.reply,
+        "ai"
+      );
+
+    }else{
+
+      addVIRUUMessage(
+        "Sorry, VIRUU AI could not respond.",
+        "ai"
+      );
+
+    }
+
+  }catch(error){
+
+    const thinking =
+      viruuAIChat.lastElementChild;
+
+    if(thinking){
+
+      thinking.remove();
+
+    }
+
+    addVIRUUMessage(
+      "Connection error. Please try again.",
+      "ai"
+    );
+
+  }
+
+}
+
+
+viruuAISend.addEventListener(
+  "click",
+  sendVIRUUMessage
+);
+
+
+viruuAIInput.addEventListener(
+  "keydown",
+  (event)=>{
+
+    if(event.key === "Enter"){
+
+      sendVIRUUMessage();
+
+    }
+
+  }
+);
+
+   </script>
+   
 </body>
    </html>
