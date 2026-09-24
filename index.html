@@ -2831,10 +2831,18 @@ section{
 }
 
 </style>
+<style>
 
-   /* ================================
+/* ================================
    VIRUU MOBILE NAVBAR FIX
 ================================ */
+
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
 
 nav{
   box-sizing:border-box;
@@ -2846,44 +2854,48 @@ nav{
 @media(max-width:600px){
 
   nav{
-    padding:12px 12px;
+    box-sizing:border-box;
+    width:100%;
+    padding:12px 10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     gap:6px;
   }
 
   nav .logo{
-    font-size:17px;
+    flex-shrink:0;
+    font-size:15px;
     letter-spacing:1px;
     white-space:nowrap;
-    flex-shrink:0;
   }
 
-  nav > div{
+  /* फक्त links चा div */
+  nav > div:nth-child(2){
     display:flex;
     align-items:center;
     justify-content:center;
+    gap:6px;
     min-width:0;
     flex:1;
   }
 
-  nav a{
-    margin-left:5px;
-    font-size:10px;
+  nav > div:nth-child(2) a{
+    margin-left:0;
+    font-size:9px;
     white-space:nowrap;
   }
 
   nav .editing-btn{
     flex-shrink:0;
-    font-size:10px;
-    padding:8px 10px;
+    padding:7px 8px;
+    font-size:9px;
     white-space:nowrap;
   }
 }
 
-html,
-body{
-  max-width:100%;
-  overflow-x:hidden;
-}
+</style>
+   
 </style>
 </head>
 
