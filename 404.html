@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>404 | VIRUU-VERSE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+      background: #050509;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* ===== BACKGROUND ===== */
+
+    .universe {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          rgba(120, 15, 55, 0.25),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(90, 10, 45, 0.16),
+          transparent 35%
+        ),
+        #050509;
+    }
+
+    /* ===== PARTICLES ===== */
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 1px),
+        radial-gradient(circle, rgba(180,30,80,.6) 1px, transparent 1px);
+
+      background-size: 90px 90px, 140px 140px;
+      animation: drift 18s linear infinite;
+      opacity: .45;
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(90px);
+      }
+    }
+
+    /* ===== GLOW ===== */
+
+    .core-glow {
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background: rgba(130, 15, 60, .16);
+
+      filter: blur(80px);
+
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% {
+        transform: translate(-50%, -50%) scale(.85);
+        opacity: .5;
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    /* ===== ORBIT ===== */
+
+    .orbit {
+      position: absolute;
+
+      width: 360px;
+      height: 360px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border: 1px solid rgba(150, 25, 70, .25);
+
+      border-radius: 50%;
+
+      animation: rotate 18s linear infinite;
+    }
+
+    .orbit::before {
+      content: "";
+
+      position: absolute;
+
+      width: 8px;
+      height: 8px;
+
+      top: -4px;
+      left: 50%;
+
+      border-radius: 50%;
+
+      background: #ff477f;
+
+      box-shadow:
+        0 0 10px #ff477f,
+        0 0 25px #a8184e;
+    }
+
+    @keyframes rotate {
+      to {
+        transform:
+          translate(-50%, -50%)
+          rotate(360deg);
+      }
+    }
+
+    /* ===== MAIN ===== */
+
+    .content {
+      position: relative;
+      z-index: 5;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 25px;
+    }
+
+    .box {
+      width: min(90vw, 620px);
+
+      padding: 45px 30px;
+
+      border: 1px solid rgba(160, 30, 75, .35);
+
+      border-radius: 26px;
+
+      background: rgba(7, 6, 12, .70);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 0 70px rgba(100, 10, 50, .18),
+        inset 0 0 40px rgba(100, 10, 50, .05);
+    }
+
+    /* ===== 404 ===== */
+
+    .error-code {
+      font-size: clamp(90px, 20vw, 180px);
+
+      line-height: .8;
+
+      font-weight: 900;
+
+      letter-spacing: -10px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #ffffff,
+          #7c173d
+        );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      text-shadow:
+        0 0 40px rgba(150, 20, 70, .2);
+
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+
+      0%, 90%, 100% {
+        transform: translateX(0);
+      }
+
+      92% {
+        transform: translateX(-4px);
+      }
+
+      94% {
+        transform: translateX(4px);
+      }
+
+      96% {
+        transform: translateX(-2px);
+      }
+    }
+
+    .system {
+      margin-top: 25px;
+
+      font-size: 11px;
+
+      letter-spacing: 5px;
+
+      color: #a82b58;
+    }
+
+    h1 {
+      margin-top: 14px;
+
+      font-size: clamp(26px, 6vw, 48px);
+
+      letter-spacing: 2px;
+
+      line-height: 1.05;
+    }
+
+    .description {
+      margin: 20px auto;
+
+      max-width: 450px;
+
+      color: #999;
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    /* ===== STATUS ===== */
+
+    .status {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin: 10px 0 25px;
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      background: rgba(120, 15, 55, .12);
+
+      border: 1px solid rgba(150, 25, 70, .25);
+
+      color: #888;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #ff477f;
+
+      box-shadow: 0 0 12px #ff477f;
+
+      animation: blink 1.4s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: .25;
+      }
+    }
+
+    /* ===== BUTTON ===== */
+
+    .home-btn {
+      display: inline-block;
+
+      padding: 14px 28px;
+
+      border-radius: 12px;
+
+      border: 1px solid #8e1746;
+
+      background:
+        linear-gradient(
+          135deg,
+          #681330,
+          #a31d50
+        );
+
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      transition: .25s;
+
+      box-shadow:
+        0 0 25px rgba(160, 20, 75, .15);
+    }
+
+    .home-btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 0 35px rgba(180, 25, 80, .35);
+    }
+
+    .footer {
+      margin-top: 28px;
+
+      color: #555;
+
+      font-size: 9px;
+
+      letter-spacing: 3px;
+    }
+
+    /* ===== MOBILE ===== */
+
+    @media (max-width: 600px) {
+
+      .box {
+        padding: 38px 20px;
+      }
+
+      .orbit {
+        width: 270px;
+        height: 270px;
+      }
+
+      .core-glow {
+        width: 300px;
+        height: 300px;
+      }
+
+      .error-code {
+        letter-spacing: -6px;
+      }
+
+      .description {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="universe">
+
+    <div class="stars"></div>
+
+    <div class="core-glow"></div>
+
+    <div class="orbit"></div>
+
+    <div class="content">
+
+      <div class="box">
+
+        <div class="error-code">
+          404
+        </div>
+
+        <div class="system">
+          SIGNAL // LOST
+        </div>
+
+        <h1>
+          YOU FOUND<br>
+          A LOST WORLD
+        </h1>
+
+        <p class="description">
+          This part of the VIRUU-VERSE doesn't exist...
+          or maybe it hasn't been created yet.
+        </p>
+
+        <div class="status">
+          <span class="dot"></span>
+          UNIVERSE CONNECTION: LOST
+        </div>
+
+        <br>
+
+        <a
+          href="/"
+          class="home-btn"
+        >
+          ↩ RETURN TO VIRUU-VERSE
+        </a>
+
+        <div class="footer">
+          4EVER VIRUU • VISHAL TELAM
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+  </html>
