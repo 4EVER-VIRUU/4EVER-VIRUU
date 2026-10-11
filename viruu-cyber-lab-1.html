@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VIRUU CYBER LAB by Vishal Telam: beginner-friendly coding tutorials, safe cybersecurity demos, projects, and quizzes.">
+  <meta name="author" content="Vishal Telam">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="VIRUU CYBER LAB | Vishal Telam">
+  <meta property="og:description" content="Learn coding, software engineering fundamentals, and defensive cybersecurity through tutorials, projects, demos, and quizzes.">
+  <meta property="og:type" content="website">
+  <title>VIRUU CYBER LAB | Vishal Telam</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b10;
+      --panel: #0e141d;
+      --panel-2: #111b26;
+      --line: #233342;
+      --green: #62ffad;
+      --cyan: #5be7ff;
+      --text: #e6f0f5;
+      --muted: #9bb0bc;
+      --amber: #ffd166;
+      --red: #ff6b7a;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background:
+        radial-gradient(ellipse at 10% 0%, rgba(30, 110, 92, .14), transparent 34rem),
+        linear-gradient(rgba(91,231,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(91,231,255,.025) 1px, transparent 1px),
+        var(--bg);
+      background-size: auto, 28px 28px, 28px 28px, auto;
+      color: var(--text); font: 16px/1.65 system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    a { color: var(--cyan); }
+    button, input { font: inherit; }
+    .wrap { width: min(1100px, calc(100% - 32px)); margin: auto; }
+    header { border-bottom: 1px solid var(--line); background: rgba(8,11,16,.88); }
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:17px 0; }
+    .brand { color:var(--green); font-weight:900; letter-spacing:2px; text-decoration:none; }
+    .status { color:var(--green); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .hero { padding:72px 0 44px; }
+    .eyebrow { color:var(--green); font: 13px ui-monospace, monospace; letter-spacing:2px; text-transform:uppercase; }
+    h1 { margin:12px 0; font-size:clamp(2.3rem, 7vw, 5rem); line-height:1.03; letter-spacing:-2px; }
+    h1 span { color:var(--green); text-shadow:0 0 28px rgba(98,255,173,.18); }
+    h2 { line-height:1.2; margin:0 0 10px; font-size:clamp(1.5rem, 3vw, 2.1rem); }
+    h3 { margin:0 0 8px; }
+    p { color:var(--muted); }
+    .hero p { max-width:700px; font-size:1.08rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--green); border-radius:8px; padding:10px 16px; background:var(--green); color:#06110c; text-decoration:none; font-weight:800; cursor:pointer; }
+    .btn.secondary { color:var(--green); background:transparent; }
+    .btn:hover { filter:brightness(1.08); }
+    .grid { display:grid; grid-template-columns:repeat(12,1fr); gap:16px; }
+    section { padding:34px 0; scroll-margin-top:18px; }
+    .section-head { margin-bottom:18px; }
+    .section-head p { margin:0; }
+    .card { background:linear-gradient(160deg, rgba(17,27,38,.96), rgba(12,17,25,.96)); border:1px solid var(--line); border-radius:14px; padding:20px; min-width:0; }
+    .span-4 { grid-column:span 4; }
+    .span-6 { grid-column:span 6; }
+    .span-8 { grid-column:span 8; }
+    .span-12 { grid-column:span 12; }
+    .tag { display:inline-block; color:var(--green); background:rgba(98,255,173,.08); border:1px solid rgba(98,255,173,.2); padding:2px 8px; border-radius:999px; font-size:12px; margin-bottom:10px; }
+    .muted { color:var(--muted); }
+    .terminal { background:#05080b; border:1px solid #264139; border-radius:10px; overflow:hidden; }
+    .terminal-bar { display:flex; gap:6px; align-items:center; padding:10px 12px; border-bottom:1px solid #20312d; color:var(--muted); font:12px ui-monospace,monospace; }
+    .dot { width:8px; height:8px; border-radius:50%; background:#3c5; }
+    .terminal-body { padding:16px; font:14px/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .prompt { color:var(--green); }
+    .output { color:#c1d5df; }
+    .field { width:100%; padding:11px 12px; background:#080d12; color:var(--text); border:1px solid #2c414e; border-radius:8px; outline:none; }
+    .field:focus { border-color:var(--cyan); }
+    .meter { height:8px; background:#202b35; border-radius:99px; margin:10px 0; overflow:hidden; }
+    .meter > div { height:100%; width:0; background:var(--red); transition:width .2s ease; }
+    .feedback { min-height:26px; color:var(--green); font-size:.92rem; }
+    .quiz-option { display:block; width:100%; text-align:left; margin:8px 0; padding:10px 12px; border:1px solid var(--line); background:#0a1017; color:var(--text); border-radius:8px; cursor:pointer; }
+    .quiz-option:hover { border-color:var(--cyan); }
+    .quiz-option:disabled { cursor:default; opacity:.9; }
+    .notice { border-left:3px solid var(--amber); padding:10px 14px; background:rgba(255,209,102,.06); color:var(--muted); border-radius:0 8px 8px 0; }
+    footer { border-top:1px solid var(--line); padding:24px 0 40px; color:var(--muted); font-size:.9rem; }
+    @media (max-width:760px) { .span-4,.span-6,.span-8 { grid-column:span 12; } .hero { padding-top:48px; } .topbar { align-items:flex-start; flex-direction:column; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a class="brand" href="#top">[ VIRUU CYBER LAB ]</a>
+    <div class="status">● LEARNING MODE / ONLINE</div>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Learn · Build · Secure</div>
+    <h1>VIRUU <span>CYBER LAB</span></h1>
+    <p>A personal learning hub by <strong>Vishal Telam</strong> exploring programming, software engineering, computer networks, and defensive cybersecurity—one safe project at a time.</p>
+    <div class="actions">
+      <a class="btn" href="#demos">Launch interactive demos ↘</a>
+      <a class="btn secondary" href="#tutorials">Explore tutorials</a>
+    </div>
+    <p class="muted">Student learning project • Beginner-friendly • Practice only on systems you own or have permission to test.</p>
+  </section>
+
+  <section id="projects">
+    <div class="section-head"><div class="eyebrow">01 / Build</div><h2>Projects & experiments</h2><p>Start small, document what you learn, then link each finished project to its own source-code repository.</p></div>
+    <div class="grid">
+      <article class="card span-4"><span class="tag">BEGINNER</span><h3>Password Strength Checker</h3><p>Understand length and character variety. This demo checks text locally in your browser; it does not send or save it.</p><a href="#demos">Try demo ↓</a></article>
+      <article class="card span-4"><span class="tag">WEB</span><h3>Personal Portfolio</h3><p>Build a responsive site with HTML, CSS, accessible navigation, and meaningful page metadata.</p><a href="#tutorials">Learning path ↓</a></article>
+      <article class="card span-4"><span class="tag">DEFENSIVE SECURITY</span><h3>File Integrity Concepts</h3><p>Learn how cryptographic hashes can help identify whether a file has changed. Build a local-only demonstration next.</p><span class="muted">Planned project</span></article>
+    </div>
+  </section>
+
+  <section id="demos">
+    <div class="section-head"><div class="eyebrow">02 / Interact</div><h2>Safe interactive demos</h2><p>Small browser-based activities—no account, network scan, or external server required.</p></div>
+    <div class="grid">
+      <article class="card span-6">
+        <span class="tag">LOCAL-ONLY DEMO</span><h3>Password strength estimator</h3>
+        <p>Enter a sample password, not a password you actually use. The text is evaluated only in this page.</p>
+        <label for="passwordInput">Sample password</label>
+        <input class="field" id="passwordInput" type="password" autocomplete="off" placeholder="Try a fictional sample">
+        <div class="meter" aria-hidden="true"><div id="strengthMeter"></div></div>
+        <div id="strengthLabel" class="feedback" aria-live="polite">Waiting for sample…</div>
+        <p class="muted">Tip: use a unique long passphrase and a password manager. A meter cannot guarantee security.</p>
+      </article>
+      <article class="card span-6">
+        <span class="tag">SIMULATED TERMINAL</span><h3>Command-line basics</h3>
+        <p>This is a safe simulation, not a real system shell. Choose a command to learn what it means.</p>
+        <div class="terminal">
+          <div class="terminal-bar"><span class="dot"></span><span>viruu@cyber-lab: ~</span></div>
+          <div class="terminal-body">
+            <div><span class="prompt">$</span> <span id="commandText">help</span></div>
+            <div class="output" id="commandOutput" aria-live="polite">Choose a command below to see a short explanation.</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn secondary command-btn" data-command="pwd">pwd</button>
+          <button class="btn secondary command-btn" data-command="ls">ls</button>
+          <button class="btn secondary command-btn" data-command="whoami">whoami</button>
+          <button class="btn secondary command-btn" data-command="help">help</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="tutorials">
+    <div class="section-head"><div class="eyebrow">03 / Learn</div><h2>Tutorial roadmap</h2><p>Follow this order to build strong foundations before advanced security topics.</p></div>
+    <div class="grid">
+      <article class="card span-4"><span class="tag">STEP 01</span><h3>Python fundamentals</h3><p>Variables, data types, conditions, loops, functions, lists, and small utilities.</p></article>
+      <article class="card span-4"><span class="tag">STEP 02</span><h3>Web & software basics</h3><p>HTML, CSS, JavaScript, Git, GitHub, debugging, and writing clear project documentation.</p></article>
+      <article class="card span-4"><span class="tag">STEP 03</span><h3>Networks & Linux</h3><p>Learn IP addresses, DNS, HTTP/HTTPS, permissions, command-line navigation, and logs.</p></article>
+      <article class="card span-6"><span class="tag">STEP 04</span><h3>Defensive cybersecurity</h3><p>Authentication, MFA, updates, backups, phishing awareness, encryption, and threat modelling.</p></article>
+      <article class="card span-6"><span class="tag">STEP 05</span><h3>Authorized lab practice</h3><p>Use deliberately vulnerable training apps or your own isolated test environment. Get explicit permission before testing any system.</p></article>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="section-head"><div class="eyebrow">04 / Test yourself</div><h2>Cyber basics quiz</h2><p>Answer a quick question. You can retry whenever you want.</p></div>
+    <div class="card">
+      <div class="tag">QUESTION 01</div>
+      <h3>Which action best protects an account if its password is exposed?</h3>
+      <div id="quizOptions">
+        <button class="quiz-option" data-correct="false">A. Reuse the same password everywhere</button>
+        <button class="quiz-option" data-correct="true">B. Use a unique password and enable multi-factor authentication</button>
+        <button class="quiz-option" data-correct="false">C. Share the password with a friend for safekeeping</button>
+      </div>
+      <div id="quizFeedback" class="feedback" aria-live="polite"></div>
+      <button id="retryQuiz" class="btn secondary" hidden>Try again</button>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head"><div class="eyebrow">05 / About this lab</div><h2>Learning in public</h2></div>
+    <div class="card">
+      <p><strong>VIRUU CYBER LAB</strong> is the learning space of Vishal Telam, an artist and digital creator working toward a future in software engineering and cybersecurity.</p>
+      <p>Projects, tutorials, and achievements will be added as they are completed. This site is educational and does not claim professional certification or authorization to test third-party systems.</p>
+      <div class="notice">Safety rule: only test systems you own or have explicit permission to assess. Never enter real passwords into demonstration tools.</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> Vishal Telam · VIRUU CYBER LAB · Learn responsibly.</div></footer>
+
+<script>
+  // Password sample is evaluated locally in this browser tab only.
+  const passwordInput = document.getElementById('passwordInput');
+  const strengthMeter = document.getElementById('strengthMeter');
+  const strengthLabel = document.getElementById('strengthLabel');
+  passwordInput.addEventListener('input', () => {
+    const value = passwordInput.value;
+    let score = 0;
+    if (value.length >= 12) score++;
+    if (value.length >= 16) score++;
+    if (/[a-z]/.test(value) && /[A-Z]/.test(value)) score++;
+    if (/\d/.test(value)) score++;
+    if (/[^A-Za-z0-9]/.test(value)) score++;
+    if (!value) {
+      strengthMeter.style.width = '0%';
+      strengthLabel.textContent = 'Waiting for sample…';
+      return;
+    }
+    const percent = Math.min(100, score * 20);
+    strengthMeter.style.width = percent + '%';
+    const labels = ['Very weak sample', 'Weak sample', 'Fair sample', 'Better sample', 'Strong pattern', 'Strong pattern'];
+    strengthLabel.textContent = labels[score] + ' — score ' + score + '/5. This is only a simple estimate.';
+    strengthMeter.style.background = score <= 1 ? 'var(--red)' : score <= 3 ? 'var(--amber)' : 'var(--green)';
+  });
+
+  const commandHelp = {
+    pwd: 'pwd prints the current working directory in a real Unix-like terminal.',
+    ls: 'ls lists files and folders in the current directory. This demo does not access your device.',
+    whoami: 'whoami prints the current username in a real terminal. Here it is only an explanation.',
+    help: 'This simulated terminal explains a few harmless beginner commands. It does not execute commands.'
+  };
+  document.querySelectorAll('.command-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const command = button.dataset.command;
+      document.getElementById('commandText').textContent = command;
+      document.getElementById('commandOutput').textContent = commandHelp[command];
+    });
+  });
+
+  const quizOptions = document.querySelectorAll('.quiz-option');
+  const quizFeedback = document.getElementById('quizFeedback');
+  const retryQuiz = document.getElementById('retryQuiz');
+  quizOptions.forEach(button => {
+    button.addEventListener('click', () => {
+      quizOptions.forEach(option => option.disabled = true);
+      if (button.dataset.correct === 'true') {
+        quizFeedback.textContent = 'Correct! Unique passwords reduce reuse risk, and MFA adds another layer.';
+      } else {
+        quizFeedback.textContent = 'Not quite. A unique password plus multi-factor authentication is the best choice here.';
+      }
+      retryQuiz.hidden = false;
+    });
+  });
+  retryQuiz.addEventListener('click', () => {
+    quizOptions.forEach(option => option.disabled = false);
+    quizFeedback.textContent = '';
+    retryQuiz.hidden = true;
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
